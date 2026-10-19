@@ -11,7 +11,15 @@ function CalendarIcon() {
   );
 }
 
-export function CalendarMenu({ event, today }: { event: KidsEvent; today: string }) {
+export function CalendarMenu({
+  event,
+  today,
+  labeled = false,
+}: {
+  event: KidsEvent;
+  today: string;
+  labeled?: boolean;
+}) {
   return (
     <div
       className="calendar-menu"
@@ -19,8 +27,12 @@ export function CalendarMenu({ event, today }: { event: KidsEvent; today: string
       onKeyDown={(keyEvent) => keyEvent.stopPropagation()}
     >
       <Dropdown>
-        <Dropdown.Trigger aria-label={`Dodaj „${event.title}” do kalendarza`} className="calendar-button">
+        <Dropdown.Trigger
+          aria-label={`Dodaj „${event.title}” do kalendarza`}
+          className={labeled ? "calendar-button calendar-button--labeled" : "calendar-button"}
+        >
           <CalendarIcon />
+          {labeled ? <span>Kalendarz</span> : null}
         </Dropdown.Trigger>
         <Dropdown.Popover placement="bottom end">
           <Dropdown.Menu
