@@ -12,7 +12,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Wymagane online (17.10, 15:00 – brak miejsc)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.37924,
+      "lng": 8.540702,
+      "image": "images/geschichtenfenster.jpg"
     },
     {
       "dateText": "sob. 17.10.2026, 10:15–11:45",
@@ -25,7 +28,10 @@
       "area": "Oerlikon",
       "category": "biblioteka",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.411676,
+      "lng": 8.545043,
+      "image": "images/fallback-books.jpg"
     },
     {
       "dateText": "ndz. 18.10.2026, 10:00–17:00",
@@ -38,7 +44,10 @@
       "area": "Zurych",
       "category": "festyny",
       "registration": "Bez zapisów (wstęp dla dzieci darmowy)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.37924,
+      "lng": 8.540702,
+      "image": "images/fallback-museum.jpg"
     },
     {
       "dateText": "wtorki 9:30–10:30 (od 20.10.2026, kurs 8 spotkań)",
@@ -52,7 +61,10 @@
       "area": "Oerlikon",
       "category": "muzyka",
       "registration": "Mailowo u prowadzącej, są wolne miejsca",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-music.jpg"
     },
     {
       "dateText": "wt. 20.10.2026, 10:00–10:45",
@@ -65,7 +77,10 @@
       "area": "Zurych",
       "category": "biblioteka",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.40283,
+      "lng": 8.574138,
+      "image": "images/fallback-books.jpg"
     },
     {
       "dateText": "od wt. 20.10.2026 do 20.4.2027, wtorki 17:30–18:30 (semestr)",
@@ -79,7 +94,10 @@
       "area": "Oerlikon",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.415442,
+      "lng": 8.540137,
+      "image": "images/fallback-climbing.jpg"
     },
     {
       "dateText": "od wt. 20.10.2026: wt./czw. 16:30–17:30, śr. 13:00–14:00 (do 22.4.2027)",
@@ -93,7 +111,10 @@
       "area": "Oerlikon",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.410765,
+      "lng": 8.556225,
+      "image": "images/fallback-pool.jpg"
     },
     {
       "dateText": "od wt. 20.10.2026 do 2.3.2027, wt. i czw. 17:00–18:00",
@@ -107,7 +128,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026 (Oerlikon: brak zapisów)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.368045,
+      "lng": 8.505603,
+      "image": "images/fallback-ice.jpg"
     },
     {
       "dateText": "od wt. 20.10.2026: wt. 15:45–17:00 i sob. 12:15–13:30 (do 20.4.2027)",
@@ -121,7 +145,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.372087,
+      "lng": 8.532868,
+      "image": "images/fallback-gymnastics.jpg"
     },
     {
       "dateText": "śr. 21.10.2026, 14:30–15:30",
@@ -134,7 +161,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Grupy muszą się zgłosić mailowo",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.424656,
+      "lng": 8.510892,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:00–14:00 i 14:00–15:00 (do 21.4.2027)",
@@ -148,7 +178,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.419994,
+      "lng": 8.512367,
+      "image": "images/fallback-rollers.jpg"
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–14:30 i 14:30–15:30 (do 21.4.2027)",
@@ -162,7 +195,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.377782,
+      "lng": 8.558749,
+      "image": "images/fallback-gymnastics.jpg"
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–15:25 (różne grupy)",
@@ -175,7 +211,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.377209,
+      "lng": 8.51636,
+      "image": "images/fallback-football.jpg"
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 16:00–17:00 i sob. 13:00–14:00",
@@ -188,7 +227,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.372087,
+      "lng": 8.532868,
+      "image": "images/fallback-gymnastics.jpg"
     },
     {
       "dateText": "sob. 24.10.2026, 10:00–11:30",
@@ -201,7 +243,10 @@
       "area": "Zurych",
       "category": "festyny",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.402266,
+      "lng": 8.497295,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "sob. 24.10.2026, 14:30 i ndz. 25.10.2026, 11:00",
@@ -215,7 +260,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366947,
+      "lng": 8.547387,
+      "image": "images/theater-hoeren.jpg"
     },
     {
       "dateText": "soboty 24.10–19.12.2026 (bez 5.12), 9:15–11:45",
@@ -229,7 +277,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Formularz online, 14 miejsc, zapisy do 19.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.424656,
+      "lng": 8.510892,
+      "image": "images/werken.jpg"
     },
     {
       "dateText": "od sob. 24.10.2026 do 6.2.2027, sob. 12:30–13:45",
@@ -243,7 +294,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.368045,
+      "lng": 8.505603,
+      "image": "images/fallback-hockey.jpg"
     },
     {
       "dateText": "od sob. 24.10.2026: sob./ndz. 10:00–12:00 (do 18.4.2027)",
@@ -257,7 +311,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "„Mein Konto”, dopisy do 31.12.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.419994,
+      "lng": 8.512367,
+      "image": "images/fallback-tennis.jpg"
     },
     {
       "dateText": "sob. 24.10.2026, 16:00–17:30",
@@ -270,7 +327,10 @@
       "area": "Okolice",
       "category": "zwierzęta/natura",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.251866,
+      "lng": 8.557935,
+      "image": "images/fallback-forest.jpg"
     },
     {
       "dateText": "ndz. 25.10.2026, 14:00–15:00 (DE), 15:00–16:00 (RU)",
@@ -283,7 +343,10 @@
       "area": "Zurych",
       "category": "biblioteka",
       "registration": "Wymagane, mailowo u Tiny Hess",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.424575,
+      "lng": 8.54428,
+      "image": "images/fallback-books.jpg"
     },
     {
       "dateText": "ndz. 25.10.2026, 9:15–15:00; safari 13:30 i 15:00",
@@ -296,7 +359,10 @@
       "area": "Okolice",
       "category": "zwierzęta/natura",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.2992,
+      "lng": 8.528792,
+      "image": "images/fallback-zoo.jpg"
     },
     {
       "dateText": "śr. 28.10.2026, 15:00–16:00",
@@ -309,7 +375,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online lub tel. 044 360 80 11",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.399052,
+      "lng": 8.534701,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "sob. 31.10.2026, 17:30–20:00",
@@ -322,7 +391,10 @@
       "area": "Oerlikon",
       "category": "festyny",
       "registration": "Bez zapisów; bilety do tunelu od 17:30",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-halloween.jpg"
     },
     {
       "dateText": "sob. 31.10.2026, 14:30; ndz. 1.11, 11:00; śr. 4.11, 14:30",
@@ -336,7 +408,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366947,
+      "lng": 8.547387,
+      "image": "images/theater-lili.jpg"
     },
     {
       "dateText": "sob. 31.10.2026, 16:00–ok. 21:00",
@@ -349,7 +424,10 @@
       "area": "Okolice",
       "category": "festyny",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.34386,
+      "lng": 8.772889,
+      "image": "images/fallback-halloween.jpg"
     },
     {
       "dateText": "ndz. 1.11.2026, 11:15 i 14:15",
@@ -362,7 +440,10 @@
       "area": "Zurych",
       "category": "muzyka",
       "registration": "Bilety (kasa/online)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366137,
+      "lng": 8.537982,
+      "image": "images/tonhalle.jpg"
     },
     {
       "dateText": "ndz. 1.11.2026 (też 6.12, 10.1, 7.2, 7.3), 10–11 i 12–13",
@@ -376,7 +457,10 @@
       "area": "Zurych",
       "category": "zwierzęta/natura",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.356088,
+      "lng": 8.535007,
+      "image": "images/fallback-succulents.jpg"
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–16:00",
@@ -389,7 +473,10 @@
       "area": "Zurych",
       "category": "zwierzęta/natura",
       "registration": "Online, zwykle od ok. 2 tygodni przed terminem; mało miejsc",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.386914,
+      "lng": 8.577599,
+      "image": "images/fallback-zoo.jpg"
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–17:00 (i pt. 6.11)",
@@ -403,7 +490,10 @@
       "area": "Oerlikon",
       "category": "warsztaty",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–17:00; pochód pt. 6.11",
@@ -417,7 +507,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.402528,
+      "lng": 8.591906,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "śr. 4.11.2026, 15:00–15:50",
@@ -430,7 +523,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online lub tel. 044 360 80 11",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.399052,
+      "lng": 8.534701,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "śr. 4.11.2026",
@@ -443,7 +539,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.411932,
+      "lng": 8.483318,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "sob. 7.11.2026, 13:30–16:30",
@@ -456,7 +555,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.413896,
+      "lng": 8.476517,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "sob. 7.11.2026, 15:00–16:00",
@@ -469,7 +571,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.399052,
+      "lng": 8.534701,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "sob. 7.11.2026, 14:30",
@@ -482,7 +587,10 @@
       "area": "Zurych",
       "category": "biblioteka",
       "registration": "Bilety online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366947,
+      "lng": 8.547387,
+      "image": "images/theater-reading.jpg"
     },
     {
       "dateText": "ndz. 8.11.2026, 16:00–16:45",
@@ -495,7 +603,10 @@
       "area": "Oerlikon",
       "category": "muzyka",
       "registration": "Bilety od 26.10.2026, 12:00, w kawiarni GZ",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-music.jpg"
     },
     {
       "dateText": "śr. 11.11.2026, 14:00–15:00",
@@ -508,7 +619,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Online, do 6.11.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.417128,
+      "lng": 8.558346,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "pt. 13.11.2026, 14:00–17:00",
@@ -521,7 +635,10 @@
       "area": "Zurych",
       "category": "biblioteka",
       "registration": "Mile widziane mailowo, można przyjść spontanicznie",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.402266,
+      "lng": 8.497295,
+      "image": "images/fallback-books.jpg"
     },
     {
       "dateText": "sob. 14.11.2026 lub sob. 28.11.2026 (start; potem 1×/mies., śr. lub sob.)",
@@ -535,7 +652,10 @@
       "area": "Zurych",
       "category": "zwierzęta/natura",
       "registration": "Lista zainteresowanych: susanne.michellandolt@gmail.com",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.39796,
+      "lng": 8.544308,
+      "image": "images/fallback-forest.jpg"
     },
     {
       "dateText": "21.11–6.12.2026: sob./ndz. 12:00–18:00, pn/wt/czw/pt 16:00–18:00, śr. 13:30–18:00",
@@ -549,7 +669,10 @@
       "area": "Oerlikon",
       "category": "warsztaty",
       "registration": "Rodziny bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-candles.jpg"
     },
     {
       "dateText": "sob. 21.11.2026, 14:00–16:30",
@@ -562,7 +685,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Wymagane (szczegóły wkrótce na stronie)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.356088,
+      "lng": 8.535007,
+      "image": "images/fallback-succulents.jpg"
     },
     {
       "dateText": "ndz. 22.11.2026, 15:00–16:00",
@@ -575,7 +701,10 @@
       "area": "Oerlikon",
       "category": "teatr",
       "registration": "Bilety od 14:00 w kawiarni GZ",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-stage.jpg"
     },
     {
       "dateText": "śr. 25.11.2026, 14:00–22:00",
@@ -588,7 +717,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.424656,
+      "lng": 8.510892,
+      "image": "images/advent-wreath.jpg"
     },
     {
       "dateText": "sob. 28.11.2026, 10:00–14:00",
@@ -601,7 +733,10 @@
       "area": "Zurych",
       "category": "festyny",
       "registration": "Kupujący bez zapisów; stoisko: Janine Ramdani",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.402528,
+      "lng": 8.591906,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "sob. 28.11.2026, 14:30; ndz. 29.11, 11:00",
@@ -615,7 +750,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366947,
+      "lng": 8.547387,
+      "image": "images/theater-woanders.jpg"
     },
     {
       "dateText": "ndz. 29.11.2026, 9:00–13:00",
@@ -628,7 +766,10 @@
       "area": "Okolice",
       "category": "festyny",
       "registration": "Rezerwacja online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.34386,
+      "lng": 8.772889,
+      "image": "images/fallback-farm.jpg"
     },
     {
       "dateText": "listopad 2026 (dokładna data jeszcze nieznana)",
@@ -641,7 +782,10 @@
       "area": "Winterthur",
       "category": "warsztaty",
       "registration": "brak info",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "czw. 3.12.2026, 19:00–22:00",
@@ -654,7 +798,10 @@
       "area": "Zurych",
       "category": "warsztaty",
       "registration": "Rezerwacja do 24.11.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.424656,
+      "lng": 8.510892,
+      "image": "images/candles-gz.jpg"
     },
     {
       "dateText": "sob. 5.12.2026, 8:00–19:00",
@@ -667,7 +814,10 @@
       "area": "Winterthur",
       "category": "sport",
       "registration": "Zgłasza drużyna/klub; do 15.11.2026",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.47801,
+      "lng": 8.771153,
+      "image": "images/fallback-athletics.jpg"
     },
     {
       "dateText": "śr. 9.12.2026, 14:30; sob. 12.12, 14:30; ndz. 13.12, 11:00; śr. 16.12, 14:30",
@@ -681,7 +831,10 @@
       "area": "Zurych",
       "category": "teatr",
       "registration": "Bilety online",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366947,
+      "lng": 8.547387,
+      "image": "images/theater-bubbles.jpg"
     },
     {
       "dateText": "ndz. 13.12.2026: rodziny 10:00–10:40, U10 11:22, rodzic+dziecko 11:54–12:10",
@@ -694,7 +847,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "Zapisy otwarte online; taniej do 27.10.2026; grupy do 30.11.2026; potem do godziny przed startem, jeśli są numery",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.376139,
+      "lng": 8.543697,
+      "image": "images/silvesterlauf.jpg"
     },
     {
       "dateText": "śr. 16.12.2026",
@@ -707,7 +863,10 @@
       "area": "Winterthur",
       "category": "festyny",
       "registration": "brak info",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-playground.jpg"
     },
     {
       "dateText": "sob. 19.12.2026",
@@ -720,7 +879,10 @@
       "area": "Winterthur",
       "category": "warsztaty",
       "registration": "brak info",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-playground.jpg"
     },
     {
       "dateText": "czw. 31.12.2026, 22:00",
@@ -733,7 +895,10 @@
       "area": "Okolice",
       "category": "sport",
       "registration": "Bez limitu miejsc; brak info o terminach zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.403827,
+      "lng": 8.438826,
+      "image": "images/fallback-running.jpg"
     },
     {
       "dateText": "ndz. 10.1.2027, 11:15 i 14:15",
@@ -746,7 +911,10 @@
       "area": "Zurych",
       "category": "muzyka",
       "registration": "Bilety (kasa/online)",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.366137,
+      "lng": 8.537982,
+      "image": "images/tonhalle.jpg"
     },
     {
       "dateText": "ferie zimowe (Sportferien) 2027",
@@ -760,7 +928,10 @@
       "area": "Zurych",
       "category": "campy/ferie",
       "registration": "Oferta 14.12.2026, zapisy 5.1.–24.1.2027",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.371853,
+      "lng": 8.527201,
+      "image": "images/fallback-athletics.jpg"
     },
     {
       "dateText": "sob. 6.3.2027, 8:30–18:00",
@@ -773,7 +944,10 @@
       "area": "Oerlikon",
       "category": "sport",
       "registration": "Zgłasza drużyna/klub; do 14.2.2027",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.415442,
+      "lng": 8.540137,
+      "image": "images/fallback-athletics.jpg"
     },
     {
       "dateText": "20–23.5.2027 (wyścigi dzieci w sob. i ndz.)",
@@ -787,7 +961,10 @@
       "area": "Zurych",
       "category": "festyny",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.378625,
+      "lng": 8.533705,
+      "image": "images/cycleweek.jpg"
     },
     {
       "dateText": "ndz. 23.5.2027 (w ramach ZüriDirt 21–23.5)",
@@ -800,7 +977,10 @@
       "area": "Zurych",
       "category": "sport",
       "registration": "brak info",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.357927,
+      "lng": 8.522895,
+      "image": "images/fallback-bike.jpg"
     },
     {
       "dateText": "soboty 12:30 i 13:30 (stale)",
@@ -813,7 +993,10 @@
       "area": "Zurych",
       "category": "stałe",
       "registration": "Formularz zgłoszeniowy mailem, potem rezerwacja terminu",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.385879,
+      "lng": 8.578625,
+      "image": "images/fallback-cats.jpg"
     },
     {
       "dateText": "terminy na życzenie (stale)",
@@ -826,7 +1009,10 @@
       "area": "Zurych",
       "category": "stałe",
       "registration": "Termin do uzgodnienia",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.367389,
+      "lng": 8.56489,
+      "image": "images/fallback-crafts.jpg"
     },
     {
       "dateText": "codziennie",
@@ -839,7 +1025,10 @@
       "area": "Zurych",
       "category": "stałe",
       "registration": "Bilet do zoo",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.386914,
+      "lng": 8.577599,
+      "image": "images/fallback-zoo.jpg"
     },
     {
       "dateText": "piątki 14:00–15:45 (stale, cały rok, nie co tydzień)",
@@ -852,7 +1041,10 @@
       "area": "Zurych",
       "category": "stałe",
       "registration": "Bez zapisów",
-      "isNew": false
+      "isNew": false,
+      "lat": 47.393022,
+      "lng": 8.52005,
+      "image": "images/fallback-farm.jpg"
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–17:00 i pt. 13:30–17:00 (pt. tylko przy suchej pogodzie) (stale, godziny zimowe)",
@@ -865,7 +1057,10 @@
       "area": "Winterthur",
       "category": "stałe",
       "registration": "Bez zapisów",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-playground.jpg"
     },
     {
       "dateText": "piątki 15:00 (stale)",
@@ -878,7 +1073,10 @@
       "area": "Winterthur",
       "category": "stałe",
       "registration": "Bez zapisów",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-books.jpg"
     },
     {
       "dateText": "środy 16:00–17:00 (stale, od 16.9.2026)",
@@ -891,7 +1089,10 @@
       "area": "Winterthur",
       "category": "stałe",
       "registration": "E-mail: back2natureyoga@gmail.com",
-      "isNew": true
+      "isNew": true,
+      "lat": 47.51902,
+      "lng": 8.715017,
+      "image": "images/fallback-yoga.jpg"
     }
   ]
 }

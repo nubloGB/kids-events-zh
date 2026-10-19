@@ -8,6 +8,7 @@ import {
   type EventFilters,
   type EventsFile,
   type KidsEvent,
+  type MapBounds,
 } from "../types";
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -90,6 +91,15 @@ export function eventKey(event: KidsEvent): string {
   return `${event.title}__${event.startDate ?? "stale"}__${event.place}`;
 }
 
+export function isInsideBounds(event: KidsEvent, bounds: MapBounds): boolean {
+  return (
+    event.lat >= bounds.south &&
+    event.lat <= bounds.north &&
+    event.lng >= bounds.west &&
+    event.lng <= bounds.east
+  );
+}
+
 function assertString(value: unknown, label: string): asserts value is string {
   if (typeof value !== "string" || value.trim() === "") {
     throw new Error(`${label} musi być niepustym tekstem`);
@@ -123,6 +133,15 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   const recurring = event.startDate === null;
   if (recurring !== (event.category === "stałe")) {
     throw new Error(`${where}: kategoria „stałe” jest zarezerwowana dla zajęć bez daty`);
+  }
+  if (typeof event.lat !== "number" || !Number.isFinite(event.lat) || event.lat < 45.8 || event.lat > 47.9) {
+    throw new Error(`${where}: lat musi być współrzędną w Szwajcarii`);
+  }
+  if (typeof event.lng !== "number" || !Number.isFinite(event.lng) || event.lng < 5.9 || event.lng > 10.6) {
+    throw new Error(`${where}: lng musi być współrzędną w Szwajcarii`);
+  }
+  if (typeof event.image !== "string" || !/^images\/[a-z0-9-]+\.jpg$/.test(event.image)) {
+    throw new Error(`${where}: image musi wskazywać plik images/*.jpg`);
   }
 }
 

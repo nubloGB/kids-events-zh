@@ -1,6 +1,6 @@
 # Wydarzenia dla dzieci w Zurychu
 
-Statyczna strona z wydarzeniami dla dzieci w wieku 2–8 lat (Oerlikon, Zurych, okolice i Winterthur). Interfejs jest po polsku. Cotygodniowa aktualizacja to edycja plików JSON — kod zostaje bez zmian.
+Statyczna strona z wydarzeniami dla dzieci w wieku 2–8 lat (Oerlikon, Zurych, okolice i Winterthur). Interfejs jest po polsku. Cotygodniowa aktualizacja to edycja `public/events.json`. Nowy plik zdjęcia dokładamy tylko wtedy, gdy wydarzenie dostaje własną fotografię — istniejący obrazek z `public/images/` wystarczy podmienić w JSON.
 
 Po publikacji strona jest pod adresem [https://nublogb.github.io/kids-events-zh/](https://nublogb.github.io/kids-events-zh/).
 
@@ -37,12 +37,27 @@ Data w nagłówku („Ostatnia aktualizacja”) bierze się z pola `updatedAt`. 
 | `description` | Krótki opis: co się dzieje, cena, język. |
 | `age` | Wiek tak, jak w źródle. Filtr 2–8 lat czyta widełki (`2–5 lat`, `od 4 lat`, `roczniki 2018–2020`). „Rodziny”, „wszyscy” i „brak info” zostają widoczne przy każdym wieku. Rocznik jest liczony względem roku z `startDate` (dziecko z rocznika 2018 w 2026 ma 8 lat). |
 | `place` | Sala, adres albo dzielnica. |
+| `lat`, `lng` | Współrzędne WGS84 pinezki na mapie (Leaflet, kafelki OpenStreetMap, bez klucza API). Widok startowy to Zurych-Oerlikon. |
+| `image` | Ścieżka względem `public/`, na przykład `images/tonhalle.jpg`. Strona nie podlinkowuje cudzych adresów: plik leży w repozytorium. |
 | `area` | Jedno z: `Oerlikon`, `Zurych`, `Okolice`, `Winterthur`. |
 | `category` | Jedno z: `teatr`, `muzyka`, `sport`, `zwierzęta/natura`, `warsztaty`, `biblioteka`, `campy/ferie`, `festyny`, `stałe`. Kategoria `stałe` jest tylko dla wpisów z `startDate: null`. |
 | `registration` | Jak się zapisać. Gdy nie wiadomo, wpisz `brak info`. |
 | `isNew` | `true` pokazuje plakietkę „Nowe”. Po kolejnej aktualizacji ustaw z powrotem `false`, chyba że wpis nadal jest nowy. |
 
 Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startDate`. Zajęcia stałe są alfabetycznie w osobnej sekcji.
+
+### Mapa i zdjęcia
+
+Każde wydarzenie ma pinezkę. Kolor i ikona biorą się z kategorii, a gęste miejsca (na przykład kilka spektakli w Theater Stadelhofen) zwijają się w klastry. Kliknięcie pinezki podświetla kartę na liście, kliknięcie karty przybliża mapę. Filtr „Tylko widoczny obszar mapy” ogranicza listę do kadru, pinezki zostają. Na wąskim ekranie przełącznik „Lista / Mapa” pokazuje jedną z tych części.
+
+Zdjęcie karty to `image`. Najpierw bierzemy fotografię ze strony wydarzenia (`og:image` albo główne zdjęcie treści) i zapisujemy ją w `public/images/`. Gdy strona jej nie ma, wstawiamy ilustrację dopasowaną do tematu, też zapisaną w repozytorium: książki, lodowisko, scena, zwierzęta, instrumenty, rękodzieło, boisko. Logo organizatora nie zastępuje zdjęcia.
+
+Kilka pinezek jest przybliżeniem, bo źródło nie podaje jednej sali:
+
+- Wildpflanzen Jahreskurs (`różne tereny zielone w Zurychu`) stoi w Irchelparku.
+- Ferienkurse Sportamt (`różne`) stoją przy biurze Sportamt, Werdstrasse 75.
+- Piłka nożna (`Sihlfeld / Steinkluppe / Hardhof`) stoi przy Sihlfeldstrasse.
+- Simply Theatre stoi przy Gladbachstrasse 119.
 
 Wpis jest ukrywany, gdy jego ostatni dzień (`endDate`, a gdy go nie ma — `startDate`) jest wcześniejszy niż dzisiejsza data w strefie Europy/Zurych. Dzień wydarzenia zostaje na liście.
 

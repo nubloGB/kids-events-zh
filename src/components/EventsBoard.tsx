@@ -1,212 +1,190 @@
-import {
-  Button,
-  EmptyState,
-  Label,
-  ListBox,
-  SearchField,
-  Select,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "@heroui/react";
-import { useMemo, useState, type Key } from "react";
+import { Button, EmptyState } from "@heroui/react";
+import { useEffect, useMemo, useRef, useState, type MutableRefObject } from "react";
 import { EventCard } from "./EventCard";
-import { EventTable } from "./EventTable";
-import { ageOptionLabel, categoryLabel, countLabel } from "../lib/format";
-import {
-  EMPTY_FILTERS,
-  eventKey,
-  filtersAreActive,
-  partitionEvents,
-} from "../lib/events";
-import { AREAS, CATEGORIES, type EventFilters, type KidsEvent } from "../types";
+import { EventMap } from "./EventMap";
+import { FilterSidebar } from "./FilterSidebar";
+import { countLabel } from "../lib/format";
+import { eventKey, filtersAreActive, isInsideBounds, partitionEvents } from "../lib/events";
+import type { Area, Category, KidsEvent, MapBounds } from "../types";
 
-const AGE_OPTIONS = [2, 3, 4, 5, 6, 7, 8] as const;
-
-type ViewMode = "karty" | "tabela";
-
-function selectedList<T extends string>(keys: Set<Key>, allowed: readonly T[]): T[] {
-  return [...keys].map(String).filter((key): key is T => (allowed as readonly string[]).includes(key));
+function useMinWidth(px: number): boolean {
+  const query = `(min-width: ${px}px)`;
+  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setMatches(media.matches);
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
 }
 
-export function EventsBoard({ events, today }: { events: KidsEvent[]; today: string }) {
-  const [filters, setFilters] = useState<EventFilters>(EMPTY_FILTERS);
-  const [view, setView] = useState<ViewMode>("karty");
+export function EventsBoard({
+  events,
+  today,
+  query,
+  onQueryChange,
+}: {
+  events: KidsEvent[];
+  today: string;
+  query: string;
+  onQueryChange: (query: string) => void;
+}) {
+  const wide = useMinWidth(901);
+  const [areas, setAreas] = useState<Area[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [age, setAge] = useState<number | null>(null);
+  const [onlyVisible, setOnlyVisible] = useState(false);
+  const [bounds, setBounds] = useState<MapBounds | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [focusOrigin, setFocusOrigin] = useState<"list" | "map">("list");
+  const [focusTick, setFocusTick] = useState(0);
+  const itemRefs = useRef(new Map<string, HTMLLIElement>());
+
+  const filters = useMemo(
+    () => ({ query, areas, categories, age }),
+    [age, areas, categories, query],
+  );
   const { upcoming, recurring } = useMemo(
     () => partitionEvents(events, today, filters),
     [events, today, filters],
   );
-  const active = filtersAreActive(filters);
-  const nothing = upcoming.length === 0 && recurring.length === 0;
+
+  const mapActive = wide || mobileView === "mapa";
+  const limitToMap = onlyVisible && bounds !== null && mapActive;
+  const inView = (list: KidsEvent[]) => (limitToMap && bounds ? list.filter((event) => isInsideBounds(event, bounds)) : list);
+  const listUpcoming = inView(upcoming);
+  const listRecurring = inView(recurring);
+  const mapEvents = useMemo(() => [...upcoming, ...recurring], [upcoming, recurring]);
+  const active = filtersAreActive(filters) || onlyVisible;
+  const listEmpty = listUpcoming.length === 0 && listRecurring.length === 0;
+  const outsideFrame = listEmpty && upcoming.length + recurring.length > 0;
+
+  useEffect(() => {
+    if (focusOrigin !== "map" || !selectedId) return;
+    itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [focusOrigin, focusTick, selectedId]);
+
+  function selectFromList(id: string) {
+    setSelectedId(id);
+    setFocusOrigin("list");
+    setFocusTick((tick) => tick + 1);
+  }
+
+  function selectFromMap(id: string) {
+    setSelectedId(id);
+    setFocusOrigin("map");
+    setFocusTick((tick) => tick + 1);
+    if (!wide) setMobileView("lista");
+  }
+
+  function clearFilters() {
+    onQueryChange("");
+    setAreas([]);
+    setCategories([]);
+    setAge(null);
+    setOnlyVisible(false);
+  }
 
   return (
-    <div className="flex flex-col gap-6">
-      <form
-        className="flex flex-col gap-4 rounded-3xl bg-surface p-4 shadow-surface sm:p-5"
-        onSubmit={(event) => event.preventDefault()}
-      >
-        <SearchField
-          aria-label="Szukaj wydarzeń"
-          value={filters.query}
-          onChange={(query) => setFilters((current) => ({ ...current, query }))}
-          variant="secondary"
-        >
-          <Label>Szukaj</Label>
-          <SearchField.Group>
-            <SearchField.SearchIcon />
-            <SearchField.Input placeholder="Tytuł, miejsce, opis…" />
-            <SearchField.ClearButton />
-          </SearchField.Group>
-        </SearchField>
-
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-end">
-          <div>
-            <p id="area-label" className="mb-2 text-sm font-semibold">
-              Obszar
-            </p>
-            <ToggleButtonGroup
-              aria-labelledby="area-label"
-              className="filter-group"
-              isDetached
-              selectedKeys={filters.areas}
-              selectionMode="multiple"
-              size="sm"
-              onSelectionChange={(keys) =>
-                setFilters((current) => ({ ...current, areas: selectedList(keys, AREAS) }))
-              }
-            >
-              {AREAS.map((area) => (
-                <ToggleButton key={area} id={area}>
-                  {area}
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          </div>
-
-          <Select
-            aria-label="Wiek dziecka"
-            className="w-full"
-            placeholder="Każdy wiek"
-            value={filters.age === null ? "all" : String(filters.age)}
-            variant="secondary"
-            onChange={(key) =>
-              setFilters((current) => ({
-                ...current,
-                age: key == null || key === "all" ? null : Number(key),
-              }))
-            }
+    <div className="workspace" data-filters-open={filtersOpen ? "true" : "false"} data-mobile-view={mobileView}>
+      <div className="mobile-toolbar">
+        <div className="view-toggle" role="group" aria-label="Lista lub mapa">
+          <button
+            className={mobileView === "lista" ? "is-active" : undefined}
+            type="button"
+            onClick={() => setMobileView("lista")}
           >
-            <Label>Wiek dziecka</Label>
-            <Select.Trigger>
-              <Select.Value />
-              <Select.Indicator />
-            </Select.Trigger>
-            <Select.Popover>
-              <ListBox>
-                <ListBox.Item id="all" textValue="Każdy wiek">
-                  Każdy wiek
-                  <ListBox.ItemIndicator />
-                </ListBox.Item>
-                {AGE_OPTIONS.map((age) => (
-                  <ListBox.Item key={age} id={String(age)} textValue={ageOptionLabel(age)}>
-                    {ageOptionLabel(age)}
-                    <ListBox.ItemIndicator />
-                  </ListBox.Item>
-                ))}
-              </ListBox>
-            </Select.Popover>
-          </Select>
-        </div>
-
-        <div>
-          <p id="category-label" className="mb-2 text-sm font-semibold">
-            Kategoria
-          </p>
-          <ToggleButtonGroup
-            aria-labelledby="category-label"
-            className="filter-group"
-            isDetached
-            selectedKeys={filters.categories}
-            selectionMode="multiple"
-            size="sm"
-            onSelectionChange={(keys) =>
-              setFilters((current) => ({
-                ...current,
-                categories: selectedList(keys, CATEGORIES),
-              }))
-            }
+            Lista
+          </button>
+          <button
+            className={mobileView === "mapa" ? "is-active" : undefined}
+            type="button"
+            onClick={() => setMobileView("mapa")}
           >
-            {CATEGORIES.map((category) => (
-              <ToggleButton key={category} id={category}>
-                {categoryLabel(category)}
-              </ToggleButton>
-            ))}
-          </ToggleButtonGroup>
+            Mapa
+          </button>
         </div>
+        <Button size="sm" variant={filtersOpen ? "primary" : "secondary"} onPress={() => setFiltersOpen((open) => !open)}>
+          Filtry
+        </Button>
+      </div>
 
-        {filters.age !== null ? (
-          <p className="text-sm text-muted">
-            Wydarzenia opisane jako „rodziny” albo bez podanego wieku zostają na liście.
-          </p>
-        ) : null}
+      <FilterSidebar
+        age={age}
+        areas={areas}
+        canClear={active}
+        categories={categories}
+        onlyVisible={onlyVisible}
+        onAge={setAge}
+        onAreas={setAreas}
+        onCategories={setCategories}
+        onClear={clearFilters}
+        onOnlyVisible={setOnlyVisible}
+      />
 
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p aria-live="polite" className="text-sm">
-            {countLabel(upcoming.length, "nadchodzące wydarzenie", "nadchodzące wydarzenia", "nadchodzących wydarzeń")}
+      <section className="list-pane" id="lista" aria-label="Lista wydarzeń">
+        <div className="list-head">
+          <h2>Wydarzenia</h2>
+          <p aria-live="polite">
+            {countLabel(listUpcoming.length, "nadchodzące", "nadchodzące", "nadchodzących")}
             {" · "}
-            {countLabel(recurring.length, "stałe zajęcie", "stałe zajęcia", "stałych zajęć")}
+            {countLabel(listRecurring.length, "stałe zajęcie", "stałe zajęcia", "stałych zajęć")}
+            {limitToMap ? " w kadrze mapy" : ""}
           </p>
-          <div className="flex flex-wrap items-center gap-2">
-            {active ? (
-              <Button size="sm" variant="ghost" onPress={() => setFilters(EMPTY_FILTERS)}>
-                Wyczyść filtry
-              </Button>
-            ) : null}
-            <ToggleButtonGroup
-              aria-label="Widok listy"
-              disallowEmptySelection
-              selectedKeys={[view]}
-              selectionMode="single"
-              size="sm"
-              onSelectionChange={(keys) => {
-                const next = [...keys][0];
-                if (next === "karty" || next === "tabela") setView(next);
-              }}
-            >
-              <ToggleButton id="karty">Karty</ToggleButton>
-              <ToggleButton id="tabela">Tabela</ToggleButton>
-            </ToggleButtonGroup>
-          </div>
         </div>
-      </form>
 
-      {nothing ? (
-        <EmptyState className="rounded-3xl bg-surface px-6 py-12 text-center">
-          <p className="font-display text-2xl text-foreground">Nic nie pasuje do filtrów</p>
-          <p className="mt-2">Zmień obszar, kategorię albo wiek — albo wyczyść wyszukiwanie.</p>
-          <Button className="mt-4" variant="secondary" onPress={() => setFilters(EMPTY_FILTERS)}>
-            Wyczyść filtry
-          </Button>
-        </EmptyState>
-      ) : (
-        <div className="flex flex-col gap-10">
-          <EventSection
-            events={upcoming}
-            heading="Nadchodzące"
-            id="nadchodzace"
-            intro="Posortowane od najbliższego terminu. Minione dni znikają same."
-            today={today}
-            view={view}
-          />
-          <EventSection
-            events={recurring}
-            heading="Stałe zajęcia"
-            id="stale-zajecia"
-            intro="Bez jednej daty: cotygodniowe godziny, terminy na życzenie i miejsca otwarte cały czas."
-            today={today}
-            view={view}
-          />
-        </div>
-      )}
+        {listEmpty ? (
+          <EmptyState className="empty-panel">
+            <p className="font-display text-2xl text-foreground">
+              {outsideFrame ? "Poza kadrem mapy" : "Nic nie pasuje"}
+            </p>
+            <p className="mt-2">
+              {outsideFrame
+                ? "Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”."
+                : "Zmień obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
+            </p>
+            <Button className="mt-4" variant="secondary" onPress={clearFilters}>
+              Wyczyść filtry
+            </Button>
+          </EmptyState>
+        ) : (
+          <div className="list-sections">
+            <EventSection
+              events={listUpcoming}
+              heading="Nadchodzące"
+              id="nadchodzace"
+              itemRefs={itemRefs}
+              selectedId={selectedId}
+              today={today}
+              onSelect={selectFromList}
+            />
+            <EventSection
+              events={listRecurring}
+              heading="Stałe zajęcia"
+              id="stale-zajecia"
+              itemRefs={itemRefs}
+              selectedId={selectedId}
+              today={today}
+              onSelect={selectFromList}
+            />
+          </div>
+        )}
+      </section>
+
+      <section className="map-pane" aria-label="Mapa wydarzeń">
+        <EventMap
+          active={mapActive}
+          events={mapEvents}
+          focusOrigin={focusOrigin}
+          focusTick={focusTick}
+          selectedId={selectedId}
+          onBounds={setBounds}
+          onSelect={selectFromMap}
+        />
+      </section>
     </div>
   );
 }
@@ -214,39 +192,40 @@ export function EventsBoard({ events, today }: { events: KidsEvent[]; today: str
 function EventSection({
   id,
   heading,
-  intro,
   events,
-  view,
   today,
+  selectedId,
+  onSelect,
+  itemRefs,
 }: {
   id: string;
   heading: string;
-  intro: string;
   events: KidsEvent[];
-  view: ViewMode;
   today: string;
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+  itemRefs: MutableRefObject<Map<string, HTMLLIElement>>;
 }) {
+  if (events.length === 0) return null;
   return (
-    <section aria-labelledby={id} className="flex flex-col gap-3">
-      <div>
-        <h2 id={id} className="font-display text-3xl">
-          {heading}
-        </h2>
-        <p className="mt-1 text-sm text-muted">{intro}</p>
-      </div>
-      {events.length === 0 ? (
-        <p className="text-sm text-muted">Brak pozycji w tej sekcji dla wybranych filtrów.</p>
-      ) : view === "karty" ? (
-        <ul className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {events.map((event) => (
-            <li key={eventKey(event)}>
-              <EventCard event={event} today={today} />
+    <section aria-labelledby={id} className="list-section">
+      <h3 id={id}>{heading}</h3>
+      <ul>
+        {events.map((event) => {
+          const key = eventKey(event);
+          return (
+            <li
+              key={key}
+              ref={(node) => {
+                if (node) itemRefs.current.set(key, node);
+                else itemRefs.current.delete(key);
+              }}
+            >
+              <EventCard event={event} selected={key === selectedId} today={today} onSelect={() => onSelect(key)} />
             </li>
-          ))}
-        </ul>
-      ) : (
-        <EventTable events={events} label={heading} today={today} />
-      )}
+          );
+        })}
+      </ul>
     </section>
   );
 }

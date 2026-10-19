@@ -1,8 +1,9 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import {
   EMPTY_FILTERS,
   filtersAreActive,
   includesToday,
+  isInsideBounds,
   isPast,
   parseEventsFile,
   partitionEvents,
@@ -80,6 +81,30 @@ describe("events.json", () => {
     expect(fold("Łyżwy")).toBe("lyzwy");
     expect(filtersAreActive({ ...EMPTY_FILTERS, query: "zoo" })).toBe(true);
     expect(filtersAreActive(EMPTY_FILTERS)).toBe(false);
+  });
+
+  it("gives every event a Swiss coordinate and a committed image", () => {
+    for (const event of file.events) {
+      expect(event.lat).toBeGreaterThan(47.2);
+      expect(event.lat).toBeLessThan(47.6);
+      expect(event.lng).toBeGreaterThan(8.4);
+      expect(event.lng).toBeLessThan(8.85);
+      expect(event.image.startsWith("images/")).toBe(true);
+      expect(existsSync(`public/${event.image}`)).toBe(true);
+      expect(event.image).not.toBe("images/zoo.jpg");
+    }
+    const dance = file.events.find((event) => event.place === "Simply Theatre");
+    expect(dance?.lat).toBeCloseTo(47.377782, 5);
+    expect(dance?.lng).toBeCloseTo(8.558749, 5);
+    const oerlikon = file.events.find((event) => event.place === "GZ Oerlikon");
+    expect(
+      oerlikon &&
+        isInsideBounds(oerlikon, { south: 47.4, west: 8.53, north: 47.42, east: 8.56 }),
+    ).toBe(true);
+    expect(
+      oerlikon &&
+        isInsideBounds(oerlikon, { south: 47.42, west: 8.53, north: 47.43, east: 8.56 }),
+    ).toBe(false);
   });
 });
 

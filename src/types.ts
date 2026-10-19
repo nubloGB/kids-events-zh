@@ -29,6 +29,12 @@ export interface KidsEvent {
   category: Category;
   registration: string;
   isNew: boolean;
+  /** WGS84 latitude of the venue. */
+  lat: number;
+  /** WGS84 longitude of the venue. */
+  lng: number;
+  /** Path under public/, for example images/fallback-books.jpg. */
+  image: string;
 }
 
 export interface EventsFile {
@@ -62,4 +68,11 @@ export interface EventFilters {
   areas: Area[];
   categories: Category[];
   age: number | null;
+}
+
+export interface MapBounds {
+  south: number;
+  west: number;
+  north: number;
+  east: number;
 }

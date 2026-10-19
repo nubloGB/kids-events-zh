@@ -1,4 +1,4 @@
-import { Button, Spinner, Tabs } from "@heroui/react";
+import { Button, SearchField, Spinner } from "@heroui/react";
 import { useEffect, useState } from "react";
 import { EventsBoard } from "./components/EventsBoard";
 import { SourcesPanel } from "./components/SourcesPanel";
@@ -18,6 +18,7 @@ export default function App() {
   const [eventsFile, setEventsFile] = useState<EventsFile | null>(null);
   const [sourcesFile, setSourcesFile] = useState<SourcesFile | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
   const [today] = useState(() => zurichToday());
 
   useEffect(() => {
@@ -62,72 +63,91 @@ export default function App() {
   }
 
   return (
-    <>
+    <div className="app-shell">
       <a className="skip-link" href="#lista">
         Przejdź do treści
       </a>
-      <header className="masthead">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 sm:py-12">
-          <p className="kicker">Zurych · 2–8 lat</p>
-          <div className="max-w-3xl">
-            <h1 className="font-display text-4xl leading-tight sm:text-6xl">Wydarzenia dla dzieci</h1>
-            <p className="mt-3 text-lg sm:text-xl">
-              Teatr, muzyka, sport, warsztaty i zwierzęta w Oerlikonie, Zurychu, Winterthur i okolicach.
-            </p>
-          </div>
-          <p className="text-sm text-muted">
-            Ostatnia aktualizacja:{" "}
-            {eventsFile ? (
-              <time dateTime={eventsFile.updatedAt}>{formatPolishDate(eventsFile.updatedAt)}</time>
-            ) : (
-              "…"
-            )}
-            . Minione terminy chowają się same, według daty w Zurychu.
-          </p>
+      <header className="hero">
+        <div className="hero-bar">
+          <a className="brand" href="#wydarzenia" onClick={() => selectTab("wydarzenia")}>
+            <span aria-hidden="true" className="brand-mark">
+              ✦
+            </span>
+            Dzieci w Zurychu
+          </a>
+          <nav aria-label="Sekcje" className="hero-tabs">
+            <button
+              className={tab === "wydarzenia" ? "nav-pill is-active" : "nav-pill"}
+              type="button"
+              onClick={() => selectTab("wydarzenia")}
+            >
+              Wydarzenia
+            </button>
+            <button
+              className={tab === "zrodla" ? "nav-pill is-active" : "nav-pill"}
+              type="button"
+              onClick={() => selectTab("zrodla")}
+            >
+              Źródła
+            </button>
+          </nav>
         </div>
+
+        <div className="hero-copy">
+          <h1>Znajdź wydarzenia dla dzieci</h1>
+          <p>Teatr, muzyka, sport, warsztaty i zwierzęta. Oerlikon, Zurych, Winterthur i okolice. Wiek 2–8 lat.</p>
+        </div>
+
+        {tab === "wydarzenia" ? (
+          <form className="hero-search" onSubmit={(event) => event.preventDefault()}>
+            <SearchField
+              aria-label="Szukaj wydarzeń"
+              className="hero-search-field"
+              value={query}
+              variant="secondary"
+              onChange={setQuery}
+            >
+              <SearchField.Group>
+                <SearchField.SearchIcon />
+                <SearchField.Input placeholder="Tytuł, miejsce, opis…" />
+                <SearchField.ClearButton />
+              </SearchField.Group>
+            </SearchField>
+            <button className="search-go" type="submit">
+              Szukaj
+            </button>
+          </form>
+        ) : null}
+
+        <p className="hero-updated">
+          Ostatnia aktualizacja:{" "}
+          {eventsFile ? (
+            <time dateTime={eventsFile.updatedAt}>{formatPolishDate(eventsFile.updatedAt)}</time>
+          ) : (
+            "…"
+          )}
+          . Minione terminy chowają się same.
+        </p>
       </header>
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:py-8" id="lista">
-        <Tabs
-          selectedKey={tab}
-          onSelectionChange={(key) => {
-            if (key === "wydarzenia" || key === "zrodla") selectTab(key);
-          }}
-        >
-          <Tabs.ListContainer className="sticky top-0 z-20 -mx-4 bg-background/90 px-4 py-3 backdrop-blur">
-            <Tabs.List aria-label="Sekcje">
-              <Tabs.Tab id="wydarzenia">
-                Wydarzenia
-                <Tabs.Indicator />
-              </Tabs.Tab>
-              <Tabs.Tab id="zrodla">
-                Źródła
-                <Tabs.Indicator />
-              </Tabs.Tab>
-            </Tabs.List>
-          </Tabs.ListContainer>
-
-          <Tabs.Panel id="wydarzenia" className="pt-2">
-            {error ? (
-              <LoadError message={error} />
-            ) : eventsFile ? (
-              <EventsBoard events={eventsFile.events} today={today} />
-            ) : (
-              <Loading />
-            )}
-          </Tabs.Panel>
-          <Tabs.Panel id="zrodla" className="pt-2">
-            {error ? (
-              <LoadError message={error} />
-            ) : sourcesFile ? (
-              <SourcesPanel sources={sourcesFile} />
-            ) : (
-              <Loading />
-            )}
-          </Tabs.Panel>
-        </Tabs>
-      </main>
-    </>
+      <div className="app-body">
+        {error ? (
+          <div className="panel-scroll">
+            <LoadError message={error} />
+          </div>
+        ) : tab === "zrodla" ? (
+          <div className="sources-scroll">
+            {sourcesFile ? <SourcesPanel sources={sourcesFile} /> : <Loading />}
+          </div>
+        ) : eventsFile ? (
+          <EventsBoard events={eventsFile.events} query={query} today={today} onQueryChange={setQuery} />
+        ) : (
+          <div className="panel-scroll">
+            <Loading />
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -142,10 +162,10 @@ function Loading() {
 
 function LoadError({ message }: { message: string }) {
   return (
-    <div className="rounded-3xl bg-surface px-6 py-10">
+    <div className="soft-card px-6 py-10">
       <h2 className="font-display text-2xl">Nie udało się wczytać danych</h2>
       <p className="mt-2">{message}</p>
-      <Button className="mt-4" variant="primary" onPress={() => window.location.reload()}>
+      <Button className="btn-gradient mt-4" variant="primary" onPress={() => window.location.reload()}>
         Odśwież
       </Button>
     </div>
