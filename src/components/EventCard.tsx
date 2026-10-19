@@ -34,7 +34,7 @@ export function EventCard({
 
   return (
     <Card
-      className={selected ? "event-card is-selected" : "event-card"}
+      className={selected ? "event-tile is-selected" : "event-tile"}
       data-category={event.category}
       aria-pressed={selected}
       role="button"
@@ -47,59 +47,55 @@ export function EventCard({
         }
       }}
     >
-      <div className="event-card__media">
-        <img
-          alt=""
-          height={640}
-          loading="lazy"
-          src={src}
-          width={960}
-          onError={() => setBroken(true)}
-        />
-        <span className="event-card__date">{dateBadge(event)}</span>
-      </div>
-      <Card.Content className="event-card__body">
-        <div className="event-card__topline">
-          <div className="flex flex-wrap gap-1.5">
-            <Chip size="sm" variant="soft">
-              {categoryLabel(event.category)}
-            </Chip>
-            <Chip size="sm" variant="tertiary">
-              {event.area}
-            </Chip>
-            {event.isNew ? (
-              <Chip size="sm" color="warning" variant="soft">
-                Nowe
-              </Chip>
-            ) : null}
-            {todayHit ? (
-              <Chip size="sm" color="accent" variant="primary">
-                Dziś
-              </Chip>
-            ) : null}
+      <div className="event-tile__media">
+        <img alt="" height={640} loading="lazy" src={src} width={960} onError={() => setBroken(true)} />
+        <div className="event-tile__scrim">
+          <div className="event-tile__tools">
+            <span className="event-tile__date">{dateBadge(event)}</span>
+            <CalendarMenu event={event} labeled today={today} />
           </div>
-          <CalendarMenu event={event} today={today} />
+          <Card.Title className="event-tile__title">
+            <Link
+              href={event.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              onClick={(click) => click.stopPropagation()}
+              onKeyDown={(keyEvent) => keyEvent.stopPropagation()}
+            >
+              {event.title}
+              <Link.Icon />
+            </Link>
+          </Card.Title>
         </div>
-        <Card.Title className="text-lg leading-snug">
-          <Link
-            href={event.url}
-            rel="noopener noreferrer"
-            target="_blank"
-            onClick={(click) => click.stopPropagation()}
-            onKeyDown={(keyEvent) => keyEvent.stopPropagation()}
-          >
-            {event.title}
-            <Link.Icon />
-          </Link>
-        </Card.Title>
-        <p className="mt-1 text-sm text-muted">{event.dateText}</p>
-        <p className="event-card__desc">{event.description}</p>
-        <p className="mt-2 text-sm">
-          <span className="text-muted">Wiek </span>
-          {event.age}
-          <span className="text-muted"> · </span>
-          {event.place}
+      </div>
+      <Card.Content className="event-tile__body">
+        <div className="event-tile__chips">
+          <Chip size="sm" variant="soft">
+            {categoryLabel(event.category)}
+          </Chip>
+          <Chip size="sm" variant="tertiary">
+            {event.area}
+          </Chip>
+          {event.isNew ? (
+            <Chip size="sm" color="warning" variant="soft">
+              Nowe
+            </Chip>
+          ) : null}
+          {todayHit ? (
+            <Chip size="sm" color="accent" variant="primary">
+              Dziś
+            </Chip>
+          ) : null}
+        </div>
+        <p className="event-tile__when">{event.dateText}</p>
+        <p className="event-tile__where">
+          <span>{event.place}</span>
+          <span className="event-tile__dot" aria-hidden="true">
+            ·
+          </span>
+          <span>{event.age}</span>
         </p>
+        <p className="event-tile__desc">{event.description}</p>
       </Card.Content>
     </Card>
   );

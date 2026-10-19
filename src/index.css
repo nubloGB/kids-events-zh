@@ -331,13 +331,6 @@ input {
   color: inherit;
 }
 
-.event-card__topline {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.4rem;
-}
-
 .calendar-button {
   display: grid;
   width: 2rem;
@@ -346,9 +339,21 @@ input {
   place-items: center;
   border: 0;
   border-radius: 999px;
-  background: #f6eefe;
-  color: #7c3aed;
+  background: white;
+  color: #6d28d9;
   cursor: pointer;
+  box-shadow: 0 8px 18px rgb(20 0 40 / 0.22);
+}
+
+.calendar-button--labeled {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.75rem 0.38rem 0.6rem;
+  font-size: 0.86rem;
+  font-weight: 800;
 }
 
 .calendar-button:hover,
@@ -405,7 +410,7 @@ input {
   list-style: none;
 }
 
-.event-card {
+.event-tile {
   overflow: hidden;
   padding: 0;
   cursor: pointer;
@@ -414,46 +419,118 @@ input {
   box-shadow: 0 10px 28px rgb(76 29 149 / 0.08);
 }
 
-.event-card.is-selected {
+.event-tile.is-selected {
   box-shadow:
     0 0 0 2px #c026d3,
     0 14px 30px rgb(192 38 211 / 0.18);
 }
 
-.event-card__media {
+.event-tile__media {
   position: relative;
-  aspect-ratio: 16 / 8;
-  background: #f6eefe;
+  aspect-ratio: 16 / 11;
+  min-height: 12.5rem;
+  background: #2a1038;
 }
 
-.event-card__media img {
+.event-tile__media img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.event-card__date {
+.event-tile__scrim {
   position: absolute;
-  left: 0.7rem;
-  bottom: 0.7rem;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.7rem;
+  background: linear-gradient(to top, rgb(24 6 40 / 0.92) 0%, rgb(24 6 40 / 0.28) 46%, rgb(24 6 40 / 0.12) 100%);
+}
+
+.event-tile__tools {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.event-tile__date {
   border-radius: 999px;
   background: white;
   color: #6d28d9;
   font-size: 0.78rem;
   font-weight: 800;
-  padding: 0.28rem 0.6rem;
+  padding: 0.32rem 0.65rem;
   box-shadow: 0 6px 16px rgb(49 10 80 / 0.16);
 }
 
-.event-card__body {
-  padding: 0.85rem 0.95rem 1rem;
+.event-tile__title {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
-.event-card__desc {
+.event-tile__title a {
+  display: inline;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.35);
+}
+
+.event-tile__title a:hover,
+.event-tile__title a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
+}
+
+.event-tile__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  padding: 0.75rem 0.9rem 0.9rem;
+}
+
+.event-tile__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.event-tile__when {
+  margin: 0.15rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.event-tile__where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  color: #5c5470;
+  font-size: 0.88rem;
+}
+
+.event-tile__dot {
+  color: #c4b6d8;
+}
+
+.event-tile__desc {
   display: -webkit-box;
-  margin: 0.45rem 0 0;
+  margin: 0.15rem 0 0;
   overflow: hidden;
+  color: #3b3348;
+  font-size: 0.92rem;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
