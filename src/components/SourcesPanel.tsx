@@ -17,7 +17,7 @@ export function SourcesPanel({ sources }: { sources: SourcesFile }) {
           <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {section.items.map((item) => (
               <li key={item.name}>
-                <Card className="h-full">
+                <Card className="soft-card h-full">
                   <Card.Header>
                     <Card.Title>{item.name}</Card.Title>
                     <Card.Description>{item.detail}</Card.Description>
