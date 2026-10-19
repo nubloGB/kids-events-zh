@@ -1,4 +1,5 @@
-import { matchesAge } from "./age";
+import { matchesAgeBand } from "./age";
+import { normalizeRange, presetRange, rangesOverlap } from "./dates";
 import { fold } from "./text";
 import {
   AREAS,
@@ -41,10 +42,20 @@ export function includesToday(event: KidsEvent, today: string): boolean {
   return event.startDate <= today && today <= last;
 }
 
-export function matchesFilters(event: KidsEvent, filters: EventFilters): boolean {
+function dateWindow(filters: EventFilters, today: string): { from: string; to: string } | null {
+  if (filters.date.kind === "all") return null;
+  if (filters.date.kind === "custom") return normalizeRange(filters.date.from, filters.date.to);
+  return presetRange(filters.date.kind, today);
+}
+
+export function matchesFilters(event: KidsEvent, filters: EventFilters, today: string): boolean {
   if (filters.areas.length > 0 && !filters.areas.includes(event.area)) return false;
   if (filters.categories.length > 0 && !filters.categories.includes(event.category)) return false;
-  if (filters.age !== null && !matchesAge(event.age, filters.age, event.startDate)) return false;
+  if (!matchesAgeBand(event.ageMin, event.ageMax, filters.age)) return false;
+  const chosen = dateWindow(filters, today);
+  if (chosen) {
+    if (!event.startDate || !rangesOverlap(event.startDate, event.endDate || event.startDate, chosen)) return false;
+  }
   const query = fold(filters.query).trim();
   if (!query) return true;
   const haystack = fold(
@@ -78,7 +89,7 @@ export function partitionEvents(events: KidsEvent[], today: string, filters: Eve
   const recurring: KidsEvent[] = [];
   for (const event of events) {
     if (isPast(event, today)) continue;
-    if (!matchesFilters(event, filters)) continue;
+    if (!matchesFilters(event, filters, today)) continue;
     if (isRecurring(event)) recurring.push(event);
     else upcoming.push(event);
   }
@@ -116,6 +127,13 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   if (!/^https?:\/\//.test(event.url)) throw new Error(`${where}: url musi zaczynać się od http`);
   assertString(event.description, `${where}: description`);
   assertString(event.age, `${where}: age`);
+  const minOk = event.ageMin === null || (typeof event.ageMin === "number" && Number.isInteger(event.ageMin) && event.ageMin >= 0);
+  const maxOk = event.ageMax === null || (typeof event.ageMax === "number" && Number.isInteger(event.ageMax) && event.ageMax >= 0);
+  if (!minOk || !maxOk) throw new Error(`${where}: ageMin i ageMax muszą być liczbami całkowitymi albo null`);
+  if (event.ageMin === null && event.ageMax !== null) throw new Error(`${where}: ageMax wymaga ageMin`);
+  if (event.ageMin !== null && event.ageMax !== null && event.ageMax < event.ageMin) {
+    throw new Error(`${where}: ageMax jest mniejsze niż ageMin`);
+  }
   assertString(event.place, `${where}: place`);
   assertString(event.registration, `${where}: registration`);
   if (!AREAS.includes(event.area as Area)) throw new Error(`${where}: nieznany obszar`);
@@ -163,6 +181,7 @@ export const EMPTY_FILTERS: EventFilters = {
   areas: [],
   categories: [],
   age: null,
+  date: { kind: "all" },
 };
 
 export function filtersAreActive(filters: EventFilters): boolean {
@@ -170,6 +189,7 @@ export function filtersAreActive(filters: EventFilters): boolean {
     filters.query.trim() !== "" ||
     filters.areas.length > 0 ||
     filters.categories.length > 0 ||
-    filters.age !== null
+    filters.age !== null ||
+    filters.date.kind !== "all"
   );
 }

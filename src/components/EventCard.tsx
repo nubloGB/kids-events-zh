@@ -1,5 +1,6 @@
 import { Card, Chip, Link } from "@heroui/react";
 import { useState } from "react";
+import { CalendarMenu } from "./CalendarMenu";
 import { categoryLabel, splitIso } from "../lib/format";
 import { includesToday } from "../lib/events";
 import { CATEGORY_FALLBACK } from "../lib/markers";
@@ -58,23 +59,26 @@ export function EventCard({
         <span className="event-card__date">{dateBadge(event)}</span>
       </div>
       <Card.Content className="event-card__body">
-        <div className="mb-2 flex flex-wrap gap-1.5">
-          <Chip size="sm" variant="soft">
-            {categoryLabel(event.category)}
-          </Chip>
-          <Chip size="sm" variant="tertiary">
-            {event.area}
-          </Chip>
-          {event.isNew ? (
-            <Chip size="sm" color="warning" variant="soft">
-              Nowe
+        <div className="event-card__topline">
+          <div className="flex flex-wrap gap-1.5">
+            <Chip size="sm" variant="soft">
+              {categoryLabel(event.category)}
             </Chip>
-          ) : null}
-          {todayHit ? (
-            <Chip size="sm" color="accent" variant="primary">
-              Dziś
+            <Chip size="sm" variant="tertiary">
+              {event.area}
             </Chip>
-          ) : null}
+            {event.isNew ? (
+              <Chip size="sm" color="warning" variant="soft">
+                Nowe
+              </Chip>
+            ) : null}
+            {todayHit ? (
+              <Chip size="sm" color="accent" variant="primary">
+                Dziś
+              </Chip>
+            ) : null}
+          </div>
+          <CalendarMenu event={event} today={today} />
         </div>
         <Card.Title className="text-lg leading-snug">
           <Link

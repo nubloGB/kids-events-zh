@@ -5,7 +5,7 @@ import { EventMap } from "./EventMap";
 import { FilterSidebar } from "./FilterSidebar";
 import { countLabel } from "../lib/format";
 import { eventKey, filtersAreActive, isInsideBounds, partitionEvents } from "../lib/events";
-import type { Area, Category, KidsEvent, MapBounds } from "../types";
+import type { AgeBandFilter, Area, Category, DateFilter, KidsEvent, MapBounds } from "../types";
 
 function useMinWidth(px: number): boolean {
   const query = `(min-width: ${px}px)`;
@@ -33,7 +33,10 @@ export function EventsBoard({
   const wide = useMinWidth(901);
   const [areas, setAreas] = useState<Area[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [age, setAge] = useState<number | null>(null);
+  const [age, setAge] = useState<AgeBandFilter>(null);
+  const [date, setDate] = useState<DateFilter>({ kind: "all" });
+  const [customFrom, setCustomFrom] = useState("");
+  const [customTo, setCustomTo] = useState("");
   const [onlyVisible, setOnlyVisible] = useState(false);
   const [bounds, setBounds] = useState<MapBounds | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -44,8 +47,8 @@ export function EventsBoard({
   const itemRefs = useRef(new Map<string, HTMLLIElement>());
 
   const filters = useMemo(
-    () => ({ query, areas, categories, age }),
-    [age, areas, categories, query],
+    () => ({ query, areas, categories, age, date }),
+    [age, areas, categories, date, query],
   );
   const { upcoming, recurring } = useMemo(
     () => partitionEvents(events, today, filters),
@@ -57,7 +60,7 @@ export function EventsBoard({
   const inView = (list: KidsEvent[]) => (limitToMap && bounds ? list.filter((event) => isInsideBounds(event, bounds)) : list);
   const listUpcoming = inView(upcoming);
   const listRecurring = inView(recurring);
-  const mapEvents = useMemo(() => [...upcoming, ...recurring], [upcoming, recurring]);
+  const mapEvents = useMemo(() => [...listUpcoming, ...listRecurring], [listRecurring, listUpcoming]);
   const active = filtersAreActive(filters) || onlyVisible;
   const listEmpty = listUpcoming.length === 0 && listRecurring.length === 0;
   const outsideFrame = listEmpty && upcoming.length + recurring.length > 0;
@@ -85,6 +88,9 @@ export function EventsBoard({
     setAreas([]);
     setCategories([]);
     setAge(null);
+    setDate({ kind: "all" });
+    setCustomFrom("");
+    setCustomTo("");
     setOnlyVisible(false);
   }
 
@@ -117,11 +123,18 @@ export function EventsBoard({
         areas={areas}
         canClear={active}
         categories={categories}
+        customFrom={customFrom}
+        customTo={customTo}
+        date={date}
         onlyVisible={onlyVisible}
+        today={today}
         onAge={setAge}
         onAreas={setAreas}
         onCategories={setCategories}
         onClear={clearFilters}
+        onCustomFrom={setCustomFrom}
+        onCustomTo={setCustomTo}
+        onDate={setDate}
         onOnlyVisible={setOnlyVisible}
       />
 
@@ -144,7 +157,7 @@ export function EventsBoard({
             <p className="mt-2">
               {outsideFrame
                 ? "Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”."
-                : "Zmień obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
+                : "Zmień datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
             </p>
             <Button className="mt-4" variant="secondary" onPress={clearFilters}>
               Wyczyść filtry
@@ -178,6 +191,7 @@ export function EventsBoard({
         <EventMap
           active={mapActive}
           events={mapEvents}
+          today={today}
           focusOrigin={focusOrigin}
           focusTick={focusTick}
           selectedId={selectedId}

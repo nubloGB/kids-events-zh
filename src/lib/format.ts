@@ -26,9 +26,3 @@ export function categoryLabel(category: string): string {
   if (category.length === 0) return category;
   return category.charAt(0).toLocaleUpperCase("pl") + category.slice(1);
 }
-
-export function ageOptionLabel(age: number): string {
-  if (age === 1) return "1 rok";
-  if (age >= 2 && age <= 4) return `${age} lata`;
-  return `${age} lat`;
-}

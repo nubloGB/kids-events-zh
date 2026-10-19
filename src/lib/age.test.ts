@@ -1,4 +1,4 @@
-import { ageRange, matchesAge } from "./age";
+import { ageRange, matchesAge, matchesAgeBand } from "./age";
 import { describe, expect, it } from "vitest";
 
 describe("ageRange", () => {
@@ -57,5 +57,20 @@ describe("matchesAge", () => {
     expect(matchesAge("od 4 lat", 8, "2026-10-17")).toBe(true);
     expect(matchesAge("2–5 lat", 6, "2026-10-17")).toBe(false);
     expect(matchesAge("rodziny", 2, "2026-10-18")).toBe(true);
+  });
+});
+
+describe("matchesAgeBand", () => {
+  it("matches when the listing's range includes the band, and keeps unknown ages", () => {
+    expect(matchesAgeBand(2, 8, "under3")).toBe(true);
+    expect(matchesAgeBand(2, 8, "over3")).toBe(true);
+    expect(matchesAgeBand(2, 2, "under3")).toBe(true);
+    expect(matchesAgeBand(2, 2, "over3")).toBe(false);
+    expect(matchesAgeBand(3, 8, "under3")).toBe(false);
+    expect(matchesAgeBand(3, 8, "over3")).toBe(true);
+    expect(matchesAgeBand(4, null, "under3")).toBe(false);
+    expect(matchesAgeBand(4, null, "over3")).toBe(true);
+    expect(matchesAgeBand(null, null, "under3")).toBe(true);
+    expect(matchesAgeBand(null, null, null)).toBe(true);
   });
 });

@@ -35,7 +35,8 @@ Data w nagłówku („Ostatnia aktualizacja”) bierze się z pola `updatedAt`. 
 | `title` | Nazwa. Link w karcie prowadzi do `url`. |
 | `url` | Adres strony wydarzenia (`http` albo `https`). |
 | `description` | Krótki opis: co się dzieje, cena, język. |
-| `age` | Wiek tak, jak w źródle. Filtr 2–8 lat czyta widełki (`2–5 lat`, `od 4 lat`, `roczniki 2018–2020`). „Rodziny”, „wszyscy” i „brak info” zostają widoczne przy każdym wieku. Rocznik jest liczony względem roku z `startDate` (dziecko z rocznika 2018 w 2026 ma 8 lat). |
+| `age` | Wiek tak, jak w źródle. |
+| `ageMin`, `ageMax` | Najmłodszy i najstarszy wiek, który pasuje do `age`. `null` i `null` znaczy „każdy wiek” (rodziny, wszyscy, brak info) i zostaje przy obu filtrach wieku. `ageMax: null` przy liczbie w `ageMin` znaczy „od tego wieku w górę”. Przy zmianie `age` popraw też te dwie liczby: filtr czyta je, nie zgaduje od nowa. Rocznik jest liczony względem roku z `startDate` (dziecko z rocznika 2018 w 2026 ma 8 lat). |
 | `place` | Sala, adres albo dzielnica. |
 | `lat`, `lng` | Współrzędne WGS84 pinezki na mapie (Leaflet, kafelki OpenStreetMap, bez klucza API). Widok startowy to Zurych-Oerlikon. |
 | `image` | Ścieżka względem `public/`, na przykład `images/tonhalle.jpg`. Strona nie podlinkowuje cudzych adresów: plik leży w repozytorium. |
@@ -48,7 +49,11 @@ Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startD
 
 ### Mapa i zdjęcia
 
-Każde wydarzenie ma pinezkę. Kolor i ikona biorą się z kategorii, a gęste miejsca (na przykład kilka spektakli w Theater Stadelhofen) zwijają się w klastry. Kliknięcie pinezki podświetla kartę na liście, kliknięcie karty przybliża mapę. Filtr „Tylko widoczny obszar mapy” ogranicza listę do kadru, pinezki zostają. Na wąskim ekranie przełącznik „Lista / Mapa” pokazuje jedną z tych części.
+Każde wydarzenie ma pinezkę. Kolor i ikona biorą się z kategorii, a gęste miejsca (na przykład kilka spektakli w Theater Stadelhofen) zwijają się w klastry. Kliknięcie pinezki podświetla kartę na liście, kliknięcie karty przybliża mapę. Filtr „Tylko widoczny obszar mapy” zostawia na liście i na mapie tylko to, co jest w kadrze. Na wąskim ekranie przełącznik „Lista / Mapa” pokazuje jedną z tych części.
+
+Filtr daty liczy się według kalendarza Europy/Zurych, a tydzień zaczyna się w poniedziałek. „Ten tydzień” trwa od dziś do najbliższej niedzieli, „Ten weekend” od piątku do niedzieli tego tygodnia (w sobotę i niedzielę: od dziś do niedzieli), „Następny tydzień” to kolejny poniedziałek–niedziela, „Następny miesiąc” to cały następny miesiąc kalendarzowy. Wydarzenie wielodniowe zostaje, gdy jego zakres nachodzi na wybrany. Zajęcia stałe, bez `startDate`, widać przy „Wszystkie daty”.
+
+Ikona kalendarza na karcie otwiera Google Calendar albo pobiera plik `.ics` (Apple / iCal). Godziny biorą się z `dateText`, gdy da się je odczytać dla jednego dnia. Kurs na wiele dni trafia do kalendarza jako wydarzenie całodniowe, a godziny zostają w opisie. Strefa to Europa/Zurych.
 
 Zdjęcie karty to `image`. Najpierw bierzemy fotografię ze strony wydarzenia (`og:image` albo główne zdjęcie treści) i zapisujemy ją w `public/images/`. Gdy strona jej nie ma, wstawiamy ilustrację dopasowaną do tematu, też zapisaną w repozytorium: książki, lodowisko, scena, zwierzęta, instrumenty, rękodzieło, boisko. Logo organizatora nie zastępuje zdjęcia.
 

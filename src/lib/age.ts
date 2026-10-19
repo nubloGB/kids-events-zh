@@ -57,3 +57,12 @@ export function matchesAge(age: string, childAge: number, startDate: string | nu
   if (range.max !== null && childAge > range.max) return false;
   return true;
 }
+
+export type AgeBand = "under3" | "over3";
+
+/** A missing range matches every band. „Do 3 lat” is any age below 3; „Powyżej 3 lat” is 3 and older. */
+export function matchesAgeBand(ageMin: number | null, ageMax: number | null, band: AgeBand | null): boolean {
+  if (band === null || ageMin === null) return true;
+  if (band === "under3") return ageMin < 3;
+  return ageMax === null || ageMax >= 3;
+}
