@@ -51,7 +51,7 @@ export function FilterSidebar({
   return (
     <aside className="filters-pane">
       <div className="filters-head">
-        <h2>Filtr</h2>
+        <h2>Filtry</h2>
         {canClear ? (
           <Button size="sm" variant="ghost" onPress={onClear}>
             Wyczyść
