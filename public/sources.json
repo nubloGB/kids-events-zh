@@ -1,0 +1,338 @@
+{
+  "sections": [
+    {
+      "title": "Organizatorzy kursów feryjnych Stadt Zürich (Herbst 2026)",
+      "intro": "Zestawienie organizatorów ze strony z kursami feryjnymi. Zapisy na kursy feryjne idą przez sport-portal Stadt Zürich.",
+      "items": [
+        {
+          "name": "Zestawienie kursów feryjnych Herbst 2026",
+          "detail": "Strona zbiorcza, z której pochodzi ta lista organizatorów.",
+          "links": [
+            {
+              "label": "zurich-ferienkurse-herbst-2026",
+              "url": "https://joaomoreno.github.io/zurich-ferienkurse-herbst-2026/"
+            }
+          ]
+        },
+        {
+          "name": "Sportamt Stadt Zürich – Ferienkurse",
+          "detail": "Operator zapisów na wszystkie kursy feryjne.",
+          "links": [
+            {
+              "label": "stadt-zuerich.ch/sport-portal",
+              "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/ferienkurse"
+            }
+          ]
+        },
+        {
+          "name": "Verein filmkids.ch",
+          "detail": "Film, aktorstwo, słuchowiska (10–15 lat).",
+          "links": [{ "label": "filmkids.ch", "url": "https://filmkids.ch" }]
+        },
+        {
+          "name": "Nuori / Malspielraum",
+          "detail": "Atelier malarskie, „Wunderkurse” (od 5 lat).",
+          "links": [{ "label": "malspielraum.ch", "url": "https://www.malspielraum.ch" }]
+        },
+        {
+          "name": "Begleitetes Malen",
+          "detail": "Atelier malarskie, portret.",
+          "links": [{ "label": "begleitetesmalen.com", "url": "https://www.begleitetesmalen.com" }]
+        },
+        {
+          "name": "decolor",
+          "detail": "Malowanie wg Arno Sterna, nadruk na tkaninach. W dniu sprawdzenia strona nie odpowiadała.",
+          "links": [{ "label": "decolor.ch", "url": "http://decolor.ch" }]
+        },
+        {
+          "name": "Rucksackschule Zürich",
+          "detail": "Przyroda, las, edukacja ekologiczna.",
+          "links": [{ "label": "rucksackschule.ch", "url": "https://rucksackschule.ch" }]
+        },
+        {
+          "name": "Susanne Michel – Märchen",
+          "detail": "Baśnie w lesie, kursy o roślinach.",
+          "links": [
+            {
+              "label": "susanne-michel.maerchen.ch",
+              "url": "https://www.susanne-michel.maerchen.ch"
+            }
+          ]
+        },
+        {
+          "name": "Wildpflanzenkurse (Susanne Michel & Nathalie)",
+          "detail": "Rośliny dziko rosnące, kurs roczny dla dzieci.",
+          "links": [{ "label": "wildpflanzenkurse.ch", "url": "https://www.wildpflanzenkurse.ch" }]
+        },
+        {
+          "name": "Schulinnovation GmbH",
+          "detail": "Przygody w lesie, odporność psychiczna (rocznik 2017–2020).",
+          "links": [{ "label": "schulinnovation.ch", "url": "https://schulinnovation.ch" }]
+        },
+        {
+          "name": "Zürcher Tierschutz",
+          "detail": "Popołudnia ze zwierzętami, czytanie kotom.",
+          "links": [{ "label": "zuerchertierschutz.ch", "url": "https://www.zuerchertierschutz.ch" }]
+        },
+        {
+          "name": "Verein Kinder-Camps",
+          "detail": "Campy dzienne: wiele sportów, sporty walki, pływanie (6–13 lat).",
+          "links": [{ "label": "kinder-camps.ch", "url": "https://www.kinder-camps.ch" }]
+        },
+        {
+          "name": "Young Engineers",
+          "detail": "LEGO, technika, nauka.",
+          "links": [{ "label": "youngeng.ch", "url": "https://youngeng.ch" }]
+        },
+        {
+          "name": "Y.E.S Starke Mädchen",
+          "detail": "Samoobrona i pewność siebie dla dziewczynek (od przedszkola). W dniu sprawdzenia strona zwracała kod 403.",
+          "links": [{ "label": "starke-maedchen.ch", "url": "https://www.starke-maedchen.ch" }]
+        },
+        {
+          "name": "SKEMA Kampfkunst",
+          "detail": "Kinder Kung Fu (5–10 lat).",
+          "links": [{ "label": "skema.ch", "url": "https://www.skema.ch" }]
+        },
+        {
+          "name": "Badminton Club Zürich",
+          "detail": "Camp badmintonowy.",
+          "links": [{ "label": "bczuerich.ch", "url": "https://www.bczuerich.ch" }]
+        },
+        {
+          "name": "BÖLLE (Böllé is Läbe)",
+          "detail": "Camp koszykówki.",
+          "links": [{ "label": "boelleischlebe.com", "url": "https://boelleischlebe.com" }]
+        },
+        {
+          "name": "GC Unihockey",
+          "detail": "Kids Camp unihokej.",
+          "links": [{ "label": "gc-unihockey.ch", "url": "https://www.gc-unihockey.ch" }]
+        },
+        {
+          "name": "GC Amicitia",
+          "detail": "Camp piłki ręcznej.",
+          "links": [{ "label": "gc-amicitia.ch", "url": "https://www.gc-amicitia.ch" }]
+        },
+        {
+          "name": "Seeclub Zürich",
+          "detail": "Wioślarstwo.",
+          "links": [{ "label": "seeclub.ch", "url": "https://www.seeclub.ch" }]
+        },
+        {
+          "name": "Kindersegelschule",
+          "detail": "Żeglarstwo (Optimist).",
+          "links": [{ "label": "kindersegelschule.ch", "url": "https://www.kindersegelschule.ch" }]
+        },
+        {
+          "name": "Candli",
+          "detail": "Programowanie gier dla dzieci.",
+          "links": [{ "label": "candli.ch", "url": "https://www.candli.ch" }]
+        },
+        {
+          "name": "Code Camp",
+          "detail": "Programowanie (drag & drop). W dniu sprawdzenia serwer zwracał kod 500.",
+          "links": [{ "label": "codecamp.ch", "url": "https://www.codecamp.ch" }]
+        },
+        {
+          "name": "Pfirsi",
+          "detail": "Teatr improwizacji.",
+          "links": [{ "label": "pfirsi.ch", "url": "https://www.pfirsi.ch" }]
+        },
+        {
+          "name": "Mindful Tree Education",
+          "detail": "Tydzień kultury, sztuki i ruchu.",
+          "links": [
+            {
+              "label": "mindfultreeeducation.com",
+              "url": "https://www.mindfultreeeducation.com"
+            }
+          ]
+        },
+        {
+          "name": "Fotokids (Verein)",
+          "detail": "Fotografia.",
+          "links": [{ "label": "fotokids.ch", "url": "https://www.fotokids.ch" }]
+        },
+        {
+          "name": "ZHdK – „Weltbüro”",
+          "detail": "Studenci pedagogiki teatru: badania artystyczne, 9–12 lat.",
+          "links": [{ "label": "zhdk.ch", "url": "https://www.zhdk.ch" }]
+        }
+      ]
+    },
+    {
+      "title": "Sport dla dzieci i zoo",
+      "intro": "Dodane 17.10.2026.",
+      "items": [
+        {
+          "name": "Zoo Zürich – Agenda / Kindererlebnisse",
+          "detail": "Codzienne pokazy i popołudnia dla dzieci w zoo.",
+          "links": [
+            {
+              "label": "agenda",
+              "url": "https://www.zoo.ch/erlebnisse-events/agenda"
+            },
+            {
+              "label": "kindererlebnisse",
+              "url": "https://www.zoo.ch/erlebnisse-events/kindererlebnisse"
+            }
+          ]
+        },
+        {
+          "name": "UBS Kids Cup / UBS Kids Cup Team",
+          "detail": "Lekkoatletyka dla dzieci, zawody drużynowe w hali (U10 = roczniki 2018–2020).",
+          "links": [
+            {
+              "label": "ubs-kidscup.ch",
+              "url": "https://www.ubs-kidscup.ch/de/ubs-kids-cup-team/startseite"
+            }
+          ]
+        },
+        {
+          "name": "Zürcher Silvesterlauf",
+          "detail": "Bieg: biegi dziecięce, rodzic z dzieckiem, rodzinne.",
+          "links": [
+            {
+              "label": "silvesterlauf.ch/anmeldung",
+              "url": "https://www.silvesterlauf.ch/anmeldung"
+            }
+          ]
+        },
+        {
+          "name": "Neujahrsmarathon Zürich",
+          "detail": "Bieg sylwestrowy Kids Run 750 m (3–14 lat).",
+          "links": [
+            {
+              "label": "neujahrsmarathon.ch",
+              "url": "https://www.neujahrsmarathon.ch/information-de/"
+            }
+          ]
+        },
+        {
+          "name": "Cycle Week Zürich",
+          "detail": "Festiwal rowerowy, wyścigi dla dzieci 2–5 lat.",
+          "links": [
+            {
+              "label": "cycleweek.ch",
+              "url": "https://cycleweek.ch/page/Kidsandyouth"
+            }
+          ]
+        },
+        {
+          "name": "Züritrails – ZüriDirt Contest / TSG Nipper Race",
+          "detail": "Wyścig na rowerkach biegowych 2–5 lat.",
+          "links": [
+            {
+              "label": "zueritrails.ch",
+              "url": "https://www.zueritrails.ch/dirtcontest/event"
+            }
+          ]
+        },
+        {
+          "name": "pumptrack.zh (Kanton Zürich)",
+          "detail": "Mobilne pumptracki i lista torów (np. Wallisellen, Allmend).",
+          "links": [
+            {
+              "label": "zh.ch pumptrack",
+              "url": "https://www.zh.ch/de/sport-kultur/sport/raum-fuer-sport/pumptrack.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sport, ogród, zwierzęta",
+      "intro": "Dodane 17.10.2026, runda 2.",
+      "items": [
+        {
+          "name": "Sportamt – kursy semestralne i roczne",
+          "detail": "Portal zapisów Sportamt Stadt Zürich. Pełna lista kursów jest w serwisie (oferty mają też dane JSON).",
+          "links": [
+            {
+              "label": "stadt-zuerich.ch/sport-portal",
+              "url": "https://www.stadt-zuerich.ch/sport-portal/"
+            }
+          ]
+        },
+        {
+          "name": "Grün Stadt Zürich – Stadtgärtnerei",
+          "detail": "Ogród miejski.",
+          "links": [
+            {
+              "label": "stadtgaertnerei",
+              "url": "https://www.stadt-zuerich.ch/stadtgaertnerei"
+            }
+          ]
+        },
+        {
+          "name": "Sukkulenten-Sammlung",
+          "detail": "Kolekcja sukulentów przy Mythenquai.",
+          "links": [
+            {
+              "label": "sukkulenten",
+              "url": "https://www.stadt-zuerich.ch/sukkulenten"
+            }
+          ]
+        },
+        {
+          "name": "GZ Wipkingen – Wipkihof (Offener Stall)",
+          "detail": "Otwarta stajnia: świnki morskie, mini-świnie, kozy i kury.",
+          "links": [
+            {
+              "label": "offener-stall",
+              "url": "https://gz-zh.ch/gz-wipkingen/angebote/offener-stall-3/"
+            }
+          ]
+        },
+        {
+          "name": "QuarTierhof Höngg",
+          "detail": "Farma sąsiedzka w Höngg.",
+          "links": [
+            {
+              "label": "quartierhof-hoengg.ch",
+              "url": "https://www.quartierhof-hoengg.ch/aktuelles"
+            }
+          ]
+        },
+        {
+          "name": "Jucker Farm",
+          "detail": "Wydarzenia na farmie, w tym Juckerhof w Seegräben.",
+          "links": [
+            {
+              "label": "juckerfarm.ch/anlass",
+              "url": "https://www.juckerfarm.ch/anlass/"
+            }
+          ]
+        },
+        {
+          "name": "Wildnispark Zürich",
+          "detail": "Langenberg i Sihlwald.",
+          "links": [
+            {
+              "label": "wildnispark.ch/veranstaltungen",
+              "url": "https://www.wildnispark.ch/veranstaltungen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Winterthur",
+      "intro": "Dodane 17.10.2026.",
+      "items": [
+        {
+          "name": "Abenteuerspielplatz PLATZ Winterthur",
+          "detail": "Plac przygód w Veltheim. Program roczny jest w PDF.",
+          "links": [
+            { "label": "platz-winti.ch", "url": "https://platz-winti.ch/" },
+            {
+              "label": "program roczny 2026 (PDF)",
+              "url": "https://platz-winti.ch/wp-content/uploads/2026/03/Jahresprogramm2026.pdf"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
