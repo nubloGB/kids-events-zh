@@ -24,6 +24,10 @@ export interface KidsEvent {
   url: string;
   description: string;
   age: string;
+  /** Youngest age included. Null together with ageMax means the listing fits every age. */
+  ageMin: number | null;
+  /** Oldest age included. Null with a numeric ageMin means there is no upper limit. */
+  ageMax: number | null;
   place: string;
   area: Area;
   category: Category;
@@ -63,11 +67,19 @@ export interface SourcesFile {
   sections: SourceSection[];
 }
 
+export type AgeBandFilter = "under3" | "over3" | null;
+
+export type DateFilter =
+  | { kind: "all" }
+  | { kind: "today" | "tomorrow" | "thisWeek" | "thisWeekend" | "nextWeek" | "nextMonth" }
+  | { kind: "custom"; from: string; to: string };
+
 export interface EventFilters {
   query: string;
   areas: Area[];
   categories: Category[];
-  age: number | null;
+  age: AgeBandFilter;
+  date: DateFilter;
 }
 
 export interface MapBounds {

@@ -2,6 +2,7 @@ import L from "leaflet";
 import { useEffect, useRef, type MutableRefObject } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
+import { CalendarMenu } from "./CalendarMenu";
 import { eventKey } from "../lib/events";
 import { CATEGORY_COLOR, CATEGORY_GLYPH } from "../lib/markers";
 import type { KidsEvent, MapBounds } from "../types";
@@ -127,6 +128,7 @@ function MapBridge({
 
 export function EventMap({
   events,
+  today,
   selectedId,
   focusTick,
   focusOrigin,
@@ -135,6 +137,7 @@ export function EventMap({
   onBounds,
 }: {
   events: KidsEvent[];
+  today: string;
   selectedId: string | null;
   focusTick: number;
   focusOrigin: "list" | "map";
@@ -199,6 +202,7 @@ export function EventMap({
                   <a href={event.url} rel="noopener noreferrer" target="_blank">
                     Strona wydarzenia
                   </a>
+                  <CalendarMenu event={event} today={today} />
                 </div>
               </Popup>
             </Marker>

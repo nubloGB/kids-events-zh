@@ -9,6 +9,7 @@ import {
   partitionEvents,
   zurichToday,
 } from "./events";
+import { ageRange } from "./age";
 import { fold } from "./text";
 import { describe, expect, it } from "vitest";
 
@@ -69,9 +70,16 @@ describe("events.json", () => {
     expect(theatre.upcoming.every((event) => event.category === "teatr")).toBe(true);
     expect(theatre.recurring).toHaveLength(0);
 
-    const toddlers = partitionEvents(file.events, "2026-10-18", { ...EMPTY_FILTERS, age: 2 });
+    const toddlers = partitionEvents(file.events, "2026-10-18", { ...EMPTY_FILTERS, age: "under3" });
     expect(toddlers.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(false);
     expect(toddlers.upcoming.some((event) => event.title.startsWith("Familientag"))).toBe(true);
+    expect(toddlers.upcoming.some((event) => event.age === "2–5 lat")).toBe(true);
+
+    const older = partitionEvents(file.events, "2026-10-18", { ...EMPTY_FILTERS, age: "over3" });
+    expect(older.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(true);
+    expect(older.upcoming.every((event) => event.ageMin === null || event.ageMax === null || event.ageMax >= 3)).toBe(
+      true,
+    );
 
     const search = partitionEvents(file.events, "2026-10-18", {
       ...EMPTY_FILTERS,
@@ -81,6 +89,39 @@ describe("events.json", () => {
     expect(fold("Łyżwy")).toBe("lyzwy");
     expect(filtersAreActive({ ...EMPTY_FILTERS, query: "zoo" })).toBe(true);
     expect(filtersAreActive(EMPTY_FILTERS)).toBe(false);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "today" } })).toBe(true);
+  });
+
+  it("keeps ageMin and ageMax aligned with the age text", () => {
+    for (const event of file.events) {
+      const range = ageRange(event.age, event.startDate);
+      expect(event.ageMin).toBe(range ? range.min : null);
+      expect(event.ageMax).toBe(range ? range.max : null);
+    }
+  });
+
+  it("matches multi-day events when they overlap the chosen dates", () => {
+    const week = partitionEvents(file.events, "2026-10-19", { ...EMPTY_FILTERS, date: { kind: "thisWeek" } });
+    expect(week.upcoming.some((event) => event.title.startsWith("Ich höre was"))).toBe(true);
+    expect(week.upcoming.some((event) => event.title.startsWith("Käfer"))).toBe(false);
+    expect(week.recurring).toHaveLength(0);
+
+    const weekend = partitionEvents(file.events, "2026-10-19", { ...EMPTY_FILTERS, date: { kind: "thisWeekend" } });
+    expect(weekend.upcoming.some((event) => event.title.startsWith("Bring- und Holtag"))).toBe(true);
+    expect(weekend.upcoming.some((event) => event.title.startsWith("Putzfrau"))).toBe(false);
+
+    const nextMonth = partitionEvents(file.events, "2026-10-19", { ...EMPTY_FILTERS, date: { kind: "nextMonth" } });
+    expect(nextMonth.upcoming.some((event) => event.title.startsWith("Käfer"))).toBe(true);
+    expect(nextMonth.upcoming.some((event) => event.title.startsWith("Halloween Fest"))).toBe(false);
+    expect(nextMonth.upcoming.some((event) => event.title.startsWith("Oerliker Singmüüs"))).toBe(true);
+
+    const custom = partitionEvents(file.events, "2026-10-19", {
+      ...EMPTY_FILTERS,
+      date: { kind: "custom", from: "2026-11-04", to: "2026-11-04" },
+    });
+    expect(custom.upcoming.map((event) => event.startDate).every((date) => date && date <= "2026-11-04")).toBe(true);
+    expect(custom.upcoming.some((event) => event.title.startsWith("Käfer"))).toBe(true);
+    expect(custom.upcoming.some((event) => (event.endDate || event.startDate || "") < "2026-11-04")).toBe(false);
   });
 
   it("gives every event a Swiss coordinate and a committed image", () => {
