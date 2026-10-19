@@ -42,6 +42,7 @@ export function EventsBoard({
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [focusOrigin, setFocusOrigin] = useState<"list" | "map">("list");
   const [focusTick, setFocusTick] = useState(0);
   const itemRefs = useRef(new Map<string, HTMLLIElement>());
@@ -70,10 +71,11 @@ export function EventsBoard({
     itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [focusOrigin, focusTick, selectedId]);
 
-  function selectFromList(id: string) {
+  function showOnMap(id: string) {
     setSelectedId(id);
     setFocusOrigin("list");
     setFocusTick((tick) => tick + 1);
+    if (!wide) setMobileView("mapa");
   }
 
   function selectFromMap(id: string) {
@@ -172,7 +174,8 @@ export function EventsBoard({
               itemRefs={itemRefs}
               selectedId={selectedId}
               today={today}
-              onSelect={selectFromList}
+              onHighlight={setHoveredId}
+              onShowOnMap={showOnMap}
             />
             <EventSection
               events={listRecurring}
@@ -181,7 +184,8 @@ export function EventsBoard({
               itemRefs={itemRefs}
               selectedId={selectedId}
               today={today}
-              onSelect={selectFromList}
+              onHighlight={setHoveredId}
+              onShowOnMap={showOnMap}
             />
           </div>
         )}
@@ -194,6 +198,7 @@ export function EventsBoard({
           today={today}
           focusOrigin={focusOrigin}
           focusTick={focusTick}
+          highlightId={hoveredId}
           selectedId={selectedId}
           onBounds={setBounds}
           onSelect={selectFromMap}
@@ -209,7 +214,8 @@ function EventSection({
   events,
   today,
   selectedId,
-  onSelect,
+  onHighlight,
+  onShowOnMap,
   itemRefs,
 }: {
   id: string;
@@ -217,7 +223,8 @@ function EventSection({
   events: KidsEvent[];
   today: string;
   selectedId: string | null;
-  onSelect: (id: string) => void;
+  onHighlight: (id: string | null) => void;
+  onShowOnMap: (id: string) => void;
   itemRefs: MutableRefObject<Map<string, HTMLLIElement>>;
 }) {
   if (events.length === 0) return null;
@@ -235,7 +242,13 @@ function EventSection({
                 else itemRefs.current.delete(key);
               }}
             >
-              <EventCard event={event} selected={key === selectedId} today={today} onSelect={() => onSelect(key)} />
+              <EventCard
+                event={event}
+                selected={key === selectedId}
+                today={today}
+                onHighlight={(active) => onHighlight(active ? key : null)}
+                onShowOnMap={() => onShowOnMap(key)}
+              />
             </li>
           );
         })}

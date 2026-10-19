@@ -2,11 +2,12 @@ import { Dropdown } from "@heroui/react";
 import { downloadIcs, googleCalendarUrl } from "../lib/calendar";
 import type { KidsEvent } from "../types";
 
-function CalendarIcon() {
+function CalendarPlusIcon() {
   return (
     <svg aria-hidden="true" fill="none" height="18" viewBox="0 0 24 24" width="18">
-      <rect height="15" rx="2" stroke="currentColor" strokeWidth="1.8" width="16" x="4" y="5" />
-      <path d="M8 3.5v3M16 3.5v3M4 10h16" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
+      <rect height="14" rx="2" stroke="currentColor" strokeWidth="1.8" width="14" x="3" y="5" />
+      <path d="M7 3.5v3M13 3.5v3M3 9.5h14" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
+      <path d="M19 15v6M16 18h6" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
     </svg>
   );
 }
@@ -28,11 +29,11 @@ export function CalendarMenu({
     >
       <Dropdown>
         <Dropdown.Trigger
-          aria-label={`Dodaj „${event.title}” do kalendarza`}
-          className={labeled ? "calendar-button calendar-button--labeled" : "calendar-button"}
+          aria-label={`Dodaj ${event.title} do kalendarza`}
+          className={labeled ? "button button--sm button--secondary event-card__calendar" : "calendar-button"}
         >
-          <CalendarIcon />
-          {labeled ? <span>Kalendarz</span> : null}
+          <CalendarPlusIcon />
+          {labeled ? <span>Dodaj do kalendarza</span> : null}
         </Dropdown.Trigger>
         <Dropdown.Popover placement="bottom end">
           <Dropdown.Menu
@@ -45,8 +46,8 @@ export function CalendarMenu({
             <Dropdown.Item id="google" textValue="Google Calendar">
               Google Calendar
             </Dropdown.Item>
-            <Dropdown.Item id="ics" textValue="Apple / iCal">
-              Apple / iCal
+            <Dropdown.Item id="ics" textValue="Apple / iCal (.ics)">
+              Apple / iCal (.ics)
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown.Popover>
