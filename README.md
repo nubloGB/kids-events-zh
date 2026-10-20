@@ -44,12 +44,15 @@ Data w nagłówku („Ostatnia aktualizacja”) bierze się z pola `updatedAt`. 
 | `category` | Jedno z: `teatr`, `muzyka`, `sport`, `zwierzęta/natura`, `warsztaty`, `biblioteka`, `campy/ferie`, `festyny`, `stałe`. Kategoria `stałe` jest tylko dla wpisów z `startDate: null`. |
 | `registration` | Jak się zapisać. Gdy nie wiadomo, wpisz `brak info`. |
 | `isNew` | Oznacz świeży wpis. Po kolejnej aktualizacji ustaw z powrotem `false`, chyba że wpis nadal jest nowy. |
+| `tags` | Lista znaczników, na przykład `["halloween"]`. Puste `[]`, gdy wpis nie ma motywu. Przycisk „Halloween 🎃” na górze filtrów zostawia tylko wpisy z tym znacznikiem i działa razem z datą, wiekiem oraz mapą. |
 
 Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startDate`. Zajęcia stałe są alfabetycznie w osobnej sekcji.
 
 ### Mapa i zdjęcia
 
 Każde wydarzenie ma pinezkę. Kolor i ikona biorą się z kategorii, a gęste miejsca (na przykład kilka spektakli w Theater Stadelhofen) zwijają się w klastry. Kliknięcie pinezki podświetla kartę na liście. Najechanie karty podświetla jej pinezkę, a „Pokaż na mapie” przybliża mapę do tego punktu. Tytuł na zdjęciu otwiera stronę wydarzenia. Filtr „Tylko widoczny obszar mapy” zostawia na liście i na mapie tylko to, co jest w kadrze. Na wąskim ekranie przełącznik „Lista / Mapa” pokazuje jedną z tych części.
+
+Przycisk „Halloween 🎃” na górze filtrów włącza znacznik `halloween`. Data, wiek, obszar i „Tylko widoczny obszar mapy” nadal zawężają tę listę.
 
 Filtr daty liczy się według kalendarza Europy/Zurych, a tydzień zaczyna się w poniedziałek. „Ten tydzień” trwa od dziś do najbliższej niedzieli, „Ten weekend” od piątku do niedzieli tego tygodnia (w sobotę i niedzielę: od dziś do niedzieli), „Następny tydzień” to kolejny poniedziałek–niedziela, „Następny miesiąc” to cały następny miesiąc kalendarzowy. Wydarzenie wielodniowe zostaje, gdy jego zakres nachodzi na wybrany. Zajęcia stałe, bez `startDate`, widać przy „Wszystkie daty”.
 

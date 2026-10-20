@@ -23,17 +23,21 @@ describe("zurichToday", () => {
 });
 
 describe("events.json", () => {
-  it("keeps the 17 October snapshot and every listing", () => {
-    expect(file.updatedAt).toBe("2026-10-17");
-    expect(file.events).toHaveLength(67);
-    expect(file.events.filter((event) => event.isNew).map((event) => event.title)).toEqual([
+  it("keeps the 20 October snapshot and every listing", () => {
+    expect(file.updatedAt).toBe("2026-10-20");
+    expect(file.events).toHaveLength(105);
+    const fresh = file.events.filter((event) => event.isNew).map((event) => event.title);
+    expect(fresh).toEqual(expect.arrayContaining([
       "Räbeliächtli – PLATZ",
       "Adventsfenster i zakończenie roku – PLATZ",
       "Zimowanie PLATZ (Einwintern)",
       "PLATZ – otwarty plac przygód",
       "Opowieści w jurcie – PLATZ",
       "Joga dla dzieci w jurcie – PLATZ",
-    ]);
+      "Monatsrätsel „Grusel & Halloween” (PBZ)",
+      "Alice im Wunderland (Opernhaus)",
+    ]));
+    expect(file.events.every((event) => Array.isArray(event.tags))).toBe(true);
   });
 
   it("hides only the two showings from 17 October on the following day", () => {
@@ -50,7 +54,7 @@ describe("events.json", () => {
     const { upcoming, recurring } = partitionEvents(file.events, "2026-10-18", EMPTY_FILTERS);
     const dates = upcoming.map((event) => event.startDate ?? "");
     expect(dates).toEqual([...dates].sort());
-    expect(upcoming[0]?.title).toBe("Familientag Landesmuseum");
+    expect(upcoming[0]?.title).toBe("Halloween w Europa-Park");
     expect(recurring.map((event) => event.title)).toContain("Zoo Zürich");
     expect(recurring.every((event) => event.startDate === null && event.category === "stałe")).toBe(true);
   });
@@ -90,6 +94,25 @@ describe("events.json", () => {
     expect(filtersAreActive({ ...EMPTY_FILTERS, query: "zoo" })).toBe(true);
     expect(filtersAreActive(EMPTY_FILTERS)).toBe(false);
     expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "today" } })).toBe(true);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, tags: ["halloween"] })).toBe(true);
+  });
+
+  it("keeps Halloween as a tag that combines with age", () => {
+    const halloween = partitionEvents(file.events, "2026-10-20", { ...EMPTY_FILTERS, tags: ["halloween"] });
+    const listed = [...halloween.upcoming, ...halloween.recurring];
+    expect(listed.length).toBeGreaterThan(30);
+    expect(listed.every((event) => event.tags.includes("halloween"))).toBe(true);
+    expect(listed.some((event) => event.title.startsWith("Alice"))).toBe(false);
+    expect(listed.some((event) => event.title === "Halloween Fest")).toBe(true);
+
+    const toddlers = partitionEvents(file.events, "2026-10-20", {
+      ...EMPTY_FILTERS,
+      tags: ["halloween"],
+      age: "under3",
+    });
+    expect(toddlers.upcoming.every((event) => event.ageMin === null || event.ageMin < 3)).toBe(true);
+    expect(toddlers.upcoming.some((event) => event.title.includes("Kulturama"))).toBe(false);
+    expect(toddlers.upcoming.some((event) => event.title.includes("ELCH Regensberg"))).toBe(true);
   });
 
   it("keeps ageMin and ageMax aligned with the age text", () => {
@@ -126,6 +149,11 @@ describe("events.json", () => {
 
   it("gives every event a Swiss coordinate and a committed image", () => {
     for (const event of file.events) {
+      if (event.place.startsWith("Europa-Park")) {
+        expect(event.lat).toBeCloseTo(48.265, 2);
+        expect(event.lng).toBeCloseTo(7.721, 2);
+        continue;
+      }
       expect(event.lat).toBeGreaterThan(47.2);
       expect(event.lat).toBeLessThan(47.6);
       expect(event.lng).toBeGreaterThan(8.4);

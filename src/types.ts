@@ -33,6 +33,8 @@ export interface KidsEvent {
   category: Category;
   registration: string;
   isNew: boolean;
+  /** Theme tags, for example `halloween`. Empty when the listing has no theme. */
+  tags: string[];
   /** WGS84 latitude of the venue. */
   lat: number;
   /** WGS84 longitude of the venue. */
@@ -80,6 +82,8 @@ export interface EventFilters {
   categories: Category[];
   age: AgeBandFilter;
   date: DateFilter;
+  /** Event must carry at least one of these tags. Empty means no theme filter. */
+  tags: string[];
 }
 
 export interface MapBounds {

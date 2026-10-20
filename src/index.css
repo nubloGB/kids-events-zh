@@ -236,6 +236,28 @@ input {
   padding: 0.9rem 0.95rem 1.1rem;
 }
 
+.halloween-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  border: 0;
+  border-radius: 999px;
+  background: #fff7ed;
+  color: #c2410c;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 0.55rem 0.9rem;
+}
+
+.halloween-toggle.is-selected {
+  background: linear-gradient(100deg, #ea580c, #c026d3);
+  color: white;
+}
+
 .filters-head {
   display: flex;
   align-items: center;

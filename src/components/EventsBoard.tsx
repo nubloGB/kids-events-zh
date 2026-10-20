@@ -35,6 +35,7 @@ export function EventsBoard({
   const [categories, setCategories] = useState<Category[]>([]);
   const [age, setAge] = useState<AgeBandFilter>(null);
   const [date, setDate] = useState<DateFilter>({ kind: "all" });
+  const [tags, setTags] = useState<string[]>([]);
   const [customFrom, setCustomFrom] = useState("");
   const [customTo, setCustomTo] = useState("");
   const [onlyVisible, setOnlyVisible] = useState(false);
@@ -48,8 +49,8 @@ export function EventsBoard({
   const itemRefs = useRef(new Map<string, HTMLLIElement>());
 
   const filters = useMemo(
-    () => ({ query, areas, categories, age, date }),
-    [age, areas, categories, date, query],
+    () => ({ query, areas, categories, age, date, tags }),
+    [age, areas, categories, date, query, tags],
   );
   const { upcoming, recurring } = useMemo(
     () => partitionEvents(events, today, filters),
@@ -91,6 +92,7 @@ export function EventsBoard({
     setCategories([]);
     setAge(null);
     setDate({ kind: "all" });
+    setTags([]);
     setCustomFrom("");
     setCustomTo("");
     setOnlyVisible(false);
@@ -128,6 +130,7 @@ export function EventsBoard({
         customFrom={customFrom}
         customTo={customTo}
         date={date}
+        tags={tags}
         onlyVisible={onlyVisible}
         today={today}
         onAge={setAge}
@@ -137,6 +140,7 @@ export function EventsBoard({
         onCustomFrom={setCustomFrom}
         onCustomTo={setCustomTo}
         onDate={setDate}
+        onTags={setTags}
         onOnlyVisible={setOnlyVisible}
       />
 
