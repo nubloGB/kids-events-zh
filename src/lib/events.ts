@@ -56,6 +56,7 @@ export function matchesFilters(event: KidsEvent, filters: EventFilters, today: s
   if (chosen) {
     if (!event.startDate || !rangesOverlap(event.startDate, event.endDate || event.startDate, chosen)) return false;
   }
+  if (filters.tags.length > 0 && !filters.tags.some((tag) => event.tags.includes(tag))) return false;
   const query = fold(filters.query).trim();
   if (!query) return true;
   const haystack = fold(
@@ -68,6 +69,7 @@ export function matchesFilters(event: KidsEvent, filters: EventFilters, today: s
       event.registration,
       event.area,
       event.category,
+      ...event.tags,
     ].join(" "),
   );
   return haystack.includes(query);
@@ -152,8 +154,11 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   if (recurring !== (event.category === "stałe")) {
     throw new Error(`${where}: kategoria „stałe” jest zarezerwowana dla zajęć bez daty`);
   }
-  if (typeof event.lat !== "number" || !Number.isFinite(event.lat) || event.lat < 45.8 || event.lat > 47.9) {
-    throw new Error(`${where}: lat musi być współrzędną w Szwajcarii`);
+  if (!Array.isArray(event.tags) || event.tags.some((tag) => typeof tag !== "string" || !/^[a-z0-9-]+$/.test(tag))) {
+    throw new Error(`${where}: tags musi być listą znaczników`);
+  }
+  if (typeof event.lat !== "number" || !Number.isFinite(event.lat) || event.lat < 45.8 || event.lat > 48.5) {
+    throw new Error(`${where}: lat musi być współrzędną w Szwajcarii albo w Europa-Parku w Rust`);
   }
   if (typeof event.lng !== "number" || !Number.isFinite(event.lng) || event.lng < 5.9 || event.lng > 10.6) {
     throw new Error(`${where}: lng musi być współrzędną w Szwajcarii`);
@@ -182,6 +187,7 @@ export const EMPTY_FILTERS: EventFilters = {
   categories: [],
   age: null,
   date: { kind: "all" },
+  tags: [],
 };
 
 export function filtersAreActive(filters: EventFilters): boolean {
@@ -190,6 +196,7 @@ export function filtersAreActive(filters: EventFilters): boolean {
     filters.areas.length > 0 ||
     filters.categories.length > 0 ||
     filters.age !== null ||
-    filters.date.kind !== "all"
+    filters.date.kind !== "all" ||
+    filters.tags.length > 0
   );
 }

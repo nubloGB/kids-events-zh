@@ -47,6 +47,7 @@ export function FilterSidebar({
   categories,
   age,
   date,
+  tags,
   customFrom,
   customTo,
   onlyVisible,
@@ -55,6 +56,7 @@ export function FilterSidebar({
   onCategories,
   onAge,
   onDate,
+  onTags,
   onCustomFrom,
   onCustomTo,
   onOnlyVisible,
@@ -65,6 +67,7 @@ export function FilterSidebar({
   categories: Category[];
   age: AgeBandFilter;
   date: DateFilter;
+  tags: string[];
   customFrom: string;
   customTo: string;
   onlyVisible: boolean;
@@ -73,6 +76,7 @@ export function FilterSidebar({
   onCategories: (categories: Category[]) => void;
   onAge: (age: AgeBandFilter) => void;
   onDate: (date: DateFilter) => void;
+  onTags: (tags: string[]) => void;
   onCustomFrom: (value: string) => void;
   onCustomTo: (value: string) => void;
   onOnlyVisible: (value: boolean) => void;
@@ -82,6 +86,19 @@ export function FilterSidebar({
 
   return (
     <aside className="filters-pane">
+      <button
+        type="button"
+        className={tags.includes("halloween") ? "halloween-toggle is-selected" : "halloween-toggle"}
+        aria-pressed={tags.includes("halloween")}
+        onClick={() =>
+          onTags(
+            tags.includes("halloween") ? tags.filter((tag) => tag !== "halloween") : [...tags, "halloween"],
+          )
+        }
+      >
+        Halloween 🎃
+      </button>
+
       <div className="filters-head">
         <h2>Filtry</h2>
         {canClear ? (

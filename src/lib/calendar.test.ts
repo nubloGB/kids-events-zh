@@ -17,6 +17,7 @@ function sample(overrides: Partial<KidsEvent>): KidsEvent {
     category: "biblioteka",
     registration: "brak info",
     isNew: false,
+    tags: [],
     lat: 47.41,
     lng: 8.54,
     image: "images/fallback-books.jpg",

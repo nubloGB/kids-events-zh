@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-17",
+  "updatedAt": "2026-10-20",
   "events": [
     {
       "dateText": "sob./śr. popołudniami, np. sob. 17.10.2026 14:00 i 15:00",
@@ -17,7 +17,8 @@
       "isNew": false,
       "lat": 47.37924,
       "lng": 8.540702,
-      "image": "images/geschichtenfenster.jpg"
+      "image": "images/geschichtenfenster.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 17.10.2026, 10:15–11:45",
@@ -35,7 +36,8 @@
       "isNew": false,
       "lat": 47.411676,
       "lng": 8.545043,
-      "image": "images/fallback-books.jpg"
+      "image": "images/fallback-books.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 18.10.2026, 10:00–17:00",
@@ -53,7 +55,8 @@
       "isNew": false,
       "lat": 47.37924,
       "lng": 8.540702,
-      "image": "images/fallback-museum.jpg"
+      "image": "images/fallback-museum.jpg",
+      "tags": []
     },
     {
       "dateText": "wtorki 9:30–10:30 (od 20.10.2026, kurs 8 spotkań)",
@@ -72,7 +75,8 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-music.jpg"
+      "image": "images/fallback-music.jpg",
+      "tags": []
     },
     {
       "dateText": "wt. 20.10.2026, 10:00–10:45",
@@ -90,7 +94,8 @@
       "isNew": false,
       "lat": 47.40283,
       "lng": 8.574138,
-      "image": "images/fallback-books.jpg"
+      "image": "images/fallback-books.jpg",
+      "tags": []
     },
     {
       "dateText": "od wt. 20.10.2026 do 20.4.2027, wtorki 17:30–18:30 (semestr)",
@@ -109,7 +114,8 @@
       "isNew": false,
       "lat": 47.415442,
       "lng": 8.540137,
-      "image": "images/fallback-climbing.jpg"
+      "image": "images/fallback-climbing.jpg",
+      "tags": []
     },
     {
       "dateText": "od wt. 20.10.2026: wt./czw. 16:30–17:30, śr. 13:00–14:00 (do 22.4.2027)",
@@ -128,7 +134,8 @@
       "isNew": false,
       "lat": 47.410765,
       "lng": 8.556225,
-      "image": "images/fallback-pool.jpg"
+      "image": "images/fallback-pool.jpg",
+      "tags": []
     },
     {
       "dateText": "od wt. 20.10.2026 do 2.3.2027, wt. i czw. 17:00–18:00",
@@ -147,7 +154,8 @@
       "isNew": false,
       "lat": 47.368045,
       "lng": 8.505603,
-      "image": "images/fallback-ice.jpg"
+      "image": "images/fallback-ice.jpg",
+      "tags": []
     },
     {
       "dateText": "od wt. 20.10.2026: wt. 15:45–17:00 i sob. 12:15–13:30 (do 20.4.2027)",
@@ -166,7 +174,8 @@
       "isNew": false,
       "lat": 47.372087,
       "lng": 8.532868,
-      "image": "images/fallback-gymnastics.jpg"
+      "image": "images/fallback-gymnastics.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 21.10.2026, 14:30–15:30",
@@ -184,7 +193,8 @@
       "isNew": false,
       "lat": 47.424656,
       "lng": 8.510892,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:00–14:00 i 14:00–15:00 (do 21.4.2027)",
@@ -203,7 +213,8 @@
       "isNew": false,
       "lat": 47.419994,
       "lng": 8.512367,
-      "image": "images/fallback-rollers.jpg"
+      "image": "images/fallback-rollers.jpg",
+      "tags": []
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–14:30 i 14:30–15:30 (do 21.4.2027)",
@@ -222,7 +233,8 @@
       "isNew": false,
       "lat": 47.377782,
       "lng": 8.558749,
-      "image": "images/fallback-gymnastics.jpg"
+      "image": "images/fallback-gymnastics.jpg",
+      "tags": []
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–15:25 (różne grupy)",
@@ -240,7 +252,8 @@
       "isNew": false,
       "lat": 47.377209,
       "lng": 8.51636,
-      "image": "images/fallback-football.jpg"
+      "image": "images/fallback-football.jpg",
+      "tags": []
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 16:00–17:00 i sob. 13:00–14:00",
@@ -258,7 +271,8 @@
       "isNew": false,
       "lat": 47.372087,
       "lng": 8.532868,
-      "image": "images/fallback-gymnastics.jpg"
+      "image": "images/fallback-gymnastics.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 24.10.2026, 10:00–11:30",
@@ -276,7 +290,8 @@
       "isNew": false,
       "lat": 47.402266,
       "lng": 8.497295,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 24.10.2026, 14:30 i ndz. 25.10.2026, 11:00",
@@ -295,7 +310,8 @@
       "isNew": false,
       "lat": 47.366947,
       "lng": 8.547387,
-      "image": "images/theater-hoeren.jpg"
+      "image": "images/theater-hoeren.jpg",
+      "tags": []
     },
     {
       "dateText": "soboty 24.10–19.12.2026 (bez 5.12), 9:15–11:45",
@@ -314,7 +330,8 @@
       "isNew": false,
       "lat": 47.424656,
       "lng": 8.510892,
-      "image": "images/werken.jpg"
+      "image": "images/werken.jpg",
+      "tags": []
     },
     {
       "dateText": "od sob. 24.10.2026 do 6.2.2027, sob. 12:30–13:45",
@@ -333,7 +350,8 @@
       "isNew": false,
       "lat": 47.368045,
       "lng": 8.505603,
-      "image": "images/fallback-hockey.jpg"
+      "image": "images/fallback-hockey.jpg",
+      "tags": []
     },
     {
       "dateText": "od sob. 24.10.2026: sob./ndz. 10:00–12:00 (do 18.4.2027)",
@@ -352,7 +370,8 @@
       "isNew": false,
       "lat": 47.419994,
       "lng": 8.512367,
-      "image": "images/fallback-tennis.jpg"
+      "image": "images/fallback-tennis.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 24.10.2026, 16:00–17:30",
@@ -370,7 +389,8 @@
       "isNew": false,
       "lat": 47.251866,
       "lng": 8.557935,
-      "image": "images/fallback-forest.jpg"
+      "image": "images/fallback-forest.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 25.10.2026, 14:00–15:00 (DE), 15:00–16:00 (RU)",
@@ -388,7 +408,8 @@
       "isNew": false,
       "lat": 47.424575,
       "lng": 8.54428,
-      "image": "images/fallback-books.jpg"
+      "image": "images/fallback-books.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 25.10.2026, 9:15–15:00; safari 13:30 i 15:00",
@@ -406,7 +427,8 @@
       "isNew": false,
       "lat": 47.2992,
       "lng": 8.528792,
-      "image": "images/fallback-zoo.jpg"
+      "image": "images/fallback-zoo.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 28.10.2026, 15:00–16:00",
@@ -424,7 +446,8 @@
       "isNew": false,
       "lat": 47.399052,
       "lng": 8.534701,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 31.10.2026, 17:30–20:00",
@@ -442,7 +465,10 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-halloween.jpg"
+      "image": "images/fallback-halloween.jpg",
+      "tags": [
+        "halloween"
+      ]
     },
     {
       "dateText": "sob. 31.10.2026, 14:30; ndz. 1.11, 11:00; śr. 4.11, 14:30",
@@ -461,25 +487,29 @@
       "isNew": false,
       "lat": 47.366947,
       "lng": 8.547387,
-      "image": "images/theater-lili.jpg"
+      "image": "images/theater-lili.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 31.10.2026, 16:00–ok. 21:00",
       "startDate": "2026-10-31",
       "title": "Halloween na Juckerhof",
-      "url": "https://www.juckerfarm.ch/anlass/",
-      "description": "Rzeźbienie lampionów z dyni, konkurs kostiumów, jedzenie.",
+      "url": "https://www.juckerfarm.ch/anlass/halloween-auf-dem-juckerhof/",
+      "description": "Rzeźbienie dyni (16:00–ok. 19:00, dopóki starczy), konkurs kostiumów o 19:00 i jedzenie na hofie. Bilet nie jest potrzebny.",
       "age": "rodziny",
       "ageMin": null,
       "ageMax": null,
       "place": "Juckerhof, Seegräben",
       "area": "Okolice",
       "category": "festyny",
-      "registration": "brak info",
+      "registration": "Bez biletu",
       "isNew": false,
       "lat": 47.34386,
       "lng": 8.772889,
-      "image": "images/fallback-halloween.jpg"
+      "image": "images/fallback-halloween.jpg",
+      "tags": [
+        "halloween"
+      ]
     },
     {
       "dateText": "ndz. 1.11.2026, 11:15 i 14:15",
@@ -497,7 +527,8 @@
       "isNew": false,
       "lat": 47.366137,
       "lng": 8.537982,
-      "image": "images/tonhalle.jpg"
+      "image": "images/tonhalle.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 1.11.2026 (też 6.12, 10.1, 7.2, 7.3), 10–11 i 12–13",
@@ -516,7 +547,8 @@
       "isNew": false,
       "lat": 47.356088,
       "lng": 8.535007,
-      "image": "images/fallback-succulents.jpg"
+      "image": "images/fallback-succulents.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–16:00",
@@ -534,7 +566,8 @@
       "isNew": false,
       "lat": 47.386914,
       "lng": 8.577599,
-      "image": "images/fallback-zoo.jpg"
+      "image": "images/fallback-zoo.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–17:00 (i pt. 6.11)",
@@ -553,7 +586,8 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 4.11.2026, 14:00–17:00; pochód pt. 6.11",
@@ -572,7 +606,8 @@
       "isNew": false,
       "lat": 47.402528,
       "lng": 8.591906,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 4.11.2026, 15:00–15:50",
@@ -590,7 +625,8 @@
       "isNew": false,
       "lat": 47.399052,
       "lng": 8.534701,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 4.11.2026",
@@ -608,7 +644,8 @@
       "isNew": false,
       "lat": 47.411932,
       "lng": 8.483318,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 7.11.2026, 13:30–16:30",
@@ -626,7 +663,8 @@
       "isNew": false,
       "lat": 47.413896,
       "lng": 8.476517,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 7.11.2026, 15:00–16:00",
@@ -644,7 +682,8 @@
       "isNew": false,
       "lat": 47.399052,
       "lng": 8.534701,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 7.11.2026, 14:30",
@@ -662,7 +701,8 @@
       "isNew": false,
       "lat": 47.366947,
       "lng": 8.547387,
-      "image": "images/theater-reading.jpg"
+      "image": "images/theater-reading.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 8.11.2026, 16:00–16:45",
@@ -680,7 +720,8 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-music.jpg"
+      "image": "images/fallback-music.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 11.11.2026, 14:00–15:00",
@@ -698,7 +739,8 @@
       "isNew": false,
       "lat": 47.417128,
       "lng": 8.558346,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "pt. 13.11.2026, 14:00–17:00",
@@ -716,7 +758,8 @@
       "isNew": false,
       "lat": 47.402266,
       "lng": 8.497295,
-      "image": "images/fallback-books.jpg"
+      "image": "images/fallback-books.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 14.11.2026 lub sob. 28.11.2026 (start; potem 1×/mies., śr. lub sob.)",
@@ -735,7 +778,8 @@
       "isNew": false,
       "lat": 47.39796,
       "lng": 8.544308,
-      "image": "images/fallback-forest.jpg"
+      "image": "images/fallback-forest.jpg",
+      "tags": []
     },
     {
       "dateText": "21.11–6.12.2026: sob./ndz. 12:00–18:00, pn/wt/czw/pt 16:00–18:00, śr. 13:30–18:00",
@@ -754,7 +798,8 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-candles.jpg"
+      "image": "images/fallback-candles.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 21.11.2026, 14:00–16:30",
@@ -772,7 +817,8 @@
       "isNew": false,
       "lat": 47.356088,
       "lng": 8.535007,
-      "image": "images/fallback-succulents.jpg"
+      "image": "images/fallback-succulents.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 22.11.2026, 15:00–16:00",
@@ -790,7 +836,8 @@
       "isNew": false,
       "lat": 47.407818,
       "lng": 8.545756,
-      "image": "images/fallback-stage.jpg"
+      "image": "images/fallback-stage.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 25.11.2026, 14:00–22:00",
@@ -808,7 +855,8 @@
       "isNew": false,
       "lat": 47.424656,
       "lng": 8.510892,
-      "image": "images/advent-wreath.jpg"
+      "image": "images/advent-wreath.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 28.11.2026, 10:00–14:00",
@@ -826,7 +874,8 @@
       "isNew": false,
       "lat": 47.402528,
       "lng": 8.591906,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 28.11.2026, 14:30; ndz. 29.11, 11:00",
@@ -845,7 +894,8 @@
       "isNew": false,
       "lat": 47.366947,
       "lng": 8.547387,
-      "image": "images/theater-woanders.jpg"
+      "image": "images/theater-woanders.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 29.11.2026, 9:00–13:00",
@@ -863,7 +913,8 @@
       "isNew": false,
       "lat": 47.34386,
       "lng": 8.772889,
-      "image": "images/fallback-farm.jpg"
+      "image": "images/fallback-farm.jpg",
+      "tags": []
     },
     {
       "dateText": "listopad 2026 (dokładna data jeszcze nieznana)",
@@ -881,7 +932,8 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "czw. 3.12.2026, 19:00–22:00",
@@ -899,7 +951,8 @@
       "isNew": false,
       "lat": 47.424656,
       "lng": 8.510892,
-      "image": "images/candles-gz.jpg"
+      "image": "images/candles-gz.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 5.12.2026, 8:00–19:00",
@@ -917,7 +970,8 @@
       "isNew": false,
       "lat": 47.47801,
       "lng": 8.771153,
-      "image": "images/fallback-athletics.jpg"
+      "image": "images/fallback-athletics.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 9.12.2026, 14:30; sob. 12.12, 14:30; ndz. 13.12, 11:00; śr. 16.12, 14:30",
@@ -936,7 +990,8 @@
       "isNew": false,
       "lat": 47.366947,
       "lng": 8.547387,
-      "image": "images/theater-bubbles.jpg"
+      "image": "images/theater-bubbles.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 13.12.2026: rodziny 10:00–10:40, U10 11:22, rodzic+dziecko 11:54–12:10",
@@ -954,7 +1009,8 @@
       "isNew": false,
       "lat": 47.376139,
       "lng": 8.543697,
-      "image": "images/silvesterlauf.jpg"
+      "image": "images/silvesterlauf.jpg",
+      "tags": []
     },
     {
       "dateText": "śr. 16.12.2026",
@@ -972,7 +1028,8 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-playground.jpg"
+      "image": "images/fallback-playground.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 19.12.2026",
@@ -990,7 +1047,8 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-playground.jpg"
+      "image": "images/fallback-playground.jpg",
+      "tags": []
     },
     {
       "dateText": "czw. 31.12.2026, 22:00",
@@ -1008,7 +1066,8 @@
       "isNew": false,
       "lat": 47.403827,
       "lng": 8.438826,
-      "image": "images/fallback-running.jpg"
+      "image": "images/fallback-running.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 10.1.2027, 11:15 i 14:15",
@@ -1026,7 +1085,8 @@
       "isNew": false,
       "lat": 47.366137,
       "lng": 8.537982,
-      "image": "images/tonhalle.jpg"
+      "image": "images/tonhalle.jpg",
+      "tags": []
     },
     {
       "dateText": "ferie zimowe (Sportferien) 2027",
@@ -1045,7 +1105,8 @@
       "isNew": false,
       "lat": 47.371853,
       "lng": 8.527201,
-      "image": "images/fallback-athletics.jpg"
+      "image": "images/fallback-athletics.jpg",
+      "tags": []
     },
     {
       "dateText": "sob. 6.3.2027, 8:30–18:00",
@@ -1063,7 +1124,8 @@
       "isNew": false,
       "lat": 47.415442,
       "lng": 8.540137,
-      "image": "images/fallback-athletics.jpg"
+      "image": "images/fallback-athletics.jpg",
+      "tags": []
     },
     {
       "dateText": "20–23.5.2027 (wyścigi dzieci w sob. i ndz.)",
@@ -1082,7 +1144,8 @@
       "isNew": false,
       "lat": 47.378625,
       "lng": 8.533705,
-      "image": "images/cycleweek.jpg"
+      "image": "images/cycleweek.jpg",
+      "tags": []
     },
     {
       "dateText": "ndz. 23.5.2027 (w ramach ZüriDirt 21–23.5)",
@@ -1100,7 +1163,8 @@
       "isNew": false,
       "lat": 47.357927,
       "lng": 8.522895,
-      "image": "images/fallback-bike.jpg"
+      "image": "images/fallback-bike.jpg",
+      "tags": []
     },
     {
       "dateText": "soboty 12:30 i 13:30 (stale)",
@@ -1118,7 +1182,8 @@
       "isNew": false,
       "lat": 47.385879,
       "lng": 8.578625,
-      "image": "images/fallback-cats.jpg"
+      "image": "images/fallback-cats.jpg",
+      "tags": []
     },
     {
       "dateText": "terminy na życzenie (stale)",
@@ -1136,7 +1201,8 @@
       "isNew": false,
       "lat": 47.367389,
       "lng": 8.56489,
-      "image": "images/fallback-crafts.jpg"
+      "image": "images/fallback-crafts.jpg",
+      "tags": []
     },
     {
       "dateText": "codziennie",
@@ -1154,7 +1220,8 @@
       "isNew": false,
       "lat": 47.386914,
       "lng": 8.577599,
-      "image": "images/fallback-zoo.jpg"
+      "image": "images/fallback-zoo.jpg",
+      "tags": []
     },
     {
       "dateText": "piątki 14:00–15:45 (stale, cały rok, nie co tydzień)",
@@ -1172,7 +1239,8 @@
       "isNew": false,
       "lat": 47.393022,
       "lng": 8.52005,
-      "image": "images/fallback-farm.jpg"
+      "image": "images/fallback-farm.jpg",
+      "tags": []
     },
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–17:00 i pt. 13:30–17:00 (pt. tylko przy suchej pogodzie) (stale, godziny zimowe)",
@@ -1190,7 +1258,8 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-playground.jpg"
+      "image": "images/fallback-playground.jpg",
+      "tags": []
     },
     {
       "dateText": "piątki 15:00 (stale)",
@@ -1208,7 +1277,8 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-books.jpg"
+      "image": "images/fallback-books.jpg",
+      "tags": []
     },
     {
       "dateText": "środy 16:00–17:00 (stale, od 16.9.2026)",
@@ -1226,7 +1296,808 @@
       "isNew": true,
       "lat": 47.51902,
       "lng": 8.715017,
-      "image": "images/fallback-yoga.jpg"
+      "image": "images/fallback-yoga.jpg",
+      "tags": []
+    },
+    {
+      "dateText": "1–31.10.2026, w godzinach otwarcia PBZ Unterstrass",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-31",
+      "title": "Monatsrätsel „Grusel & Halloween” (PBZ)",
+      "url": "https://www.pbz.ch/event/monatsraetsel-oktober-grusel-halloween/",
+      "description": "Miesięczna zagadka o duchach i Halloween w bibliotece. Kto rozwiąże, może wygrać nagrodę. Wstęp wolny.",
+      "age": "od 4 lat",
+      "ageMin": 4,
+      "ageMax": null,
+      "place": "PBZ Unterstrass, Scheuchzerstrasse 184",
+      "area": "Zurych",
+      "category": "biblioteka",
+      "registration": "Bez zapisów",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.394645,
+      "lng": 8.542589,
+      "image": "images/pbz-halloween.jpg"
+    },
+    {
+      "dateText": "codziennie do 1.11.2026, 10:00–18:00",
+      "startDate": "2026-10-01",
+      "endDate": "2026-11-01",
+      "title": "Spooky Barn (Hof Bockhorn)",
+      "url": "https://spooky-barn.ch/",
+      "description": "Stodoła pełna dyń i dekoracji halloweenowych. Dzieci uruchamiają stacje przyciskami. Wstęp wolny. Dojazd lepiej przez Auslikon albo Wermatswil, nie przez Aathal i Seegräben.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Hof Bockhorn, Ruetschbergstrasse 8, Pfäffikon ZH",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.353966,
+      "lng": 8.766384,
+      "image": "images/spooky-barn.jpg"
+    },
+    {
+      "dateText": "26.09–1.11.2026, w godzinach parku",
+      "startDate": "2026-09-26",
+      "endDate": "2026-11-01",
+      "title": "Halloween w Europa-Park",
+      "url": "https://mack.group/de/presse-medien/pressemitteilungen/halloween-im-europa-park-erlebnis-resort",
+      "description": "Sezon Halloween w parku w Rust: Pumpkin Village, dekoracje i atrakcje dla dzieci (Trick or Treat w części austriackiej). Potrzebny bilet wstępu do parku.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Europa-Park, Europa-Park-Straße 2, Rust",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bilet do parku",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 48.264987,
+      "lng": 7.720728,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 21.10 i 28.10.2026, 14:00–17:00; ndz. 25.10, 13:00–17:00",
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-28",
+      "title": "Gruselwerkstatt (GZ Seebach)",
+      "url": "https://gz-zh.ch/gz-seebach/angebote/kinderatelier-wundertuete/",
+      "description": "Warsztat ozdób halloweenowych: pająki, girlandy duchów, nietoperze, maski z dyni. W niedzielę 25.10 otwarte dla wszystkich. Poniżej 6 lat tylko z opiekunem. Płatność gotówką według zużytych materiałów.",
+      "age": "od 6 lat",
+      "ageMin": 6,
+      "ageMax": null,
+      "place": "GZ Seebach, Hertensteinstrasse 20",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Bez zapisów",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.424575,
+      "lng": 8.54428,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "śr. 21.10.2026, 14:00–17:00",
+      "startDate": "2026-10-21",
+      "title": "Kostümbörse (Quartiertreff Enge)",
+      "url": "https://quartiertreff-enge.ch/",
+      "description": "Wymiana i niedrogie stroje halloweenowe. Sposób na przebranie bez kupowania nowego kostiumu.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Quartiertreff Enge",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.359541,
+      "lng": 8.529489,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "pt. 23.10 i sob. 24.10.2026, od 16:00 do ok. 21:30 (wcześniejsze wieczory już minęły)",
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-24",
+      "title": "Pumpkin Light Night (Juckerhof)",
+      "url": "https://www.juckerfarm.ch/anlass/pumpkin-light-night-2026/",
+      "description": "Oświetlone dynie, Spooky Alley i wspólne rzeźbienie (16:00–19:00, do 200 dyń dziennie). Wstęp jest w bilecie na wystawę dyń. Odbywa się także w deszczu.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Juckerhof, Seegräben",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bilet na wystawę dyń",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.34386,
+      "lng": 8.772889,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "ndz. 25.10.2026, 13:00–15:00",
+      "startDate": "2026-10-25",
+      "title": "Spooktacular Halloween (AWCZ)",
+      "url": "https://www.awczurich.org/event-6845091",
+      "description": "Przyjęcie w przebraniach: dynie, torby na cukierki, eliksiry i parada kostiumów. To nie jest odbiór dziecka — jeden opiekun na rodzinę. Przekąski dla wszystkich.",
+      "age": "5–9 lat",
+      "ageMin": 5,
+      "ageMax": 9,
+      "place": "AWCZ Clubhouse, Höschgasse 38",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Zapisy do 23.10.2026. Członkowie 30 CHF, pozostali 45 CHF za pierwsze dziecko (kolejne taniej). Na stronie klubu zostały miejsca.",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.357331,
+      "lng": 8.553558,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "ndz. 25.10.2026, 14:00–17:00",
+      "startDate": "2026-10-25",
+      "title": "Halloween Party (GZ Loogarten)",
+      "url": "https://gz-zh.ch/gz-loogarten/",
+      "description": "Disco, malowanie twarzy i Halloween Zumba w domu kultury.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "GZ Loogarten, Altstetten",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.387946,
+      "lng": 8.472728,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 16:00–17:00",
+      "startDate": "2026-10-28",
+      "title": "Halloween-Party (ELCH Regensbergstrasse)",
+      "url": "https://zentrumelch.ch/familienzentren-zuerich-elch/regensbergstrasse/angebote/detail/halloween-party",
+      "description": "Przebrania, taniec, gry i słodycze. 3 CHF za dziecko.",
+      "age": "2–6 lat",
+      "ageMin": 2,
+      "ageMax": 6,
+      "place": "ELCH Regensbergstrasse, Holunderweg 27",
+      "area": "Oerlikon",
+      "category": "festyny",
+      "registration": "Bez zapisów. Info: 078 601 63 79",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.409652,
+      "lng": 8.534966,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 15:00–17:00",
+      "startDate": "2026-10-28",
+      "title": "Kafi Plus Halloween (ELCH CeCe-Areal)",
+      "url": "https://zentrumelch.ch/familienzentren-zuerich-elch/cece-areal/angebote/detail/halloween-cece",
+      "description": "Impreza w przebraniach. Dzieci bawią się w sali, rodzice mogą zostać w Kafi Plus. 6 CHF za dziecko, podwieczorek 2 CHF.",
+      "age": "od 3 lat",
+      "ageMin": 3,
+      "ageMax": null,
+      "place": "ELCH CeCe-Areal, Wehntalerstrasse 634",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów. Info: kultur.cece@zentrumelch.ch",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.422877,
+      "lng": 8.500153,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 15:00–17:00",
+      "startDate": "2026-10-28",
+      "title": "Halloween-Party (ELCH Frieden)",
+      "url": "https://zentrumelch.ch/familienzentren-zuerich-elch/frieden/angebote/detail/halloween-party-frieden",
+      "description": "Darmowa Kinderdisco. Malowanie twarzy i prace plastyczne dodatkowo 5 CHF.",
+      "age": "brak info o wieku",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "ELCH Frieden, Wehntalerstrasse 440",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny. Info: 078 874 37 31",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.415849,
+      "lng": 8.513546,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "pt. 30.10.2026, 15:00–17:30",
+      "startDate": "2026-10-30",
+      "title": "Halloweenparty (ELCH Accu)",
+      "url": "https://zentrumelch.ch/en/angebote-accu/detail/halloweenparty-accu",
+      "description": "Taniec, stół kreatywny i mała niespodzianka dla dzieci w przebraniu. 5 CHF. Dzieci tylko z dorosłym.",
+      "age": "brak info o wieku",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "ELCH Accu, Otto-Schütz-Weg 9",
+      "area": "Oerlikon",
+      "category": "festyny",
+      "registration": "Bez zapisów. Info: 078 253 32 58",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.414881,
+      "lng": 8.539885,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 14:00–18:00",
+      "startDate": "2026-10-28",
+      "title": "Dekorowanie dyń (Kids Club Letzipark)",
+      "url": "https://letzipark.ch/de",
+      "description": "Ozdabianie dyń w Kids Club. Wstęp wolny.",
+      "age": "od 2 lat",
+      "ageMin": 2,
+      "ageMax": null,
+      "place": "Letzipark, Baslerstrasse 50",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.38629,
+      "lng": 8.499062,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, od 14:00",
+      "startDate": "2026-10-28",
+      "title": "Halloweenparty (Quartiertreff Enge)",
+      "url": "https://quartiertreff-enge.ch/",
+      "description": "Gry, prace plastyczne i rzeźbienie dyń w domu kwartału.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Quartiertreff Enge",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.359541,
+      "lng": 8.529489,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 14:30–16:30",
+      "startDate": "2026-10-28",
+      "title": "Halloween (PBZ Schwamendingen)",
+      "url": "https://www.pbz.ch/event-kalender/?target-group=kinder",
+      "description": "Prace plastyczne i malowanie twarzy w bibliotece. Wstęp za dobrowolną składkę.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "PBZ Schwamendingen",
+      "area": "Zurych",
+      "category": "biblioteka",
+      "registration": "Bez zapisów, dobrowolna składka",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.40283,
+      "lng": 8.574138,
+      "image": "images/pbz-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 28.10.2026, 14:30–17:30",
+      "startDate": "2026-10-28",
+      "title": "Halloween Slime Time (GZ Grünau)",
+      "url": "https://gz-zh.ch/gz-gruenau/",
+      "description": "Dzieci mieszają własny glutek na Halloween.",
+      "age": "brak info o wieku",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "GZ Grünau, Grünauring 18",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.395923,
+      "lng": 8.489721,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "pt. 30.10–ndz. 1.11.2026",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-01",
+      "title": "Halloween-Mittelalterspektakel (Hardturmbrache)",
+      "url": "https://withkids.ch/en/articles/halloween-mit-kindern-zuerich-2026",
+      "description": "Weekend rycerzy, jarmarku i halloweenowego klimatu na terenie przy Hardturm.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Hardturmbrache",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.39295,
+      "lng": 8.504921,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "pt. 30.10.2026, 9:30–11:30",
+      "startDate": "2026-10-30",
+      "title": "Hallowe’en Family Fun (The Village)",
+      "url": "https://www.the-village.ch/event-details/halloween-family-fun",
+      "description": "Poranna zabawa sensoryczna i proste prace dla niemowląt i maluchów w przebraniach. Są zabawki i przekąski. Info: 078 721 29 18.",
+      "age": "0–4 lat",
+      "ageMin": 0,
+      "ageMax": 4,
+      "place": "The Village, Rosengartenstrasse 10",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Zapisy na stronie albo telefonicznie",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.393994,
+      "lng": 8.525309,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "pt. 30.10.2026, 10:00–11:30",
+      "startDate": "2026-10-30",
+      "title": "Geschichten-Werkstatt „Halloween-Gespenster”",
+      "url": "https://gz-zh.ch/gz-wollishofen/",
+      "description": "Warsztat opowieści o duchach. Od około 2,5 roku. 5 CHF.",
+      "age": "2–5 lat",
+      "ageMin": 2,
+      "ageMax": 5,
+      "place": "GZ Wollishofen, Bachstrasse 7",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Zapisy, 5 CHF",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.345012,
+      "lng": 8.535832,
+      "image": "images/fallback-books.jpg"
+    },
+    {
+      "dateText": "pt. 30.10.2026, 15:00–17:00",
+      "startDate": "2026-10-30",
+      "title": "Halloween Cookie Decorating (Oerlikon)",
+      "url": "https://eventfrog.ch/en/p/events-for-children/family-events/halloween-cookie-decorating-workshop-for-kids-oerlikon-7513254583457550774.html",
+      "description": "Dekorowanie ciastek lukrem i posypką w Latte Stories. W cenie sok, podwieczorek i materiały. 28.95 CHF.",
+      "age": "brak info o wieku",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Latte Stories, Hagenholzstrasse 55",
+      "area": "Oerlikon",
+      "category": "warsztaty",
+      "registration": "Bilety online, 28.95 CHF",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.414684,
+      "lng": 8.554832,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "pt. 30.10.2026 (EN) i sob. 31.10.2026 (DE), 16:30–18:00",
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-31",
+      "title": "Warsztat Halloween (Kulturama)",
+      "url": "https://www.kulturama.ch/",
+      "description": "Warsztat halloweenowy w muzeum człowieka: w piątek po angielsku, w sobotę po niemiecku.",
+      "age": "7–12 lat",
+      "ageMin": 7,
+      "ageMax": 12,
+      "place": "Kulturama, Englischviertelstrasse 9",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Zapisy wymagane",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.368721,
+      "lng": 8.555615,
+      "image": "images/fallback-museum.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 9:30–10:30",
+      "startDate": "2026-10-31",
+      "title": "Family Halloween Party (Academicus)",
+      "url": "https://www.academicus.co/event-details/family-halloween-party-in-zurich-09-30",
+      "description": "Poranna zabawa sensoryczna i ozdabianie dyń. 40 CHF za rodzinę.",
+      "age": "2–6 lat",
+      "ageMin": 2,
+      "ageMax": 6,
+      "place": "Academicus, Waffenplatzstrasse 5",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Zapisy online, 40 CHF za rodzinę",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.361546,
+      "lng": 8.526713,
+      "image": "images/fallback-music.jpg"
+    },
+    {
+      "dateText": "ndz. 1.11.2026, rano",
+      "startDate": "2026-11-01",
+      "title": "Halloween Family Concert (Academicus)",
+      "url": "https://www.academicus.co/",
+      "description": "Poranny koncert rodzinny na flecie i pianinie.",
+      "age": "0–6 lat",
+      "ageMin": 0,
+      "ageMax": 6,
+      "place": "Academicus, Waffenplatzstrasse 5",
+      "area": "Zurych",
+      "category": "muzyka",
+      "registration": "Zapisy wymagane",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.361546,
+      "lng": 8.526713,
+      "image": "images/fallback-music.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 11:00–16:00",
+      "startDate": "2026-10-31",
+      "title": "Kinderschminken i brokatowe tatuaże (GZ Seebach)",
+      "url": "https://withkids.ch/de/place/kinderschminken-glitzer-tattoos-im-gz-seebach_3050",
+      "description": "Malowanie twarzy i brokatowe tatuaże na Halloween. 5–15 CHF.",
+      "age": "od 3 lat",
+      "ageMin": 3,
+      "ageMax": null,
+      "place": "GZ Seebach, Hertensteinstrasse 20",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "5–15 CHF",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.424575,
+      "lng": 8.54428,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 13:00–16:15 (warsztaty 13:00 i 14:45)",
+      "startDate": "2026-10-31",
+      "title": "Spooktacular Halloween (Spark Science)",
+      "url": "https://www.sparkscience.ch/event-details/spooktacular-halloween",
+      "description": "Slime (13:00–14:30) albo eliksiry z suchego lodu i disco (14:45–16:15), albo całe popołudnie ze przekąską. Po 20 miejsc na sesję. 45 CHF za jeden warsztat, 85 CHF za całość.",
+      "age": "brak info o wieku",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "GZ Wollishofen, Saal 20, Bachstrasse 7",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Zapisy online. Miejsca ograniczone do 20 dzieci na sesję.",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.345012,
+      "lng": 8.535832,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 14:00–16:30 (polowanie na słodycze od 17:00)",
+      "startDate": "2026-10-31",
+      "title": "Kürbisschnitzen (Familienzentrum Dübendorf)",
+      "url": "https://www.elterngruppe.ch/kuerbisschnitzen",
+      "description": "Rodzinne rzeźbienie dyni. Każdy przynosi swoją dynię. Podwieczorek w cenie. Rodziny członkowskie bezpłatnie, pozostali 5 CHF. Nie ma osobnej opieki nad dziećmi.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Familienzentrum Dübendorf, Wallisellenstrasse 5a",
+      "area": "Okolice",
+      "category": "warsztaty",
+      "registration": "Bez zapisów. Członkowie za darmo, pozostali 5 CHF",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.398016,
+      "lng": 8.618739,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 15:00–17:00",
+      "startDate": "2026-10-31",
+      "title": "Halloween Kids Party (Mama Shelter)",
+      "url": "https://eventfrog.ch/en/p/events-for-children/family-events/halloween-kids-party-at-mama-7507816490420157458.html",
+      "description": "Malowanie jadalnymi farbami, makijaż i kącik rysunkowy. W cenie napój dla jednego opiekuna. Około 20–23 CHF za dziecko.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Mama Shelter, Schulstrasse 44",
+      "area": "Oerlikon",
+      "category": "festyny",
+      "registration": "Bilety online",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.410819,
+      "lng": 8.543955,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 15:00–18:00",
+      "startDate": "2026-10-31",
+      "title": "Halloween Party (Tiny Hands Creations)",
+      "url": "https://withkids.ch/de/place/halloween-party-bei-tiny-hands-creations_8706",
+      "description": "Kreatywna impreza dla najmłodszych. Od 18 miesięcy 25 CHF (rodzeństwo −20%). Młodsze dzieci i dorośli bezpłatnie.",
+      "age": "od 1 lat",
+      "ageMin": 1,
+      "ageMax": null,
+      "place": "Tiny Hands Creations, Limmattalstrasse 170",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Zapisy mile widziane. Od 18 miesięcy 25 CHF",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.402084,
+      "lng": 8.500381,
+      "image": "images/fallback-crafts.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 16:00–22:00",
+      "startDate": "2026-10-31",
+      "title": "Eisdisco „Halloween-Geisterfahrt” (Dolder)",
+      "url": "https://www.dolder.com/",
+      "description": "Jazda na łyżwach przy muzyce i światłach, w halloweenowym klimacie.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Kunsteisbahn Dolder",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.374902,
+      "lng": 8.57823,
+      "image": "images/fallback-ice.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 17:30–20:00",
+      "startDate": "2026-10-31",
+      "title": "Halloween (GZ Wollishofen, Neubühl)",
+      "url": "https://gz-zh.ch/gz-wollishofen/",
+      "description": "Wieczorne święto Halloween w filii Neubühl.",
+      "age": "od 6 lat",
+      "ageMin": 6,
+      "ageMax": null,
+      "place": "GZ Wollishofen, Standort Neubühl, Erligatterweg 53",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.332164,
+      "lng": 8.532612,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "sob. 31.10.2026, 18:00–20:00",
+      "startDate": "2026-10-31",
+      "title": "Gruselpfad (Witikon)",
+      "url": "https://gz-zh.ch/gz-witikon/",
+      "description": "Ścieżka ze stacjami w dzielnicy. Start przed GZ Witikon. Na mecie mała nagroda.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "GZ Witikon, Witikonerstrasse 405",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.360011,
+      "lng": 8.594215,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "ndz. 1.11.2026, 14:00–18:00",
+      "startDate": "2026-11-01",
+      "title": "Junior Kids Disco Halloween (Flamingo Club)",
+      "url": "https://flamingoclub.ch/",
+      "description": "Dyskoteka dla dzieci w halloweenowym wydaniu.",
+      "age": "3–15 lat",
+      "ageMin": 3,
+      "ageMax": 15,
+      "place": "Flamingo Club, Limmatstrasse",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "brak info",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.382185,
+      "lng": 8.534598,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "ndz. 1.11.2026, 14:00–18:00",
+      "startDate": "2026-11-01",
+      "title": "Kids Disco – Halloween Edition (Maison25)",
+      "url": "https://tickets.maison-25.ch/events/kids-disco-halloween-edition",
+      "description": "Dyskoteka, brokat i tatuaże. Dzieci tylko z dorosłym. Organizator nie sprawuje opieki. Miejsca ograniczone.",
+      "age": "od 2 lat",
+      "ageMin": 2,
+      "ageMax": null,
+      "place": "Maison25, Talstrasse 25",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bilety online, liczba miejsc ograniczona",
+      "isNew": true,
+      "tags": [
+        "halloween"
+      ],
+      "lat": 47.368525,
+      "lng": 8.538341,
+      "image": "images/fallback-halloween.jpg"
+    },
+    {
+      "dateText": "śr. 15:30: 21.10 (wyprzedane), 28.10, 18.11, 2.12, 23.12.2026 i 13.1.2027",
+      "startDate": "2026-10-21",
+      "endDate": "2027-01-13",
+      "title": "Familienführung (Opernhaus)",
+      "url": "https://www.opernhaus.ch/spielplan/kalendarium/familienfuehrung-ohz/",
+      "description": "Godzinne oprowadzanie za kulisy: scena, rekwizyty, charakteryzacja, krawiectwo i magazyn. Zbiórka w foyer kasy. Dorośli 15 CHF, dzieci bezpłatnie. Po niemiecku.",
+      "age": "od 8 lat",
+      "ageMin": 8,
+      "ageMax": null,
+      "place": "Opernhaus Zürich, Falkenstrasse 1",
+      "area": "Zurych",
+      "category": "muzyka",
+      "registration": "21.10.2026 wyprzedane. Bilety online, liczba miejsc ograniczona. Dorośli 15 CHF, dzieci bezpłatnie.",
+      "isNew": true,
+      "tags": [],
+      "lat": 47.366017,
+      "lng": 8.548675,
+      "image": "images/fallback-stage.jpg"
+    },
+    {
+      "dateText": "sob. 14:00: 24.10 i 28.11.2026 oraz 23.1 i 30.1.2027",
+      "startDate": "2026-10-24",
+      "endDate": "2027-01-30",
+      "title": "Magiczna Kinderführung „Mit Squillo” (Opernhaus)",
+      "url": "https://www.opernhaus.ch/spielplan/kalendarium/ohrwurm-squillo/",
+      "description": "Oprowadzanie z bladym dyrygentem-królikiem i Ohrwurmem Squillo. Ok. 1,5 godziny. Dzieci 6–12 lat z dorosłym.",
+      "age": "6–12 lat",
+      "ageMin": 6,
+      "ageMax": 12,
+      "place": "Opernhaus Zürich, Falkenstrasse 1",
+      "area": "Zurych",
+      "category": "muzyka",
+      "registration": "Bilety online, liczba miejsc ograniczona",
+      "isNew": true,
+      "tags": [],
+      "lat": 47.366017,
+      "lng": 8.548675,
+      "image": "images/fallback-stage.jpg"
+    },
+    {
+      "dateText": "środy 14:00, od 4.11.2026 do 9.6.2027 (wybrane terminy, 2 godz.)",
+      "startDate": "2026-11-04",
+      "endDate": "2027-06-09",
+      "title": "Klanglabor (Opernhaus w GZ Oerlikon)",
+      "url": "https://www.opernhaus.ch/spielplan/kalendarium/klanglabor/2026-2027",
+      "description": "Dzieci z muzykiem zbierają dźwięki Oerlikonu i układają z nich historię. Bez przygotowania. Dzieci tylko z dorosłym.",
+      "age": "od 8 lat",
+      "ageMin": 8,
+      "ageMax": null,
+      "place": "GZ Oerlikon",
+      "area": "Oerlikon",
+      "category": "muzyka",
+      "registration": "Bilety Opernhaus",
+      "isNew": true,
+      "tags": [],
+      "lat": 47.407818,
+      "lng": 8.545756,
+      "image": "images/fallback-music.jpg"
+    },
+    {
+      "dateText": "5–20.12.2026, godziny w repertuarze",
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-20",
+      "title": "Zauberschatz im Rhein (Opernhaus)",
+      "url": "https://www.opernhaus.ch/entdecken/vermittlungsangebote-familien-kinder-jugendliche/",
+      "description": "Opowieść muzyczna: córki Renu strzegą skarbu, który daje światu światło i muzykę. Dla dzieci od 4 lat z opiekunem.",
+      "age": "od 4 lat",
+      "ageMin": 4,
+      "ageMax": null,
+      "place": "Opernhaus Zürich, Falkenstrasse 1",
+      "area": "Zurych",
+      "category": "muzyka",
+      "registration": "Bilety online",
+      "isNew": true,
+      "tags": [],
+      "lat": 47.366017,
+      "lng": 8.548675,
+      "image": "images/fallback-music.jpg"
+    },
+    {
+      "dateText": "8.11.2026–17.1.2027, wybrane dni (m.in. 8.11 o 13:00), ok. 2 godz.",
+      "startDate": "2026-11-08",
+      "endDate": "2027-01-17",
+      "title": "Alice im Wunderland (Opernhaus)",
+      "url": "https://www.opernhaus.ch/spielplan/kalendarium/alice-im-wunderland/",
+      "description": "Kinderoper Pierangela Valtinoniego po niemiecku, z napisami. Terminy m.in. 8, 15, 19, 21, 26 i 28.11, 6.12.2026 oraz 2, 7, 8, 10 i 17.1.2027. Dzieci 13–35 CHF, dorośli 20–60 CHF.",
+      "age": "od 7 lat",
+      "ageMin": 7,
+      "ageMax": null,
+      "place": "Opernhaus Zürich, Falkenstrasse 1",
+      "area": "Zurych",
+      "category": "teatr",
+      "registration": "Bilety online. Dzieci 13–35 CHF, dorośli 20–60 CHF",
+      "isNew": true,
+      "tags": [],
+      "lat": 47.366017,
+      "lng": 8.548675,
+      "image": "images/fallback-stage.jpg"
     }
   ]
 }

@@ -130,6 +130,7 @@ export function EventMap({
   events,
   today,
   selectedId,
+  highlightId,
   focusTick,
   focusOrigin,
   active,
@@ -139,6 +140,7 @@ export function EventMap({
   events: KidsEvent[];
   today: string;
   selectedId: string | null;
+  highlightId: string | null;
   focusTick: number;
   focusOrigin: "list" | "map";
   active: boolean;
@@ -179,7 +181,7 @@ export function EventMap({
       >
         {events.map((event) => {
           const key = eventKey(event);
-          const selected = key === selectedId;
+          const selected = key === selectedId || key === highlightId;
           return (
             <Marker
               key={key}
