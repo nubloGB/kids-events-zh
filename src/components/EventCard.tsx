@@ -1,9 +1,11 @@
-import { Button, Card, Chip, buttonVariants } from "@heroui/react";
-import { ExternalLink, MapPin } from "lucide-react";
+import { Card, Chip, buttonVariants } from "@heroui/react";
+import { ExternalLink } from "lucide-react";
 import { useCallback, useEffect, useState, type Ref } from "react";
 import { ActionTip } from "./ActionTip";
 import { CalendarMenu } from "./CalendarMenu";
+import { RouteMenu } from "./RouteMenu";
 import { eventCardActions } from "../lib/cardActions";
+import { canRoute } from "../lib/directions";
 import { splitIso } from "../lib/format";
 import { eventKey } from "../lib/events";
 import { CATEGORY_FALLBACK } from "../lib/markers";
@@ -233,19 +235,8 @@ export function EventCard({
             variant="secondary"
           />
         ) : null}
-        {actions.showMap ? (
-          <ActionTip label={layout === "desktop" ? null : "Pokaż na mapie"}>
-            <Button
-              aria-label="Pokaż na mapie"
-              className="event-action event-action--secondary"
-              isIconOnly
-              variant="secondary"
-              onPress={onShowOnMap}
-            >
-              <MapPin aria-hidden className="event-action__icon" size={20} strokeWidth={2} />
-              <span className="event-action__text event-action__text--short">Mapa</span>
-            </Button>
-          </ActionTip>
+        {canRoute(event) ? (
+          <RouteMenu event={event} tooltip={layout === "desktop" ? null : "Mapa i trasa"} onShowOnMap={onShowOnMap} />
         ) : null}
       </Card.Footer>
     </Card>

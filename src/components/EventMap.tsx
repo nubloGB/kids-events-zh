@@ -1,8 +1,10 @@
 import L from "leaflet";
-import { useEffect, useRef, type MutableRefObject } from "react";
+import { useEffect, useRef, useState, type MutableRefObject } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { CalendarMenu } from "./CalendarMenu";
+import { isIosDevice } from "../lib/cardActions";
+import { appleTransitUrl, canRoute, googleTransitUrl } from "../lib/directions";
 import { eventKey } from "../lib/events";
 import { CATEGORY_COLOR, CATEGORY_GLYPH } from "../lib/markers";
 import type { KidsEvent, MapBounds } from "../types";
@@ -35,7 +37,27 @@ function clusterIcon(cluster: L.MarkerCluster): L.DivIcon {
     html: `<div><span>${cluster.getChildCount()}</span></div>`,
     className: "marker-cluster marker-cluster-small cluster-pin",
     iconSize: L.point(42, 42),
+    iconAnchor: L.point(21, 21),
   });
+}
+
+function prefersReducedMotion(): boolean {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function polishMapChrome(map: L.Map) {
+  const root = map.getContainer();
+  const zoomIn = root.querySelector<HTMLElement>(".leaflet-control-zoom-in");
+  const zoomOut = root.querySelector<HTMLElement>(".leaflet-control-zoom-out");
+  zoomIn?.setAttribute("aria-label", "Przybliż");
+  zoomIn?.setAttribute("title", "Przybliż");
+  zoomOut?.setAttribute("aria-label", "Oddal");
+  zoomOut?.setAttribute("title", "Oddal");
+  if (prefersReducedMotion()) {
+    map.options.zoomAnimation = false;
+    map.options.fadeAnimation = false;
+    map.options.markerZoomAnimation = false;
+  }
 }
 
 function sameBounds(current: MapBounds | null, next: MapBounds): boolean {
@@ -115,6 +137,12 @@ function MapBridge({
       map.invalidateSize();
       marker.openPopup();
     };
+    const reduced = prefersReducedMotion();
+    if (reduced) {
+      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 15), { animate: false });
+      reveal();
+      return;
+    }
     try {
       group.zoomToShowLayer(marker, reveal);
     } catch {
@@ -122,6 +150,31 @@ function MapBridge({
       window.setTimeout(reveal, 480);
     }
   }, [active, clusterRef, focusOrigin, focusTick, map, markers, selectedId]);
+
+  useEffect(() => {
+    if (!active || focusOrigin !== "map" || !selectedId) return;
+    const marker = markers.current.get(selectedId);
+    if (!marker) return;
+    const open = () => {
+      if (!marker.isPopupOpen()) marker.openPopup();
+    };
+    open();
+    const timer = window.setTimeout(open, 60);
+    return () => window.clearTimeout(timer);
+  }, [active, focusOrigin, focusTick, map, markers, selectedId]);
+
+  useEffect(() => {
+    polishMapChrome(map);
+    const onPopup = (event: L.PopupEvent) => {
+      const close = event.popup.getElement()?.querySelector<HTMLElement>(".leaflet-popup-close-button");
+      close?.setAttribute("aria-label", "Zamknij");
+      close?.setAttribute("title", "Zamknij");
+    };
+    map.on("popupopen", onPopup);
+    return () => {
+      map.off("popupopen", onPopup);
+    };
+  }, [map]);
 
   return null;
 }
@@ -135,6 +188,7 @@ export function EventMap({
   focusOrigin,
   active,
   onSelect,
+  onShowInList,
   onBounds,
 }: {
   events: KidsEvent[];
@@ -145,10 +199,15 @@ export function EventMap({
   focusOrigin: "list" | "map";
   active: boolean;
   onSelect: (id: string) => void;
+  onShowInList: (id: string) => void;
   onBounds: (bounds: MapBounds) => void;
 }) {
   const markers = useRef(new Map<string, L.Marker>());
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
+  const [ios] = useState(() =>
+    typeof navigator !== "undefined" &&
+      isIosDevice(navigator.userAgent, { platform: navigator.platform, maxTouchPoints: navigator.maxTouchPoints }),
+  );
 
   return (
     <MapContainer
@@ -201,9 +260,36 @@ export function EventMap({
                   <strong>{event.title}</strong>
                   <p>{event.dateText}</p>
                   <p>{event.place}</p>
-                  <a href={event.url} rel="noopener noreferrer" target="_blank">
-                    Strona wydarzenia
-                  </a>
+                  {event.url ? (
+                    <a href={event.url} rel="noopener noreferrer" target="_blank">
+                      Strona wydarzenia
+                    </a>
+                  ) : null}
+                  <div className="map-popup__actions">
+                    {canRoute(event) ? (
+                      <a
+                        className="map-popup__route"
+                        href={googleTransitUrl(event.lat, event.lng)}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Trasa
+                      </a>
+                    ) : null}
+                    {canRoute(event) && ios ? (
+                      <a
+                        className="map-popup__route map-popup__route--quiet"
+                        href={appleTransitUrl(event.lat, event.lng)}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        Trasa w Apple Maps
+                      </a>
+                    ) : null}
+                    <button className="map-popup__list" type="button" onClick={() => onShowInList(key)}>
+                      Pokaż na liście
+                    </button>
+                  </div>
                   <CalendarMenu event={event} today={today} />
                 </div>
               </Popup>
