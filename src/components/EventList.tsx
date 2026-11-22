@@ -1,11 +1,11 @@
 import { buttonVariants } from "@heroui/react";
-import { ChevronUp, ExternalLink } from "lucide-react";
+import { ChevronUp, ExternalLink, MapPin } from "lucide-react";
 import { useEffect, useRef, useState, type MutableRefObject } from "react";
 import { CalendarMenu } from "./CalendarMenu";
 import { CategoryIcons } from "./CategoryIcons";
 import { EventFacts } from "./EventFacts";
 import { RouteMenu } from "./RouteMenu";
-import { eventCardActions } from "../lib/cardActions";
+import { eventCardActions, hasMapLocation } from "../lib/cardActions";
 import { canRoute } from "../lib/directions";
 import { eventKey } from "../lib/events";
 import { dayHeaderLabel, dayTile, formatClock, groupByDay } from "../lib/listDays";
@@ -221,6 +221,17 @@ function RowActions({
       )}
       {hasPage ? <CalendarMenu event={event} today={today} variant="secondary" /> : null}
       {canRoute(event) ? <RouteMenu event={event} tooltip={null} onShowOnMap={onShowOnMap} /> : null}
+      {hasMapLocation(event) ? (
+        <button
+          aria-label="Pokaż na mapie"
+          className={`${buttonVariants({ isIconOnly: true, variant: "secondary" })} event-action event-action--secondary`}
+          title="Pokaż na mapie"
+          type="button"
+          onClick={onShowOnMap}
+        >
+          <MapPin aria-hidden className="event-action__icon" size={20} strokeWidth={2} />
+        </button>
+      ) : null}
     </div>
   );
 }

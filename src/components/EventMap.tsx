@@ -120,6 +120,7 @@ function MapBridge({
   const onBoundsRef = useRef(onBounds);
   const lastBounds = useRef<MapBounds | null>(null);
   const fittedKey = useRef<string | null>(null);
+  const focusLock = useRef(false);
   const boundsKey = eventBoundsKey(events);
   onBoundsRef.current = onBounds;
 
@@ -147,7 +148,12 @@ function MapBridge({
   useEffect(() => {
     if (!active || fittedKey.current === boundsKey) return;
     const timer = window.setTimeout(() => {
-      map.invalidateSize();
+      map.invalidateSize({ animate: false, pan: false });
+      if (focusLock.current) {
+        fittedKey.current = boundsKey;
+        publish();
+        return;
+      }
       fitEventBounds(map, events);
       fittedKey.current = boundsKey;
       publish();
@@ -157,26 +163,60 @@ function MapBridge({
 
   useEffect(() => {
     if (!active || focusOrigin !== "list" || !selectedId) return;
-    const marker = markers.current.get(selectedId);
-    const group = clusterRef.current;
-    if (!marker || !group) return;
-    const reveal = () => {
-      map.invalidateSize();
-      marker.openPopup();
+    focusLock.current = true;
+    let cancelled = false;
+    let attempts = 0;
+    let retryTimer = 0;
+    let fallbackTimer = 0;
+    let opened = false;
+    const finish = (marker: L.Marker) => {
+      if (cancelled || opened) return;
+      opened = true;
+      map.invalidateSize({ animate: false, pan: false });
+      if (!marker.isPopupOpen()) marker.openPopup();
+      focusLock.current = false;
     };
-    const reduced = prefersReducedMotion();
-    if (reduced) {
-      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 15), { animate: false });
-      reveal();
-      return;
-    }
-    try {
-      group.zoomToShowLayer(marker, reveal);
-    } catch {
-      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 15), { duration: 0.45 });
-      window.setTimeout(reveal, 480);
-    }
-  }, [active, clusterRef, focusOrigin, focusTick, map, markers, selectedId]);
+    const tryReveal = () => {
+      if (cancelled) return;
+      attempts += 1;
+      map.invalidateSize({ animate: false, pan: false });
+      const size = map.getSize();
+      const marker = markers.current.get(selectedId);
+      const group = clusterRef.current;
+      const parent = marker ? (marker as L.Marker & { __parent?: unknown }).__parent : undefined;
+      if (size.x < 40 || size.y < 40 || !marker || !parent) {
+        if (attempts < 24) retryTimer = window.setTimeout(tryReveal, 50);
+        else focusLock.current = false;
+        return;
+      }
+      fittedKey.current = boundsKey;
+      const reduced = prefersReducedMotion();
+      try {
+        if (group && !reduced) group.zoomToShowLayer(marker, () => finish(marker));
+        else {
+          map.setView(marker.getLatLng(), 16, { animate: false });
+          finish(marker);
+        }
+      } catch {
+        map.setView(marker.getLatLng(), 16, { animate: false });
+        finish(marker);
+      }
+      fallbackTimer = window.setTimeout(() => {
+        if (!opened) {
+          map.invalidateSize({ animate: false, pan: false });
+          map.setView(marker.getLatLng(), 16, { animate: false });
+          finish(marker);
+        }
+      }, 900);
+    };
+    retryTimer = window.setTimeout(tryReveal, 0);
+    return () => {
+      cancelled = true;
+      focusLock.current = false;
+      window.clearTimeout(retryTimer);
+      window.clearTimeout(fallbackTimer);
+    };
+  }, [active, boundsKey, clusterRef, focusOrigin, focusTick, map, markers, selectedId]);
 
   useEffect(() => {
     markers.current.forEach((marker, id) => {
