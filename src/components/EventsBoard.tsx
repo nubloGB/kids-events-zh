@@ -269,17 +269,41 @@ export function EventsBoard({
 
         {listEmpty ? (
           <EmptyState className="empty-panel">
-            <p className="font-display text-2xl text-foreground">
-              {outsideFrame ? "Poza kadrem mapy" : "Nic nie pasuje"}
-            </p>
-            <p className="mt-2">
-              {outsideFrame
-                ? "Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”."
-                : "Zmień rodzaj, datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
-            </p>
-            <Button className="mt-4" variant="secondary" onPress={clearFilters}>
-              Wyczyść filtry
-            </Button>
+            {outsideFrame ? (
+              <>
+                <p className="font-display text-2xl text-foreground">Poza kadrem mapy</p>
+                <p className="mt-2">Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”.</p>
+                <Button className="mt-4" variant="secondary" onPress={clearFilters}>
+                  Wyczyść filtry
+                </Button>
+              </>
+            ) : date.kind === "today" ? (
+              <>
+                <p className="font-display text-2xl text-foreground">Dziś nic nie ma</p>
+                <p className="mt-2">Zajrzyj w najbliższy termin albo wybierz inny zakres.</p>
+                <div className="empty-actions">
+                  <Button variant="primary" onPress={() => setDate({ kind: "tomorrow" })}>
+                    Pokaż jutro
+                  </Button>
+                  <Button variant="secondary" onPress={() => setDate({ kind: "thisWeekend" })}>
+                    Ten weekend
+                  </Button>
+                  {filterCount > 0 ? (
+                    <Button variant="secondary" onPress={clearFilters}>
+                      Wyczyść filtry
+                    </Button>
+                  ) : null}
+                </div>
+              </>
+            ) : (
+              <>
+                <p className="font-display text-2xl text-foreground">Nic nie pasuje</p>
+                <p className="mt-2">Zmień rodzaj, datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie.</p>
+                <Button className="mt-4" variant="secondary" onPress={clearFilters}>
+                  Wyczyść filtry
+                </Button>
+              </>
+            )}
           </EmptyState>
         ) : (
           <div className="list-sections">

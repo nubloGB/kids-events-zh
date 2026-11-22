@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { readDateFromLocation, writeDateToLocation } from "./dateQuery";
+import { DEFAULT_DATE, readDateFromLocation, writeDateToLocation } from "./dateQuery";
 import { msUntilNextZurichMidnight, zurichToday } from "./dates";
 import type { DateFilter } from "../types";
 
@@ -86,7 +86,7 @@ export function DateFilterProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const clearDate = useCallback(() => {
-    const next: DateFilter = { kind: "all" };
+    const next: DateFilter = DEFAULT_DATE;
     customRef.current = { from: "", to: "" };
     setCustomFromState("");
     setCustomToState("");

@@ -1040,6 +1040,18 @@ input {
   text-align: center;
 }
 
+.empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.empty-actions .button {
+  min-height: 44px;
+}
+
 .panel-scroll,
 .sources-scroll {
   min-height: 0;

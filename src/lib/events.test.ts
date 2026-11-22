@@ -96,17 +96,20 @@ describe("events.json", () => {
     expect(search.upcoming.map((event) => event.title)).toContain("Łyżwiarstwo (Sportamt)");
     expect(fold("Łyżwy")).toBe("lyzwy");
     expect(filtersAreActive({ ...EMPTY_FILTERS, query: "zoo" })).toBe(true);
-    expect(filtersAreActive(EMPTY_FILTERS)).toBe(false);
-    expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "today" } })).toBe(true);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "today" } })).toBe(false);
+    expect(filtersAreActive(EMPTY_FILTERS)).toBe(true);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "tomorrow" } })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, tags: ["halloween"] })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(true);
-    expect(activeFilterCount(EMPTY_FILTERS)).toBe(0);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, query: "zoo" })).toBe(0);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "single" })).toBe(0);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(1);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(1);
-    expect(activeFilterCount(EMPTY_FILTERS, true)).toBe(1);
+    const todayDefault = { ...EMPTY_FILTERS, date: { kind: "today" as const } };
+    expect(activeFilterCount(EMPTY_FILTERS)).toBe(1);
+    expect(activeFilterCount(todayDefault)).toBe(0);
+    expect(activeFilterCount({ ...todayDefault, query: "zoo" })).toBe(0);
+    expect(activeFilterCount({ ...todayDefault, recurrence: "single" })).toBe(0);
+    expect(activeFilterCount({ ...todayDefault, recurrence: "recurring" })).toBe(1);
+    expect(activeFilterCount({ ...todayDefault, recurrence: "all" })).toBe(1);
+    expect(activeFilterCount(todayDefault, true)).toBe(1);
     expect(
       activeFilterCount({
         ...EMPTY_FILTERS,
@@ -115,7 +118,8 @@ describe("events.json", () => {
         tags: ["halloween"],
         date: { kind: "today" },
       }),
-    ).toBe(5);
+    ).toBe(4);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, date: { kind: "all" } })).toBe(1);
   });
 
   it("shows a highlight only while its date is open and a live event carries the tag", () => {
