@@ -422,12 +422,16 @@ input {
 }
 
 .event-card.card {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   gap: 0;
   overflow: hidden;
   padding: 0;
   border-radius: 1.15rem;
   background: white;
   box-shadow: 0 10px 28px rgb(76 29 149 / 0.08);
+  container: event-card / inline-size;
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
@@ -537,7 +541,8 @@ input {
   color: white;
 }
 
-.event-card h3.event-card__title a {
+.event-card h3.event-card__title a,
+.event-card h3.event-card__title span {
   display: -webkit-box;
   overflow: hidden;
   color: white;
@@ -551,13 +556,6 @@ input {
   -webkit-line-clamp: 2;
 }
 
-.event-card h3.event-card__title a::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
 .event-card:hover h3.event-card__title a,
 .event-card h3.event-card__title a:focus-visible {
   text-decoration: underline;
@@ -568,6 +566,7 @@ input {
   position: relative;
   z-index: 0;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 0.55rem;
   padding: 0.85rem 1rem 0.35rem;
@@ -628,24 +627,172 @@ input {
   position: relative;
   z-index: 10;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row nowrap;
   align-items: center;
-  gap: 0.55rem 0.85rem;
-  padding: 0.35rem 1rem 0.95rem;
+  gap: 0.5rem;
+  margin-top: auto;
+  border-top: 1px solid #e4e4e7;
+  padding: 0.75rem 1rem 0.85rem;
 }
 
-.event-card__calendar {
-  min-height: 2.75rem;
-  font-weight: 700;
+.event-actions .calendar-menu {
+  display: flex;
+  min-width: 0;
 }
 
-.event-card__external {
-  min-height: 2.75rem;
-  font-weight: 700;
+.event-actions .calendar-menu--primary,
+.event-actions a.event-action--primary {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
-.event-card__map {
+.event-actions .calendar-menu--secondary {
+  flex: 0 0 auto;
+}
+
+.event-actions .button,
+.event-actions a.button {
+  height: 2.75rem;
   min-height: 2.75rem;
+  flex-shrink: 0;
+  border-radius: 0.875rem;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.event-actions a.event-action--primary {
+  justify-content: center;
+}
+
+.event-actions .calendar-menu--primary .event-action--primary {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.event-actions .button.button--icon-only {
+  width: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0;
+}
+
+.event-actions .button--primary {
+  --button-bg: var(--accent);
+  --button-bg-hover: color-mix(in oklab, var(--accent) 86%, black);
+  --button-bg-pressed: color-mix(in oklab, var(--accent) 78%, black);
+  --button-fg: #fff;
+  color: #fff;
+}
+
+.event-actions .button--secondary {
+  --button-bg: #f4f4f5;
+  --button-bg-hover: #e4e4e7;
+  --button-bg-pressed: #e4e4e7;
+  --button-fg: #3f3f46;
+  color: #3f3f46;
+}
+
+.event-actions .button:active,
+.event-actions a.button:active,
+.event-actions .button[data-pressed="true"] {
+  transform: scale(0.97);
+}
+
+@media (hover: hover) {
+  .event-actions .button--secondary:hover,
+  .event-actions .button--secondary[data-hovered="true"] {
+    background-color: #e4e4e7;
+  }
+}
+
+.event-actions .button svg.event-action__icon {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.event-actions .button svg.event-action__icon--end {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+}
+
+.event-action__text {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-action__text--short {
+  display: none;
+}
+
+.event-actions .button.tooltip__trigger,
+.event-actions a.button.tooltip__trigger,
+.event-actions .dropdown__trigger.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.calendar-menu__popover {
+  width: max-content;
+  min-width: 14rem;
+  max-width: min(18rem, calc(100vw - 2rem));
+}
+
+.calendar-menu__popover .menu-item {
+  min-height: 44px;
+}
+
+@media (min-width: 640px) {
+  .event-actions .button,
+  .event-actions a.button {
+    height: 2.5rem;
+    min-height: 2.5rem;
+  }
+
+  .event-actions .calendar-menu--primary,
+  .event-actions a.event-action--primary,
+  .event-actions .calendar-menu--primary .event-action--primary {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .event-actions .button.button--icon-only {
+    width: auto;
+    min-width: 2.5rem;
+    padding-inline: 0.75rem;
+  }
+
+  .event-action__text--short {
+    display: inline;
+  }
+
+  .calendar-menu__popover .menu-item {
+    min-height: 2.25rem;
+  }
+
+  @container event-card (max-width: 299px) {
+    .event-actions .event-action__text {
+      display: none;
+    }
+
+    .event-actions .button.button--icon-only,
+    .event-actions a.event-action--primary,
+    .event-actions .calendar-menu--primary .event-action--primary {
+      width: 2.5rem;
+      min-width: 2.5rem;
+      max-width: 2.5rem;
+      padding-inline: 0;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -826,19 +973,6 @@ input {
 
   .event-card h3.event-card__title {
     font-size: 1.125rem;
-  }
-
-  .event-card__footer.card__footer {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .event-card__calendar,
-  .event-card__map,
-  .event-card__external {
-    width: 100%;
-    min-height: 44px;
-    justify-content: center;
   }
 }
 

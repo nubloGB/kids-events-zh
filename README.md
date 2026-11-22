@@ -59,7 +59,7 @@ Filtr „Rodzaj” ma trzy ustawienia: „Jednodniowe” (wybrane na starcie), �
 
 Filtr daty liczy się według kalendarza Europy/Zurych, a tydzień zaczyna się w poniedziałek. „Ten tydzień” trwa od dziś do najbliższej niedzieli, „Ten weekend” od piątku do niedzieli tego tygodnia (w sobotę i niedzielę: od dziś do niedzieli), „Następny tydzień” to kolejny poniedziałek–niedziela, „Następny miesiąc” to cały następny miesiąc kalendarzowy. Wydarzenie wielodniowe zostaje, gdy jego zakres nachodzi na wybrany. Zajęcia stałe, bez `startDate`, widać przy „Wszystkie daty”.
 
-Przycisk „Dodaj do kalendarza” w stopce karty otwiera Google Calendar albo pobiera plik `.ics` (Apple / iCal). Godziny biorą się z `dateText`, gdy da się je odczytać dla jednego dnia. Kurs na wiele dni trafia do kalendarza jako wydarzenie całodniowe, a godziny zostają w opisie. Strefa to Europa/Zurych.
+Przycisk „Dodaj do kalendarza” w stopce karty otwiera Google Calendar, Outlook albo pobiera plik `.ics` (Apple / iCal). Godziny biorą się z `dateText`, gdy da się je odczytać dla jednego dnia. Kurs na wiele dni trafia do kalendarza jako wydarzenie całodniowe, a godziny zostają w opisie. Strefa to Europa/Zurych.
 
 Zdjęcie karty to `image`. Najpierw bierzemy fotografię ze strony wydarzenia (`og:image` albo główne zdjęcie treści) i zapisujemy ją w `public/images/`. Gdy strona jej nie ma, wstawiamy ilustrację dopasowaną do tematu, też zapisaną w repozytorium: książki, lodowisko, scena, zwierzęta, instrumenty, rękodzieło, boisko. Logo organizatora nie zastępuje zdjęcia.
 

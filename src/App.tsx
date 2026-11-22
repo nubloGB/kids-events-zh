@@ -1,4 +1,4 @@
-import { Button, SearchField, Spinner } from "@heroui/react";
+import { Button, SearchField, Spinner, ToastProvider } from "@heroui/react";
 import { useEffect, useRef, useState } from "react";
 import { EventsBoard } from "./components/EventsBoard";
 import { SourcesPanel } from "./components/SourcesPanel";
@@ -118,6 +118,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
+      <ToastProvider aria-label="Powiadomienia" placement="top" />
       <a className="skip-link" href="#lista">
         Przejdź do treści
       </a>
