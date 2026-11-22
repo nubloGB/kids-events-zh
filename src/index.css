@@ -910,10 +910,74 @@ input {
 
 .event-map {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -16px -28px;
+  width: auto;
+  height: auto;
   background: #f4eefb;
+}
+
+.event-map.leaflet-container .leaflet-control-zoom a {
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  font-size: 22px;
+}
+
+.route-menu {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.route-menu__popover {
+  width: max-content;
+  min-width: 16rem;
+  max-width: min(20rem, calc(100vw - 2rem));
+}
+
+.route-menu__popover .menu-item {
+  min-height: 44px;
+  gap: 8px;
+}
+
+.map-popup__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.45rem;
+}
+
+.map-popup__route,
+.map-popup__list {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 0 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.map-popup__route {
+  border: 0;
+  background: #6d28d9;
+  color: white;
+}
+
+.map-popup__route--quiet,
+.map-popup__list {
+  border: 0;
+  background: #f4f4f5;
+  color: #3f3f46;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaflet-fade-anim .leaflet-tile,
+  .leaflet-fade-anim .leaflet-popup,
+  .leaflet-zoom-anim .leaflet-zoom-animated {
+    transition: none;
+  }
 }
 
 .pin-wrap {

@@ -121,8 +121,10 @@ export function EventsBoard({
 
   useEffect(() => {
     if (focusOrigin !== "map" || !selectedId) return;
-    itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  }, [focusOrigin, focusTick, selectedId]);
+    if (!wide && mobileView !== "lista") return;
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior });
+  }, [focusOrigin, focusTick, mobileView, selectedId, wide]);
 
   useEffect(() => {
     if (!phone) return;
@@ -154,6 +156,12 @@ export function EventsBoard({
   }
 
   function selectFromMap(id: string) {
+    setSelectedId(id);
+    setFocusOrigin("map");
+    setFocusTick((tick) => tick + 1);
+  }
+
+  function showInList(id: string) {
     setSelectedId(id);
     setFocusOrigin("map");
     setFocusTick((tick) => tick + 1);
@@ -311,6 +319,7 @@ export function EventsBoard({
           today={today}
           onBounds={setBounds}
           onSelect={selectFromMap}
+          onShowInList={showInList}
         />
       </section>
     </div>
