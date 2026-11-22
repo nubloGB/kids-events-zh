@@ -1256,6 +1256,32 @@ input {
   max-width: min(18rem, calc(100vw - 2rem));
 }
 
+.category-icons {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1px;
+  font-size: 17px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.category-icons__glyph {
+  display: block;
+  width: 1.15em;
+  text-align: center;
+}
+
+.map-popup__title .category-icons {
+  margin-left: 0.3rem;
+  vertical-align: -0.05em;
+}
+
+.event-card__title .category-icons {
+  margin-right: 0.35rem;
+  vertical-align: 0.05em;
+}
+
 .map-popup p {
   margin: 0.25rem 0 0;
 }
@@ -2352,7 +2378,8 @@ input {
   font-weight: 800;
 }
 
-.list-table tr.is-open .list-table__title {
+.list-table tr.is-open .list-table__title,
+.list-table tr.is-open .list-table__name {
   overflow: visible;
   text-overflow: unset;
   white-space: normal;
@@ -2379,7 +2406,10 @@ input {
 }
 
 .list-table__title {
+  display: inline-flex;
   max-width: 18rem;
+  align-items: center;
+  gap: 6px;
   overflow: hidden;
   border: 0;
   background: transparent;
@@ -2389,6 +2419,12 @@ input {
   font-weight: 650;
   padding: 0;
   text-align: left;
+  white-space: nowrap;
+}
+
+.list-table__name {
+  min-width: 0;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

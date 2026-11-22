@@ -2,6 +2,7 @@ import { buttonVariants } from "@heroui/react";
 import { ChevronUp, ExternalLink } from "lucide-react";
 import { useEffect, useRef, useState, type MutableRefObject } from "react";
 import { CalendarMenu } from "./CalendarMenu";
+import { CategoryIcons } from "./CategoryIcons";
 import { EventFacts } from "./EventFacts";
 import { RouteMenu } from "./RouteMenu";
 import { eventCardActions } from "../lib/cardActions";
@@ -277,6 +278,7 @@ function MobileRow({
         <time className="list-row__time" dateTime={event.startDate ?? undefined}>
           {formatClock(event.dateText)}
         </time>
+        <CategoryIcons event={event} />
         <span className="list-row__title">{event.title}</span>
         <span className="list-row__age">{event.age}</span>
         <span aria-hidden="true" className="list-row__more">
@@ -335,7 +337,8 @@ function DesktopRows({
         <td className="list-table__time">{formatClock(event.dateText)}</td>
         <td className="list-table__event">
           <button aria-expanded={open} className="list-table__title" type="button" onClick={onToggle}>
-            {event.title}
+            <CategoryIcons event={event} />
+            <span className="list-table__name">{event.title}</span>
           </button>
           <span className="list-table__place-inline">{event.place}</span>
         </td>

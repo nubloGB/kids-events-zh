@@ -9,6 +9,7 @@ import { canRoute } from "../lib/directions";
 import { isFreeEvent } from "../lib/eventFacts";
 import { splitIso } from "../lib/format";
 import { eventKey } from "../lib/events";
+import { CategoryIcons } from "./CategoryIcons";
 import { categoryAppearance } from "../lib/markers";
 import type { KidsEvent } from "../types";
 
@@ -198,11 +199,13 @@ export function EventCard({
               target="_blank"
               title={event.title}
             >
+              <CategoryIcons event={event} />
               {event.title}
               <span className="sr-only"> (otwiera się w nowej karcie)</span>
             </a>
           ) : (
             <span className="line-clamp-2" title={event.title}>
+              <CategoryIcons event={event} />
               {event.title}
             </span>
           )}
