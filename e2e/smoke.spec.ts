@@ -14,12 +14,18 @@ test("filter sheet, a date filter, a map popup, Lista, and Źródła", async ({ 
 
   await page.getByRole("radio", { name: "Mapa", exact: true }).click();
   await page.waitForSelector(".leaflet-container");
-  await page.waitForFunction(() => document.querySelector(".pin-wrap"));
-  await page.evaluate(() => {
-    const node = document.querySelector<HTMLElement>(".pin-wrap");
-    node?.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
-  });
+  const pin = page.locator(".pin-wrap").first();
+  if (!(await pin.isVisible().catch(() => false))) {
+    await page.locator(".cluster-pin").first().click();
+    await expect(pin).toBeVisible();
+  }
+  await pin.click();
+  await expect(page.locator(".map-popup")).toBeVisible();
   await expect(page.locator(".map-popup__route")).toBeVisible();
+  const route = await page.locator(".map-popup__route").evaluate((node) => getComputedStyle(node).color);
+  expect(route).toBe("rgb(255, 255, 255)");
+  const zoom = await page.locator(".leaflet-control-zoom-in").evaluate((node) => getComputedStyle(node).width);
+  expect(zoom).toBe("44px");
   await expect(page.locator(".workspace")).toHaveAttribute("data-mobile-view", "mapa");
 
   await page.getByRole("radio", { name: "Lista" }).click();
