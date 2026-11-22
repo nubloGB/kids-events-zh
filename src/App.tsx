@@ -1,7 +1,8 @@
 import { Button, SearchField, Spinner } from "@heroui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EventsBoard } from "./components/EventsBoard";
 import { SourcesPanel } from "./components/SourcesPanel";
+import { UpdatedNote } from "./components/UpdatedNote";
 import { formatPolishDate } from "./lib/format";
 import { parseEventsFile, zurichToday } from "./lib/events";
 import { parseSourcesFile } from "./lib/sources";
@@ -20,12 +21,65 @@ export default function App() {
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [today] = useState(() => zurichToday());
+  const [sectionsMenu, setSectionsMenu] = useState(false);
+  const [sectionsCramped, setSectionsCramped] = useState(false);
+  const barRef = useRef<HTMLDivElement>(null);
+  const tabsRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onHash = () => setTab(initialTab());
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
+
+  useEffect(() => {
+    document.querySelector(".app-shell")?.scrollTo({ top: 0 });
+    setSectionsMenu(false);
+  }, [tab]);
+
+  useEffect(() => {
+    const bar = barRef.current;
+    const tabs = tabsRef.current;
+    if (!bar || !tabs) return;
+    const check = () => {
+      if (window.innerWidth >= 640) {
+        setSectionsCramped(false);
+        return;
+      }
+      const styles = getComputedStyle(bar);
+      const pad = Number.parseFloat(styles.paddingLeft) + Number.parseFloat(styles.paddingRight);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap) || 8;
+      const available = bar.clientWidth - pad - 28 - gap;
+      setSectionsCramped(tabs.scrollWidth > available);
+    };
+    check();
+    const observer = new ResizeObserver(check);
+    observer.observe(bar);
+    window.addEventListener("resize", check);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", check);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!sectionsMenu) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSectionsMenu(false);
+    };
+    const onPointer = (event: PointerEvent) => {
+      const target = event.target;
+      if (!(target instanceof Node) || !barRef.current?.querySelector(".section-menu")?.contains(target)) {
+        setSectionsMenu(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onPointer);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", onPointer);
+    };
+  }, [sectionsMenu]);
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -67,17 +121,23 @@ export default function App() {
       <a className="skip-link" href="#lista">
         Przejdź do treści
       </a>
-      <header className="hero">
-        <div className="hero-bar">
+      <header className="hero" data-mobile-header="brand">
+        <div className="hero-bar" ref={barRef}>
           <a className="brand" href="#wydarzenia" onClick={() => selectTab("wydarzenia")}>
             <span aria-hidden="true" className="brand-mark">
               ✦
             </span>
-            Dzieci w Zurychu
+            <span className="brand-name">Dzieci w Zurychu</span>
           </a>
-          <nav aria-label="Sekcje" className="hero-tabs">
+          <nav
+            aria-hidden={sectionsCramped ? true : undefined}
+            aria-label="Sekcje"
+            className={sectionsCramped ? "hero-tabs hero-tabs--measure" : "hero-tabs"}
+            ref={tabsRef}
+          >
             <button
               className={tab === "wydarzenia" ? "nav-pill is-active" : "nav-pill"}
+              tabIndex={sectionsCramped ? -1 : undefined}
               type="button"
               onClick={() => selectTab("wydarzenia")}
             >
@@ -85,12 +145,47 @@ export default function App() {
             </button>
             <button
               className={tab === "zrodla" ? "nav-pill is-active" : "nav-pill"}
+              tabIndex={sectionsCramped ? -1 : undefined}
               type="button"
               onClick={() => selectTab("zrodla")}
             >
               Źródła
             </button>
           </nav>
+          {sectionsCramped ? (
+            <div className="section-menu">
+              <button
+                aria-controls="section-menu-panel"
+                aria-expanded={sectionsMenu}
+                aria-label="Sekcje"
+                className="section-menu-button"
+                type="button"
+                onClick={() => setSectionsMenu((open) => !open)}
+              >
+                <MenuIcon />
+              </button>
+              {sectionsMenu ? (
+                <div className="section-menu-panel" id="section-menu-panel" role="menu">
+                  <button
+                    className={tab === "wydarzenia" ? "is-active" : undefined}
+                    role="menuitem"
+                    type="button"
+                    onClick={() => selectTab("wydarzenia")}
+                  >
+                    Wydarzenia
+                  </button>
+                  <button
+                    className={tab === "zrodla" ? "is-active" : undefined}
+                    role="menuitem"
+                    type="button"
+                    onClick={() => selectTab("zrodla")}
+                  >
+                    Źródła
+                  </button>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </div>
 
         <div className="hero-copy">
@@ -137,10 +232,17 @@ export default function App() {
           </div>
         ) : tab === "zrodla" ? (
           <div className="sources-scroll">
+            <UpdatedNote iso={eventsFile?.updatedAt ?? null} />
             {sourcesFile ? <SourcesPanel sources={sourcesFile} /> : <Loading />}
           </div>
         ) : eventsFile ? (
-          <EventsBoard events={eventsFile.events} query={query} today={today} onQueryChange={setQuery} />
+          <EventsBoard
+            events={eventsFile.events}
+            query={query}
+            today={today}
+            updatedAt={eventsFile.updatedAt}
+            onQueryChange={setQuery}
+          />
         ) : (
           <div className="panel-scroll">
             <Loading />
@@ -148,6 +250,14 @@ export default function App() {
         )}
       </div>
     </div>
+  );
+}
+
+function MenuIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="22" viewBox="0 0 24 24" width="22">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+    </svg>
   );
 }
 

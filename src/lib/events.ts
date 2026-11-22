@@ -251,3 +251,16 @@ export function filtersAreActive(filters: EventFilters): boolean {
     filters.recurrence !== "single"
   );
 }
+
+/** Selected filter choices, excluding the search box. Jednodniowe is the default and counts as zero. */
+export function activeFilterCount(filters: EventFilters, onlyVisible = false): number {
+  return (
+    filters.areas.length +
+    filters.categories.length +
+    (filters.age !== null ? 1 : 0) +
+    (filters.date.kind !== "all" ? 1 : 0) +
+    filters.tags.length +
+    (filters.recurrence !== "single" ? 1 : 0) +
+    (onlyVisible ? 1 : 0)
+  );
+}
