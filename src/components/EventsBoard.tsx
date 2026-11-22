@@ -1,5 +1,7 @@
 import { Button, Drawer, EmptyState, SearchField, useOverlayState } from "@heroui/react";
+import { ArrowLeft, Search } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject, type ReactNode } from "react";
+import { DaySlider } from "./DaySlider";
 import { EventCard } from "./EventCard";
 import { EventMap } from "./EventMap";
 import { FilterSidebar } from "./FilterSidebar";
@@ -126,33 +128,10 @@ export function EventsBoard({
     if (!phone) return;
     const root = document.querySelector<HTMLElement>(".app-shell");
     if (!root) return;
-    let last = root.scrollTop;
     let frame = 0;
-    let down = 0;
-    let up = 0;
     const update = () => {
       frame = 0;
-      const y = root.scrollTop;
-      const delta = y - last;
-      last = y;
-      root.classList.toggle("is-header-stuck", y > 4);
-      const view = root.querySelector(".phone-view");
-      const focused = view !== null && document.activeElement instanceof Node && view.contains(document.activeElement);
-      if (mobileView !== "lista" || focused || y < 12) {
-        root.classList.remove("is-view-hidden");
-        down = 0;
-        up = 0;
-        return;
-      }
-      if (delta > 0) {
-        up = 0;
-        down += delta;
-        if (down > 16) root.classList.add("is-view-hidden");
-      } else if (delta < 0) {
-        down = 0;
-        up += -delta;
-        if (up > 12) root.classList.remove("is-view-hidden");
-      }
+      root.classList.toggle("is-header-stuck", root.scrollTop > 4);
     };
     const onScroll = () => {
       if (frame) return;
@@ -165,7 +144,7 @@ export function EventsBoard({
       root.removeEventListener("scroll", onScroll);
       root.classList.remove("is-header-stuck", "is-view-hidden");
     };
-  }, [mobileView, phone]);
+  }, [phone]);
 
   function showOnMap(id: string) {
     setSelectedId(id);
@@ -231,7 +210,6 @@ export function EventsBoard({
     <div className="workspace" data-filters-open={filtersOpen ? "true" : "false"} data-mobile-view={mobileView}>
       {phone ? (
         <PhoneBar
-          countLabelText={countLabel(shownCount, "wydarzenie", "wydarzenia", "wydarzeń")}
           draft={draft}
           filterCount={filterCount}
           mobileView={mobileView}
@@ -344,7 +322,6 @@ function PhoneBar({
   filterCount,
   shownCount,
   mobileView,
-  countLabelText,
   sheet,
   sidebar,
   onClear,
@@ -356,7 +333,6 @@ function PhoneBar({
   filterCount: number;
   shownCount: number;
   mobileView: "lista" | "mapa";
-  countLabelText: string;
   sheet: ReturnType<typeof useOverlayState>;
   sidebar: ReactNode;
   onClear: () => void;
@@ -364,32 +340,69 @@ function PhoneBar({
   onMobileView: (view: "lista" | "mapa") => void;
   onSubmitSearch: () => void;
 }) {
+  const { today, date, setDate } = useDateFilter();
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
   const filterLabel = `Filtry, ${countLabel(shownCount, "wynik", "wyniki", "wyników")}`;
+  const queryActive = draft.trim() !== "";
+
+  useEffect(() => {
+    if (!searchOpen) return;
+    document.querySelector<HTMLInputElement>(".phone-search-field input")?.focus();
+  }, [searchOpen]);
+
+  function closeSearch() {
+    setSearchOpen(false);
+    window.requestAnimationFrame(() => searchButtonRef.current?.focus());
+  }
+
   return (
     <div className="phone-sticky" data-mobile-header="sticky">
-      <div className="phone-search-row">
-        <form
-          className="phone-search-form"
-          role="search"
-          onSubmit={(event) => {
-            event.preventDefault();
-            onSubmitSearch();
-          }}
-        >
-          <SearchField
-            aria-label="Szukaj wydarzeń"
-            className="phone-search-field"
-            value={draft}
-            variant="secondary"
-            onChange={onDraftChange}
+      <div className={searchOpen ? "phone-search-row is-search-open" : "phone-search-row"}>
+        {searchOpen ? (
+          <button aria-label="Wróć" className="phone-search-button" type="button" onClick={closeSearch}>
+            <ArrowLeft aria-hidden size={22} strokeWidth={2} />
+          </button>
+        ) : null}
+        {searchOpen ? (
+          <form
+            className="phone-search-form"
+            role="search"
+            onSubmit={(event) => {
+              event.preventDefault();
+              onSubmitSearch();
+            }}
           >
-            <SearchField.Group>
-              <SearchField.SearchIcon />
-              <SearchField.Input enterKeyHint="search" placeholder="Tytuł, miejsce, opis…" />
-              <SearchField.ClearButton />
-            </SearchField.Group>
-          </SearchField>
-        </form>
+            <SearchField
+              aria-label="Szukaj wydarzeń"
+              className="phone-search-field"
+              value={draft}
+              variant="secondary"
+              onChange={onDraftChange}
+            >
+              <SearchField.Group>
+                <SearchField.SearchIcon />
+                <SearchField.Input enterKeyHint="search" placeholder="Tytuł, miejsce, opis…" />
+                <SearchField.ClearButton aria-label="Wyczyść wyszukiwanie" />
+              </SearchField.Group>
+            </SearchField>
+          </form>
+        ) : (
+          <DaySlider count={shownCount} date={date} today={today} onDate={setDate} />
+        )}
+        {searchOpen ? null : (
+          <button
+            ref={searchButtonRef}
+            aria-expanded={false}
+            aria-label={queryActive ? "Szukaj, jest wpisane zapytanie" : "Szukaj"}
+            className="phone-search-button"
+            type="button"
+            onClick={() => setSearchOpen(true)}
+          >
+            <Search aria-hidden size={22} strokeWidth={2} />
+            {queryActive ? <span aria-hidden="true" className="phone-search-dot" /> : null}
+          </button>
+        )}
         <Drawer state={sheet}>
           <Drawer.Trigger aria-label={filterLabel} className="phone-filter-button">
             <SlidersIcon />
@@ -439,9 +452,6 @@ function PhoneBar({
               Mapa
             </button>
           </div>
-          <p aria-live="polite" className="phone-count">
-            {countLabelText}
-          </p>
         </div>
       </div>
     </div>

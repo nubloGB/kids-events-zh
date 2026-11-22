@@ -1300,12 +1300,8 @@ input {
     top: env(safe-area-inset-top);
     z-index: 30;
     display: grid;
-    grid-template-rows: 56px 8px 40px;
+    grid-template-rows: 56px 8px 56px;
     transition: grid-template-rows 200ms ease-out;
-  }
-
-  .app-shell.is-view-hidden .phone-sticky {
-    grid-template-rows: 56px 0px 0px;
   }
 
   .app-shell.is-header-stuck .phone-sticky {
@@ -1321,7 +1317,7 @@ input {
     gap: 8px;
     box-sizing: border-box;
     height: 56px;
-    padding: 6px 16px;
+    padding: 0 12px 0 24px;
     background-color: #6b21a8;
     background-image: linear-gradient(105deg, #4c1d95 0%, #6b21a8 38%, #9f1239 70%, #7c2d12 100%);
     background-repeat: no-repeat;
@@ -1331,6 +1327,193 @@ input {
 
   .app-shell.is-header-stuck .phone-search-row {
     background: transparent;
+  }
+
+  .phone-search-row.is-search-open .phone-filter-button {
+    display: none;
+  }
+
+  button.phone-search-button {
+    position: relative;
+    display: grid;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    flex: 0 0 44px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: white;
+    color: #6d28d9;
+    cursor: pointer;
+  }
+
+  button.phone-search-button:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+
+  .app-shell.is-header-stuck button.phone-search-button:focus-visible {
+    outline-color: #6d28d9;
+  }
+
+  .phone-search-dot {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid white;
+    border-radius: 999px;
+    background: #9f1239;
+  }
+
+  .day-slider {
+    position: relative;
+    min-width: 0;
+    height: 56px;
+    flex: 1 1 auto;
+    color: white;
+  }
+
+  .day-slider__bubble {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    max-width: calc(100% - 8px);
+    overflow: hidden;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: rgb(24 24 27 / 0.88);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 16px;
+    margin: 0;
+    padding: 0 6px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  .day-slider__bubble.is-center {
+    left: 50%;
+  }
+
+  .day-slider__track {
+    position: absolute;
+    right: 0;
+    bottom: 14px;
+    left: 0;
+    height: 28px;
+    touch-action: none;
+  }
+
+  .day-slider__bar {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    left: 0;
+    height: 4px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.45);
+  }
+
+  .day-slider__thumb {
+    position: absolute;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: #6d28d9;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.28);
+    pointer-events: none;
+    touch-action: none;
+  }
+
+  .day-slider__stop {
+    position: absolute;
+    top: -8px;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+    touch-action: none;
+  }
+
+  .day-slider__mark {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .day-slider__stop:first-child .day-slider__mark,
+  .day-slider__stop:last-child .day-slider__mark {
+    left: 50%;
+  }
+
+  .day-slider__caption {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    white-space: nowrap;
+  }
+
+  .day-slider__stop:first-child .day-slider__caption {
+    left: 0;
+    transform: none;
+  }
+
+  .day-slider__stop:last-child .day-slider__caption {
+    right: 0;
+    left: auto;
+    transform: none;
+  }
+
+  .day-slider__stop:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 10px;
+  }
+
+  .day-slider__track:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 8px;
+  }
+
+  .app-shell.is-header-stuck .day-slider {
+    color: #3f3f46;
+  }
+
+  .app-shell.is-header-stuck .day-slider__bar,
+  .app-shell.is-header-stuck .day-slider__mark {
+    background: #d4d4d8;
+  }
+
+  .app-shell.is-header-stuck .day-slider__bubble {
+    background: #6d28d9;
+  }
+
+  .app-shell.is-header-stuck .day-slider__stop:focus-visible,
+  .app-shell.is-header-stuck .day-slider__track:focus-visible {
+    outline-color: #6d28d9;
   }
 
   .phone-search-form {
@@ -1420,45 +1603,34 @@ input {
   }
 
   .phone-view-slot {
-    height: 40px;
+    height: 56px;
     overflow: hidden;
     background: white;
-    transition: height 200ms ease-out;
-  }
-
-  .app-shell.is-view-hidden .phone-view-slot {
-    height: 0;
   }
 
   .phone-view {
     display: flex;
-    height: 40px;
+    height: 56px;
     align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 0 16px;
+    padding: 6px 16px;
     background: white;
-    transform: translateY(0);
-    transition: transform 200ms ease-out;
-  }
-
-  .app-shell.is-view-hidden .phone-view {
-    transform: translateY(-100%);
-    pointer-events: none;
   }
 
   .phone-view .view-toggle {
-    height: 32px;
+    display: flex;
+    width: 100%;
+    height: 44px;
     padding: 2px;
     background: #f4f4f5;
     box-shadow: none;
   }
 
   .phone-view .view-toggle button {
-    height: 28px;
-    padding: 0 12px;
+    flex: 1 1 0;
+    height: 40px;
+    padding: 0 8px;
     font-size: 13px;
-    line-height: 28px;
+    line-height: 40px;
   }
 
   .phone-view .view-toggle button:focus-visible {
@@ -1479,7 +1651,7 @@ input {
   }
 
   .map-pane {
-    height: calc(100dvh - 96px - env(safe-area-inset-top));
+    height: calc(100dvh - 120px - env(safe-area-inset-top));
     min-height: 240px;
   }
 
@@ -1563,7 +1735,9 @@ input {
   .phone-sticky,
   .phone-gap,
   .phone-view-slot,
-  .phone-view {
+  .phone-view,
+  .day-slider__thumb,
+  .phone-search-row {
     transition: none;
   }
 }
