@@ -121,6 +121,28 @@ export function googleCalendarUrl(event: KidsEvent, today: string): string {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+function outlookDateTime(iso: string, totalMinutes: number): string {
+  const hour = Math.floor(totalMinutes / 60);
+  const minute = totalMinutes % 60;
+  return `${iso}T${pad(hour)}:${pad(minute)}:00`;
+}
+
+/** Outlook on the web. Timed values are Zurich local clock, without a zone suffix. */
+export function outlookCalendarUrl(event: KidsEvent, today: string): string {
+  const span = calendarSpan(event, today);
+  const allDay = span.allDay || span.startMinutes === null || span.endMinutes === null;
+  const params = new URLSearchParams({
+    rru: "addevent",
+    subject: event.title,
+    startdt: allDay ? span.startDate : outlookDateTime(span.startDate, span.startMinutes ?? 0),
+    enddt: allDay ? span.endDate : outlookDateTime(span.endDate, span.endMinutes ?? 0),
+    body: calendarDetails(event),
+    location: event.place,
+    allday: allDay ? "true" : "false",
+  });
+  return `https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&${params.toString()}`;
+}
+
 function icsEscape(value: string): string {
   return value.replaceAll("\\", "\\\\").replaceAll("\n", "\\n").replaceAll(",", "\\,").replaceAll(";", "\\;");
 }

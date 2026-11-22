@@ -1,12 +1,17 @@
-import { Button, Card, Chip, Link } from "@heroui/react";
-import { useState } from "react";
+import { Button, Card, Chip, buttonVariants } from "@heroui/react";
+import { ExternalLink, MapPin } from "lucide-react";
+import { useCallback, useEffect, useState, type Ref } from "react";
+import { ActionTip } from "./ActionTip";
 import { CalendarMenu } from "./CalendarMenu";
+import { eventCardActions } from "../lib/cardActions";
 import { splitIso } from "../lib/format";
 import { eventKey } from "../lib/events";
 import { CATEGORY_FALLBACK } from "../lib/markers";
 import type { KidsEvent } from "../types";
 
 const FREE_TEXT = /za darmo|wstęp wolny|darmow|gratis|kostenlos|eintritt frei|bezpłat/i;
+
+type ActionLayout = "mobile" | "desktop" | "narrow";
 
 function isFree(event: KidsEvent): boolean {
   return FREE_TEXT.test(`${event.description} ${event.registration}`);
@@ -17,6 +22,43 @@ function titleDomId(event: KidsEvent): string {
   const raw = eventKey(event);
   for (let index = 0; index < raw.length; index += 1) hash = (hash * 33 + raw.charCodeAt(index)) >>> 0;
   return `event-title-${hash.toString(36)}`;
+}
+
+function assignRef<T>(ref: Ref<T> | undefined, value: T | null) {
+  if (typeof ref === "function") ref(value);
+  else if (ref) ref.current = value;
+}
+
+function useActionLayout() {
+  const [node, setNode] = useState<HTMLElement | null>(null);
+  const [layout, setLayout] = useState<ActionLayout>(() =>
+    typeof window !== "undefined" && window.matchMedia("(min-width: 640px)").matches ? "desktop" : "mobile",
+  );
+  const setCard = useCallback((element: HTMLElement | null) => {
+    setNode((current) => (current === element ? current : element));
+  }, []);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 640px)");
+    const read = () => {
+      if (!query.matches) {
+        setLayout("mobile");
+        return;
+      }
+      const width = node?.getBoundingClientRect().width ?? Number.POSITIVE_INFINITY;
+      setLayout(width < 300 ? "narrow" : "desktop");
+    };
+    read();
+    const observer = node ? new ResizeObserver(read) : null;
+    if (node) observer?.observe(node);
+    query.addEventListener("change", read);
+    return () => {
+      observer?.disconnect();
+      query.removeEventListener("change", read);
+    };
+  }, [node]);
+
+  return { layout, setCard };
 }
 
 function ClockIcon() {
@@ -78,16 +120,28 @@ export function EventCard({
   onShowOnMap: () => void;
 }) {
   const [broken, setBroken] = useState(false);
+  const { layout, setCard } = useActionLayout();
   const image = broken ? CATEGORY_FALLBACK[event.category] : event.image;
   const src = `${import.meta.env.BASE_URL}${image}`;
   const titleId = titleDomId(event);
   const free = isFree(event);
+  const actions = eventCardActions(event);
+  const hasPage = actions.primary === "page";
+  const pageUrl = event.url.trim();
 
   return (
     <Card
       aria-labelledby={titleId}
       className={`event-card group relative hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-secondary${selected ? " is-selected ring-2 ring-secondary" : ""}`}
-      render={(props) => <article {...props} />}
+      render={(props) => (
+        <article
+          {...props}
+          ref={(element) => {
+            setCard(element);
+            assignRef(props.ref as Ref<HTMLElement> | undefined, element);
+          }}
+        />
+      )}
       onMouseEnter={() => onHighlight(true)}
       onMouseLeave={() => onHighlight(false)}
     >
@@ -109,16 +163,22 @@ export function EventCard({
           className="event-card__title bottom-3 left-4 right-4 text-xl font-bold leading-tight text-white normal-case drop-shadow-md md:text-2xl"
           id={titleId}
         >
-          <a
-            className="line-clamp-2 after:absolute after:inset-0"
-            href={event.url}
-            rel="noopener noreferrer"
-            target="_blank"
-            title={event.title}
-          >
-            {event.title}
-            <span className="sr-only"> (otwiera się w nowej karcie)</span>
-          </a>
+          {hasPage ? (
+            <a
+              className="line-clamp-2"
+              href={pageUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+              title={event.title}
+            >
+              {event.title}
+              <span className="sr-only"> (otwiera się w nowej karcie)</span>
+            </a>
+          ) : (
+            <span className="line-clamp-2" title={event.title}>
+              {event.title}
+            </span>
+          )}
         </h3>
       </div>
       <Card.Content className="event-card__body">
@@ -143,17 +203,50 @@ export function EventCard({
         </div>
         <p className="event-card__desc text-small line-clamp-2 text-default-500">{event.description}</p>
       </Card.Content>
-      <Card.Footer className="event-card__footer relative z-10">
-        <CalendarMenu event={event} labeled today={today} />
-        <Link className="event-card__external" href={event.url} rel="noopener noreferrer" target="_blank">
-          Strona wydarzenia
-          <span className="sr-only"> (otwiera się w nowej karcie)</span>
-          <Link.Icon />
-        </Link>
-        <Button className="event-card__map" size="sm" variant="secondary" onPress={onShowOnMap}>
-          <PinIcon />
-          Pokaż na mapie
-        </Button>
+      <Card.Footer className="event-card__footer event-actions">
+        {hasPage ? (
+          <ActionTip label={layout === "narrow" ? "Strona wydarzenia" : null}>
+            <a
+              aria-label="Strona wydarzenia (otwiera się w nowej karcie)"
+              className={`${buttonVariants({ variant: "primary" })} event-action event-action--primary`}
+              href={pageUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span className="event-action__text">Strona wydarzenia</span>
+              <ExternalLink aria-hidden className="event-action__icon event-action__icon--end" size={16} strokeWidth={2} />
+            </a>
+          </ActionTip>
+        ) : (
+          <CalendarMenu
+            event={event}
+            today={today}
+            tooltip={layout === "narrow" ? "Dodaj do kalendarza" : null}
+            variant="primary"
+          />
+        )}
+        {hasPage ? (
+          <CalendarMenu
+            event={event}
+            today={today}
+            tooltip={layout === "desktop" ? null : "Dodaj do kalendarza"}
+            variant="secondary"
+          />
+        ) : null}
+        {actions.showMap ? (
+          <ActionTip label={layout === "desktop" ? null : "Pokaż na mapie"}>
+            <Button
+              aria-label="Pokaż na mapie"
+              className="event-action event-action--secondary"
+              isIconOnly
+              variant="secondary"
+              onPress={onShowOnMap}
+            >
+              <MapPin aria-hidden className="event-action__icon" size={20} strokeWidth={2} />
+              <span className="event-action__text event-action__text--short">Mapa</span>
+            </Button>
+          </ActionTip>
+        ) : null}
       </Card.Footer>
     </Card>
   );

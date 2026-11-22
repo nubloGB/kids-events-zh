@@ -1,4 +1,4 @@
-import { buildIcs, calendarDates, calendarSpan, googleCalendarUrl } from "./calendar";
+import { buildIcs, calendarDates, calendarSpan, googleCalendarUrl, outlookCalendarUrl } from "./calendar";
 import type { KidsEvent } from "../types";
 import { describe, expect, it } from "vitest";
 
@@ -81,5 +81,36 @@ describe("calendarSpan", () => {
     expect(ics).toContain("TZID:Europe/Zurich");
     expect(ics).toContain("DTSTART;TZID=Europe/Zurich:20261019T140000");
     expect(ics).toContain("DTEND;TZID=Europe/Zurich:20261019T154500");
+  });
+});
+
+describe("outlookCalendarUrl", () => {
+  it("opens a timed Outlook event in the Zurich local clock", () => {
+    const url = new URL(outlookCalendarUrl(sample({}), "2026-10-19"));
+    expect(url.origin + url.pathname).toBe("https://outlook.live.com/calendar/0/deeplink/compose");
+    expect(url.searchParams.get("path")).toBe("/calendar/action/compose");
+    expect(url.searchParams.get("rru")).toBe("addevent");
+    expect(url.searchParams.get("subject")).toBe("Family Literacy");
+    expect(url.searchParams.get("startdt")).toBe("2026-10-17T10:15:00");
+    expect(url.searchParams.get("enddt")).toBe("2026-10-17T11:45:00");
+    expect(url.searchParams.get("allday")).toBe("false");
+    expect(url.searchParams.get("location")).toBe("PBZ Oerlikon");
+    expect(url.searchParams.get("body")).toContain("https://example.com/literacy");
+  });
+
+  it("uses an exclusive all-day end, matching the .ics span", () => {
+    const url = new URL(
+      outlookCalendarUrl(
+        sample({
+          dateText: "wtorki 9:30–10:30 (od 20.10.2026, kurs 8 spotkań)",
+          startDate: "2026-10-20",
+          endDate: "2026-12-08",
+        }),
+        "2026-10-19",
+      ),
+    );
+    expect(url.searchParams.get("startdt")).toBe("2026-10-20");
+    expect(url.searchParams.get("enddt")).toBe("2026-12-09");
+    expect(url.searchParams.get("allday")).toBe("true");
   });
 });
