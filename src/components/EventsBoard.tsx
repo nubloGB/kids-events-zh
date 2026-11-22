@@ -137,8 +137,22 @@ export function EventsBoard({
   useEffect(() => {
     if (focusOrigin !== "map" || !selectedId) return;
     if (!wide && view === "mapa") return;
-    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-    itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior });
+    let attempts = 0;
+    let timer = 0;
+    const scroll = () => {
+      const node = itemRefs.current.get(selectedId);
+      if (!node) {
+        if (attempts < 12) {
+          attempts += 1;
+          timer = window.setTimeout(scroll, 50);
+        }
+        return;
+      }
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+      node.scrollIntoView({ block: "nearest", behavior });
+    };
+    scroll();
+    return () => window.clearTimeout(timer);
   }, [focusOrigin, focusTick, selectedId, view, wide]);
 
   useEffect(() => {

@@ -2378,7 +2378,12 @@ input {
   gap: 8px;
 }
 
+.list-row__panel .list-row__actions {
+  flex-wrap: wrap;
+}
+
 .list-row__panel .list-row__actions.event-actions a.button.event-action--primary,
+.list-row__panel .list-row__actions.event-actions button.event-action--primary,
 .list-row__panel .list-row__actions.event-actions .calendar-menu--primary,
 .list-row__panel .list-row__actions.event-actions .calendar-menu--primary .event-action--primary {
   flex: 0 0 auto;
@@ -2388,7 +2393,8 @@ input {
   min-height: 2.5rem;
 }
 
-.list-row__panel .list-row__actions.event-actions a.button.event-action--primary {
+.list-row__panel .list-row__actions.event-actions a.button.event-action--primary,
+.list-row__panel .list-row__actions.event-actions button.event-action--primary {
   padding-inline: 0.9rem;
   border: 1.5px solid #6d28d9;
   background: transparent;
