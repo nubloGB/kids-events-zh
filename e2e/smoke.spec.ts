@@ -14,12 +14,17 @@ test("filter sheet, a date filter, a map popup, Lista, and Źródła", async ({ 
 
   await page.getByRole("radio", { name: "Mapa", exact: true }).click();
   await page.waitForSelector(".leaflet-container");
+  await page.waitForFunction(() => !document.querySelector(".leaflet-zoom-anim"));
   const pin = page.locator(".pin-wrap").first();
   if (!(await pin.isVisible().catch(() => false))) {
     await page.locator(".cluster-pin").first().click();
+    await page.waitForFunction(() => !document.querySelector(".leaflet-zoom-anim"));
     await expect(pin).toBeVisible();
   }
   await pin.click();
+  if (!(await page.locator(".map-popup__route").isVisible().catch(() => false))) {
+    await pin.click();
+  }
   await expect(page.locator(".map-popup")).toBeVisible();
   await expect(page.locator(".map-popup__route")).toBeVisible();
   const route = await page.locator(".map-popup__route").evaluate((node) => getComputedStyle(node).color);

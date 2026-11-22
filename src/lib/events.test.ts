@@ -58,6 +58,16 @@ describe("events.json", () => {
     const { upcoming, recurring } = partitionEvents(file.events, "2026-10-18", ALL_EVENTS);
     const dates = upcoming.map((event) => event.startDate ?? "");
     expect(dates).toEqual([...dates].sort());
+    const sample = file.events.find((event) => event.startDate);
+    expect(sample).toBeDefined();
+    const later = { ...sample!, startDate: "2026-11-22", dateText: "ndz. 22.11.2026, 15:00", title: "Później" };
+    const early = { ...sample!, startDate: "2026-11-22", dateText: "ndz. 22.11.2026, 9:00", title: "Rano" };
+    const timeless = { ...sample!, startDate: "2026-11-22", dateText: "ndz. 22.11.2026", title: "Bez godziny" };
+    expect(partitionEvents([later, timeless, early], "2026-11-22", ALL_EVENTS).upcoming.map((event) => event.title)).toEqual([
+      "Rano",
+      "Później",
+      "Bez godziny",
+    ]);
     expect(upcoming.some((event) => event.title === "Oerliker Singmüüs")).toBe(true);
     expect(recurring.map((event) => event.title)).toContain("Zoo Zürich");
     expect(recurring.every((event) => event.startDate === null && event.category === "stałe")).toBe(true);

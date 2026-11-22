@@ -84,12 +84,11 @@ function fitEventBounds(map: L.Map, events: KidsEvent[]) {
   const points = events
     .filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
     .map((event) => L.latLng(event.lat, event.lng));
-  const animate = !prefersReducedMotion();
   if (points.length === 0) {
-    map.setView(OERLIKON, 13, { animate });
+    map.setView(OERLIKON, 13, { animate: false });
     return;
   }
-  map.fitBounds(L.latLngBounds(points), { padding: FIT_PADDING, maxZoom: 15, animate });
+  map.fitBounds(L.latLngBounds(points), { padding: FIT_PADDING, maxZoom: 15, animate: false });
 }
 
 function MapBridge({

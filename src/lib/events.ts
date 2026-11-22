@@ -1,4 +1,5 @@
 import { matchesAgeBand } from "./age";
+import { compareEvents } from "./listDays";
 import { resolveDateRange, rangesOverlap, zurichToday } from "./dates";
 import { fold } from "./text";
 import {
@@ -127,10 +128,7 @@ export function matchesFilters(event: KidsEvent, filters: EventFilters, today: s
 }
 
 function byDate(a: KidsEvent, b: KidsEvent): number {
-  const left = a.startDate ?? "";
-  const right = b.startDate ?? "";
-  if (left !== right) return left < right ? -1 : 1;
-  return a.title.localeCompare(b.title, "pl");
+  return compareEvents(a, b);
 }
 
 function byTitle(a: KidsEvent, b: KidsEvent): number {
