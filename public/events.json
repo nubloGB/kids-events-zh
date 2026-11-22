@@ -272,7 +272,9 @@
       "lat": 47.407818,
       "lng": 8.545756,
       "image": "images/fallback-candles.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 22.11.2026, 15:00–16:00",
@@ -311,7 +313,9 @@
       "lat": 47.424656,
       "lng": 8.510892,
       "image": "images/advent-wreath.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-29",
       "recurrence": "recurring"
     },
@@ -414,7 +418,9 @@
       "lat": 47.424656,
       "lng": 8.510892,
       "image": "images/candles-gz.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 5.12.2026, 8:00–19:00",
@@ -495,7 +501,9 @@
       "lat": 47.51902,
       "lng": 8.715017,
       "image": "images/fallback-playground.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 19.12.2026",
@@ -922,7 +930,9 @@
       "lat": 47.407818,
       "lng": 8.545756,
       "image": "images/advent-wreath.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-28",
       "recurrence": "recurring"
     },
@@ -964,7 +974,9 @@
       "lat": 47.421539,
       "lng": 8.549484,
       "image": "images/fallback-music.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 29.11.2026, 13:00–17:00",
@@ -1004,7 +1016,9 @@
       "lat": 47.423826,
       "lng": 8.512938,
       "image": "images/fallback-farm.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "pt. 27.11.2026–pt. 11.12.2026, 14:00–16:00",
@@ -1045,7 +1059,9 @@
       "lat": 47.413896,
       "lng": 8.476517,
       "image": "images/fallback-crafts.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 25.11.2026, 15:00–17:30",
@@ -1105,7 +1121,9 @@
       "lat": 47.407818,
       "lng": 8.545756,
       "image": "images/fallback-crafts.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-16",
       "recurrence": "recurring"
     },
@@ -1186,7 +1204,9 @@
       "lat": 47.387946,
       "lng": 8.472728,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-13",
       "recurrence": "recurring"
     },
@@ -1207,7 +1227,9 @@
       "lat": 47.375851,
       "lng": 8.484625,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-11",
       "recurrence": "recurring"
     },
@@ -1228,7 +1250,9 @@
       "lat": 47.326167,
       "lng": 8.514136,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-03",
       "recurrence": "recurring"
     },
@@ -1249,7 +1273,9 @@
       "lat": 47.395923,
       "lng": 8.489721,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-28",
       "recurrence": "recurring"
     },
@@ -1270,7 +1296,9 @@
       "lat": 47.38672,
       "lng": 8.536179,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-29",
       "recurrence": "recurring"
     },
@@ -1291,7 +1319,9 @@
       "lat": 47.393118,
       "lng": 8.519941,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-16",
       "recurrence": "recurring"
     },
@@ -1312,7 +1342,9 @@
       "lat": 47.421539,
       "lng": 8.549484,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-09",
       "recurrence": "recurring"
     },
@@ -1333,7 +1365,9 @@
       "lat": 47.402266,
       "lng": 8.497295,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-06",
       "recurrence": "recurring"
     },
@@ -1354,7 +1388,9 @@
       "lat": 47.399052,
       "lng": 8.534701,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-16",
       "recurrence": "recurring"
     },
@@ -1375,7 +1411,9 @@
       "lat": 47.424656,
       "lng": 8.510892,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-16",
       "recurrence": "recurring"
     },
@@ -1397,7 +1435,9 @@
       "lat": 47.368492,
       "lng": 8.562323,
       "image": "images/candles-gz.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "pt. 27.11.2026–ndz. 29.11.2026, 16:00–20:30",
@@ -1416,7 +1456,9 @@
       "lat": 47.424575,
       "lng": 8.54428,
       "image": "images/advent-wreath.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-29",
       "recurrence": "recurring"
     },
@@ -1437,7 +1479,9 @@
       "lat": 47.399052,
       "lng": 8.534701,
       "image": "images/advent-wreath.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-29",
       "recurrence": "recurring"
     },
@@ -1458,7 +1502,9 @@
       "lat": 47.375851,
       "lng": 8.484625,
       "image": "images/werken.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-09",
       "recurrence": "recurring"
     },
@@ -1606,7 +1652,9 @@
       "lat": 47.38672,
       "lng": 8.536179,
       "image": "images/fallback-farm.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 6.12.2026, 14:00–17:00",
@@ -1646,7 +1694,9 @@
       "lat": 47.345012,
       "lng": 8.535832,
       "image": "images/fallback-stage.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 12.12.2026–ndz. 20.12.2026, 15:30–16:30",
@@ -1686,7 +1736,9 @@
       "lat": 47.375851,
       "lng": 8.484625,
       "image": "images/candles-gz.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-12-15",
       "recurrence": "recurring"
     },
@@ -1787,7 +1839,9 @@
       "lat": 47.37924,
       "lng": 8.540702,
       "image": "images/fallback-museum.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2027-01-03",
       "recurrence": "recurring"
     },
@@ -1809,7 +1863,9 @@
       "lat": 47.37924,
       "lng": 8.540702,
       "image": "images/fallback-museum.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 22.11.2026, 14:00–16:00",
@@ -1911,7 +1967,9 @@
       "lat": 47.504609,
       "lng": 8.763099,
       "image": "images/fallback-candles.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-22",
       "recurrence": "recurring"
     },
@@ -1932,7 +1990,9 @@
       "lat": 47.469648,
       "lng": 8.307765,
       "image": "images/fallback-crafts.jpg",
-      "tags": [],
+      "tags": [
+        "swieta"
+      ],
       "endDate": "2026-11-22",
       "recurrence": "recurring"
     },
@@ -1995,7 +2055,9 @@
       "lat": 47.40995,
       "lng": 8.545241,
       "image": "images/fallback-candles.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 2.12.2026, 14:30–16:00",
@@ -2015,7 +2077,9 @@
       "lat": 47.386914,
       "lng": 8.577599,
       "image": "images/fallback-zoo.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 9.12.2026, 15:00–16:00",
@@ -2035,7 +2099,9 @@
       "lat": 47.386914,
       "lng": 8.577599,
       "image": "images/fallback-zoo.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "stale: codziennie 10:00–17:00",
@@ -2495,7 +2561,9 @@
       "lat": 47.394645,
       "lng": 8.542589,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 2.12.2026, 15:00–16:00",
@@ -2515,7 +2583,9 @@
       "lat": 47.411676,
       "lng": 8.545043,
       "image": "images/fallback-crafts.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 2.12.2026, 15:00–16:15",
@@ -2535,7 +2605,9 @@
       "lat": 47.424656,
       "lng": 8.510892,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "pt. 4.12.2026, 10:00–10:45",
@@ -2655,7 +2727,9 @@
       "lat": 47.394645,
       "lng": 8.542589,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 5.12.2026, 10:30–11:30",
@@ -2675,7 +2749,9 @@
       "lat": 47.404486,
       "lng": 8.573298,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 5.12.2026, 11:00–12:30",
@@ -2735,7 +2811,9 @@
       "lat": 47.404486,
       "lng": 8.573298,
       "image": "images/fallback-crafts.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 5.12.2026, 15:30–17:00",
@@ -2895,7 +2973,9 @@
       "lat": 47.33429,
       "lng": 8.51345,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "śr. 9.12.2026, 15:00–16:00",
@@ -3175,7 +3255,9 @@
       "lat": 47.388895,
       "lng": 8.523323,
       "image": "images/fallback-books.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "sob. 12.12.2026, 10:30–12:00",
@@ -7775,7 +7857,9 @@
       "lat": 47.423061,
       "lng": 8.514292,
       "image": "images/fallback-gymnastics.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 13.12.2026, 13:30–16:30",
@@ -8815,7 +8899,9 @@
       "lat": 47.375605,
       "lng": 8.576845,
       "image": "images/fallback-ice.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
     },
     {
       "dateText": "ndz. 27.12.2026, 16:00–22:00",
@@ -9655,7 +9741,748 @@
       "lat": 47.374821,
       "lng": 8.53974,
       "image": "images/advent-wreath.jpg",
-      "tags": []
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "19.11–23.12.2026, pn–sb 11:00–22:00, nd. 11:00–20:00",
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "Bellevue Noël (Sechseläutenplatz)",
+      "url": "https://bellevuenoel.ch/info",
+      "description": "Nowy jarmark w miejscu dawnego Wienachtsdorf: ponad 100 stoisk, strefa dla dzieci (karuzela, bar z ponczem, kącik czytelniczy, Teddy Atelier), spacerowalny wieniec adwentowy za darmowy bilet czasowy (dzieci do 12 lat tylko z dorosłym). 6.12, 14:00–17:00: Samichlaus i Schmutzli. Wstęp na rynek darmowy. Z Oerlikonu ok. 15–20 min tramwajem/pociągiem.",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Sechseläutenplatz, Bellevue",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Rynek bez zapisów, gratis. Na wieniec: darmowy bilet czasowy online lub na miejscu",
+      "isNew": true,
+      "lat": 47.3659,
+      "lng": 8.5478,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "19.11–24.12.2026, niedziela–środa 11:00–21:00, czwartek–sobota 11:00–22:00; 24.12. 11:00–16:00",
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-24",
+      "recurrence": "recurring",
+      "title": "Polarzauber (dawny Christkindlimarkt, Zürich HB)",
+      "url": "https://polarzauber.ch/de/infos/",
+      "description": "Ponad 100 domków w hali dworca głównego, dawniej Christkindlimarkt. Wstęp wolny, odbywa się w każdą pogodę. Food dłużej niż stoiska non-food. Z Oerlikonu 6–8 min pociągiem.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Bahnhofshalle, Zürich Hauptbahnhof",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.3779,
+      "lng": 8.5403,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "19.11–23.12.2026, pn–czw 16:00–21:00, pt. 16:00–22:00, sob. 13:00–22:00, nd. 13:00–21:00; chóry od 17:30, w weekend od 14:30",
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "The Singing Christmas Tree (Werdmühleplatz)",
+      "url": "https://singingchristmastree.ch/",
+      "description": "Jarmark z żywą choinką, na której śpiewa ponad 40 chórów (także dziecięce). Karuzela dla dzieci: pn–pt 16:00–20:00, sob.–nd. 13:00–20:00. Wstęp wolny, przy każdej pogodzie. Z Oerlikonu ok. 10–15 min (HB + krótki spacer).",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Werdmühleplatz, Bahnhofstrasse",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny (także koncerty i otwarte śpiewanie)",
+      "isNew": true,
+      "lat": 47.3754,
+      "lng": 8.539,
+      "image": "images/fallback-music.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "19.11–23.12.2026, pn–czw 11:00–21:00, pt.–sob. 11:00–22:00, nd. 11:00–20:00",
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "Weihnachtsmarkt Dörfli (Niederdorf)",
+      "url": "https://weihnachtsmarkt-doerfli.ch/",
+      "description": "Najstarszy jarmark Zurychu: ok. 70 domków i ponad 200 sklepów w zaułkach Starego Miasta (m.in. Hirschenplatz, Rosenhof, Grossmünster). Wstęp wolny. Z Oerlikonu ok. 15–20 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Niederdorf, Altstadt Zürich",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.3735,
+      "lng": 8.5445,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "pt. 27.11. 11:00–21:00, sob. 28.11. 11:00–21:00, nd. 29.11. 10:00–17:00",
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-29",
+      "recurrence": "recurring",
+      "title": "Oerliker Weihnachtsmarkt",
+      "url": "https://www.oerliker-weihnachtsmarkt.ch/",
+      "description": "Mały jarmark kwartału na Max-Bill-Platz: karuzela, jedzenie, rękodzieło, bajki, kolędy i Samichlaus. W 2026 po raz pierwszy przez trzy dni. Najbliższy jarmark z Oerlikonu (spacer).",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Max-Bill-Platz, Neu-Oerlikon",
+      "area": "Oerlikon",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.4147,
+      "lng": 8.5472,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "20.11–23.12.2026 codziennie oprócz 29.11 i 13.12; pn–pt 13:25–18:50, sob.–nd. od 12:10",
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "St. Annahof Märlitram",
+      "url": "https://www.coop-city.ch/de/maerlitram",
+      "description": "Ok. 20 min tramwajem z Samichlausem za sterem i dwoma aniołami (bajki i kolędy po niemiecku). Trasa: Bellevue – Limmatquai – Central – Bahnhofstrasse – Bellevue. Tylko dzieci 4–9 lat, bez rodziców. 12 CHF, bilety wyłącznie online, sprzedawane na tydzień naprzód (odbiór m.in. w Coop City Oerlikon, najpóźniej 1–2 godz. przed odjazdem). Nie kursuje 29.11 (Samichlausumzug) i 13.12 (Silvesterlauf).",
+      "age": "4–9 lat, bez dorosłych",
+      "ageMin": 4,
+      "ageMax": 9,
+      "place": "Bellevue (wsiadanie i wysiadanie tylko tu)",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bilety tylko online, 12 CHF/dziecko, sprzedaż na tydzień naprzód",
+      "isNew": true,
+      "lat": 47.3667,
+      "lng": 8.5451,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "5.11–30.12.2026 (zamknięte 24–25.12); pokazy Yuki 17:00–20:00, Art x Electronica 20:00–22:00",
+      "startDate": "2026-11-05",
+      "endDate": "2026-12-30",
+      "recurrence": "recurring",
+      "title": "ILLUMINARIUM – pokazy świetlne w dziedzińcu Landesmuseum",
+      "url": "https://www.illuminarium.ch/",
+      "description": "To jest tegoroczne wyświetlanie / video mapping na murach dziedzińca Landesmuseum. Część gastronomiczna i bar jest bezpłatna. Bilety na pokazy: pojedynczy show 5.90–14.90 CHF, Abendticket na trzy pokazy 6.90–23.90 CHF (ticketino). Yukis Arktische Weihnachten (17:15 i 18:45, 25 min) oraz Yukis Pixel Zoo Jungle (18:00 i 19:30, razem z Zoo Zürich) są dla rodzin. Art x Electronica (Paul Klee, od 20:00) organizator poleca od 10 lat. Z Oerlikonu ok. 10–15 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Dziedziniec Landesmuseum, Museumstrasse 2",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Dziedziniec/jedzenie bez zapisów. Bilety na pokazy: illuminarium.ticketino.com",
+      "isNew": true,
+      "lat": 47.37924,
+      "lng": 8.540702,
+      "image": "images/fallback-museum.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 6.12.2026, 15:00–18:00",
+      "startDate": "2026-12-06",
+      "recurrence": "single",
+      "title": "ILLU.KIDS Disco – Samichlaus Special",
+      "url": "https://www.illuminarium.ch/",
+      "description": "Darmowa dyskoteka dla dzieci w klubie Illuminarium, bez zapisów: malowanie twarzy, popcorn, wata cukrowa, bary z syropem, Yuki i Sunny. 6.12 jest specjal z wizytą Samichlausa (DJ ScheSche i DJ Nici Färber). Inne niedziele też 15:00–18:00 (m.in. 29.11, 13.12, 20.12, 27.12). Z Oerlikonu ok. 10–15 min.",
+      "age": "dzieci w każdym wieku, z rodzicem",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "ILLUMINARIUM, Landesmuseum",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Gratis, bez zapisów",
+      "isNew": true,
+      "lat": 47.37924,
+      "lng": 8.540702,
+      "image": "images/fallback-music.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "14.11–21.12.2026, nd.–czw 10:00–20:00, pt.–sob. 10:00–21:00",
+      "startDate": "2026-11-14",
+      "endDate": "2026-12-21",
+      "recurrence": "recurring",
+      "title": "Zürcher Kerzenziehen (Hechtplatz)",
+      "url": "https://www.zuercherkerzenziehen.ch/",
+      "description": "58. publiczne ciągnienie świec z wosku pszczelego w namiotach na Hechtplatz. Dla rodzin bez zapisów w godzinach otwarcia. Wosk: 5.40 CHF/100 g (klasy szkolne 4.60 CHF). W Oerlikonie jest też dzielnicowe Kerzenziehen w GZ (już na stronie). Z Oerlikonu ok. 15–20 min.",
+      "age": "rodziny, także małe dzieci z pomocą rodzica",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Hechtplatz, Zürich",
+      "area": "Zurych",
+      "category": "warsztaty",
+      "registration": "Rodziny bez zapisów; grupy/szkoły rezerwują rano",
+      "isNew": true,
+      "lat": 47.3676,
+      "lng": 8.5453,
+      "image": "images/fallback-candles.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 6.12.2026, 14:00–16:00",
+      "startDate": "2026-12-06",
+      "recurrence": "single",
+      "title": "Triff den Samichlaus im Zoo Zürich",
+      "url": "https://zoo.ch/erlebnisse-events/kinder/triff-den-samichlaus",
+      "description": "Samichlaus ze Schmutzli i dwoma lamami przy wejściu, przy brązowych pingwinach. Dzieci, które powiedzą wierszyk, dostają coś z worka. Samo spotkanie jest bezpłatne, obowiązuje bilet do zoo (dzieci poniżej 6 lat wstęp wolny; bilety starszych dzieci i dorosłych na zoo.ch). Zoo w grudniu 9:00–17:00, 24.12 do 16:00. Z Oerlikonu ok. 25–35 min.",
+      "age": "dzieci, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Wejście Zoo Zürich, przy brązowych pingwinach",
+      "area": "Zurych",
+      "category": "zwierzęta/natura",
+      "registration": "Bez zapisów na spotkanie; bilet do zoo (dzieci <6 lat gratis)",
+      "isNew": true,
+      "lat": 47.386914,
+      "lng": 8.577599,
+      "image": "images/fallback-zoo.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 6.12.2026, rejsy z Bürkliplatz 11:20–13:05 i 13:20–15:05",
+      "startDate": "2026-12-06",
+      "recurrence": "single",
+      "title": "Samichlaus-Schiff (ZSG)",
+      "url": "https://www.zsg.ch/de/erlebnisschiffe/samichlaus-schiff-06122026/",
+      "description": "Około 2 godz. rejsu po jeziorze z Samichlausem i Schmutzli. Dzieci mogą powiedzieć wierszyk i dostać niespodziankę. Ceny na stronie: dorośli 16+ 9.40 CHF (z Halbtax 4.70), dzieci od 6 lat 4.70 CHF; w opisie podano też, że ważne są bilety ZVV (strefy 110+140+141 lub 110+150+151), GA, 9-Uhr-Pass, Juniorkarte i Kinder-Mitfahrkarte. Darmowa rezerwacja stolika: 044 487 13 13, z obowiązkiem konsumpcji. Z Oerlikonu do Bürkliplatz ok. 20 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Zürich Bürkliplatz",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bilet ZSG/ZVV; stolik rezerwować tel. 044 487 13 13 (konsumpcja obowiązkowa)",
+      "isNew": true,
+      "lat": 47.3655,
+      "lng": 8.5409,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "sob. 5.12.2026, pociąg 13:40–16:47 albo 17:20–20:25 (Wiedikon–Sihlwald–Wiedikon)",
+      "startDate": "2026-12-05",
+      "recurrence": "single",
+      "title": "Dampfzug zum Samichlaus im Sihlwald (ZMB)",
+      "url": "https://www.museumsbahn.ch/fahrten/samichlaus/",
+      "description": "Historyczny pociąg parowy z Zürich-Wiedikon do Sihlwald. Spacer z Schmutzli do hali centrum odwiedzin, wierszyki dla Samichlausa, gorący poncz. Dzieci 2–16 lat 29 CHF (w cenie Chlaussäckli), dorośli 39 CHF, dzieci do 2 lat gratis z dorosłym, bez woreczka. Bilety: Radio Zürisee i Ticketcorner. Odbywa się przy każdej pogodzie, wózki w wagonie bagażowym. Z Oerlikonu do Wiedikon ok. 15–20 min.",
+      "age": "2–16 lat (do 2 lat gratis bez Säckli)",
+      "ageMin": 2,
+      "ageMax": 16,
+      "place": "Zürich-Wiedikon – Sihlwald",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bilety obowiązkowe: Ticketcorner / Radio Zürisee (29/39 CHF)",
+      "isNew": true,
+      "lat": 47.3714,
+      "lng": 8.5236,
+      "image": "images/fallback-forest.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 6.12.2026, 14:00–17:00",
+      "startDate": "2026-12-06",
+      "recurrence": "single",
+      "title": "Samichlaus und Schmutzli – Bellevue Noël",
+      "url": "https://bellevuenoel.ch/programm",
+      "description": "Samichlaus i Schmutzli na jarmarku Bellevue Noël, w strefie dla dzieci. Tego samego dnia jest też «Santa on a Harley». Wstęp wolny. Zbiega się z Zoo, statkiem ZSG i Kids Disco w Illuminarium — wybrać jedną wizytę.",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Bellevue Noël, Sechseläutenplatz",
+      "area": "Zurych",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.3659,
+      "lng": 8.5478,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "29.10–23.12.2026; wt–śr 16:00–22:00, czw–pt 16:00–24:00, sob. 12:00–24:00, nd. 12:00–22:00, poniedziałek nieczynne",
+      "startDate": "2026-10-29",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "s'Badener WunderDorf",
+      "url": "https://www.wunderdorf.ch/",
+      "description": "Siedmiotygodniowy jarmark na Theaterplatz: street food, domki z prezentami, bary, lounge, Chasperlihüsli. Raczej wieczorny, kulinarny klimat. Wstęp wolny. Z Oerlikonu ok. 20 min pociągiem do Baden.",
+      "age": "rodziny (łatwiej po południu niż późnym wieczorem)",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Theaterplatz, Baden",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.4733,
+      "lng": 8.3075,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "śr. 9.12.2026, 11:00–20:00",
+      "startDate": "2026-12-09",
+      "recurrence": "single",
+      "title": "Weihnachtsmarkt der Stadt Baden",
+      "url": "https://www.deinbaden.ch/de/veranstaltung/09-12-2026-11-00-stadtpolizei-baden-marktwesen-weihnachtsmarkt-in-baden",
+      "description": "Tradycyjny jednodniowy jarmark miejski w środę po 2. Adwencie, w śródmieściu Baden (oświetlone uliczki, rękodzieło, crepes, raclette, fondue). Organizator: Stadtpolizei Baden (Marktwesen). Wstęp wolny. Z Oerlikonu ok. 20 min pociągiem.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Śródmieście Baden",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.4735,
+      "lng": 8.308,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "26.11–23.12.2026, pn–czw 11:00–20:00, pt.–sob. 11:00–20:30, nd. 11:00–19:00; 23.12 do 19:00",
+      "startDate": "2026-11-26",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "Weihnachtsmarkt Winterthur",
+      "url": "https://weihnachtinwinterthur.ch/de/",
+      "description": "29. jarmark na Neumarkt, na starówce zamkniętej dla aut. Darmowy program: Märliwald (pierniki, bajki, malowanie twarzy) i scena. Wstęp wolny. Z Oerlikonu ok. 12–15 min pociągiem.",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Neumarkt, Altstadt Winterthur",
+      "area": "Winterthur",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny (także program towarzyszący)",
+      "isNew": true,
+      "lat": 47.4992,
+      "lng": 8.7295,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 29.11.2026, 16:16",
+      "startDate": "2026-11-29",
+      "recurrence": "single",
+      "title": "Chlauseinzug Winterthur",
+      "url": "https://weihnachtinwinterthur.ch/de/programm/",
+      "description": "Tradycyjny wjazd Samichlausów 1. Adwentu: Obertor – Oberer Graben – Unterer Graben – Marktgasse – Obergasse – Steinberggasse – Königshof. Rozdawane są mandarynki, orzeszki i słodycze. Darmowe. Z Oerlikonu ok. 12–15 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Obertor do Königshof, Winterthur",
+      "area": "Winterthur",
+      "category": "festyny",
+      "registration": "Oglądanie bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.5005,
+      "lng": 8.7308,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 6.12.2026 (w godzinach jarmarku, nd. 11:00–19:00)",
+      "startDate": "2026-12-06",
+      "recurrence": "single",
+      "title": "Samichlaus am Weihnachtsmarkt Winterthur",
+      "url": "https://weihnachtinwinterthur.ch/de/programm/",
+      "description": "6 grudnia Samichlaus chodzi po jarmarku na Neumarkt (dokładnej godziny organizator nie podaje). Darmowe. Tego dnia rano, 9:45–10:45, jest też nabożeństwo na scenie jarmarku.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Weihnachtsmarkt, Neumarkt Winterthur",
+      "area": "Winterthur",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.4992,
+      "lng": 8.7295,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "20.11–24.12.2026, pn–śr 11:00–21:00, czw–pt 11:00–22:00, sob. 10:00–22:00, nd. 10:00–20:00",
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-24",
+      "recurrence": "recurring",
+      "title": "Montreux Riviera Noël",
+      "url": "https://www.montreuxnoel.com/faq/",
+      "description": "Jarmark na nabrzeżu Jeziora Genewskiego, ponad 170 chaletów, diabelski młyn, atrakcje. Wejście na nabrzeże i latający Mikołaj są darmowe; płatne są m.in. Maison du Père Noël i diabelski młyn. Przyjazne wózkom (w weekendy lepiej rano). Pociąg z Oerlikonu ok. 2 godz. 15–2 godz. 30; z dziećmi licz raczej ok. 3 godz. od wyjścia z domu. Godziny 24.12 potwierdź na montreuxnoel.com.",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Quais de Montreux / Place du Marché",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Nabrzeże bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 46.4312,
+      "lng": 6.9114,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "20.11–24.12.2026; pn–pt 17:00, 18:00, 19:00 (21–23.12 także 16:00); weekend 16:00, 17:00, 18:00, 19:00; 24.12 tylko 16:00 i 17:00",
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-24",
+      "recurrence": "recurring",
+      "title": "Le Père Noël Volant (latający Mikołaj, Montreux)",
+      "url": "https://www.montreuxnoel.com/attraction/pere-noel-volant/",
+      "description": "Mikołaj z reniferami przelatuje nad jeziorem i jarmarkiem, ze światłami i piosenką. Całkowicie darmowe. Najlepiej stać między przystanią CGN a Place du Marché. Odbywa się też w deszczu; odwołanie tylko przy burzy lub silnym wietrze. Dla dzieci w każdym wieku.",
+      "age": "dla wszystkich, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Między przystanią CGN a Place du Marché, Montreux",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, całkowicie darmowe",
+      "isNew": true,
+      "lat": 46.4315,
+      "lng": 6.9108,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "20.11–24.12.2026, środa–niedziela oraz pn/wt 7, 8, 21 i 22.12",
+      "startDate": "2026-11-20",
+      "endDate": "2026-12-24",
+      "recurrence": "recurring",
+      "title": "La Maison du Père Noël aux Rochers-de-Naye",
+      "url": "https://www.mob.ch/fr/products/noel",
+      "description": "Spotkanie z Mikołajem w domu na 2042 m n.p.m., dojazd zębatką MOB z dworca Montreux (ok. 55 min). Dziecko dostaje certyfikat i niespodziankę (plusz, jabłko, mandarynka, czekolada Läderach). Organizator odradza wizytę dzieciom poniżej 3 lat z powodu wysokości — dwulatek raczej nie. Pakiet (kolej + wstęp): dorośli od 16 lat 49 CHF, dzieci od 6 lat 19 CHF; dzieci poniżej 6 lat 0 CHF bez miejsca siedzącego w jedną stronę albo 10 CHF z miejscem. Wymagana rezerwacja (sprzedaż od 15.09.2026). Czas na miejscu: ok. 1,5 godz. w tygodniu, do 3 godz. w weekend. Z Oerlikonu łącznie ok. 3–3,5 godz.",
+      "age": "od 3 lat (poniżej 3 lat odradzane)",
+      "ageMin": 3,
+      "ageMax": null,
+      "place": "Rochers-de-Naye, 2042 m (wjazd z dworca Montreux)",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Rezerwacja obowiązkowa na mob.ch (pakiet kolej + wstęp)",
+      "isNew": true,
+      "lat": 46.4319,
+      "lng": 6.9786,
+      "image": "images/fallback-forest.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "wszystkie soboty 21.11–19.12.2026 oraz codziennie 21–23.12; odjazdy 15:55, 16:55, 17:55, 18:55",
+      "startDate": "2026-11-21",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "Croisière du Père Noël Volant (CGN)",
+      "url": "https://www.cgn.ch/fr/croisieres-du-pere-noel-volant.html",
+      "description": "45-minutowy rejs Belle Époque «Vevey» z Montreux, żeby zobaczyć latającego Mikołaja z wody (kierunek Villeneuve i Château de Chillon). W cenie przekąska: dzieci 6–15 29 CHF (sok, mandarynka, bułka, czekolada), dorośli 49 CHF; dzieci 0–5,99 lat transport darmowy, jedzenie płatne na statku. GA/Halbtax nie obowiązują. Psy zakazane. Zbiórka 10 min przed odjazdem.",
+      "age": "rodziny (małe dzieci: darmowy transport, jedzenie extra)",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Przystań CGN, Montreux",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bilety CGN, 49/29 CHF; dzieci do 6 lat transport gratis",
+      "isNew": true,
+      "lat": 46.4318,
+      "lng": 6.9102,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "weekendy 7.11–20.12.2026, sob. 12:00–20:00, nd. 10:00–18:00",
+      "startDate": "2026-11-07",
+      "endDate": "2026-12-20",
+      "recurrence": "recurring",
+      "title": "Uetliberger Weihnachtsmarkt (Uto Kulm)",
+      "url": "https://utokulm.ch/uetliberger-weihnachtsmarkt",
+      "description": "Mały jarmark hobbystów w ramach Winterzauber na Uetlibergu, przy każdej pogodzie. Terminy: 7–8, 14–15, 21–22, 28–29.11 oraz 5–6, 12–13, 19–20.12. Wstęp na rynek darmowy (dojazd kolejką S10 płatny). Na oficjalnych stronach 2026 nie znalazłem osobnego Samichlausa na Uetlibergu ani Felsenegg. Z Oerlikonu ok. 35–45 min (HB + S10).",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Hotel Uto Kulm, Uetliberg",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp na rynek wolny (bilet na S10 osobno)",
+      "isNew": true,
+      "lat": 47.3515,
+      "lng": 8.4918,
+      "image": "images/fallback-forest.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "pt. 27.11.2026, od 17:30",
+      "startDate": "2026-11-27",
+      "recurrence": "single",
+      "title": "Samichlaus am Flumserberg",
+      "url": "https://www.flumserberg.ch/events/Samichlaus-am-Flumserberg_event_454711",
+      "description": "Samichlaus na Molseralp przy choince: kolędy uczniów z Flums, zapalenie świateł, wierszyki, darmowe Säckli dla dzieci (osioł i Schmutzli). Organizator prosi o zgłoszenie dzieci, żeby starczyło woreczków; bez osobistych wiadomości do dzieci. Ciepłe napoje w budce. Wieczór, zima, dojazd z Oerlikonu ok. 1 godz. 45 min–2 godz. — dla 2-latka raczej męczące, dla 7-latki fajne jeśli rodzina chce górski wypad.",
+      "age": "dzieci (lepiej dla 7 lat niż dla 2-latka wieczorem)",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Molseralp, Flumserberg",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Zgłoszenie dzieci proszone przez organizatora (darmowe Säckli)",
+      "isNew": true,
+      "lat": 47.091,
+      "lng": 9.28,
+      "image": "images/fallback-forest.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "nd. 29.11 i nd. 6.12.2026, 10:00–17:00; Christkind 29.11 o 13:30, Samichlaus 6.12 o 13:30",
+      "startDate": "2026-11-29",
+      "endDate": "2026-12-06",
+      "recurrence": "recurring",
+      "title": "Blüemlisberger Advent (Sattel-Hochstuckli)",
+      "url": "https://bluemlisberg.swiss/events/bl%C3%BCemlisberger-advent",
+      "description": "Mały jarmark na gospodarstwie na Blüemlisbergu, dojazd gondolą Sattel–Hochstuckli. 29.11 o 13:30 Christkind czyta bajkę (darmowe, zgłoszenie wskazane). 6.12 o 13:30 Samichlaus i Schmutzli: 20 CHF/dziecko z Säckli, obowiązkowa rejestracja. Pakiet gondola+posiłek 30 CHF/os., gondola+fondue 50 CHF/os. (fondue tylko z rezerwacją, 12:00 i 14:30). Z Oerlikonu ok. 1 godz. 15 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Blüemlisberg / Bergstation Mostelberg, Sattel-Hochstuckli",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bajka: zgłoszenie wskazane. Samichlaus 6.12: zapis obowiązkowy, 20 CHF/dziecko. Fondue: rezerwacja",
+      "isNew": true,
+      "lat": 47.0825,
+      "lng": 8.675,
+      "image": "images/fallback-farm.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "27.11–6.12.2026; 27.11 17:00–21:00, pt.–sob. 11:00–21:00, nd.–czw 11:00–19:30",
+      "startDate": "2026-11-27",
+      "endDate": "2026-12-06",
+      "recurrence": "recurring",
+      "title": "Einsiedler Weihnachtsmarkt",
+      "url": "https://www.einsiedler-weihnacht.ch/marktdaten/",
+      "description": "Jarmark przy klasztorze w Einsiedeln. 28.11 o 17:30 uroczyste wysłanie grup św. Mikołaja w kościele klasztornym, potem obdarowanie na jarmarku (parafialny komunikat). Wstęp wolny. Z Oerlikonu ok. 50–60 min.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Einsiedeln (przy klasztorze)",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Jarmark bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.1286,
+      "lng": 8.7526,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "sob. 28.11.2026, od 17:30 (msza i wysłanie, potem Bescherung na jarmarku)",
+      "startDate": "2026-11-28",
+      "recurrence": "single",
+      "title": "Aussendung des St. Nikolaus, Einsiedeln",
+      "url": "https://www.pfarrei-einsiedeln.ch/news/2026-10/der-st-niklaus-kommt-nach-einsiedeln/",
+      "description": "Uroczyste wysłanie grup św. Mikołaja podczas nabożeństwa o 17:30 w kościele klasztornym, potem obdarowanie na jarmarku. Wizyty domowe w okolicznych dzielnicach 30.11, 2.12 i 3.12 — tylko dla zameldowanych rodzin z okolicy (zapisy na samichlaus-einsiedeln.ch, termin minął 26.11).",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Klosterkirche i Weihnachtsmarkt, Einsiedeln",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Uroczystość i jarmark bez zapisów; wizyty domowe tylko po zgłoszeniu (termin minął)",
+      "isNew": true,
+      "lat": 47.1286,
+      "lng": 8.7526,
+      "image": "images/fallback-stage.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "2.12.2026–3.1.2027, śr–pt 14:00–20:00, sob. 11:00–20:00, nd. 11:00–19:00; 24.12 i 31.12 14:00–17:00, 25.12 bez programu",
+      "startDate": "2026-12-02",
+      "endDate": "2027-01-03",
+      "recurrence": "recurring",
+      "title": "Märlistadt Stein am Rhein",
+      "url": "https://www.maerlistadt.ch/",
+      "description": "Świąteczne miasteczko bajek w średniowiecznej starówce: Märlimarkt, darmowa karuzela, Märlihuus (robótki, śpiew, bajki), Märliweg, muzyka. 26.12: 11:00–20:00. Wstęp wolny. Bardzo przyjazne dla 2- i 7-latka. Z Oerlikonu ok. 60–75 min.",
+      "age": "rodziny, także 2 i 7 lat",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Altstadt / Rathausplatz, Stein am Rhein",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny; karuzela gratis",
+      "isNew": true,
+      "lat": 47.6592,
+      "lng": 8.8594,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    },
+    {
+      "dateText": "26.11–23.12.2026 codziennie 11:00–20:30; 23.12 Barfüsserplatz do 20:00, Münsterplatz do 18:00",
+      "startDate": "2026-11-26",
+      "endDate": "2026-12-23",
+      "recurrence": "recurring",
+      "title": "Basler Weihnachtsmarkt (Barfüsserplatz i Münsterplatz)",
+      "url": "https://www.basel.com/de/veranstaltungen/weihnachten/weihnachtsmarkt",
+      "description": "Jeden z największych jarmarków Szwajcarii, ok. 150 drewnianych chaletów. Dodatkowo Basler Wienachtsdorf na Theaterplatz: 26.11.2026–3.1.2027, pn–czw do 22:00, pt.–sob. do 23:00, nd. do 21:00 (od 11:00). Wstęp wolny. Z Oerlikonu ok. 55–70 min pociągiem.",
+      "age": "rodziny",
+      "ageMin": null,
+      "ageMax": null,
+      "place": "Barfüsserplatz i Münsterplatz, Basel",
+      "area": "Okolice",
+      "category": "festyny",
+      "registration": "Bez zapisów, wstęp wolny",
+      "isNew": true,
+      "lat": 47.5546,
+      "lng": 7.5896,
+      "image": "images/fallback-crafts.jpg",
+      "tags": [
+        "swieta"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "teatr",
+      "label": "Teatr",
+      "icon": "🎭",
+      "color": "#c026d3",
+      "image": "images/fallback-stage.jpg",
+      "order": 1
+    },
+    {
+      "id": "muzyka",
+      "label": "Muzyka",
+      "icon": "🎵",
+      "color": "#7c3aed",
+      "image": "images/fallback-music.jpg",
+      "order": 2
+    },
+    {
+      "id": "sport",
+      "label": "Sport",
+      "icon": "⚽",
+      "color": "#ea580c",
+      "image": "images/fallback-athletics.jpg",
+      "order": 3
+    },
+    {
+      "id": "zwierzęta/natura",
+      "label": "Zwierzęta/natura",
+      "icon": "🐾",
+      "color": "#059669",
+      "image": "images/fallback-zoo.jpg",
+      "order": 4
+    },
+    {
+      "id": "warsztaty",
+      "label": "Warsztaty",
+      "icon": "✂️",
+      "color": "#db2777",
+      "image": "images/fallback-crafts.jpg",
+      "order": 5
+    },
+    {
+      "id": "biblioteka",
+      "label": "Biblioteka",
+      "icon": "📚",
+      "color": "#2563eb",
+      "image": "images/fallback-books.jpg",
+      "order": 6
+    },
+    {
+      "id": "campy/ferie",
+      "label": "Campy/ferie",
+      "icon": "☀️",
+      "color": "#d97706",
+      "image": "images/fallback-athletics.jpg",
+      "order": 7
+    },
+    {
+      "id": "festyny",
+      "label": "Festyny",
+      "icon": "🎈",
+      "color": "#e11d48",
+      "image": "images/fallback-playground.jpg",
+      "order": 8
+    },
+    {
+      "id": "stałe",
+      "label": "Stałe",
+      "icon": "📌",
+      "color": "#6d28d9",
+      "image": "images/fallback-playground.jpg",
+      "order": 9
+    },
+    {
+      "id": "swieta",
+      "label": "Święta",
+      "icon": "🎄",
+      "color": "#166534",
+      "image": "images/advent-wreath.jpg",
+      "order": 10
     }
   ]
 }

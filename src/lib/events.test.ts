@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import {
   EMPTY_FILTERS,
   activeFilterCount,
+  eventInCategory,
   filtersAreActive,
   includesToday,
   inferRecurrence,
@@ -13,6 +14,7 @@ import {
   visibleHighlights,
   zurichToday,
 } from "./events";
+import { categoryAppearance } from "./markers";
 import { ageRange } from "./age";
 import { fold } from "./text";
 import { describe, expect, it } from "vitest";
@@ -31,7 +33,15 @@ describe("zurichToday", () => {
 describe("events.json", () => {
   it("is the 22 November 2026 update", () => {
     expect(file.updatedAt).toBe("2026-11-22");
-    expect(file.events).toHaveLength(480);
+    expect(file.events).toHaveLength(509);
+    expect(file.categories.some((category) => category.id === "swieta" && category.label === "Święta")).toBe(true);
+    const swieta = file.events.filter((event) => eventInCategory(event, "swieta"));
+    expect(swieta.length).toBeGreaterThan(40);
+    expect(swieta.some((event) => event.title === "Samichlaus-Umzug")).toBe(true);
+    expect(swieta.some((event) => event.title.startsWith("Circus Conelli"))).toBe(false);
+    expect(file.events.some((event) => event.title === "Samichlausumzug Zürich")).toBe(false);
+    expect(categoryAppearance("swieta").icon).toBe("🎄");
+    expect(categoryAppearance("nieznana").icon).toBe("📍");
     const fresh = file.events.filter((event) => event.isNew).map((event) => event.title);
     expect(fresh).toEqual(expect.arrayContaining([
       "SonntagzOerlikon",
@@ -196,10 +206,10 @@ describe("events.json", () => {
 
   it("gives every event a Swiss coordinate and a committed image", () => {
     for (const event of file.events) {
-      expect(event.lat).toBeGreaterThan(47.3);
-      expect(event.lat).toBeLessThan(47.55);
-      expect(event.lng).toBeGreaterThan(8.25);
-      expect(event.lng).toBeLessThan(8.85);
+      expect(event.lat).toBeGreaterThan(45.8);
+      expect(event.lat).toBeLessThan(48.5);
+      expect(event.lng).toBeGreaterThan(5.9);
+      expect(event.lng).toBeLessThan(10.6);
       expect(event.image.startsWith("images/")).toBe(true);
       expect(existsSync(`public/${event.image}`)).toBe(true);
       expect(event.image).not.toBe("images/zoo.jpg");

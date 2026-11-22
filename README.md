@@ -42,10 +42,12 @@ Data aktualizacji bierze się z pola `updatedAt`. Na szerokim ekranie widać ją
 | `lat`, `lng` | Współrzędne WGS84 pinezki na mapie (Leaflet, kafelki OpenStreetMap, bez klucza API). Widok startowy to Zurych-Oerlikon. |
 | `image` | Ścieżka względem `public/`, na przykład `images/tonhalle.jpg`. Strona nie podlinkowuje cudzych adresów: plik leży w repozytorium. |
 | `area` | Jedno z: `Oerlikon`, `Zurych`, `Okolice`, `Winterthur`. |
-| `category` | Jedno z: `teatr`, `muzyka`, `sport`, `zwierzęta/natura`, `warsztaty`, `biblioteka`, `campy/ferie`, `festyny`, `stałe`. Kategoria `stałe` jest tylko dla wpisów z `startDate: null`. |
+| `category` | Id kategorii z tablicy `categories` w tym samym pliku, na przykład `teatr` albo `swieta`. Nieznane id nie wywala strony: pinezka dostaje szary kolor i ikonę 📍, a podpis jest z wielkiej litery. Kategoria `stałe` jest tylko dla wpisów z `startDate: null`. |
 | `registration` | Jak się zapisać. Gdy nie wiadomo, wpisz `brak info`. |
 | `isNew` | Pole zostaje w pliku, ale strona nie pokazuje odznaki „nowe”. Zbyt wiele wpisów ma `true`, a nie ma daty pierwszego pojawienia się, więc odznaka nic nie mówi. |
-| `tags` | Lista znaczników, na przykład `["jarmark"]`. Puste `[]`, gdy wpis nie ma motywu. |
+| `tags` | Lista znaczników, na przykład `["swieta"]`. Puste `[]`, gdy wpis nie ma motywu. Znacznik równy `id` kategorii dokłada wydarzenie do tego filtra, więc może zostać przy swojej kategorii (jarmark zostaje `festyny` i dostaje `swieta`). |
+
+Tablica `categories` na górze `events.json` opisuje filtry. Każdy element ma `id`, `label` (polska nazwa na chipie), `icon` (emoji na chipie i na pinezce), `color` (`#rrggbb`), opcjonalne `image` (`images/*.jpg`, gdy zdjęcie wydarzenia się nie wczyta) i `order` (kolejność chipów). Nowy filtr, na przykład Święta, to nowy obiekt w tej tablicy i znacznik albo `category` o tym samym `id` przy wydarzeniach. Kod ma listę zapasową tylko wtedy, gdy w pliku w ogóle nie ma `categories`.
 
 Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startDate`. Zajęcia stałe są alfabetycznie w osobnej sekcji.
 

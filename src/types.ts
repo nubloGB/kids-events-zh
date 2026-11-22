@@ -1,18 +1,21 @@
 export const AREAS = ["Oerlikon", "Zurych", "Okolice", "Winterthur"] as const;
 export type Area = (typeof AREAS)[number];
 
-export const CATEGORIES = [
-  "teatr",
-  "muzyka",
-  "sport",
-  "zwierzęta/natura",
-  "warsztaty",
-  "biblioteka",
-  "campy/ferie",
-  "festyny",
-  "stałe",
-] as const;
-export type Category = (typeof CATEGORIES)[number];
+/** A category id from `events.json`. Unknown ids still render, with a plain fallback. */
+export type Category = string;
+
+/** Filter chip and map pin for one category. The list lives in `events.json`. */
+export interface EventCategory {
+  id: string;
+  label: string;
+  /** Emoji shown on the pin and in the filter chip. */
+  icon: string;
+  /** CSS colour for the map pin. */
+  color: string;
+  /** Optional illustration under `public/`, used when an event image fails. */
+  image?: string;
+  order: number;
+}
 
 export interface KidsEvent {
   dateText: string;
@@ -59,6 +62,8 @@ export interface EventHighlight {
 
 export interface EventsFile {
   updatedAt: string;
+  /** Filter chips, in display order. Parsing fills the built-in list when the file omits this. */
+  categories: EventCategory[];
   /** Optional in the JSON file. Parsing always fills an array. */
   highlights: EventHighlight[];
   events: KidsEvent[];

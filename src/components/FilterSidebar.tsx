@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { formatCompactRange, normalizeRange, presetRange, type DatePreset } from "../lib/dates";
-import { categoryLabel } from "../lib/format";
+import { categoryCatalog } from "../lib/markers";
 import {
   AREAS,
-  CATEGORIES,
   type AgeBandFilter,
   type Area,
   type Category,
@@ -393,13 +392,13 @@ export function FilterSidebar({
 
       <FilterSection label="Kategoria">
         <div aria-label="Kategoria" className="chip-list" role="group">
-          {CATEGORIES.map((category) => (
+          {categoryCatalog().map((category) => (
             <ChipCheck
-              key={category}
-              checked={categories.includes(category)}
-              label={categoryLabel(category)}
+              key={category.id}
+              checked={categories.includes(category.id)}
+              label={`${category.icon} ${category.label}`}
               onChange={(checked) =>
-                onCategories(checked ? [...categories, category] : categories.filter((item) => item !== category))
+                onCategories(checked ? [...categories, category.id] : categories.filter((item) => item !== category.id))
               }
             />
           ))}
