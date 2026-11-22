@@ -1,0 +1,298 @@
+import { buttonVariants } from "@heroui/react";
+import { ExternalLink } from "lucide-react";
+import { useState, type MutableRefObject } from "react";
+import { CalendarMenu } from "./CalendarMenu";
+import { RouteMenu } from "./RouteMenu";
+import { eventCardActions } from "../lib/cardActions";
+import { canRoute } from "../lib/directions";
+import { eventKey } from "../lib/events";
+import { dayHeaderLabel, dayTile, formatClock, groupByDay } from "../lib/listDays";
+import type { KidsEvent } from "../types";
+
+export function EventList({
+  events,
+  today,
+  phone,
+  selectedId,
+  itemRefs,
+  onHighlight,
+  onShowOnMap,
+}: {
+  events: KidsEvent[];
+  today: string;
+  phone: boolean;
+  selectedId: string | null;
+  itemRefs: MutableRefObject<Map<string, HTMLElement>>;
+  onHighlight: (id: string | null) => void;
+  onShowOnMap: (id: string) => void;
+}) {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const { days, undated } = groupByDay(events);
+
+  function toggle(key: string) {
+    setOpenKey((current) => (current === key ? null : key));
+  }
+
+  if (phone) {
+    return (
+      <div className="dense-list">
+        {days.map((day) => (
+          <section key={day.iso} className="day-group">
+            <DayHeading count={day.events.length} iso={day.iso} today={today} />
+            <ul>
+              {day.events.map((event) => (
+                <MobileRow
+                  key={eventKey(event)}
+                  event={event}
+                  itemRefs={itemRefs}
+                  open={openKey === eventKey(event)}
+                  selected={eventKey(event) === selectedId}
+                  today={today}
+                  onHighlight={onHighlight}
+                  onShowOnMap={() => onShowOnMap(eventKey(event))}
+                  onToggle={() => toggle(eventKey(event))}
+                />
+              ))}
+            </ul>
+          </section>
+        ))}
+        {undated.length > 0 ? (
+          <section className="day-group">
+            <h3 className="day-heading day-heading--plain">Stałe zajęcia</h3>
+            <ul>
+              {undated.map((event) => (
+                <MobileRow
+                  key={eventKey(event)}
+                  event={event}
+                  itemRefs={itemRefs}
+                  open={openKey === eventKey(event)}
+                  selected={eventKey(event) === selectedId}
+                  today={today}
+                  onHighlight={onHighlight}
+                  onShowOnMap={() => onShowOnMap(eventKey(event))}
+                  onToggle={() => toggle(eventKey(event))}
+                />
+              ))}
+            </ul>
+          </section>
+        ) : null}
+      </div>
+    );
+  }
+
+  return (
+    <table className="list-table">
+      <thead>
+        <tr>
+          <th scope="col">Godzina</th>
+          <th scope="col">Wydarzenie</th>
+          <th scope="col">Wiek</th>
+          <th scope="col">Miejsce</th>
+          <th scope="col">
+            <span className="sr-only">Akcje</span>
+          </th>
+        </tr>
+      </thead>
+      {days.map((day) => (
+        <tbody key={day.iso}>
+          <tr className="day-header-row">
+            <th colSpan={5} scope="rowgroup">
+              <DayHeading count={day.events.length} iso={day.iso} today={today} />
+            </th>
+          </tr>
+          {day.events.map((event) => (
+            <DesktopRows
+              key={eventKey(event)}
+              event={event}
+              itemRefs={itemRefs}
+              open={openKey === eventKey(event)}
+              selected={eventKey(event) === selectedId}
+              today={today}
+              onHighlight={onHighlight}
+              onShowOnMap={() => onShowOnMap(eventKey(event))}
+              onToggle={() => toggle(eventKey(event))}
+            />
+          ))}
+        </tbody>
+      ))}
+      {undated.length > 0 ? (
+        <tbody>
+          <tr className="day-header-row">
+            <th colSpan={5} scope="rowgroup">
+              Stałe zajęcia
+            </th>
+          </tr>
+          {undated.map((event) => (
+            <DesktopRows
+              key={eventKey(event)}
+              event={event}
+              itemRefs={itemRefs}
+              open={openKey === eventKey(event)}
+              selected={eventKey(event) === selectedId}
+              today={today}
+              onHighlight={onHighlight}
+              onShowOnMap={() => onShowOnMap(eventKey(event))}
+              onToggle={() => toggle(eventKey(event))}
+            />
+          ))}
+        </tbody>
+      ) : null}
+    </table>
+  );
+}
+
+function DayHeading({ iso, today, count }: { iso: string; today: string; count: number }) {
+  const tile = dayTile(iso);
+  return (
+    <div className="day-heading">
+      <span className="day-tile">
+        <span className="day-tile__month">{tile.month}</span>
+        <span className="day-tile__num">{tile.day}</span>
+      </span>
+      <p>{dayHeaderLabel(iso, today, count)}</p>
+    </div>
+  );
+}
+
+function RowActions({
+  event,
+  today,
+  onShowOnMap,
+}: {
+  event: KidsEvent;
+  today: string;
+  onShowOnMap: () => void;
+}) {
+  const actions = eventCardActions(event);
+  const page = event.url.trim();
+  const hasPage = actions.primary === "page";
+  return (
+    <div className="event-actions list-row__actions" onClick={(eventClick) => eventClick.stopPropagation()}>
+      {hasPage ? (
+        <a
+          className={`${buttonVariants({ variant: "primary" })} event-action event-action--primary`}
+          href={page}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span className="event-action__text">Strona wydarzenia</span>
+          <ExternalLink aria-hidden className="event-action__icon" size={16} strokeWidth={2} />
+        </a>
+      ) : (
+        <CalendarMenu event={event} today={today} variant="primary" />
+      )}
+      {hasPage ? <CalendarMenu event={event} today={today} variant="secondary" /> : null}
+      {canRoute(event) ? <RouteMenu event={event} tooltip={null} onShowOnMap={onShowOnMap} /> : null}
+    </div>
+  );
+}
+
+function MobileRow({
+  event,
+  today,
+  open,
+  selected,
+  itemRefs,
+  onToggle,
+  onHighlight,
+  onShowOnMap,
+}: {
+  event: KidsEvent;
+  today: string;
+  open: boolean;
+  selected: boolean;
+  itemRefs: MutableRefObject<Map<string, HTMLElement>>;
+  onToggle: () => void;
+  onHighlight: (id: string | null) => void;
+  onShowOnMap: () => void;
+}) {
+  const key = eventKey(event);
+  return (
+    <li
+      ref={(node) => {
+        if (node) itemRefs.current.set(key, node);
+        else itemRefs.current.delete(key);
+      }}
+      className={selected ? "is-selected" : undefined}
+      onMouseEnter={() => onHighlight(key)}
+      onMouseLeave={() => onHighlight(null)}
+    >
+      <button aria-expanded={open} className="list-row" type="button" onClick={onToggle}>
+        <time className="list-row__time" dateTime={event.startDate ?? undefined}>
+          {formatClock(event.dateText)}
+        </time>
+        <span className="list-row__title">{event.title}</span>
+        <span className="list-row__age">{event.age}</span>
+        <span aria-hidden="true" className="list-row__more">
+          ⋯
+        </span>
+      </button>
+      {open ? (
+        <div className="list-row__panel">
+          <p className="list-row__full">{event.title}</p>
+          <p className="list-row__place">{event.place}</p>
+          <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
+        </div>
+      ) : null}
+    </li>
+  );
+}
+
+function DesktopRows({
+  event,
+  today,
+  open,
+  selected,
+  itemRefs,
+  onToggle,
+  onHighlight,
+  onShowOnMap,
+}: {
+  event: KidsEvent;
+  today: string;
+  open: boolean;
+  selected: boolean;
+  itemRefs: MutableRefObject<Map<string, HTMLElement>>;
+  onToggle: () => void;
+  onHighlight: (id: string | null) => void;
+  onShowOnMap: () => void;
+}) {
+  const key = eventKey(event);
+  return (
+    <>
+      <tr
+        ref={(node) => {
+          if (node) itemRefs.current.set(key, node);
+          else itemRefs.current.delete(key);
+        }}
+        className={selected ? "is-selected" : undefined}
+        onClick={(click) => {
+          if ((click.target as HTMLElement).closest(".event-actions, a, button")) return;
+          onToggle();
+        }}
+        onMouseEnter={() => onHighlight(key)}
+        onMouseLeave={() => onHighlight(null)}
+      >
+        <td className="list-table__time">{formatClock(event.dateText)}</td>
+        <td>
+          <button aria-expanded={open} className="list-table__title" type="button" onClick={onToggle}>
+            {event.title}
+          </button>
+        </td>
+        <td>{event.age}</td>
+        <td>{event.place}</td>
+        <td>
+          <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
+        </td>
+      </tr>
+      {open ? (
+        <tr className="list-table__details">
+          <td colSpan={5}>
+            <p className="list-row__full">{event.title}</p>
+            <p className="list-row__place">{event.place}</p>
+          </td>
+        </tr>
+      ) : null}
+    </>
+  );
+}

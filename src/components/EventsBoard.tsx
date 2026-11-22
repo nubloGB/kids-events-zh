@@ -3,10 +3,13 @@ import { ArrowLeft, Search } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject, type ReactNode } from "react";
 import { DaySlider } from "./DaySlider";
 import { EventCard } from "./EventCard";
+import { EventList } from "./EventList";
 import { EventMap } from "./EventMap";
 import { FilterSidebar } from "./FilterSidebar";
+import { ViewSwitch } from "./ViewSwitch";
 import { UpdatedNote } from "./UpdatedNote";
 import { useDateFilter } from "../lib/dateFilterContext";
+import { readBoardView, writeBoardView, type BoardView } from "../lib/viewPreference";
 import { countLabel } from "../lib/format";
 import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, partitionEvents, visibleHighlights } from "../lib/events";
 import type { AgeBandFilter, Area, Category, EventHighlight, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
@@ -46,13 +49,17 @@ export function EventsBoard({
   const [onlyVisible, setOnlyVisible] = useState(false);
   const [bounds, setBounds] = useState<MapBounds | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [mobileView, setMobileView] = useState<"lista" | "mapa">("lista");
+  const [view, setViewState] = useState<BoardView>(() => readBoardView(window.localStorage));
+  function setView(next: BoardView) {
+    setViewState(next);
+    writeBoardView(window.localStorage, next);
+  }
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [focusOrigin, setFocusOrigin] = useState<"list" | "map">("list");
   const [focusTick, setFocusTick] = useState(0);
   const [draft, setDraft] = useState(query);
-  const itemRefs = useRef(new Map<string, HTMLLIElement>());
+  const itemRefs = useRef(new Map<string, HTMLElement>());
   const draftRef = useRef(query);
   const committedRef = useRef(query);
 
@@ -73,7 +80,7 @@ export function EventsBoard({
     [events, highlightSource, today],
   );
 
-  const mapActive = wide || mobileView === "mapa";
+  const mapActive = wide || view === "mapa";
   const limitToMap = onlyVisible && bounds !== null && mapActive;
   const inView = (list: KidsEvent[]) => (limitToMap && bounds ? list.filter((event) => isInsideBounds(event, bounds)) : list);
   const listUpcoming = inView(upcoming);
@@ -121,10 +128,10 @@ export function EventsBoard({
 
   useEffect(() => {
     if (focusOrigin !== "map" || !selectedId) return;
-    if (!wide && mobileView !== "lista") return;
+    if (!wide && view === "mapa") return;
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
     itemRefs.current.get(selectedId)?.scrollIntoView({ block: "nearest", behavior });
-  }, [focusOrigin, focusTick, mobileView, selectedId, wide]);
+  }, [focusOrigin, focusTick, selectedId, view, wide]);
 
   useEffect(() => {
     if (!phone) return;
@@ -152,7 +159,7 @@ export function EventsBoard({
     setSelectedId(id);
     setFocusOrigin("list");
     setFocusTick((tick) => tick + 1);
-    if (!wide) setMobileView("mapa");
+    if (!wide) setView("mapa");
   }
 
   function selectFromMap(id: string) {
@@ -165,7 +172,7 @@ export function EventsBoard({
     setSelectedId(id);
     setFocusOrigin("map");
     setFocusTick((tick) => tick + 1);
-    if (!wide) setMobileView("lista");
+    if (!wide && view === "mapa") setView("lista");
   }
 
   function clearFilters() {
@@ -215,42 +222,29 @@ export function EventsBoard({
   );
 
   return (
-    <div className="workspace" data-filters-open={filtersOpen ? "true" : "false"} data-mobile-view={mobileView}>
+    <div className="workspace" data-filters-open={filtersOpen ? "true" : "false"} data-mobile-view={view}>
       {phone ? (
         <PhoneBar
           draft={draft}
           filterCount={filterCount}
-          mobileView={mobileView}
           sheet={sheet}
           shownCount={shownCount}
           sidebar={sidebar("sheet")}
+          view={view}
           onClear={clearFilters}
           onDraftChange={onDraftChange}
-          onMobileView={setMobileView}
           onSubmitSearch={() => commitQuery(draftRef.current)}
+          onView={setView}
         />
       ) : (
         <>
-          <div className="mobile-toolbar">
-            <div className="view-toggle" role="group" aria-label="Lista lub mapa">
-              <button
-                className={mobileView === "lista" ? "is-active" : undefined}
-                type="button"
-                onClick={() => setMobileView("lista")}
-              >
-                Lista
-              </button>
-              <button
-                className={mobileView === "mapa" ? "is-active" : undefined}
-                type="button"
-                onClick={() => setMobileView("mapa")}
-              >
-                Mapa
-              </button>
-            </div>
-            <Button size="sm" variant={filtersOpen ? "primary" : "secondary"} onPress={() => setFiltersOpen((open) => !open)}>
-              Filtry
-            </Button>
+          <div className="view-switch-bar">
+            <ViewSwitch value={view} onChange={setView} />
+            {!wide ? (
+              <Button size="sm" variant={filtersOpen ? "primary" : "secondary"} onPress={() => setFiltersOpen((open) => !open)}>
+                Filtry
+              </Button>
+            ) : null}
           </div>
           {sidebar("sidebar")}
         </>
@@ -305,6 +299,16 @@ export function EventsBoard({
               </>
             )}
           </EmptyState>
+        ) : view === "lista" ? (
+          <EventList
+            events={[...listUpcoming, ...listRecurring]}
+            itemRefs={itemRefs}
+            phone={phone}
+            selectedId={selectedId}
+            today={today}
+            onHighlight={(id) => setHoveredId(id)}
+            onShowOnMap={showOnMap}
+          />
         ) : (
           <div className="list-sections">
             <EventSection
@@ -354,23 +358,23 @@ function PhoneBar({
   draft,
   filterCount,
   shownCount,
-  mobileView,
+  view,
   sheet,
   sidebar,
   onClear,
   onDraftChange,
-  onMobileView,
+  onView,
   onSubmitSearch,
 }: {
   draft: string;
   filterCount: number;
   shownCount: number;
-  mobileView: "lista" | "mapa";
+  view: BoardView;
   sheet: ReturnType<typeof useOverlayState>;
   sidebar: ReactNode;
   onClear: () => void;
   onDraftChange: (value: string) => void;
-  onMobileView: (view: "lista" | "mapa") => void;
+  onView: (view: BoardView) => void;
   onSubmitSearch: () => void;
 }) {
   const { today, date, setDate } = useDateFilter();
@@ -469,22 +473,7 @@ function PhoneBar({
       <div className="phone-gap" />
       <div className="phone-view-slot">
         <div className="phone-view">
-          <div aria-label="Lista lub mapa" className="view-toggle" role="group">
-            <button
-              className={mobileView === "lista" ? "is-active" : undefined}
-              type="button"
-              onClick={() => onMobileView("lista")}
-            >
-              Lista
-            </button>
-            <button
-              className={mobileView === "mapa" ? "is-active" : undefined}
-              type="button"
-              onClick={() => onMobileView("mapa")}
-            >
-              Mapa
-            </button>
-          </div>
+          <ViewSwitch value={view} onChange={onView} />
         </div>
       </div>
     </div>
@@ -524,7 +513,7 @@ function EventSection({
   selectedId: string | null;
   onHighlight: (id: string | null) => void;
   onShowOnMap: (id: string) => void;
-  itemRefs: MutableRefObject<Map<string, HTMLLIElement>>;
+  itemRefs: MutableRefObject<Map<string, HTMLElement>>;
 }) {
   if (events.length === 0) return null;
   return (
