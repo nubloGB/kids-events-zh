@@ -282,7 +282,6 @@ export function activeFilterCount(filters: EventFilters, onlyVisible = false): n
     filters.areas.length +
     filters.categories.length +
     (filters.age !== null ? 1 : 0) +
-    (filters.date.kind !== "today" ? 1 : 0) +
     filters.tags.length +
     (filters.recurrence !== "single" ? 1 : 0) +
     (onlyVisible ? 1 : 0)

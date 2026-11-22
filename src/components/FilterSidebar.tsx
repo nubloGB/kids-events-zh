@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
-import { formatChipRange, normalizeRange, presetRange, type DatePreset } from "../lib/dates";
+import { formatCompactRange, normalizeRange, presetRange, type DatePreset } from "../lib/dates";
 import { categoryLabel } from "../lib/format";
 import {
   AREAS,
@@ -12,11 +12,11 @@ import {
   type RecurrenceFilter,
 } from "../types";
 
-const DATE_OPTIONS: { id: Exclude<DatePreset, "rollingWeek" | "rollingMonth">; name: string }[] = [
+const DATE_OPTIONS: { id: Exclude<DatePreset, "thisWeek" | "rollingMonth">; name: string }[] = [
   { id: "all", name: "Wszystkie daty" },
   { id: "today", name: "Dziś" },
   { id: "tomorrow", name: "Jutro" },
-  { id: "thisWeek", name: "Ten tydzień" },
+  { id: "rollingWeek", name: "Ten tydzień" },
   { id: "thisWeekend", name: "Ten weekend" },
   { id: "nextWeek", name: "Następny tydzień" },
   { id: "nextMonth", name: "Następny miesiąc" },
@@ -176,9 +176,9 @@ function dateChoiceLabel(
   if (option.id === "all") return option.name;
   if (option.id === "custom") {
     const range = normalizeRange(customFrom, customTo);
-    return range ? `${option.name} ${formatChipRange(range)}` : option.name;
+    return range ? `${option.name} ${formatCompactRange(range)}` : option.name;
   }
-  return `${option.name} ${formatChipRange(presetRange(option.id, today))}`;
+  return `${option.name} ${formatCompactRange(presetRange(option.id, today))}`;
 }
 
 export function FilterSidebar({

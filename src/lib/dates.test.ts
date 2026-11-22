@@ -1,4 +1,4 @@
-import { formatChipRange, formatRange, isoWeekday, msUntilNextZurichMidnight, presetRange, resolveDateRange, zurichToday } from "./dates";
+import { emptyRangeTitle, formatChipRange, formatCompactRange, formatRange, isoWeekday, msUntilNextZurichMidnight, presetRange, resolveDateRange, zurichToday } from "./dates";
 import { describe, expect, it } from "vitest";
 
 describe("presetRange", () => {
@@ -31,6 +31,9 @@ describe("presetRange", () => {
     expect(isoWeekday("2026-11-22")).toBe(7);
     expect(presetRange("thisWeekend", "2026-11-22")).toEqual({ from: "2026-11-28", to: "2026-11-29" });
     expect(formatChipRange(presetRange("today", "2026-11-22"))).toBe("22.11");
+    expect(formatCompactRange(presetRange("rollingWeek", "2026-11-22"))).toBe("22–28.11");
+    expect(emptyRangeTitle({ kind: "tomorrow" }, "2026-11-22")).toBe("Brak wydarzeń w poniedziałek 23.11");
+    expect(emptyRangeTitle({ kind: "rollingWeek" }, "2026-11-22")).toBe("Brak wydarzeń w 22–28.11");
   });
 
   it("treats Tydzień as seven days from today and Miesiąc as 30 days from today", () => {

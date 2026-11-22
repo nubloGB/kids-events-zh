@@ -37,6 +37,7 @@ export function EventList({
   if (phone) {
     return (
       <div className="dense-list">
+        <FloatingDay watch={days.map((day) => day.iso).join()} />
         {days.map((day) => (
           <section key={day.iso} className="day-group">
             <DayHeading count={day.events.length} iso={day.iso} today={today} />
@@ -139,6 +140,40 @@ export function EventList({
         </tbody>
       ) : null}
     </table>
+  );
+}
+
+function FloatingDay({ watch }: { watch: string }) {
+  const [text, setText] = useState<string | null>(null);
+  const [top, setTop] = useState(0);
+
+  useEffect(() => {
+    const root = document.querySelector<HTMLElement>(".app-shell");
+    const bar = document.querySelector<HTMLElement>(".phone-sticky");
+    if (!root) return;
+    const update = () => {
+      const height = bar?.getBoundingClientRect().height ?? 0;
+      setTop(height);
+      const headings = [...root.querySelectorAll<HTMLElement>(".day-heading")];
+      const current = [...headings].reverse().find((node) => node.getBoundingClientRect().top <= height + 1);
+      setText(current ? current.querySelector("p")?.textContent ?? null : null);
+    };
+    const observer = new IntersectionObserver(update, { root, threshold: [0, 1] });
+    root.querySelectorAll(".day-heading").forEach((node) => observer.observe(node));
+    if (bar) observer.observe(bar);
+    update();
+    root.addEventListener("scroll", update, { passive: true });
+    return () => {
+      observer.disconnect();
+      root.removeEventListener("scroll", update);
+    };
+  }, [watch]);
+
+  if (!text) return null;
+  return (
+    <div className="day-float" style={{ top }}>
+      {text}
+    </div>
   );
 }
 
