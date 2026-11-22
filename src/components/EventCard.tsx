@@ -95,17 +95,26 @@ function PinIcon() {
   );
 }
 
-function CardImage({ src, onError }: { src: string; onError: () => void }) {
+function CardImage({ image, onError }: { image: string; onError: () => void }) {
+  const base = import.meta.env.BASE_URL;
+  const stem = image.replace(/\.jpg$/, "");
   return (
-    <img
-      alt=""
-      className="aspect-video h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none"
-      height={720}
-      loading="lazy"
-      src={src}
-      width={1280}
-      onError={onError}
-    />
+    <picture>
+      <source
+        sizes="(max-width: 639px) 100vw, 360px"
+        srcSet={`${base}${stem}-640.webp 640w, ${base}${stem}-1280.webp 1280w`}
+        type="image/webp"
+      />
+      <img
+        alt=""
+        className="aspect-video h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none"
+        height={720}
+        loading="lazy"
+        src={`${base}${image}`}
+        width={1280}
+        onError={onError}
+      />
+    </picture>
   );
 }
 
@@ -138,7 +147,6 @@ export function EventCard({
   const [broken, setBroken] = useState(false);
   const { layout, setCard } = useActionLayout();
   const image = broken ? CATEGORY_FALLBACK[event.category] : event.image;
-  const src = `${import.meta.env.BASE_URL}${image}`;
   const titleId = titleDomId(event);
   const free = isFree(event);
   const actions = eventCardActions(event);
@@ -170,11 +178,11 @@ export function EventCard({
             rel="noopener noreferrer"
             target="_blank"
           >
-            <CardImage src={src} onError={() => setBroken(true)} />
+            <CardImage image={image} onError={() => setBroken(true)} />
           </a>
         ) : (
           <div className="event-card__frame">
-            <CardImage src={src} onError={() => setBroken(true)} />
+            <CardImage image={image} onError={() => setBroken(true)} />
           </div>
         )}
         <div className="event-card__scrim pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />

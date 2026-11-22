@@ -1,10 +1,10 @@
 import { Button, Drawer, EmptyState, SearchField, useOverlayState } from "@heroui/react";
 import { ArrowLeft, Search } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject, type ReactNode } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState, type MutableRefObject, type ReactNode } from "react";
 import { DaySlider } from "./DaySlider";
 import { EventCard } from "./EventCard";
 import { EventList } from "./EventList";
-import { EventMap } from "./EventMap";
+const EventMap = lazy(() => import("./EventMap").then((module) => ({ default: module.EventMap })));
 import { FilterSidebar } from "./FilterSidebar";
 import { ViewSwitch } from "./ViewSwitch";
 import { UpdatedNote } from "./UpdatedNote";
@@ -257,7 +257,7 @@ export function EventsBoard({
         </>
       )}
 
-      <section className="list-pane" id="lista" aria-label="Lista wydarzeń">
+      <section aria-label="Lista wydarzeń" className="list-pane" id="lista" tabIndex={-1}>
         <div className="list-head">
           <h2>Wydarzenia</h2>
           <p aria-live="polite" className="list-count">
@@ -344,6 +344,7 @@ export function EventsBoard({
       </section>
 
       <section className="map-pane" aria-label="Mapa wydarzeń">
+        <Suspense fallback={<p className="map-fallback">Wczytywanie mapy…</p>}>
         <EventMap
           active={mapActive}
           events={mapEvents}
@@ -356,6 +357,7 @@ export function EventsBoard({
           onSelect={selectFromMap}
           onShowInList={showInList}
         />
+        </Suspense>
       </section>
     </div>
   );

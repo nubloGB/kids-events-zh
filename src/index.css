@@ -1032,6 +1032,15 @@ input {
   overflow: hidden;
 }
 
+.map-fallback {
+  margin: 1rem;
+  color: #52525b;
+}
+
+.text-muted {
+  color: #3f3f46;
+}
+
 .event-map {
   position: absolute;
   inset: -16px -28px;

@@ -6,7 +6,6 @@ export default defineConfig({
   retries: 0,
   use: {
     baseURL: "http://127.0.0.1:5173",
-    channel: "chrome",
   },
   webServer: {
     command: "npm run dev -- --host 127.0.0.1 --port 5173",
