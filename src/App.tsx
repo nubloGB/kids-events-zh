@@ -1,4 +1,4 @@
-import { Button, SearchField, Spinner, ToastProvider } from "@heroui/react";
+import { Button, SearchField, ToastProvider } from "@heroui/react";
 import { useEffect, useRef, useState } from "react";
 import { EventsBoard } from "./components/EventsBoard";
 import { SourcesPanel } from "./components/SourcesPanel";
@@ -33,6 +33,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    document.title =
+      tab === "zrodla" ? "Źródła — Wydarzenia dla dzieci w Zurychu" : "Wydarzenia dla dzieci w Zurychu";
     document.querySelector(".app-shell")?.scrollTo({ top: 0 });
     setSectionsMenu(false);
   }, [tab]);
@@ -192,8 +194,19 @@ export default function App() {
         </div>
 
         <div className="hero-copy">
-          <h1>Znajdź wydarzenia dla dzieci</h1>
-          <p>Teatr, muzyka, sport, warsztaty i zwierzęta. Oerlikon, Zurych, Winterthur i okolice. Wiek 2–8 lat.</p>
+          <h1>{tab === "zrodla" ? "Źródła wydarzeń dla dzieci" : "Znajdź wydarzenia dla dzieci"}</h1>
+          <p>
+            {tab === "zrodla"
+              ? "Organizatorzy i strony, z których biorą się terminy."
+              : "Teatr, muzyka, sport i warsztaty. Oerlikon, Zurych, Winterthur i okolice."}{" "}
+            Ostatnia aktualizacja:{" "}
+            {eventsFile ? (
+              <time dateTime={eventsFile.updatedAt}>{formatPolishDate(eventsFile.updatedAt)}</time>
+            ) : (
+              "…"
+            )}
+            .
+          </p>
         </div>
 
         {tab === "wydarzenia" ? (
@@ -216,16 +229,6 @@ export default function App() {
             </button>
           </form>
         ) : null}
-
-        <p className="hero-updated">
-          Ostatnia aktualizacja:{" "}
-          {eventsFile ? (
-            <time dateTime={eventsFile.updatedAt}>{formatPolishDate(eventsFile.updatedAt)}</time>
-          ) : (
-            "…"
-          )}
-          . Minione terminy chowają się same.
-        </p>
       </header>
 
       <div className="app-body">
@@ -267,10 +270,15 @@ function MenuIcon() {
 
 function Loading() {
   return (
-    <p className="flex items-center gap-3 py-10 text-muted">
-      <Spinner aria-label="Wczytywanie" />
-      Wczytywanie…
-    </p>
+    <div aria-busy="true" aria-label="Wczytywanie" className="skeleton-list">
+      {[0, 1, 2].map((item) => (
+        <div className="skeleton-card" key={item}>
+          <div className="skeleton-card__media" />
+          <div className="skeleton-card__line" />
+          <div className="skeleton-card__line skeleton-card__line--short" />
+        </div>
+      ))}
+    </div>
   );
 }
 
