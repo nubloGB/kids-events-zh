@@ -1,13 +1,15 @@
 import L from "leaflet";
-import { useEffect, useRef, useState, type MutableRefObject } from "react";
+import { useEffect, useRef, type MutableRefObject } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvents } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { CalendarMenu } from "./CalendarMenu";
-import { isIosDevice } from "../lib/cardActions";
-import { appleTransitUrl, canRoute, googleTransitUrl } from "../lib/directions";
+import { TransitMenu } from "./RouteMenu";
+import { hasEventPage } from "../lib/cardActions";
+import { canRoute } from "../lib/directions";
 import { eventKey } from "../lib/events";
-import { CategoryIcons } from "./CategoryIcons";
-import { categoryAppearance } from "../lib/markers";
+import { formatPopupWhen } from "../lib/listDays";
+import { eventCategoryMarks, categoryAppearance } from "../lib/markers";
+import { ExternalLink, List } from "lucide-react";
 import type { KidsEvent, MapBounds } from "../types";
 import "leaflet/dist/leaflet.css";
 import "react-leaflet-cluster/dist/assets/MarkerCluster.css";
@@ -17,15 +19,15 @@ const OERLIKON: L.LatLngExpression = [47.411, 8.544];
 
 const iconCache = new Map<string, L.DivIcon>();
 
-function markerIcon(event: KidsEvent, selected: boolean): L.DivIcon {
+function markerIcon(event: KidsEvent): L.DivIcon {
   const look = categoryAppearance(event.category);
-  const key = `${event.category}:${look.icon}:${look.color}:${selected ? "1" : "0"}`;
+  const key = `${event.category}:${look.icon}:${look.color}`;
   const cached = iconCache.get(key);
   if (cached) return cached;
-  const size = selected ? 44 : 34;
+  const size = 34;
   const icon = L.divIcon({
     className: "pin-wrap",
-    html: `<span class="pin${selected ? " pin--selected" : ""}" style="--pin:${look.color}"><span>${look.icon}</span></span>`,
+    html: `<span class="pin" style="--pin:${look.color}"><span>${look.icon}</span></span>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size - 2],
     popupAnchor: [0, -size + 6],
@@ -97,6 +99,7 @@ function MapBridge({
   active,
   events,
   selectedId,
+  highlightId,
   focusTick,
   focusOrigin,
   markers,
@@ -106,6 +109,7 @@ function MapBridge({
   active: boolean;
   events: KidsEvent[];
   selectedId: string | null;
+  highlightId: string | null;
   focusTick: number;
   focusOrigin: "list" | "map";
   markers: MutableRefObject<Map<string, L.Marker>>;
@@ -175,15 +179,15 @@ function MapBridge({
   }, [active, clusterRef, focusOrigin, focusTick, map, markers, selectedId]);
 
   useEffect(() => {
+    markers.current.forEach((marker, id) => {
+      marker.getElement()?.querySelector(".pin")?.classList.toggle("pin--selected", id === selectedId || id === highlightId);
+    });
+  }, [highlightId, markers, selectedId]);
+
+  useEffect(() => {
     if (!active || focusOrigin !== "map" || !selectedId) return;
     const marker = markers.current.get(selectedId);
-    if (!marker) return;
-    const open = () => {
-      if (!marker.isPopupOpen()) marker.openPopup();
-    };
-    open();
-    const timer = window.setTimeout(open, 60);
-    return () => window.clearTimeout(timer);
+    if (marker && !marker.isPopupOpen()) marker.openPopup();
   }, [active, focusOrigin, focusTick, map, markers, selectedId]);
 
   useEffect(() => {
@@ -241,10 +245,6 @@ export function EventMap({
 }) {
   const markers = useRef(new Map<string, L.Marker>());
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
-  const [ios] = useState(() =>
-    typeof navigator !== "undefined" &&
-      isIosDevice(navigator.userAgent, { platform: navigator.platform, maxTouchPoints: navigator.maxTouchPoints }),
-  );
 
   return (
     <MapContainer
@@ -263,6 +263,7 @@ export function EventMap({
         clusterRef={clusterRef}
         events={events}
         focusOrigin={focusOrigin}
+        highlightId={highlightId}
         focusTick={focusTick}
         markers={markers}
         selectedId={selectedId}
@@ -278,7 +279,8 @@ export function EventMap({
       >
         {events.map((event) => {
           const key = eventKey(event);
-          const selected = key === selectedId || key === highlightId;
+          const marks = eventCategoryMarks(event);
+          const page = hasEventPage(event);
           return (
             <Marker
               key={key}
@@ -288,57 +290,52 @@ export function EventMap({
               }}
               eventHandlers={{
                 click: (leafletEvent) => {
-                  onSelect(key);
                   const marker = leafletEvent.target as L.Marker;
-                  const open = () => {
-                    if (!marker.isPopupOpen()) marker.openPopup();
-                  };
-                  open();
-                  window.setTimeout(open, 80);
+                  marker.openPopup();
+                  onSelect(key);
                 },
               }}
-              icon={markerIcon(event, selected)}
+              icon={markerIcon(event)}
               position={[event.lat, event.lng]}
-              zIndexOffset={selected ? 800 : 0}
             >
-              <Popup autoPanPadding={[24, 48]} keepInView maxWidth={288}>
-                <div className="map-popup">
-                  <strong className="map-popup__title">
-                    {event.title} <CategoryIcons event={event} />
-                  </strong>
-                  <p>{event.dateText}</p>
-                  <p>{event.place}</p>
-                  {event.url ? (
-                    <a href={event.url} rel="noopener noreferrer" target="_blank">
-                      Strona wydarzenia
-                    </a>
-                  ) : null}
-                  <div className="map-popup__actions">
-                    {canRoute(event) ? (
+              <Popup autoPan autoPanPadding={[12, 16]} maxWidth={272}>
+                <div
+                  className="map-popup"
+                  onClick={(eventClick) => eventClick.stopPropagation()}
+                  onPointerDown={(eventClick) => eventClick.stopPropagation()}
+                >
+                  <p className="map-popup__title">{event.title}</p>
+                  <p className="map-popup__meta">
+                    <span aria-hidden="true">{marks.map((mark) => mark.icon).join("")}</span> {formatPopupWhen(event)}
+                  </p>
+                  <p className="map-popup__place">{event.place}</p>
+                  <p className="map-popup__age">{event.age}</p>
+                  {event.description.trim() ? <p className="map-popup__desc">{event.description}</p> : null}
+                  <div className="map-popup__icons">
+                    {page ? (
                       <a
-                        className="map-popup__route"
-                        href={googleTransitUrl(event.lat, event.lng)}
+                        aria-label="Strona wydarzenia"
+                        className="map-popup__icon"
+                        href={event.url}
                         rel="noopener noreferrer"
                         target="_blank"
+                        title="Strona wydarzenia"
                       >
-                        Trasa
+                        <ExternalLink aria-hidden size={20} strokeWidth={2} />
                       </a>
                     ) : null}
-                    <button className="map-popup__list" type="button" onClick={() => onShowInList(key)}>
-                      Pokaż na liście
+                    {canRoute(event) ? <TransitMenu event={event} /> : null}
+                    <CalendarMenu event={event} today={today} />
+                    <button
+                      aria-label="Pokaż na liście"
+                      className="map-popup__icon"
+                      title="Pokaż na liście"
+                      type="button"
+                      onClick={() => onShowInList(key)}
+                    >
+                      <List aria-hidden size={20} strokeWidth={2} />
                     </button>
                   </div>
-                  {canRoute(event) ? (
-                    <a className="map-popup__link" href={googleTransitUrl(event.lat, event.lng)} rel="noopener noreferrer" target="_blank">
-                      Google
-                    </a>
-                  ) : null}
-                  {canRoute(event) && ios ? (
-                    <a className="map-popup__link" href={appleTransitUrl(event.lat, event.lng)} rel="noopener noreferrer" target="_blank">
-                      Apple Maps
-                    </a>
-                  ) : null}
-                  <CalendarMenu event={event} today={today} />
                 </div>
               </Popup>
             </Marker>

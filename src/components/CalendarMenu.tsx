@@ -58,8 +58,10 @@ export function CalendarMenu({
       </span>
     </Dropdown.Trigger>
   ) : (
-    <Dropdown.Trigger aria-label={`Dodaj ${event.title} do kalendarza`} className="calendar-button">
-      <CalendarPlus aria-hidden size={18} strokeWidth={2} />
+    <Dropdown.Trigger aria-label={`Dodaj ${event.title} do kalendarza`} className="calendar-button map-popup__icon">
+      <span title="Kalendarz">
+        <CalendarPlus aria-hidden size={20} strokeWidth={2} />
+      </span>
     </Dropdown.Trigger>
   );
 

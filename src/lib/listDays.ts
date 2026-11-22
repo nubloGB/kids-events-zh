@@ -33,6 +33,26 @@ export function formatClock(dateText: string): string {
   return `${hour}:${String(minute).padStart(2, "0")}`;
 }
 
+function clockLabel(hour: string, minute: string): string {
+  return `${Number(hour)}:${minute}`;
+}
+
+/** `15:00–16:00` when the listing names a range, otherwise the first clock time. */
+export function formatClockRange(dateText: string): string | null {
+  const span = /(\d{1,2}):(\d{2})\s*[–-]\s*(\d{1,2}):(\d{2})/.exec(dateText);
+  if (span) return `${clockLabel(span[1], span[2])}–${clockLabel(span[3], span[4])}`;
+  const one = /(\d{1,2}):(\d{2})/.exec(dateText);
+  return one ? clockLabel(one[1], one[2]) : null;
+}
+
+/** `ndz. 22.11 · 15:00–16:00` for a dated listing. */
+export function formatPopupWhen(event: { startDate: string | null; dateText: string }): string {
+  const range = formatClockRange(event.dateText);
+  if (!event.startDate) return range ?? event.dateText;
+  const day = `${WEEKDAYS_SHORT[isoWeekday(event.startDate) - 1] ?? ""} ${formatChipDay(event.startDate)}`.trim();
+  return range ? `${day} · ${range}` : day;
+}
+
 /** startDate, then the first clock time, then the title. Shared by the cards and the list. */
 export function compareEvents<T extends DayEvent>(left: T, right: T): number {
   const leftDate = left.startDate ?? "";
