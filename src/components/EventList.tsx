@@ -170,6 +170,7 @@ function RowActions({
     <div className="event-actions list-row__actions" onClick={(eventClick) => eventClick.stopPropagation()}>
       {hasPage ? (
         <a
+          aria-label="Strona wydarzenia (otwiera się w nowej karcie)"
           className={`${buttonVariants({ variant: "primary" })} event-action event-action--primary`}
           href={page}
           rel="noopener noreferrer"

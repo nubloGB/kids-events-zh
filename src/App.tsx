@@ -123,9 +123,6 @@ export default function App() {
     <DateFilterProvider>
     <div className="app-shell">
       <ToastProvider aria-label="Powiadomienia" placement="top" />
-      <a className="skip-link" href="#lista">
-        Przejdź do treści
-      </a>
       <header className="hero" data-mobile-header="brand">
         <div className="hero-bar" ref={barRef}>
           <a className="brand" href="#wydarzenia" onClick={() => selectTab("wydarzenia")}>
@@ -231,13 +228,16 @@ export default function App() {
         ) : null}
       </header>
 
-      <div className="app-body">
+      <main className="app-body">
+        <a className="skip-link" href={tab === "zrodla" ? "#zrodla-tresc" : "#lista"}>
+          Przejdź do treści
+        </a>
         {error ? (
           <div className="panel-scroll">
             <LoadError message={error} />
           </div>
         ) : tab === "zrodla" ? (
-          <div className="sources-scroll">
+          <div className="sources-scroll" id="zrodla-tresc" tabIndex={-1}>
             <UpdatedNote iso={eventsFile?.updatedAt ?? null} />
             {sourcesFile ? <SourcesPanel sources={sourcesFile} /> : <Loading />}
           </div>
@@ -254,7 +254,7 @@ export default function App() {
             <Loading />
           </div>
         )}
-      </div>
+      </main>
     </div>
     </DateFilterProvider>
   );
