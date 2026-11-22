@@ -10439,7 +10439,7 @@
     {
       "id": "warsztaty",
       "label": "Warsztaty",
-      "icon": "✂️",
+      "icon": "🎨",
       "color": "#db2777",
       "image": "images/fallback-crafts.jpg",
       "order": 5
@@ -10455,7 +10455,7 @@
     {
       "id": "campy/ferie",
       "label": "Campy/ferie",
-      "icon": "☀️",
+      "icon": "🏕️",
       "color": "#d97706",
       "image": "images/fallback-athletics.jpg",
       "order": 7
@@ -10471,7 +10471,7 @@
     {
       "id": "stałe",
       "label": "Stałe",
-      "icon": "📌",
+      "icon": "🔁",
       "color": "#6d28d9",
       "image": "images/fallback-playground.jpg",
       "order": 9

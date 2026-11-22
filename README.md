@@ -47,7 +47,7 @@ Data aktualizacji bierze się z pola `updatedAt`. Na szerokim ekranie widać ją
 | `isNew` | Pole zostaje w pliku, ale strona nie pokazuje odznaki „nowe”. Zbyt wiele wpisów ma `true`, a nie ma daty pierwszego pojawienia się, więc odznaka nic nie mówi. |
 | `tags` | Lista znaczników, na przykład `["swieta"]`. Puste `[]`, gdy wpis nie ma motywu. Znacznik równy `id` kategorii dokłada wydarzenie do tego filtra, więc może zostać przy swojej kategorii (jarmark zostaje `festyny` i dostaje `swieta`). |
 
-Tablica `categories` na górze `events.json` opisuje filtry. Każdy element ma `id`, `label` (polska nazwa na chipie), `icon` (emoji na chipie i na pinezce), `color` (`#rrggbb`), opcjonalne `image` (`images/*.jpg`, gdy zdjęcie wydarzenia się nie wczyta) i `order` (kolejność chipów). Nowy filtr, na przykład Święta, to nowy obiekt w tej tablicy i znacznik albo `category` o tym samym `id` przy wydarzeniach. Kod ma listę zapasową tylko wtedy, gdy w pliku w ogóle nie ma `categories`.
+Tablica `categories` na górze `events.json` opisuje filtry. Każdy element ma `id`, `label` (polska nazwa na chipie), `icon` (emoji na chipie, pinezce i między godziną a nazwą), `color` (`#rrggbb`), opcjonalne `image` (`images/*.jpg`, gdy zdjęcie wydarzenia się nie wczyta) i `order` (kolejność chipów). Nowy filtr, na przykład Święta, to nowy obiekt w tej tablicy i znacznik albo `category` o tym samym `id` przy wydarzeniach. Kod ma listę zapasową tylko wtedy, gdy w pliku w ogóle nie ma `categories`. W wierszu widać najwyżej dwie ikony: znacznik `swieta` jest pierwszy, potem własna kategoria. Nieznane id dostaje 📍.
 
 Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startDate`. Zajęcia stałe są alfabetycznie w osobnej sekcji.
 

@@ -14,7 +14,7 @@ import {
   visibleHighlights,
   zurichToday,
 } from "./events";
-import { categoryAppearance } from "./markers";
+import { categoryAppearance, eventCategoryMarks } from "./markers";
 import { ageRange } from "./age";
 import { fold } from "./text";
 import { describe, expect, it } from "vitest";
@@ -42,6 +42,13 @@ describe("events.json", () => {
     expect(file.events.some((event) => event.title === "Samichlausumzug Zürich")).toBe(false);
     expect(categoryAppearance("swieta").icon).toBe("🎄");
     expect(categoryAppearance("nieznana").icon).toBe("📍");
+    expect(categoryAppearance("warsztaty").icon).toBe("🎨");
+    expect(categoryAppearance("biblioteka").icon).toBe("📚");
+    expect(categoryAppearance("campy/ferie").icon).toBe("🏕️");
+    const both = eventCategoryMarks({ category: "festyny", tags: ["swieta"] });
+    expect(both.map((mark) => mark.icon)).toEqual(["🎄", "🎈"]);
+    expect(eventCategoryMarks({ category: "sport", tags: [] }).map((mark) => mark.icon)).toEqual(["⚽"]);
+    expect(eventCategoryMarks({ category: "brak", tags: [] })[0]?.icon).toBe("📍");
     const fresh = file.events.filter((event) => event.isNew).map((event) => event.title);
     expect(fresh).toEqual(expect.arrayContaining([
       "SonntagzOerlikon",

@@ -6,6 +6,7 @@ import { CalendarMenu } from "./CalendarMenu";
 import { isIosDevice } from "../lib/cardActions";
 import { appleTransitUrl, canRoute, googleTransitUrl } from "../lib/directions";
 import { eventKey } from "../lib/events";
+import { CategoryIcons } from "./CategoryIcons";
 import { categoryAppearance } from "../lib/markers";
 import type { KidsEvent, MapBounds } from "../types";
 import "leaflet/dist/leaflet.css";
@@ -302,7 +303,9 @@ export function EventMap({
             >
               <Popup autoPanPadding={[24, 48]} keepInView maxWidth={288}>
                 <div className="map-popup">
-                  <strong>{event.title}</strong>
+                  <strong className="map-popup__title">
+                    {event.title} <CategoryIcons event={event} />
+                  </strong>
                   <p>{event.dateText}</p>
                   <p>{event.place}</p>
                   {event.url ? (
