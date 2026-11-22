@@ -36,7 +36,7 @@ Data aktualizacji bierze się z pola `updatedAt`. Na szerokim ekranie widać ją
 | `title` | Nazwa. Link w karcie prowadzi do `url`. |
 | `url` | Adres strony wydarzenia (`http` albo `https`). |
 | `description` | Krótki opis: co się dzieje, cena, język. |
-| `age` | Wiek tak, jak w źródle. |
+| `age` | Krótki podpis na chipie, do około 10 znaków, na przykład `6–12 l.`, `od 4 l.`, `rodziny`. Pełne wyjaśnienie (rocznik, szkoła podstawowa, wyjątki) zostaje w `description`. `l.` czyta się tak samo jak `lat`. |
 | `ageMin`, `ageMax` | Najmłodszy i najstarszy wiek, który pasuje do `age`. `null` i `null` znaczy „każdy wiek” (rodziny, wszyscy, brak info) i zostaje przy obu filtrach wieku. `ageMax: null` przy liczbie w `ageMin` znaczy „od tego wieku w górę”. Przy zmianie `age` popraw też te dwie liczby: filtr czyta je, nie zgaduje od nowa. Rocznik jest liczony względem roku z `startDate` (dziecko z rocznika 2018 w 2026 ma 8 lat). |
 | `place` | Sala, adres albo dzielnica. |
 | `lat`, `lng` | Współrzędne WGS84 pinezki na mapie (Leaflet, kafelki OpenStreetMap, bez klucza API). Widok startowy to Zurych-Oerlikon. |

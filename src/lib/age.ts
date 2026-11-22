@@ -3,11 +3,12 @@ export interface AgeRange {
   max: number | null;
 }
 
-const RANGE = /(\d+)\s*[\u2013\u2014-]\s*(\d+)\s*lat/gi;
+const AGE_UNIT = "(?:lat|lata|l\\.)";
+const RANGE = new RegExp(`(\\d+)\\s*[\\u2013\\u2014-]\\s*(\\d+)\\s*${AGE_UNIT}`, "gi");
 const COHORT = /roczniki\s*(\d{4})\s*[\u2013\u2014-]\s*(\d{4})/gi;
-const FROM_TO = /od\s+(?:ok\.\s*)?(\d+)\s*lat[\s\S]*?do\s+(\d+)\s*lat/i;
-const FROM = /od\s+(?:ok\.\s*)?(\d+)\s*lat/i;
-const UP_TO = /(?:dzieci\s+)?do\s+(\d+)\s*lat/i;
+const FROM_TO = new RegExp(`od\\s+(?:ok\\.\\s*)?(\\d+)\\s*${AGE_UNIT}[\\s\\S]*?do\\s+(\\d+)\\s*${AGE_UNIT}`, "i");
+const FROM = new RegExp(`od\\s+(?:ok\\.\\s*)?(\\d+)\\s*${AGE_UNIT}`, "i");
+const UP_TO = new RegExp(`(?:dzieci\\s+)?do\\s+(\\d+)\\s*${AGE_UNIT}`, "i");
 
 function eventYear(startDate: string | null): number {
   if (startDate && /^\d{4}/.test(startDate)) return Number(startDate.slice(0, 4));
