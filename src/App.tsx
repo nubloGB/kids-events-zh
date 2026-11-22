@@ -6,6 +6,7 @@ import { UpdatedNote } from "./components/UpdatedNote";
 import { DateFilterProvider } from "./lib/dateFilterContext";
 import { formatPolishDate } from "./lib/format";
 import { parseEventsFile } from "./lib/events";
+import { readBoardView, type BoardView } from "./lib/viewPreference";
 import { parseSourcesFile } from "./lib/sources";
 import type { EventsFile, SourcesFile } from "./types";
 
@@ -269,13 +270,30 @@ function MenuIcon() {
 }
 
 function Loading() {
+  const [view] = useState<BoardView>(() => readBoardView(window.localStorage));
+  if (view === "karty") {
+    return (
+      <div aria-busy="true" aria-label="Wczytywanie" className="skeleton-list">
+        {[0, 1, 2].map((item) => (
+          <div className="skeleton-card" key={item}>
+            <div className="skeleton-card__media" />
+            <div className="skeleton-card__line" />
+            <div className="skeleton-card__line skeleton-card__line--short" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  if (view === "mapa") {
+    return <div aria-busy="true" aria-label="Wczytywanie" className="skeleton-map" />;
+  }
   return (
-    <div aria-busy="true" aria-label="Wczytywanie" className="skeleton-list">
-      {[0, 1, 2].map((item) => (
-        <div className="skeleton-card" key={item}>
-          <div className="skeleton-card__media" />
-          <div className="skeleton-card__line" />
-          <div className="skeleton-card__line skeleton-card__line--short" />
+    <div aria-busy="true" aria-label="Wczytywanie" className="skeleton-rows">
+      {[0, 1, 2, 3, 4].map((item) => (
+        <div className="skeleton-row" key={item}>
+          <span className="skeleton-row__time" />
+          <span className="skeleton-row__title" />
+          <span className="skeleton-row__age" />
         </div>
       ))}
     </div>

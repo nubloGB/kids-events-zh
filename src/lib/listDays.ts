@@ -33,6 +33,21 @@ export function formatClock(dateText: string): string {
   return `${hour}:${String(minute).padStart(2, "0")}`;
 }
 
+/** startDate, then the first clock time, then the title. Shared by the cards and the list. */
+export function compareEvents<T extends DayEvent>(left: T, right: T): number {
+  const leftDate = left.startDate ?? "";
+  const rightDate = right.startDate ?? "";
+  if (leftDate !== rightDate) return leftDate < rightDate ? -1 : 1;
+  const leftMinutes = eventStartMinutes(left.dateText);
+  const rightMinutes = eventStartMinutes(right.dateText);
+  if (leftMinutes !== rightMinutes) {
+    if (leftMinutes === null) return 1;
+    if (rightMinutes === null) return -1;
+    return leftMinutes - rightMinutes;
+  }
+  return left.title.localeCompare(right.title, "pl");
+}
+
 export function groupByDay<T extends DayEvent>(events: T[]): { days: DayGroup<T>[]; undated: T[] } {
   const undated: T[] = [];
   const buckets = new Map<string, T[]>();
@@ -49,17 +64,9 @@ export function groupByDay<T extends DayEvent>(events: T[]): { days: DayGroup<T>
     .sort(([left], [right]) => (left < right ? -1 : 1))
     .map(([iso, items]) => ({
       iso,
-      events: items.slice().sort((left, right) => {
-        const a = eventStartMinutes(left.dateText);
-        const b = eventStartMinutes(right.dateText);
-        if (a === null && b === null) return left.title.localeCompare(right.title, "pl");
-        if (a === null) return 1;
-        if (b === null) return -1;
-        if (a !== b) return a - b;
-        return left.title.localeCompare(right.title, "pl");
-      }),
+      events: items.slice().sort(compareEvents),
     }));
-  undated.sort((left, right) => left.title.localeCompare(right.title, "pl"));
+  undated.sort(compareEvents);
   return { days, undated };
 }
 
