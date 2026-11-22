@@ -6,7 +6,7 @@ import { CalendarMenu } from "./CalendarMenu";
 import { isIosDevice } from "../lib/cardActions";
 import { appleTransitUrl, canRoute, googleTransitUrl } from "../lib/directions";
 import { eventKey } from "../lib/events";
-import { CATEGORY_COLOR, CATEGORY_GLYPH } from "../lib/markers";
+import { categoryAppearance } from "../lib/markers";
 import type { KidsEvent, MapBounds } from "../types";
 import "leaflet/dist/leaflet.css";
 import "react-leaflet-cluster/dist/assets/MarkerCluster.css";
@@ -17,13 +17,14 @@ const OERLIKON: L.LatLngExpression = [47.411, 8.544];
 const iconCache = new Map<string, L.DivIcon>();
 
 function markerIcon(event: KidsEvent, selected: boolean): L.DivIcon {
-  const key = `${event.category}:${selected ? "1" : "0"}`;
+  const look = categoryAppearance(event.category);
+  const key = `${event.category}:${look.icon}:${look.color}:${selected ? "1" : "0"}`;
   const cached = iconCache.get(key);
   if (cached) return cached;
   const size = selected ? 44 : 34;
   const icon = L.divIcon({
     className: "pin-wrap",
-    html: `<span class="pin${selected ? " pin--selected" : ""}" style="--pin:${CATEGORY_COLOR[event.category]}"><span>${CATEGORY_GLYPH[event.category]}</span></span>`,
+    html: `<span class="pin${selected ? " pin--selected" : ""}" style="--pin:${look.color}"><span>${look.icon}</span></span>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size - 2],
     popupAnchor: [0, -size + 6],

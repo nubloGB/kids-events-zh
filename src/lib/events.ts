@@ -2,11 +2,11 @@ import { matchesAgeBand } from "./age";
 import { compareEvents } from "./listDays";
 import { resolveDateRange, rangesOverlap, zurichToday } from "./dates";
 import { fold } from "./text";
+import { DEFAULT_CATEGORIES, installCategories } from "./markers";
 import {
   AREAS,
-  CATEGORIES,
   type Area,
-  type Category,
+  type EventCategory,
   type EventFilters,
   type EventHighlight,
   type EventsFile,
@@ -99,9 +99,14 @@ function dateWindow(filters: EventFilters, today: string): { from: string; to: s
   return resolveDateRange(filters.date, today);
 }
 
+/** A category chip matches the event's own category or a tag with the same id. */
+export function eventInCategory(event: { category: string; tags: string[] }, id: string): boolean {
+  return event.category === id || event.tags.includes(id);
+}
+
 export function matchesFilters(event: KidsEvent, filters: EventFilters, today: string): boolean {
   if (filters.areas.length > 0 && !filters.areas.includes(event.area)) return false;
-  if (filters.categories.length > 0 && !filters.categories.includes(event.category)) return false;
+  if (filters.categories.length > 0 && !filters.categories.some((id) => eventInCategory(event, id))) return false;
   if (!matchesAgeBand(event.ageMin, event.ageMax, filters.age)) return false;
   const chosen = dateWindow(filters, today);
   if (chosen) {
@@ -188,7 +193,7 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   assertString(event.place, `${where}: place`);
   assertString(event.registration, `${where}: registration`);
   if (!AREAS.includes(event.area as Area)) throw new Error(`${where}: nieznany obszar`);
-  if (!CATEGORIES.includes(event.category as Category)) throw new Error(`${where}: nieznana kategoria`);
+  assertString(event.category, `${where}: category`);
   if (typeof event.isNew !== "boolean") throw new Error(`${where}: isNew musi być true/false`);
   if (event.startDate !== null && (typeof event.startDate !== "string" || !ISO_DATE.test(event.startDate))) {
     throw new Error(`${where}: startDate musi być ISO albo null`);
@@ -220,6 +225,51 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   }
 }
 
+const HEX_COLOR = /^#[0-9a-fA-F]{6}$/;
+
+function assertCategory(value: unknown, index: number): EventCategory {
+  if (!value || typeof value !== "object") throw new Error(`Kategoria ${index} nie jest obiektem`);
+  const category = value as EventCategory;
+  if (typeof category.id !== "string" || category.id.trim() === "") {
+    throw new Error(`Kategoria ${index}: id musi być niepustym tekstem`);
+  }
+  if (typeof category.label !== "string" || category.label.trim() === "") {
+    throw new Error(`Kategoria ${index}: label musi być niepustym tekstem`);
+  }
+  if (typeof category.icon !== "string" || category.icon.trim() === "") {
+    throw new Error(`Kategoria ${index}: icon musi być niepustym tekstem`);
+  }
+  if (typeof category.color !== "string" || !HEX_COLOR.test(category.color)) {
+    throw new Error(`Kategoria ${index}: color musi być kolorem #rrggbb`);
+  }
+  if (category.image != null && (typeof category.image !== "string" || !/^images\/[a-z0-9-]+\.jpg$/.test(category.image))) {
+    throw new Error(`Kategoria ${index}: image musi wskazywać plik images/*.jpg`);
+  }
+  if (typeof category.order !== "number" || !Number.isFinite(category.order)) {
+    throw new Error(`Kategoria ${index}: order musi być liczbą`);
+  }
+  return {
+    id: category.id.trim(),
+    label: category.label.trim(),
+    icon: category.icon.trim(),
+    color: category.color,
+    image: category.image,
+    order: category.order,
+  };
+}
+
+function readCategories(value: unknown): EventCategory[] {
+  if (value === undefined) return DEFAULT_CATEGORIES;
+  if (!Array.isArray(value) || value.length === 0) throw new Error("categories musi być niepustą listą");
+  const categories = value.map(assertCategory);
+  const ids = new Set<string>();
+  for (const category of categories) {
+    if (ids.has(category.id)) throw new Error(`Kategoria „${category.id}” jest powtórzona`);
+    ids.add(category.id);
+  }
+  return categories;
+}
+
 function assertHighlight(value: unknown, index: number): EventHighlight {
   if (!value || typeof value !== "object") throw new Error(`Wyróżnienie ${index} nie jest obiektem`);
   const highlight = value as EventHighlight;
@@ -245,11 +295,12 @@ export function parseEventsFile(data: unknown): EventsFile {
     throw new Error("events musi być niepustą listą");
   }
   file.events.forEach(assertEvent);
+  const categories = installCategories(readCategories((file as EventsFile & { categories?: unknown }).categories));
   const rawHighlights = file.highlights;
   const highlights =
     rawHighlights === undefined ? [] : Array.isArray(rawHighlights) ? rawHighlights.map(assertHighlight) : null;
   if (!highlights) throw new Error("highlights musi być listą");
-  return { updatedAt: file.updatedAt, highlights, events: file.events };
+  return { updatedAt: file.updatedAt, categories, highlights, events: file.events };
 }
 
 export const EMPTY_FILTERS: EventFilters = {

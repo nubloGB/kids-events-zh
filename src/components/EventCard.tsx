@@ -9,7 +9,7 @@ import { canRoute } from "../lib/directions";
 import { isFreeEvent } from "../lib/eventFacts";
 import { splitIso } from "../lib/format";
 import { eventKey } from "../lib/events";
-import { CATEGORY_FALLBACK } from "../lib/markers";
+import { categoryAppearance } from "../lib/markers";
 import type { KidsEvent } from "../types";
 
 type ActionLayout = "mobile" | "desktop" | "narrow";
@@ -145,7 +145,7 @@ export function EventCard({
 }) {
   const [broken, setBroken] = useState(false);
   const { layout, setCard } = useActionLayout();
-  const image = broken ? CATEGORY_FALLBACK[event.category] : event.image;
+  const image = broken ? categoryAppearance(event.category).image : event.image;
   const titleId = titleDomId(event);
   const free = isFree(event);
   const actions = eventCardActions(event);
