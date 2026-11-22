@@ -71,8 +71,30 @@ function sameBounds(current: MapBounds | null, next: MapBounds): boolean {
   );
 }
 
+const FIT_PADDING: L.PointExpression = [48, 48];
+
+function eventBoundsKey(events: KidsEvent[]): string {
+  return events
+    .map((event) => `${event.lat.toFixed(5)},${event.lng.toFixed(5)}`)
+    .sort()
+    .join(";");
+}
+
+function fitEventBounds(map: L.Map, events: KidsEvent[]) {
+  const points = events
+    .filter((event) => Number.isFinite(event.lat) && Number.isFinite(event.lng))
+    .map((event) => L.latLng(event.lat, event.lng));
+  const animate = !prefersReducedMotion();
+  if (points.length === 0) {
+    map.setView(OERLIKON, 13, { animate });
+    return;
+  }
+  map.fitBounds(L.latLngBounds(points), { padding: FIT_PADDING, maxZoom: 15, animate });
+}
+
 function MapBridge({
   active,
+  events,
   selectedId,
   focusTick,
   focusOrigin,
@@ -81,6 +103,7 @@ function MapBridge({
   onBounds,
 }: {
   active: boolean;
+  events: KidsEvent[];
   selectedId: string | null;
   focusTick: number;
   focusOrigin: "list" | "map";
@@ -91,7 +114,8 @@ function MapBridge({
   const map = useMap();
   const onBoundsRef = useRef(onBounds);
   const lastBounds = useRef<MapBounds | null>(null);
-  const fitted = useRef(false);
+  const fittedKey = useRef<string | null>(null);
+  const boundsKey = eventBoundsKey(events);
   onBoundsRef.current = onBounds;
 
   function publish() {
@@ -116,17 +140,15 @@ function MapBridge({
   });
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || fittedKey.current === boundsKey) return;
     const timer = window.setTimeout(() => {
       map.invalidateSize();
-      if (!fitted.current) {
-        map.setView(OERLIKON, 13);
-        fitted.current = true;
-      }
+      fitEventBounds(map, events);
+      fittedKey.current = boundsKey;
       publish();
     }, 60);
     return () => window.clearTimeout(timer);
-  }, [active, map]);
+  }, [active, boundsKey, events, map]);
 
   useEffect(() => {
     if (!active || focusOrigin !== "list" || !selectedId) return;
@@ -162,6 +184,20 @@ function MapBridge({
     const timer = window.setTimeout(open, 60);
     return () => window.clearTimeout(timer);
   }, [active, focusOrigin, focusTick, map, markers, selectedId]);
+
+  useEffect(() => {
+    const pane = map.getPane("markerPane");
+    if (!pane) return;
+    const stopDrag = (event: Event) => {
+      if ((event.target as HTMLElement | null)?.closest(".leaflet-marker-icon")) event.stopPropagation();
+    };
+    pane.addEventListener("mousedown", stopDrag);
+    pane.addEventListener("touchstart", stopDrag, { passive: true });
+    return () => {
+      pane.removeEventListener("mousedown", stopDrag);
+      pane.removeEventListener("touchstart", stopDrag);
+    };
+  }, [map]);
 
   useEffect(() => {
     polishMapChrome(map);
@@ -224,6 +260,7 @@ export function EventMap({
       <MapBridge
         active={active}
         clusterRef={clusterRef}
+        events={events}
         focusOrigin={focusOrigin}
         focusTick={focusTick}
         markers={markers}
@@ -249,13 +286,21 @@ export function EventMap({
                 else markers.current.delete(key);
               }}
               eventHandlers={{
-                click: () => onSelect(key),
+                click: (leafletEvent) => {
+                  onSelect(key);
+                  const marker = leafletEvent.target as L.Marker;
+                  const open = () => {
+                    if (!marker.isPopupOpen()) marker.openPopup();
+                  };
+                  open();
+                  window.setTimeout(open, 80);
+                },
               }}
               icon={markerIcon(event, selected)}
               position={[event.lat, event.lng]}
               zIndexOffset={selected ? 800 : 0}
             >
-              <Popup>
+              <Popup autoPanPadding={[24, 48]} keepInView maxWidth={288}>
                 <div className="map-popup">
                   <strong>{event.title}</strong>
                   <p>{event.dateText}</p>
@@ -276,20 +321,20 @@ export function EventMap({
                         Trasa
                       </a>
                     ) : null}
-                    {canRoute(event) && ios ? (
-                      <a
-                        className="map-popup__route map-popup__route--quiet"
-                        href={appleTransitUrl(event.lat, event.lng)}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        Trasa w Apple Maps
-                      </a>
-                    ) : null}
                     <button className="map-popup__list" type="button" onClick={() => onShowInList(key)}>
                       Pokaż na liście
                     </button>
                   </div>
+                  {canRoute(event) ? (
+                    <a className="map-popup__link" href={googleTransitUrl(event.lat, event.lng)} rel="noopener noreferrer" target="_blank">
+                      Google
+                    </a>
+                  ) : null}
+                  {canRoute(event) && ios ? (
+                    <a className="map-popup__link" href={appleTransitUrl(event.lat, event.lng)} rel="noopener noreferrer" target="_blank">
+                      Apple Maps
+                    </a>
+                  ) : null}
                   <CalendarMenu event={event} today={today} />
                 </div>
               </Popup>

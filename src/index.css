@@ -1057,13 +1057,14 @@ input {
 
 .event-map {
   position: absolute;
-  inset: -16px -28px;
+  inset: 0;
   width: auto;
   height: auto;
   background: #f4eefb;
 }
 
-.event-map.leaflet-container .leaflet-control-zoom a {
+.leaflet-container.event-map.leaflet-touch .leaflet-control-zoom.leaflet-bar a,
+.leaflet-container.event-map .leaflet-control-zoom.leaflet-bar a {
   width: 44px;
   height: 44px;
   line-height: 44px;
@@ -1088,7 +1089,8 @@ input {
 
 .map-popup__actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
   gap: 6px;
   margin-top: 0.45rem;
 }
@@ -1106,12 +1108,20 @@ input {
 }
 
 .map-popup__route {
+  width: 100%;
+  height: 44px;
   border: 0;
   background: #6d28d9;
-  color: white;
+  color: #fff;
 }
 
-.map-popup__route--quiet,
+.leaflet-container .map-popup a.map-popup__route {
+  display: flex;
+  width: 100%;
+  height: 44px;
+  color: #fff;
+}
+
 .map-popup__list {
   border: 0;
   background: #f4f4f5;
@@ -1169,16 +1179,18 @@ input {
 
 .map-popup {
   min-width: 11rem;
+  max-width: min(18rem, calc(100vw - 2rem));
 }
 
 .map-popup p {
   margin: 0.25rem 0 0;
 }
 
+.leaflet-container .map-popup a,
 .map-popup a {
   display: inline-block;
   margin-top: 0.4rem;
-  color: #a21caf;
+  color: #6d28d9;
   font-weight: 700;
 }
 
