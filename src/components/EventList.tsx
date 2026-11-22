@@ -281,6 +281,7 @@ function DesktopRows({
   onShowOnMap: () => void;
 }) {
   const key = eventKey(event);
+  const [menu, setMenu] = useState(false);
   return (
     <>
       <tr
@@ -297,14 +298,24 @@ function DesktopRows({
         onMouseLeave={() => onHighlight(null)}
       >
         <td className="list-table__time">{formatClock(event.dateText)}</td>
-        <td>
+        <td className="list-table__event">
           <button aria-expanded={open} className="list-table__title" type="button" onClick={onToggle}>
             {event.title}
           </button>
+          <span className="list-table__place-inline">{event.place}</span>
         </td>
-        <td>{event.age}</td>
-        <td>{event.place}</td>
-        <td>
+        <td className="list-table__age">{event.age}</td>
+        <td className="list-table__place">{event.place}</td>
+        <td className={menu ? "list-table__actions is-open" : "list-table__actions"}>
+          <button
+            aria-expanded={menu}
+            aria-label="Akcje"
+            className="list-table__more"
+            type="button"
+            onClick={() => setMenu((openMenu) => !openMenu)}
+          >
+            ⋯
+          </button>
           <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
         </td>
       </tr>
