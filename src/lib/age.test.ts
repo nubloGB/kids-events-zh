@@ -4,6 +4,9 @@ import { describe, expect, it } from "vitest";
 describe("ageRange", () => {
   it("reads explicit age spans, including the word lata", () => {
     expect(ageRange("2–5 lat", "2026-10-17")).toEqual({ min: 2, max: 5 });
+    expect(ageRange("6–12 l.", "2026-11-22")).toEqual({ min: 6, max: 12 });
+    expect(ageRange("od 4 l.", "2026-11-22")).toEqual({ min: 4, max: null });
+    expect(ageRange("0–6 l.", "2026-11-22")).toEqual({ min: 0, max: 6 });
     expect(ageRange("1–4 lata", "2026-10-20")).toEqual({ min: 1, max: 4 });
     expect(ageRange("ok. 4–8 lat", "2026-10-25")).toEqual({ min: 4, max: 8 });
     expect(ageRange("od 4 lat z opiekunem", "2026-10-17")).toEqual({ min: 4, max: null });

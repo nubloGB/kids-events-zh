@@ -1260,8 +1260,8 @@ input {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 1px;
-  font-size: 17px;
+  gap: 2px;
+  font-size: 14px;
   line-height: 1;
   white-space: nowrap;
 }
@@ -2203,7 +2203,7 @@ input {
 }
 
 .list-row__age {
-  max-width: 6.5rem;
+  flex: 0 0 auto;
   height: auto;
   overflow: visible;
   border-radius: 999px;
@@ -2213,7 +2213,11 @@ input {
   font-weight: 700;
   line-height: 1.25;
   padding: 3px 6px;
-  white-space: normal;
+  white-space: nowrap;
+}
+
+.list-table__age {
+  white-space: nowrap;
 }
 
 .list-row__more {

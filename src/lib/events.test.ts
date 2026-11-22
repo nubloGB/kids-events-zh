@@ -108,7 +108,7 @@ describe("events.json", () => {
     const toddlers = partitionEvents(file.events, "2026-10-18", { ...ALL_EVENTS, age: "under3" });
     expect(toddlers.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(false);
     expect(toddlers.upcoming.some((event) => event.title.startsWith("Oerliker Singmüüs"))).toBe(true);
-    expect(toddlers.upcoming.some((event) => event.age === "2–5 lat")).toBe(true);
+    expect(toddlers.upcoming.some((event) => event.age === "2–5 l.")).toBe(true);
 
     const older = partitionEvents(file.events, "2026-10-18", { ...ALL_EVENTS, age: "over3" });
     expect(older.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(true);
