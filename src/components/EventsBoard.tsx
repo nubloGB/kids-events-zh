@@ -10,6 +10,7 @@ import { ViewSwitch } from "./ViewSwitch";
 import { UpdatedNote } from "./UpdatedNote";
 import { useDateFilter } from "../lib/dateFilterContext";
 import { readBoardView, writeBoardView, type BoardView } from "../lib/viewPreference";
+import { emptyRangeTitle } from "../lib/dates";
 import { countLabel } from "../lib/format";
 import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, partitionEvents, visibleHighlights } from "../lib/events";
 import type { AgeBandFilter, Area, Category, EventHighlight, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
@@ -191,6 +192,7 @@ export function EventsBoard({
     setTags([]);
     setRecurrence("single");
     setOnlyVisible(false);
+    setView("lista");
   }
 
   function onDraftChange(value: string) {
@@ -278,16 +280,16 @@ export function EventsBoard({
                   {clearActionLabel(query, filterCount)}
                 </Button>
               </>
-            ) : date.kind === "today" ? (
+            ) : emptyRangeTitle(date, today) ? (
               <>
-                <p className="font-display text-2xl text-foreground">Dziś nic nie ma</p>
+                <p className="font-display text-2xl text-foreground">{emptyRangeTitle(date, today)}</p>
                 <p className="mt-2">Zajrzyj w najbliższy termin albo wybierz inny zakres.</p>
                 <div className="empty-actions">
-                  <Button variant="primary" onPress={() => setDate({ kind: "tomorrow" })}>
-                    Pokaż jutro
+                  <Button variant="primary" onPress={() => setDate({ kind: "thisWeekend" })}>
+                    Weekend
                   </Button>
-                  <Button variant="secondary" onPress={() => setDate({ kind: "thisWeekend" })}>
-                    Ten weekend
+                  <Button variant="secondary" onPress={() => setDate({ kind: "rollingWeek" })}>
+                    Tydzień
                   </Button>
                   {query.trim() !== "" || filterCount > 0 ? (
                     <Button variant="secondary" onPress={clearFilters}>

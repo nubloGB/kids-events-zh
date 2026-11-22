@@ -29,7 +29,8 @@ describe("day slider stops", () => {
   it("formats a custom range as Własny and a single-day bubble", () => {
     expect(ownRangeLabel("2026-12-12", "2026-12-18")).toBe("Własny: 12–18.12");
     expect(ownRangeLabel("2026-11-28", "2026-12-04")).toBe("Własny: 28.11–4.12");
-    expect(sliderBubble({ kind: "today" }, "2026-11-22", 4)).toBe("Dziś, nd 22.11 · 4 wydarzenia");
+    expect(sliderBubble({ kind: "today" }, "2026-11-22", 4)).toBe("Dziś, ndz. 22.11 · 4 wydarzenia");
+    expect(sliderBubble({ kind: "rollingWeek" }, "2026-11-22", 3)).toBe("Tydzień, ndz. 22.11–sb 28.11 · 3 wydarzenia");
     expect(sliderBubble({ kind: "all" }, "2026-11-22", 5)).toBe("Wszystkie · 5 wydarzeń");
     expect(sliderBubble({ kind: "custom", from: "2026-12-12", to: "2026-12-18" }, "2026-11-22", 1)).toBe(
       "Własny: 12–18.12 · 1 wydarzenie",

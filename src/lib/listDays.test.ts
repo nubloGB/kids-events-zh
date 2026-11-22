@@ -15,7 +15,7 @@ describe("day groups", () => {
     expect(grouped.undated.map((event) => event.title)).toEqual(["Zoo"]);
     expect(formatClock("ndz. 22.11.2026, 9:00–13:00")).toBe("9:00");
     expect(eventStartMinutes("bez godziny")).toBeNull();
-    expect(dayHeaderLabel("2026-11-22", "2026-11-22", 4)).toBe("Dziś · nd 22.11 · 4 wydarzenia");
+    expect(dayHeaderLabel("2026-11-22", "2026-11-22", 4)).toBe("Dziś · ndz. 22.11 · 4 wydarzenia");
     expect(dayHeaderLabel("2026-11-23", "2026-11-22", 1)).toBe("Jutro · pn 23.11 · 1 wydarzenie");
     expect(dayHeaderLabel("2026-11-25", "2026-11-22", 2)).toBe("Środa · śr 25.11 · 2 wydarzenia");
   });

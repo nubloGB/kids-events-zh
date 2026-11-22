@@ -103,7 +103,7 @@ describe("events.json", () => {
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(true);
     const todayDefault = { ...EMPTY_FILTERS, date: { kind: "today" as const } };
-    expect(activeFilterCount(EMPTY_FILTERS)).toBe(1);
+    expect(activeFilterCount(EMPTY_FILTERS)).toBe(0);
     expect(activeFilterCount(todayDefault)).toBe(0);
     expect(activeFilterCount({ ...todayDefault, query: "zoo" })).toBe(0);
     expect(activeFilterCount({ ...todayDefault, recurrence: "single" })).toBe(0);
@@ -119,7 +119,9 @@ describe("events.json", () => {
         date: { kind: "today" },
       }),
     ).toBe(4);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, date: { kind: "all" } })).toBe(1);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, date: { kind: "all" } })).toBe(0);
+    expect(activeFilterCount({ ...todayDefault, date: { kind: "rollingWeek" } })).toBe(0);
+    expect(activeFilterCount({ ...todayDefault, date: { kind: "tomorrow" } })).toBe(0);
   });
 
   it("shows a highlight only while its date is open and a live event carries the tag", () => {

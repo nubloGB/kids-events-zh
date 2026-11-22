@@ -2,7 +2,7 @@ import { addDays, formatChipDay, isoWeekday } from "./dates";
 import { countLabel, splitIso } from "./format";
 
 const WEEKDAYS_LONG = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"];
-const WEEKDAYS_SHORT = ["pn", "wt", "śr", "cz", "pt", "sb", "nd"];
+const WEEKDAYS_SHORT = ["pn", "wt", "śr", "cz", "pt", "sb", "ndz."];
 
 export interface DayEvent {
   startDate: string | null;
@@ -68,7 +68,7 @@ export function dayTile(iso: string): { month: string; day: number } {
   return { month: parts.month.toLocaleUpperCase("pl"), day: parts.day };
 }
 
-/** `Dziś · nd 22.11 · 4 wydarzenia` */
+/** `Dziś · ndz. 22.11 · 4 wydarzenia` */
 export function dayHeaderLabel(iso: string, today: string, count: number): string {
   const index = isoWeekday(iso) - 1;
   const name = iso === today ? "Dziś" : iso === addDays(today, 1) ? "Jutro" : capitalize(WEEKDAYS_LONG[index] ?? "");

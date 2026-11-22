@@ -1,5 +1,5 @@
 import { countLabel } from "./format";
-import { formatChipDay, isoWeekday, normalizeRange, presetRange, resolveDateRange, type DayRange } from "./dates";
+import { formatChipDay, formatCompactRange, isoWeekday, normalizeRange, presetRange, resolveDateRange, type DayRange } from "./dates";
 import type { DateFilter } from "../types";
 
 export const SLIDER_STOPS = [
@@ -13,7 +13,7 @@ export const SLIDER_STOPS = [
 
 export type SliderStopId = (typeof SLIDER_STOPS)[number]["id"];
 
-const WEEKDAYS = ["pn", "wt", "śr", "cz", "pt", "sb", "nd"] as const;
+const WEEKDAYS = ["pn", "wt", "śr", "cz", "pt", "sb", "ndz."] as const;
 
 const OFF_STOP_LABEL: Partial<Record<DateFilter["kind"], string>> = {
   thisWeek: "Ten tydzień",
@@ -43,11 +43,7 @@ export function sliderStopText(id: SliderStopId, today: string): string {
 
 /** `12–18.12` in one month, otherwise `28.11–4.12`. */
 export function formatOwnRange(range: DayRange): string {
-  const [, monthFrom, dayFrom] = range.from.split("-");
-  const [, monthTo, dayTo] = range.to.split("-");
-  if (range.from === range.to) return `${Number(dayFrom)}.${Number(monthFrom)}`;
-  if (monthFrom === monthTo) return `${Number(dayFrom)}–${Number(dayTo)}.${Number(monthTo)}`;
-  return `${Number(dayFrom)}.${Number(monthFrom)}–${Number(dayTo)}.${Number(monthTo)}`;
+  return formatCompactRange(range);
 }
 
 export function ownRangeLabel(from: string, to: string): string {

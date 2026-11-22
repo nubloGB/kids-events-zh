@@ -1860,10 +1860,17 @@ input {
   }
 
   .day-heading {
-    position: sticky;
-    top: calc(120px + env(safe-area-inset-top));
-    z-index: 4;
+    position: static;
     background: var(--background);
+  }
+
+  .day-float {
+    position: sticky;
+    z-index: 5;
+    margin: 0 -16px 8px;
+    background: white;
+    padding: 8px 16px;
+    font-weight: 700;
   }
 
   .phone-count {

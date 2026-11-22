@@ -151,11 +151,32 @@ export function formatChipDay(iso: string): string {
   return `${Number(day)}.${Number(month)}`;
 }
 
+/** `22.11`, `22–28.11` in one month, otherwise `28.11–4.12`. */
+export function formatCompactRange(range: DayRange): string {
+  const [, monthFrom, dayFrom] = range.from.split("-");
+  const [, monthTo, dayTo] = range.to.split("-");
+  if (range.from === range.to) return `${Number(dayFrom)}.${Number(monthFrom)}`;
+  if (monthFrom === monthTo) return `${Number(dayFrom)}–${Number(dayTo)}.${Number(monthTo)}`;
+  return `${Number(dayFrom)}.${Number(monthFrom)}–${Number(dayTo)}.${Number(monthTo)}`;
+}
+
 export function formatChipRange(range: DayRange): string {
-  if (range.from === range.to) return formatChipDay(range.from);
-  return `${formatChipDay(range.from)}–${formatChipDay(range.to)}`;
+  return formatCompactRange(range);
 }
 
 export function rangesOverlap(start: string, end: string, range: DayRange): boolean {
   return start <= range.to && end >= range.from;
+}
+
+const WEEKDAYS = ["poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota", "niedziela"];
+
+/** Empty-list title for a concrete date filter, for example `Brak wydarzeń w poniedziałek 23.11`. */
+export function emptyRangeTitle(date: DateFilter, today: string): string | null {
+  const range = resolveDateRange(date, today);
+  if (!range) return null;
+  if (range.from === range.to) {
+    const name = WEEKDAYS[isoWeekday(range.from) - 1] ?? "";
+    return `Brak wydarzeń w ${name} ${formatChipDay(range.from)}`;
+  }
+  return `Brak wydarzeń w ${formatCompactRange(range)}`;
 }
