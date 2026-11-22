@@ -1,4 +1,4 @@
-import { dayHeaderLabel, eventStartMinutes, formatClock, groupByDay } from "./listDays";
+import { dayHeaderLabel, eventStartMinutes, formatClock, formatPopupWhen, groupByDay } from "./listDays";
 import { describe, expect, it } from "vitest";
 
 describe("day groups", () => {
@@ -18,5 +18,8 @@ describe("day groups", () => {
     expect(dayHeaderLabel("2026-11-22", "2026-11-22", 4)).toBe("Dziś · ndz. 22.11 · 4 wydarzenia");
     expect(dayHeaderLabel("2026-11-23", "2026-11-22", 1)).toBe("Jutro · pn 23.11 · 1 wydarzenie");
     expect(dayHeaderLabel("2026-11-25", "2026-11-22", 2)).toBe("Środa · śr 25.11 · 2 wydarzenia");
+    expect(formatPopupWhen({ startDate: "2026-11-22", dateText: "ndz. 22.11.2026, 15:00–16:00" })).toBe(
+      "ndz. 22.11 · 15:00–16:00",
+    );
   });
 });

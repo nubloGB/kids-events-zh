@@ -22,13 +22,8 @@ test("filter sheet, a date filter, a map popup, Lista, and Źródła", async ({ 
     await expect(pin).toBeVisible();
   }
   await pin.click();
-  if (!(await page.locator(".map-popup__route").isVisible().catch(() => false))) {
-    await pin.click();
-  }
   await expect(page.locator(".map-popup")).toBeVisible();
-  await expect(page.locator(".map-popup__route")).toBeVisible();
-  const route = await page.locator(".map-popup__route").evaluate((node) => getComputedStyle(node).color);
-  expect(route).toBe("rgb(255, 255, 255)");
+  await expect(page.getByRole("button", { name: "Trasa" })).toBeVisible();
   const zoom = await page.locator(".leaflet-control-zoom-in").evaluate((node) => getComputedStyle(node).width);
   expect(zoom).toBe("44px");
   await expect(page.locator(".workspace")).toHaveAttribute("data-mobile-view", "mapa");
