@@ -1,7 +1,8 @@
 import { buttonVariants } from "@heroui/react";
-import { ExternalLink } from "lucide-react";
-import { useState, type MutableRefObject } from "react";
+import { ChevronUp, ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState, type MutableRefObject } from "react";
 import { CalendarMenu } from "./CalendarMenu";
+import { EventFacts } from "./EventFacts";
 import { RouteMenu } from "./RouteMenu";
 import { eventCardActions } from "../lib/cardActions";
 import { canRoute } from "../lib/directions";
@@ -208,13 +209,32 @@ function MobileRow({
   onShowOnMap: () => void;
 }) {
   const key = eventKey(event);
+  const rowRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const node = rowRef.current;
+    if (!node) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const timer = window.setTimeout(() => {
+      const rect = node.getBoundingClientRect();
+      const shell = document.querySelector(".app-shell");
+      const limit = (shell?.getBoundingClientRect().bottom ?? window.innerHeight) - 12;
+      if (rect.bottom > limit) {
+        node.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" });
+      }
+    }, reduced ? 0 : 240);
+    return () => window.clearTimeout(timer);
+  }, [open]);
+
   return (
     <li
       ref={(node) => {
+        rowRef.current = node;
         if (node) itemRefs.current.set(key, node);
         else itemRefs.current.delete(key);
       }}
-      className={selected ? "is-selected" : undefined}
+      className={open ? "list-item is-open" : selected ? "list-item is-selected" : "list-item"}
       onMouseEnter={() => onHighlight(key)}
       onMouseLeave={() => onHighlight(null)}
     >
@@ -225,16 +245,18 @@ function MobileRow({
         <span className="list-row__title">{event.title}</span>
         <span className="list-row__age">{event.age}</span>
         <span aria-hidden="true" className="list-row__more">
-          ⋯
+          <span className="list-row__dots">⋯</span>
+          <ChevronUp className="list-row__chevron" size={18} strokeWidth={2.4} />
         </span>
       </button>
-      {open ? (
-        <div className="list-row__panel">
-          <p className="list-row__full">{event.title}</p>
-          <p className="list-row__place">{event.place}</p>
-          <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
+      <div className="list-item__reveal">
+        <div className="list-item__clip">
+          <div className="list-row__panel">
+            <EventFacts event={event} />
+            <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
+          </div>
         </div>
-      ) : null}
+      </div>
     </li>
   );
 }
@@ -266,7 +288,7 @@ function DesktopRows({
           if (node) itemRefs.current.set(key, node);
           else itemRefs.current.delete(key);
         }}
-        className={selected ? "is-selected" : undefined}
+        className={open ? "is-open" : selected ? "is-selected" : undefined}
         onClick={(click) => {
           if ((click.target as HTMLElement).closest(".event-actions, a, button")) return;
           onToggle();
@@ -286,14 +308,15 @@ function DesktopRows({
           <RowActions event={event} today={today} onShowOnMap={onShowOnMap} />
         </td>
       </tr>
-      {open ? (
-        <tr className="list-table__details">
-          <td colSpan={5}>
-            <p className="list-row__full">{event.title}</p>
-            <p className="list-row__place">{event.place}</p>
-          </td>
-        </tr>
-      ) : null}
+      <tr className={open ? "list-table__details is-open" : "list-table__details"}>
+        <td colSpan={5}>
+          <div className="list-item__reveal">
+            <div className="list-item__clip">
+              <EventFacts event={event} />
+            </div>
+          </div>
+        </td>
+      </tr>
     </>
   );
 }

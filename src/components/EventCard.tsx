@@ -6,17 +6,16 @@ import { CalendarMenu } from "./CalendarMenu";
 import { RouteMenu } from "./RouteMenu";
 import { eventCardActions } from "../lib/cardActions";
 import { canRoute } from "../lib/directions";
+import { isFreeEvent } from "../lib/eventFacts";
 import { splitIso } from "../lib/format";
 import { eventKey } from "../lib/events";
 import { CATEGORY_FALLBACK } from "../lib/markers";
 import type { KidsEvent } from "../types";
 
-const FREE_TEXT = /za darmo|wstęp wolny|darmow|gratis|kostenlos|eintritt frei|bezpłat/i;
-
 type ActionLayout = "mobile" | "desktop" | "narrow";
 
 function isFree(event: KidsEvent): boolean {
-  return FREE_TEXT.test(`${event.description} ${event.registration}`);
+  return isFreeEvent(event);
 }
 
 function titleDomId(event: KidsEvent): string {
