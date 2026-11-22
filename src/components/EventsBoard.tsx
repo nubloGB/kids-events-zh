@@ -12,7 +12,7 @@ import { useDateFilter } from "../lib/dateFilterContext";
 import { readBoardView, writeBoardView, type BoardView } from "../lib/viewPreference";
 import { emptyRangeTitle } from "../lib/dates";
 import { countLabel } from "../lib/format";
-import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, partitionEvents, visibleHighlights } from "../lib/events";
+import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, isPast, partitionEvents, visibleHighlights } from "../lib/events";
 import type { AgeBandFilter, Area, Category, EventHighlight, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
 
 function clearActionLabel(query: string, filterCount: number): string {
@@ -66,6 +66,9 @@ export function EventsBoard({
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [focusOrigin, setFocusOrigin] = useState<"list" | "map">("list");
   const [focusTick, setFocusTick] = useState(0);
+  const [expandId, setExpandId] = useState<string | null>(null);
+  const [expandTick, setExpandTick] = useState(0);
+  const [listTopTick, setListTopTick] = useState(0);
   const [draft, setDraft] = useState(query);
   const itemRefs = useRef(new Map<string, HTMLElement>());
   const draftRef = useRef(query);
@@ -149,10 +152,14 @@ export function EventsBoard({
         return;
       }
       const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-      node.scrollIntoView({ block: "nearest", behavior });
+      node.scrollIntoView({ block: "center", behavior });
     };
     scroll();
-    return () => window.clearTimeout(timer);
+    const again = window.setTimeout(scroll, 140);
+    return () => {
+      window.clearTimeout(timer);
+      window.clearTimeout(again);
+    };
   }, [focusOrigin, focusTick, selectedId, view, wide]);
 
   useEffect(() => {
@@ -177,6 +184,11 @@ export function EventsBoard({
     };
   }, [phone]);
 
+  useEffect(() => {
+    if (listTopTick === 0) return;
+    document.getElementById("lista")?.scrollIntoView({ block: "start" });
+  }, [listTopTick, view]);
+
   function showOnMap(id: string) {
     setSelectedId(id);
     setFocusOrigin("list");
@@ -191,10 +203,31 @@ export function EventsBoard({
   }
 
   function showInList(id: string) {
+    setView("lista");
+    const shown = [...listUpcoming, ...listRecurring].some((event) => eventKey(event) === id);
+    if (!shown) {
+      const event = events.find((item) => eventKey(item) === id);
+      if (event && !isPast(event, today)) {
+        onQueryChange("");
+        setAreas([]);
+        setCategories([]);
+        setAge(null);
+        setTags([]);
+        setOnlyVisible(false);
+        setRecurrence("all");
+        if (event.startDate) setDate({ kind: "custom", from: event.startDate, to: event.endDate || event.startDate });
+        else setDate({ kind: "all" });
+      } else {
+        setExpandId(null);
+        setListTopTick((tick) => tick + 1);
+        return;
+      }
+    }
+    setExpandId(id);
+    setExpandTick((tick) => tick + 1);
     setSelectedId(id);
     setFocusOrigin("map");
     setFocusTick((tick) => tick + 1);
-    if (!wide && view === "mapa") setView("lista");
   }
 
   function clearFilters() {
@@ -325,6 +358,8 @@ export function EventsBoard({
         ) : view === "lista" ? (
           <EventList
             events={[...listUpcoming, ...listRecurring]}
+            expandId={expandId}
+            expandTick={expandTick}
             itemRefs={itemRefs}
             phone={phone}
             selectedId={selectedId}

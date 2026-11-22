@@ -2379,7 +2379,17 @@ input {
 }
 
 .list-row__panel .list-row__actions {
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.list-row__panel .list-row__actions .button.button--icon-only,
+.list-row__panel .list-row__actions .dropdown__trigger.button {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  padding: 0;
 }
 
 .list-row__panel .list-row__actions.event-actions a.button.event-action--primary,
@@ -2395,7 +2405,9 @@ input {
 
 .list-row__panel .list-row__actions.event-actions a.button.event-action--primary,
 .list-row__panel .list-row__actions.event-actions button.event-action--primary {
-  padding-inline: 0.9rem;
+  padding-inline: 0.55rem;
+  font-size: 14px;
+  gap: 0.3rem;
   border: 1.5px solid #6d28d9;
   background: transparent;
   box-shadow: none;

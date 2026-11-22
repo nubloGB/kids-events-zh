@@ -16,6 +16,8 @@ export function EventList({
   today,
   phone,
   selectedId,
+  expandId,
+  expandTick,
   itemRefs,
   onHighlight,
   onShowOnMap,
@@ -24,12 +26,18 @@ export function EventList({
   today: string;
   phone: boolean;
   selectedId: string | null;
+  expandId: string | null;
+  expandTick: number;
   itemRefs: MutableRefObject<Map<string, HTMLElement>>;
   onHighlight: (id: string | null) => void;
   onShowOnMap: (id: string) => void;
 }) {
-  const [openKey, setOpenKey] = useState<string | null>(null);
+  const [openKey, setOpenKey] = useState<string | null>(expandId);
   const { days, undated } = groupByDay(events);
+
+  useEffect(() => {
+    if (expandId) setOpenKey(expandId);
+  }, [expandId, expandTick]);
 
   function toggle(key: string) {
     setOpenKey((current) => (current === key ? null : key));
@@ -207,20 +215,20 @@ function RowActions({
     <div className="event-actions list-row__actions" onClick={(eventClick) => eventClick.stopPropagation()}>
       {hasPage ? (
         <a
-          aria-label="Strona wydarzenia (otwiera się w nowej karcie)"
+          aria-label="Do wydarzenia (otwiera się w nowej karcie)"
           className={`${buttonVariants({ variant: "primary" })} event-action event-action--primary`}
           href={page}
           rel="noopener noreferrer"
           target="_blank"
         >
-          <span className="event-action__text">Strona wydarzenia</span>
+          <span className="event-action__text">Do wydarzenia</span>
           <ExternalLink aria-hidden className="event-action__icon" size={16} strokeWidth={2} />
         </a>
       ) : (
         <CalendarMenu event={event} today={today} variant="primary" />
       )}
       {hasPage ? <CalendarMenu event={event} today={today} variant="secondary" /> : null}
-      {canRoute(event) ? <RouteMenu event={event} tooltip={null} onShowOnMap={onShowOnMap} /> : null}
+      {canRoute(event) ? <RouteMenu event={event} tooltip={null} /> : null}
       {hasMapLocation(event) ? (
         <button
           aria-label="Pokaż na mapie"
