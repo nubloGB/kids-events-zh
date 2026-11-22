@@ -29,9 +29,9 @@ describe("zurichToday", () => {
 });
 
 describe("events.json", () => {
-  it("is the 21 November 2026 update", () => {
-    expect(file.updatedAt).toBe("2026-11-21");
-    expect(file.events).toHaveLength(188);
+  it("is the 22 November 2026 update", () => {
+    expect(file.updatedAt).toBe("2026-11-22");
+    expect(file.events).toHaveLength(480);
     const fresh = file.events.filter((event) => event.isNew).map((event) => event.title);
     expect(fresh).toEqual(expect.arrayContaining([
       "SonntagzOerlikon",
@@ -290,6 +290,7 @@ describe("sources.json", () => {
       "Sport dla dzieci i zoo",
       "Sport, ogród, zwierzęta",
       "Winterthur",
+      "Otwarte hale i lód, zima 2026/27",
     ]);
     const links = sources.sections.flatMap((section) => section.items.flatMap((item) => item.links));
     expect(links.length).toBeGreaterThan(30);
