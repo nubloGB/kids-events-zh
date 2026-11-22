@@ -49,8 +49,18 @@ export interface KidsEvent {
   image: string;
 }
 
+/** A themed shortcut, for example a seasonal tag. Shown only while `until` is still current. */
+export interface EventHighlight {
+  tag: string;
+  label: string;
+  /** Last day the shortcut may appear, inclusive, as YYYY-MM-DD. */
+  until: string;
+}
+
 export interface EventsFile {
   updatedAt: string;
+  /** Optional in the JSON file. Parsing always fills an array. */
+  highlights: EventHighlight[];
   events: KidsEvent[];
 }
 
@@ -82,7 +92,17 @@ export type RecurrenceFilter = "single" | "recurring" | "all";
 
 export type DateFilter =
   | { kind: "all" }
-  | { kind: "today" | "tomorrow" | "thisWeek" | "thisWeekend" | "nextWeek" | "nextMonth" }
+  | {
+      kind:
+        | "today"
+        | "tomorrow"
+        | "thisWeek"
+        | "thisWeekend"
+        | "nextWeek"
+        | "nextMonth"
+        | "rollingWeek"
+        | "rollingMonth";
+    }
   | { kind: "custom"; from: string; to: string };
 
 export interface EventFilters {

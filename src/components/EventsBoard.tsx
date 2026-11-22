@@ -4,9 +4,10 @@ import { EventCard } from "./EventCard";
 import { EventMap } from "./EventMap";
 import { FilterSidebar } from "./FilterSidebar";
 import { UpdatedNote } from "./UpdatedNote";
+import { useDateFilter } from "../lib/dateFilterContext";
 import { countLabel } from "../lib/format";
-import { activeFilterCount, eventKey, filtersAreActive, isInsideBounds, partitionEvents } from "../lib/events";
-import type { AgeBandFilter, Area, Category, DateFilter, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
+import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, partitionEvents, visibleHighlights } from "../lib/events";
+import type { AgeBandFilter, Area, Category, EventHighlight, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
 
 function useMedia(query: string): boolean {
   const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
@@ -21,27 +22,25 @@ function useMedia(query: string): boolean {
 
 export function EventsBoard({
   events,
-  today,
+  highlights: highlightSource,
   query,
   updatedAt,
   onQueryChange,
 }: {
   events: KidsEvent[];
-  today: string;
+  highlights: EventHighlight[];
   query: string;
   updatedAt: string;
   onQueryChange: (query: string) => void;
 }) {
   const wide = useMedia("(min-width: 901px)");
   const phone = useMedia("(max-width: 639px)");
+  const { today, date, customFrom, customTo, setDate, setCustomFrom, setCustomTo, clearDate } = useDateFilter();
   const [areas, setAreas] = useState<Area[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [age, setAge] = useState<AgeBandFilter>(null);
-  const [date, setDate] = useState<DateFilter>({ kind: "all" });
   const [tags, setTags] = useState<string[]>([]);
   const [recurrence, setRecurrence] = useState<RecurrenceFilter>("single");
-  const [customFrom, setCustomFrom] = useState("");
-  const [customTo, setCustomTo] = useState("");
   const [onlyVisible, setOnlyVisible] = useState(false);
   const [bounds, setBounds] = useState<MapBounds | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -63,6 +62,14 @@ export function EventsBoard({
     () => partitionEvents(events, today, filters),
     [events, today, filters],
   );
+  const totalCount = useMemo(() => {
+    const all = partitionEvents(events, today, { ...EMPTY_FILTERS, recurrence: "all" });
+    return all.upcoming.length + all.recurring.length;
+  }, [events, today]);
+  const liveHighlights = useMemo(
+    () => visibleHighlights(highlightSource, events, today),
+    [events, highlightSource, today],
+  );
 
   const mapActive = wide || mobileView === "mapa";
   const limitToMap = onlyVisible && bounds !== null && mapActive;
@@ -70,7 +77,6 @@ export function EventsBoard({
   const listUpcoming = inView(upcoming);
   const listRecurring = inView(recurring);
   const mapEvents = useMemo(() => [...listUpcoming, ...listRecurring], [listRecurring, listUpcoming]);
-  const active = filtersAreActive(filters) || onlyVisible;
   const filterCount = activeFilterCount(filters, onlyVisible);
   const shownCount = listUpcoming.length + listRecurring.length;
   const listEmpty = listUpcoming.length === 0 && listRecurring.length === 0;
@@ -180,11 +186,9 @@ export function EventsBoard({
     setAreas([]);
     setCategories([]);
     setAge(null);
-    setDate({ kind: "all" });
+    clearDate();
     setTags([]);
     setRecurrence("single");
-    setCustomFrom("");
-    setCustomTo("");
     setOnlyVisible(false);
   }
 
@@ -197,15 +201,18 @@ export function EventsBoard({
     <FilterSidebar
       age={age}
       areas={areas}
-      canClear={active}
       categories={categories}
       customFrom={customFrom}
       customTo={customTo}
       date={date}
+      filterCount={filterCount}
+      highlights={liveHighlights}
       onlyVisible={onlyVisible}
       recurrence={recurrence}
+      shownCount={shownCount}
       tags={tags}
       today={today}
+      totalCount={totalCount}
       variant={variant}
       onAge={setAge}
       onAreas={setAreas}
@@ -229,7 +236,9 @@ export function EventsBoard({
           filterCount={filterCount}
           mobileView={mobileView}
           sheet={sheet}
+          shownCount={shownCount}
           sidebar={sidebar("sheet")}
+          onClear={clearFilters}
           onDraftChange={onDraftChange}
           onMobileView={setMobileView}
           onSubmitSearch={() => commitQuery(draftRef.current)}
@@ -333,25 +342,29 @@ export function EventsBoard({
 function PhoneBar({
   draft,
   filterCount,
+  shownCount,
   mobileView,
   countLabelText,
   sheet,
   sidebar,
+  onClear,
   onDraftChange,
   onMobileView,
   onSubmitSearch,
 }: {
   draft: string;
   filterCount: number;
+  shownCount: number;
   mobileView: "lista" | "mapa";
   countLabelText: string;
   sheet: ReturnType<typeof useOverlayState>;
   sidebar: ReactNode;
+  onClear: () => void;
   onDraftChange: (value: string) => void;
   onMobileView: (view: "lista" | "mapa") => void;
   onSubmitSearch: () => void;
 }) {
-  const filterLabel = filterCount > 0 ? `Filtry, ${countLabel(filterCount, "aktywny", "aktywne", "aktywnych")}` : "Filtry";
+  const filterLabel = `Filtry, ${countLabel(shownCount, "wynik", "wyniki", "wyników")}`;
   return (
     <div className="phone-sticky" data-mobile-header="sticky">
       <div className="phone-search-row">
@@ -380,11 +393,9 @@ function PhoneBar({
         <Drawer state={sheet}>
           <Drawer.Trigger aria-label={filterLabel} className="phone-filter-button">
             <SlidersIcon />
-            {filterCount > 0 ? (
-              <span className="phone-filter-badge" aria-hidden="true">
-                {filterCount}
-              </span>
-            ) : null}
+            <span className="phone-filter-badge" aria-hidden="true">
+              {shownCount}
+            </span>
           </Drawer.Trigger>
           <Drawer.Backdrop variant="blur">
             <Drawer.Content placement="bottom">
@@ -392,9 +403,18 @@ function PhoneBar({
                 <Drawer.Handle />
                 <Drawer.Header className="phone-sheet-header">
                   <Drawer.Heading>Filtry</Drawer.Heading>
+                  <button className="sheet-clear" type="button" onClick={onClear}>
+                    Wyczyść
+                    {filterCount > 0 ? <span className="sheet-clear__count">{filterCount}</span> : null}
+                  </button>
                   <Drawer.CloseTrigger aria-label="Zamknij filtry" className="phone-sheet-close" />
                 </Drawer.Header>
                 <Drawer.Body>{sidebar}</Drawer.Body>
+                <Drawer.Footer className="phone-sheet-footer">
+                  <button className="sheet-results" type="button" onClick={() => sheet.close()}>
+                    {`Pokaż ${countLabel(shownCount, "wynik", "wyniki", "wyników")}`}
+                  </button>
+                </Drawer.Footer>
               </Drawer.Dialog>
             </Drawer.Content>
           </Drawer.Backdrop>
