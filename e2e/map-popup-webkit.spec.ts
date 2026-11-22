@@ -23,7 +23,7 @@ test("the map popup opens on the first tap and fits four icon buttons", async ()
   await page.locator(".pin-wrap").first().tap();
   const popup = page.locator(".map-popup");
   await expect(popup).toBeVisible();
-  await expect(popup.getByRole("link", { name: "Strona wydarzenia" })).toBeVisible();
+  await expect(popup.getByRole("link", { name: "Do wydarzenia" })).toBeVisible();
   await expect(popup.getByRole("button", { name: "Trasa" })).toBeVisible();
   await expect(popup.getByRole("button", { name: /kalendarza/i })).toBeVisible();
   await expect(popup.getByRole("button", { name: "Pokaż na liście" })).toBeVisible();

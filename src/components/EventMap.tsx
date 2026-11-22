@@ -354,12 +354,12 @@ export function EventMap({
                   <div className="map-popup__icons">
                     {page ? (
                       <a
-                        aria-label="Strona wydarzenia"
+                        aria-label="Do wydarzenia"
                         className="map-popup__icon"
                         href={event.url}
                         rel="noopener noreferrer"
                         target="_blank"
-                        title="Strona wydarzenia"
+                        title="Do wydarzenia"
                       >
                         <ExternalLink aria-hidden size={20} strokeWidth={2} />
                       </a>

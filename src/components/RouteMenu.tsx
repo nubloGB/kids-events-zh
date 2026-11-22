@@ -1,5 +1,5 @@
 import { Dropdown, buttonVariants } from "@heroui/react";
-import { MapPin, Navigation } from "lucide-react";
+import { Navigation } from "lucide-react";
 import { useState } from "react";
 import { ActionTip } from "./ActionTip";
 import { isIosDevice } from "../lib/cardActions";
@@ -14,22 +14,14 @@ function deviceIsIos(): boolean {
   });
 }
 
-export function RouteMenu({
-  event,
-  tooltip,
-  onShowOnMap,
-}: {
-  event: KidsEvent;
-  tooltip: string | null;
-  onShowOnMap: () => void;
-}) {
+export function RouteMenu({ event, tooltip }: { event: KidsEvent; tooltip: string | null }) {
   const [ios] = useState(deviceIsIos);
   const [open, setOpen] = useState(false);
+  const targets = ios ? (["apple", "google"] as const) : (["google", "apple"] as const);
 
   function go(key: string | number) {
-    if (key === "map") onShowOnMap();
-    else if (key === "google") window.open(googleTransitUrl(event.lat, event.lng), "_blank", "noopener,noreferrer");
-    else if (key === "apple") window.open(appleTransitUrl(event.lat, event.lng), "_blank", "noopener,noreferrer");
+    const url = key === "apple" ? appleTransitUrl(event.lat, event.lng) : googleTransitUrl(event.lat, event.lng);
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -37,29 +29,21 @@ export function RouteMenu({
       <Dropdown isOpen={open} onOpenChange={setOpen}>
         <ActionTip disabled={open} label={tooltip}>
           <Dropdown.Trigger
-            aria-label="Mapa i trasa"
-            className={`${buttonVariants({ variant: "secondary" })} event-action event-action--secondary`}
+            aria-label="Trasa"
+            className={`${buttonVariants({ isIconOnly: true, variant: "secondary" })} event-action event-action--secondary`}
           >
             <Navigation aria-hidden className="event-action__icon" size={20} strokeWidth={2} />
-            <span className="event-action__text event-action__text--short">Mapa</span>
+            <span className="event-action__text event-action__text--short">Trasa</span>
           </Dropdown.Trigger>
         </ActionTip>
         <Dropdown.Popover className="route-menu__popover" placement="top end">
-          <Dropdown.Menu aria-label="Mapa i trasa" onAction={(key) => go(key)}>
-            <Dropdown.Item id="map" textValue="Pokaż na mapie">
-              <MapPin aria-hidden size={18} strokeWidth={2} />
-              Pokaż na mapie
-            </Dropdown.Item>
-            <Dropdown.Item id="google" textValue="Trasa w Google Maps">
-              <Navigation aria-hidden size={18} strokeWidth={2} />
-              Trasa w Google Maps
-            </Dropdown.Item>
-            {ios ? (
-              <Dropdown.Item id="apple" textValue="Trasa w Apple Maps">
+          <Dropdown.Menu aria-label="Trasa" onAction={(key) => go(key)}>
+            {targets.map((target) => (
+              <Dropdown.Item key={target} id={target} textValue={target === "apple" ? "Apple Maps" : "Google Maps"}>
                 <Navigation aria-hidden size={18} strokeWidth={2} />
-                Trasa w Apple Maps
+                {target === "apple" ? "Apple Maps" : "Google Maps"}
               </Dropdown.Item>
-            ) : null}
+            ))}
           </Dropdown.Menu>
         </Dropdown.Popover>
       </Dropdown>

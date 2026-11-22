@@ -1,10 +1,10 @@
 import { Card, Chip, buttonVariants } from "@heroui/react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { useCallback, useEffect, useState, type Ref } from "react";
 import { ActionTip } from "./ActionTip";
 import { CalendarMenu } from "./CalendarMenu";
 import { RouteMenu } from "./RouteMenu";
-import { eventCardActions } from "../lib/cardActions";
+import { eventCardActions, hasMapLocation } from "../lib/cardActions";
 import { canRoute } from "../lib/directions";
 import { isFreeEvent } from "../lib/eventFacts";
 import { splitIso } from "../lib/format";
@@ -235,15 +235,15 @@ export function EventCard({
       </Card.Content>
       <Card.Footer className="event-card__footer event-actions">
         {hasPage ? (
-          <ActionTip label={layout === "narrow" ? "Strona wydarzenia" : null}>
+          <ActionTip label={layout === "narrow" ? "Do wydarzenia" : null}>
             <a
-              aria-label="Strona wydarzenia (otwiera się w nowej karcie)"
+              aria-label="Do wydarzenia (otwiera się w nowej karcie)"
               className={`${buttonVariants({ variant: "primary" })} event-action event-action--primary`}
               href={pageUrl}
               rel="noopener noreferrer"
               target="_blank"
             >
-              <span className="event-action__text">Strona wydarzenia</span>
+              <span className="event-action__text">Do wydarzenia</span>
               <ExternalLink aria-hidden className="event-action__icon event-action__icon--end" size={16} strokeWidth={2} />
             </a>
           </ActionTip>
@@ -263,8 +263,17 @@ export function EventCard({
             variant="secondary"
           />
         ) : null}
-        {canRoute(event) ? (
-          <RouteMenu event={event} tooltip={layout === "desktop" ? null : "Mapa i trasa"} onShowOnMap={onShowOnMap} />
+        {canRoute(event) ? <RouteMenu event={event} tooltip={layout === "desktop" ? null : "Trasa"} /> : null}
+        {hasMapLocation(event) ? (
+          <button
+            aria-label="Pokaż na mapie"
+            className={`${buttonVariants({ isIconOnly: true, variant: "secondary" })} event-action event-action--secondary`}
+            title="Pokaż na mapie"
+            type="button"
+            onClick={onShowOnMap}
+          >
+            <MapPin aria-hidden className="event-action__icon" size={20} strokeWidth={2} />
+          </button>
         ) : null}
       </Card.Footer>
     </Card>
