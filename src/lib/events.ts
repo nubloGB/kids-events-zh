@@ -270,19 +270,19 @@ export function filtersAreActive(filters: EventFilters): boolean {
     filters.areas.length > 0 ||
     filters.categories.length > 0 ||
     filters.age !== null ||
-    filters.date.kind !== "all" ||
+    filters.date.kind !== "today" ||
     filters.tags.length > 0 ||
     filters.recurrence !== "single"
   );
 }
 
-/** Selected filter choices, excluding the search box. Jednodniowe is the default and counts as zero. */
+/** Selected filter choices, excluding the search box. Jednodniowe and Dziś count as zero. */
 export function activeFilterCount(filters: EventFilters, onlyVisible = false): number {
   return (
     filters.areas.length +
     filters.categories.length +
     (filters.age !== null ? 1 : 0) +
-    (filters.date.kind !== "all" ? 1 : 0) +
+    (filters.date.kind !== "today" ? 1 : 0) +
     filters.tags.length +
     (filters.recurrence !== "single" ? 1 : 0) +
     (onlyVisible ? 1 : 0)
