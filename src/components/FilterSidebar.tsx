@@ -67,6 +67,7 @@ export function FilterSidebar({
   customTo,
   onlyVisible,
   canClear,
+  variant = "sidebar",
   onAreas,
   onCategories,
   onAge,
@@ -89,6 +90,7 @@ export function FilterSidebar({
   customTo: string;
   onlyVisible: boolean;
   canClear: boolean;
+  variant?: "sidebar" | "sheet";
   onAreas: (areas: Area[]) => void;
   onCategories: (categories: Category[]) => void;
   onAge: (age: AgeBandFilter) => void;
@@ -103,7 +105,7 @@ export function FilterSidebar({
   const customRange = normalizeRange(customFrom, customTo);
 
   return (
-    <aside className="filters-pane">
+    <aside className={variant === "sheet" ? "filters-sheet" : "filters-pane"}>
       <button
         type="button"
         className={tags.includes("halloween") ? "halloween-toggle is-selected" : "halloween-toggle"}
@@ -117,14 +119,24 @@ export function FilterSidebar({
         Halloween 🎃
       </button>
 
-      <div className="filters-head">
-        <h2>Filtry</h2>
-        {canClear ? (
-          <Button size="sm" variant="ghost" onPress={onClear}>
-            Wyczyść
-          </Button>
-        ) : null}
-      </div>
+      {variant === "sheet" ? (
+        canClear ? (
+          <div className="filters-head">
+            <Button size="sm" variant="ghost" onPress={onClear}>
+              Wyczyść
+            </Button>
+          </div>
+        ) : null
+      ) : (
+        <div className="filters-head">
+          <h2>Filtry</h2>
+          {canClear ? (
+            <Button size="sm" variant="ghost" onPress={onClear}>
+              Wyczyść
+            </Button>
+          ) : null}
+        </div>
+      )}
 
       <fieldset className="filter-block">
         <legend>Rodzaj</legend>

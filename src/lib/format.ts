@@ -14,6 +14,13 @@ export function formatPolishDate(iso: string): string {
   }).format(new Date(`${iso}T12:00:00+01:00`));
 }
 
+/** `2026-11-21` → `21.11.2026`, using the stored calendar day rather than a timezone shift. */
+export function formatPolishShortDate(iso: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!match) return iso;
+  return `${match[3]}.${match[2]}.${match[1]}`;
+}
+
 export function countLabel(count: number, one: string, few: string, many: string): string {
   const mod10 = count % 10;
   const mod100 = count % 100;

@@ -23,7 +23,7 @@ npm run preview
 
 Edytuj tylko `public/events.json`, potem zrób commit i wypchnij na `main`. Workflow GitHub Actions zbuduje stronę i opublikuje ją na GitHub Pages.
 
-Data w nagłówku („Ostatnia aktualizacja”) bierze się z pola `updatedAt`. Przy każdej zbiórce terminów ustaw je na dzień aktualizacji, w formacie `RRRR-MM-DD`.
+Data aktualizacji bierze się z pola `updatedAt`. Na szerokim ekranie widać ją w nagłówku („Ostatnia aktualizacja”). Na telefonie jest w stopce listy i na górze zakładki Źródła, w postaci „Aktualizacja: DD.MM.RRRR”. Przy każdej zbiórce terminów ustaw je na dzień aktualizacji, w formacie `RRRR-MM-DD`.
 
 ### Pola wydarzenia
 

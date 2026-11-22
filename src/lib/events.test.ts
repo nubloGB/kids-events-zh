@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import {
   EMPTY_FILTERS,
+  activeFilterCount,
   filtersAreActive,
   includesToday,
   inferRecurrence,
@@ -98,6 +99,21 @@ describe("events.json", () => {
     expect(filtersAreActive({ ...EMPTY_FILTERS, tags: ["halloween"] })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(true);
+    expect(activeFilterCount(EMPTY_FILTERS)).toBe(0);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, query: "zoo" })).toBe(0);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "single" })).toBe(0);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(1);
+    expect(activeFilterCount({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(1);
+    expect(activeFilterCount(EMPTY_FILTERS, true)).toBe(1);
+    expect(
+      activeFilterCount({
+        ...EMPTY_FILTERS,
+        areas: ["Oerlikon", "Zurych"],
+        age: "under3",
+        tags: ["halloween"],
+        date: { kind: "today" },
+      }),
+    ).toBe(5);
   });
 
   it("treats theme tags as an optional filter", () => {
