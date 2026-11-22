@@ -5,7 +5,7 @@ import { EventMap } from "./EventMap";
 import { FilterSidebar } from "./FilterSidebar";
 import { countLabel } from "../lib/format";
 import { eventKey, filtersAreActive, isInsideBounds, partitionEvents } from "../lib/events";
-import type { AgeBandFilter, Area, Category, DateFilter, KidsEvent, MapBounds } from "../types";
+import type { AgeBandFilter, Area, Category, DateFilter, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
 
 function useMinWidth(px: number): boolean {
   const query = `(min-width: ${px}px)`;
@@ -36,6 +36,7 @@ export function EventsBoard({
   const [age, setAge] = useState<AgeBandFilter>(null);
   const [date, setDate] = useState<DateFilter>({ kind: "all" });
   const [tags, setTags] = useState<string[]>([]);
+  const [recurrence, setRecurrence] = useState<RecurrenceFilter>("single");
   const [customFrom, setCustomFrom] = useState("");
   const [customTo, setCustomTo] = useState("");
   const [onlyVisible, setOnlyVisible] = useState(false);
@@ -49,8 +50,8 @@ export function EventsBoard({
   const itemRefs = useRef(new Map<string, HTMLLIElement>());
 
   const filters = useMemo(
-    () => ({ query, areas, categories, age, date, tags }),
-    [age, areas, categories, date, query, tags],
+    () => ({ query, areas, categories, age, date, tags, recurrence }),
+    [age, areas, categories, date, query, recurrence, tags],
   );
   const { upcoming, recurring } = useMemo(
     () => partitionEvents(events, today, filters),
@@ -93,6 +94,7 @@ export function EventsBoard({
     setAge(null);
     setDate({ kind: "all" });
     setTags([]);
+    setRecurrence("single");
     setCustomFrom("");
     setCustomTo("");
     setOnlyVisible(false);
@@ -131,6 +133,7 @@ export function EventsBoard({
         customTo={customTo}
         date={date}
         tags={tags}
+        recurrence={recurrence}
         onlyVisible={onlyVisible}
         today={today}
         onAge={setAge}
@@ -141,6 +144,7 @@ export function EventsBoard({
         onCustomTo={setCustomTo}
         onDate={setDate}
         onTags={setTags}
+        onRecurrence={setRecurrence}
         onOnlyVisible={setOnlyVisible}
       />
 
@@ -163,7 +167,7 @@ export function EventsBoard({
             <p className="mt-2">
               {outsideFrame
                 ? "Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”."
-                : "Zmień datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
+                : "Zmień rodzaj, datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie."}
             </p>
             <Button className="mt-4" variant="secondary" onPress={clearFilters}>
               Wyczyść filtry
