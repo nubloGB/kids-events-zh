@@ -20,6 +20,12 @@ export interface KidsEvent {
   startDate: string | null;
   /** Last day the listing should stay visible. Omit for a single day. */
   endDate?: string | null;
+  /**
+   * `single` is one calendar day (a time, or several times that day, still counts).
+   * `recurring` is a course, a series of dates, a range longer than one day, or a regular offer.
+   * Missing values are classified in code from the dates and the description.
+   */
+  recurrence?: "single" | "recurring";
   title: string;
   url: string;
   description: string;
@@ -71,6 +77,9 @@ export interface SourcesFile {
 
 export type AgeBandFilter = "under3" | "over3" | null;
 
+/** `single` and `recurring` narrow the list. `all` keeps both. */
+export type RecurrenceFilter = "single" | "recurring" | "all";
+
 export type DateFilter =
   | { kind: "all" }
   | { kind: "today" | "tomorrow" | "thisWeek" | "thisWeekend" | "nextWeek" | "nextMonth" }
@@ -84,6 +93,8 @@ export interface EventFilters {
   date: DateFilter;
   /** Event must carry at least one of these tags. Empty means no theme filter. */
   tags: string[];
+  /** Default view is one-day events. */
+  recurrence: RecurrenceFilter;
 }
 
 export interface MapBounds {

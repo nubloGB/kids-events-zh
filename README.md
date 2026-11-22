@@ -32,6 +32,7 @@ Data w nagłówku („Ostatnia aktualizacja”) bierze się z pola `updatedAt`. 
 | `dateText` | Tekst daty tak, jak ma go widzieć rodzic (z godziną, serią terminów albo dopiskiem „stale”). |
 | `startDate` | Pierwszy dzień, `RRRR-MM-DD`. `null` dla zajęć stałych — trafiają do sekcji „Stałe zajęcia” i nie znikają z kalendarza. |
 | `endDate` | Opcjonalny ostatni dzień. Bez tego pola wydarzenie znika dzień po `startDate`. Dla kursu albo kilku spektakli wpisz ostatni dzień, inaczej semestr zniknie tuż po starcie. |
+| `recurrence` | `single` albo `recurring`. `single` to jeden konkretny dzień, także gdy tego dnia jest godzina albo dwa seanse. `recurring` to kurs, seria dat, zakres dłuższy niż jeden dzień albo stała oferta (wtedy zwykle `startDate: null`). Filtr „Rodzaj” startuje od „Jednodniowe”. |
 | `title` | Nazwa. Link w karcie prowadzi do `url`. |
 | `url` | Adres strony wydarzenia (`http` albo `https`). |
 | `description` | Krótki opis: co się dzieje, cena, język. |
@@ -53,6 +54,8 @@ Kolejność w pliku nie ma znaczenia: strona sortuje terminy rosnąco po `startD
 Każde wydarzenie ma pinezkę. Kolor i ikona biorą się z kategorii, a gęste miejsca (na przykład kilka spektakli w Theater Stadelhofen) zwijają się w klastry. Kliknięcie pinezki podświetla kartę na liście. Najechanie karty podświetla jej pinezkę, a „Pokaż na mapie” przybliża mapę do tego punktu. Tytuł na zdjęciu otwiera stronę wydarzenia. Filtr „Tylko widoczny obszar mapy” zostawia na liście i na mapie tylko to, co jest w kadrze. Na wąskim ekranie przełącznik „Lista / Mapa” pokazuje jedną z tych części.
 
 Przycisk „Halloween 🎃” na górze filtrów włącza znacznik `halloween`. Data, wiek, obszar i „Tylko widoczny obszar mapy” nadal zawężają tę listę.
+
+Filtr „Rodzaj” ma trzy ustawienia: „Jednodniowe” (wybrane na starcie), „Cykliczne” i „Wszystkie”. „Wyczyść” wraca do jednodniowych. Wydarzenie bez pola `recurrence` jest klasyfikowane z dat: brak `startDate` albo `endDate` późniejsze niż `startDate` oznacza cykl, podobnie seria dni w `dateText` albo zwrot w rodzaju „w każdą niedzielę” i „stale”.
 
 Filtr daty liczy się według kalendarza Europy/Zurych, a tydzień zaczyna się w poniedziałek. „Ten tydzień” trwa od dziś do najbliższej niedzieli, „Ten weekend” od piątku do niedzieli tego tygodnia (w sobotę i niedzielę: od dziś do niedzieli), „Następny tydzień” to kolejny poniedziałek–niedziela, „Następny miesiąc” to cały następny miesiąc kalendarzowy. Wydarzenie wielodniowe zostaje, gdy jego zakres nachodzi na wybrany. Zajęcia stałe, bez `startDate`, widać przy „Wszystkie daty”.
 

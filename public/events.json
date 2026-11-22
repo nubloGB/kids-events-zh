@@ -5,6 +5,7 @@
       "dateText": "wtorki 9:30–10:30 (od 20.10.2026, kurs 8 spotkań)",
       "startDate": "2026-10-20",
       "endDate": "2026-12-08",
+      "recurrence": "recurring",
       "title": "Oerliker Singmüüs",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/oerliker-singmueues/",
       "description": "Kurs śpiewu i tańca z rodzicem, 160 CHF/8 spotkań, próbne zajęcia 25 CHF. Osiem wtorków od 20.10 do 8.12.2026.",
@@ -25,6 +26,7 @@
       "dateText": "od wt. 20.10.2026 do 20.4.2027, wtorki 17:30–18:30 (semestr)",
       "startDate": "2026-10-20",
       "endDate": "2027-04-20",
+      "recurrence": "recurring",
       "title": "Wspinaczka sportowa (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30715",
       "description": "Kurs semestralny wspinaczki w hali.",
@@ -45,6 +47,7 @@
       "dateText": "od wt. 20.10.2026: wt./czw. 16:30–17:30, śr. 13:00–14:00 (do 22.4.2027)",
       "startDate": "2026-10-20",
       "endDate": "2027-04-22",
+      "recurrence": "recurring",
       "title": "Skoki do wody (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30862",
       "description": "Kurs semestralny skoków do wody. W portalu są też grupy we wtorek i w czwartek.",
@@ -65,6 +68,7 @@
       "dateText": "od wt. 20.10.2026 do 2.3.2027, wt. i czw. 17:00–18:00",
       "startDate": "2026-10-20",
       "endDate": "2027-03-02",
+      "recurrence": "recurring",
       "title": "Łyżwiarstwo (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30865",
       "description": "Kurs jazdy na łyżwach (trzeba samodzielnie stać na łyżwach). Jest też grupa w czwartek. Kurs w Oerlikonie (sob. 9:00) jest już pełny.",
@@ -85,6 +89,7 @@
       "dateText": "od wt. 20.10.2026: wt. 15:45–17:00 i sob. 12:15–13:30 (do 20.4.2027)",
       "startDate": "2026-10-20",
       "endDate": "2027-04-20",
+      "recurrence": "recurring",
       "title": "Gimnastyka artystyczna (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30496",
       "description": "Kurs semestralny. W portalu jest też grupa sobotnia.",
@@ -105,6 +110,7 @@
       "dateText": "od śr. 21.10.2026: śr. 13:00–14:00 i 14:00–15:00 (do 21.4.2027)",
       "startDate": "2026-10-21",
       "endDate": "2027-04-21",
+      "recurrence": "recurring",
       "title": "Wrotki (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30504",
       "description": "Kurs jazdy na wrotkach. W portalu jest też grupa o 14:00.",
@@ -125,6 +131,7 @@
       "dateText": "od śr. 21.10.2026: śr. 13:30–14:30 i 14:30–15:30 (do 21.4.2027)",
       "startDate": "2026-10-21",
       "endDate": "2027-04-21",
+      "recurrence": "recurring",
       "title": "Taniec dla dzieci (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30467",
       "description": "Kurs tańca dla maluchów. W portalu jest też grupa o 14:30.",
@@ -145,6 +152,7 @@
       "dateText": "soboty 24.10–19.12.2026 (bez 5.12), 9:15–11:45",
       "startDate": "2026-10-24",
       "endDate": "2026-12-19",
+      "recurrence": "recurring",
       "title": "Männer-Kind-Werken",
       "url": "https://gz-zh.ch/gz-affoltern/angebote/maenner-kind-werken/",
       "description": "Majsterkowanie w drewnie: tata lub inny mężczyzna z dzieckiem. 120 CHF (1 dorosły + 1 dziecko), kolejne dziecko 60 CHF.",
@@ -165,6 +173,7 @@
       "dateText": "od sob. 24.10.2026 do 6.2.2027, sob. 12:30–13:45",
       "startDate": "2026-10-24",
       "endDate": "2027-02-06",
+      "recurrence": "recurring",
       "title": "Hokej na lodzie – tylko dla dziewczynek (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30864",
       "description": "Kurs hokeja dla dziewczynek.",
@@ -185,6 +194,7 @@
       "dateText": "od sob. 24.10.2026: sob./ndz. 10:00–12:00 (do 18.4.2027)",
       "startDate": "2026-10-24",
       "endDate": "2027-04-18",
+      "recurrence": "recurring",
       "title": "Tenis (Sportamt)",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/30731",
       "description": "Kurs tenisa. W portalu są też godziny sob. 11:00 oraz ndz. 10:00 i 11:00.",
@@ -205,6 +215,7 @@
       "dateText": "ndz. 1.11.2026 (też 6.12, 10.1, 7.2, 7.3), 10–11 i 12–13",
       "startDate": "2026-11-01",
       "endDate": "2027-03-07",
+      "recurrence": "recurring",
       "title": "Sukkulenten-Sammlung – niedzielne terminy",
       "url": "https://www.stadt-zuerich.ch/content/dam/sukkulenten/de/service/lesenswertes/Spitze_2026_Web_260218.pdf",
       "description": "Niedzielne spotkania w kolekcji sukulentów (wg magazynu „Spitze!” 2026; temat niepotwierdzony).",
@@ -225,6 +236,7 @@
       "dateText": "sob. 14.11.2026 lub sob. 28.11.2026 (start; potem 1×/mies., śr. lub sob.)",
       "startDate": "2026-11-14",
       "endDate": "2027-11-28",
+      "recurrence": "recurring",
       "title": "Wildpflanzen Jahreskurs",
       "url": "https://www.susanne-michel.maerchen.ch/veranstaltungen",
       "description": "Roczny kurs przyrodniczy: rośliny, baśnie, odkrywanie natury w Zurychu; 590 CHF za 12 dni lub 70 CHF za dzień. Ostatni dzień nie był podany, więc lista zostaje do 28.11.2027.",
@@ -245,6 +257,7 @@
       "dateText": "21.11–6.12.2026: sob./ndz. 12:00–18:00, pn/wt/czw/pt 16:00–18:00, śr. 13:30–18:00",
       "startDate": "2026-11-21",
       "endDate": "2026-12-06",
+      "recurrence": "recurring",
       "title": "Oerliker Kerzenziehen",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/oerliker-kerzenziehen/",
       "description": "Robienie świec z wosku pszczelego, ok. 5 CHF/świeca.",
@@ -264,6 +277,7 @@
     {
       "dateText": "sob. 21.11.2026, 14:00–16:30",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Kreativ zwischen Kakteen",
       "url": "https://www.stadt-zuerich.ch/content/dam/sukkulenten/de/service/lesenswertes/Spitze_2026_Web_260218.pdf",
       "description": "Kreatywny warsztat wśród sukulentów.",
@@ -283,6 +297,7 @@
     {
       "dateText": "ndz. 22.11.2026, 15:00–16:00",
       "startDate": "2026-11-22",
+      "recurrence": "single",
       "title": "Tschüss, Papagei!",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/tschuess-papagei-theater-mit-musik/",
       "description": "Teatr muzyczny, za darmo.",
@@ -317,11 +332,13 @@
       "lng": 8.510892,
       "image": "images/advent-wreath.jpg",
       "tags": [],
-      "endDate": "2026-11-29"
+      "endDate": "2026-11-29",
+      "recurrence": "recurring"
     },
     {
       "dateText": "sob. 28.11.2026, 10:00–14:00",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Kinderflohmarkt",
       "url": "https://gz-zh.ch/gz-hirzenbach/angebote/gz-flohmarkt/",
       "description": "Pchli targ rzeczy dziecięcych.",
@@ -342,6 +359,7 @@
       "dateText": "sob. 28.11.2026, 14:30; ndz. 29.11, 11:00",
       "startDate": "2026-11-28",
       "endDate": "2026-11-29",
+      "recurrence": "recurring",
       "title": "Woanders",
       "url": "https://theater-stadelhofen.ch/veranstaltungen/woanders/",
       "description": "Spektakl teatralny O-Team (DE), 50 min.",
@@ -361,6 +379,7 @@
     {
       "dateText": "ndz. 29.11.2026, 9:00–13:00",
       "startDate": "2026-11-29",
+      "recurrence": "single",
       "title": "Thanksgiving Brunch – Jucker Farm",
       "url": "https://www.juckerfarm.ch/anlass/thanksgiving-brunch/",
       "description": "Brunch (69 CHF), dla dzieci robienie indyka z dyni (15 CHF).",
@@ -380,6 +399,7 @@
     {
       "dateText": "listopad 2026 (dokładna data jeszcze nieznana)",
       "startDate": "2026-11-30",
+      "recurrence": "single",
       "title": "Räbeliächtli – PLATZ",
       "url": "https://platz-winti.ch/wp-content/uploads/2026/03/Jahresprogramm2026.pdf",
       "description": "Wycinanie lampionów z rzepy i pochód z Quartierverein. Dzień w listopadzie nie był jeszcze podany, więc wpis zostaje na liście do końca miesiąca.",
@@ -399,6 +419,7 @@
     {
       "dateText": "czw. 3.12.2026, 19:00–22:00",
       "startDate": "2026-12-03",
+      "recurrence": "single",
       "title": "Kerzenziehen exklusiv",
       "url": "https://gz-zh.ch/gz-affoltern/angebote/kerzenziehen-exklusiv/",
       "description": "Prywatne robienie świec dla rodzin, grup i urodzin.",
@@ -418,6 +439,7 @@
     {
       "dateText": "sob. 5.12.2026, 8:00–19:00",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "UBS Kids Cup Team – Winterthur",
       "url": "https://www.ubs-kidscup.ch/de/ubs-kids-cup-team/anmeldung/winterthur",
       "description": "Drużynowe zawody lekkoatletyczne w hali (eliminacje), 30 CHF za drużynę.",
@@ -438,6 +460,7 @@
       "dateText": "śr. 9.12.2026, 14:30; sob. 12.12, 14:30; ndz. 13.12, 11:00; śr. 16.12, 14:30",
       "startDate": "2026-12-09",
       "endDate": "2026-12-16",
+      "recurrence": "recurring",
       "title": "Bubbles",
       "url": "https://theater-stadelhofen.ch/veranstaltungen/bubbles/",
       "description": "Spektakl Theater o.N. dla najmłodszych, 45 min.",
@@ -457,6 +480,7 @@
     {
       "dateText": "ndz. 13.12.2026: rodziny 10:00–10:40, U10 11:22, rodzic+dziecko 11:54–12:10",
       "startDate": "2026-12-13",
+      "recurrence": "single",
       "title": "Zürcher Silvesterlauf – biegi dziecięce i rodzinne",
       "url": "https://www.silvesterlauf.ch/anmeldung",
       "description": "1,4 km przez Stare Miasto, każde dziecko dostaje medal. Rodzic z dzieckiem ELKI 1 (do 6 lat) i ELKI 2 (7–8 lat): 40 CHF do 27.10, potem 47/57 CHF. Rodzinny FAMIGROS MINI (dzieci do 8 lat): 55 CHF. U10 (do 9 lat): 25 CHF.",
@@ -476,6 +500,7 @@
     {
       "dateText": "śr. 16.12.2026",
       "startDate": "2026-12-16",
+      "recurrence": "single",
       "title": "Adventsfenster i zakończenie roku – PLATZ",
       "url": "https://platz-winti.ch/wp-content/uploads/2026/03/Jahresprogramm2026.pdf",
       "description": "Okienko adwentowe i spotkanie na zakończenie roku.",
@@ -495,6 +520,7 @@
     {
       "dateText": "sob. 19.12.2026",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Zimowanie PLATZ (Einwintern)",
       "url": "https://platz-winti.ch/wp-content/uploads/2026/03/Jahresprogramm2026.pdf",
       "description": "Wspólne przygotowanie placu do zimy.",
@@ -514,6 +540,7 @@
     {
       "dateText": "czw. 31.12.2026, 22:00",
       "startDate": "2026-12-31",
+      "recurrence": "single",
       "title": "Neujahrsmarathon – Kids Run 750 m",
       "url": "https://www.neujahrsmarathon.ch/information-de/",
       "description": "Sylwestrowy bieg dla dzieci, dorośli mogą biec obok; nagrody 22:15.",
@@ -533,6 +560,7 @@
     {
       "dateText": "ndz. 10.1.2027, 11:15 i 14:15",
       "startDate": "2027-01-10",
+      "recurrence": "single",
       "title": "Familienkonzert: Bilder einer Ausstellung",
       "url": "https://www.tonhalle-orchester.ch/kinder-familien/familienkonzerte/",
       "description": "„Obrazki z wystawy” jako muzealny kryminał, z chórem szkolnym.",
@@ -553,6 +581,7 @@
       "dateText": "ferie zimowe (Sportferien) 2027",
       "startDate": "2027-02-15",
       "endDate": "2027-02-26",
+      "recurrence": "recurring",
       "title": "Ferienkurse Sportamt Stadt Zürich",
       "url": "https://www.stadt-zuerich.ch/sport-portal/angebot/ferienkurse",
       "description": "Tygodniowe kursy sportowe, plastyczne i łączone (część całodzienna). Daty ferii szkół miasta Zurych: 15–26.02.2027. Oferta 14.12.2026, zapisy 5.1.–24.1.2027 (wg broszury PDF, niepotwierdzone na stronie).",
@@ -572,6 +601,7 @@
     {
       "dateText": "sob. 6.3.2027, 8:30–18:00",
       "startDate": "2027-03-06",
+      "recurrence": "single",
       "title": "UBS Kids Cup Team – finał regionalny Zurych",
       "url": "https://www.ubs-kidscup.ch/de/ubs-kids-cup-team/anmeldung/zuerich",
       "description": "Finał regionalny drużynowej lekkoatletyki w hali, 30 CHF za drużynę (dla zakwalifikowanych drużyn).",
@@ -592,6 +622,7 @@
       "dateText": "20–23.5.2027 (wyścigi dzieci w sob. i ndz.)",
       "startDate": "2027-05-20",
       "endDate": "2027-05-23",
+      "recurrence": "recurring",
       "title": "Cycle Week – Short Track Kidsrace",
       "url": "https://cycleweek.ch/page/Kidsandyouth",
       "description": "Festiwal rowerowy; wyścigi dla najmłodszych bez presji wyniku, tor zręcznościowy, odznaka rowerowa.",
@@ -611,6 +642,7 @@
     {
       "dateText": "ndz. 23.5.2027 (w ramach ZüriDirt 21–23.5)",
       "startDate": "2027-05-23",
+      "recurrence": "single",
       "title": "TSG Nipper Race",
       "url": "https://www.zueritrails.ch/dirtcontest/event",
       "description": "Wyścig na rowerkach biegowych dla maluchów, z nagrodami.",
@@ -630,6 +662,7 @@
     {
       "dateText": "soboty 12:30 i 13:30 (stale)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Kinder lesen Katzen vor",
       "url": "https://www.zuerchertierschutz.ch/de/angebote/jugendtierschutz/katzen-vorlesen",
       "description": "Dzieci czytają na głos kotom ze schroniska (pomoc przy trudnościach z czytaniem), 45 min.",
@@ -649,6 +682,7 @@
     {
       "dateText": "terminy na życzenie (stale)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Deine kreative Stunde – Malspielraum",
       "url": "https://www.malspielraum.ch/angebote/deine-kreative-stunde/",
       "description": "Indywidualne lub grupowe malowanie i majsterkowanie, 120–160 CHF/h.",
@@ -668,6 +702,7 @@
     {
       "dateText": "codziennie",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Zoo Zürich",
       "url": "https://www.zoo.ch/de",
       "description": "Pokazy i karmienie zwierząt.",
@@ -687,6 +722,7 @@
     {
       "dateText": "piątki 14:00–15:45 (stale, cały rok, nie co tydzień)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Otwarta stajnia – Wipkihof",
       "url": "https://gz-zh.ch/gz-wipkingen/angebote/offener-stall-3/",
       "description": "Kontakt ze świnkami morskimi, mini-świniami, kozami i kurami; podpłomyki; 5 CHF/os.",
@@ -706,6 +742,7 @@
     {
       "dateText": "od śr. 21.10.2026: śr. 13:30–17:00 i pt. 13:30–17:00 (pt. tylko przy suchej pogodzie) (stale, godziny zimowe)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "PLATZ – otwarty plac przygód",
       "url": "https://platz-winti.ch/oeffentlicher-spielbetrieb/",
       "description": "Plac przygód: budowanie, ognisko, swobodna zabawa; wstęp wolny. Godziny zimowe od 21.10.2026.",
@@ -725,6 +762,7 @@
     {
       "dateText": "piątki 15:00 (stale)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Opowieści w jurcie – PLATZ",
       "url": "https://platz-winti.ch/",
       "description": "Opowiadanie historii dla najmłodszych w jurcie.",
@@ -744,6 +782,7 @@
     {
       "dateText": "środy 16:00–17:00 (stale, od 16.9.2026)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Joga dla dzieci w jurcie – PLATZ",
       "url": "https://platz-winti.ch/kurse-und-ferienprogramm/",
       "description": "6 lekcji jogi dla dzieci za 100 CHF.",
@@ -764,6 +803,7 @@
       "dateText": "śr. 15:30: 21.10 (wyprzedane), 28.10, 18.11, 2.12, 23.12.2026 i 13.1.2027",
       "startDate": "2026-10-21",
       "endDate": "2027-01-13",
+      "recurrence": "recurring",
       "title": "Familienführung (Opernhaus)",
       "url": "https://www.opernhaus.ch/spielplan/kalendarium/familienfuehrung-ohz/",
       "description": "Godzinne oprowadzanie za kulisy: scena, rekwizyty, charakteryzacja, krawiectwo i magazyn. Zbiórka w foyer kasy. Dorośli 15 CHF, dzieci bezpłatnie. Po niemiecku.",
@@ -784,6 +824,7 @@
       "dateText": "sob. 14:00: 24.10 i 28.11.2026 oraz 23.1 i 30.1.2027",
       "startDate": "2026-10-24",
       "endDate": "2027-01-30",
+      "recurrence": "recurring",
       "title": "Magiczna Kinderführung „Mit Squillo” (Opernhaus)",
       "url": "https://www.opernhaus.ch/spielplan/kalendarium/ohrwurm-squillo/",
       "description": "Oprowadzanie z bladym dyrygentem-królikiem i Ohrwurmem Squillo. Ok. 1,5 godziny. Dzieci 6–12 lat z dorosłym.",
@@ -804,6 +845,7 @@
       "dateText": "środy 14:00, od 4.11.2026 do 9.6.2027 (wybrane terminy, 2 godz.)",
       "startDate": "2026-11-04",
       "endDate": "2027-06-09",
+      "recurrence": "recurring",
       "title": "Klanglabor (Opernhaus w GZ Oerlikon)",
       "url": "https://www.opernhaus.ch/spielplan/kalendarium/klanglabor/2026-2027",
       "description": "Dzieci z muzykiem zbierają dźwięki Oerlikonu i układają z nich historię. Bez przygotowania. Dzieci tylko z dorosłym.",
@@ -824,6 +866,7 @@
       "dateText": "5–20.12.2026, godziny w repertuarze",
       "startDate": "2026-12-05",
       "endDate": "2026-12-20",
+      "recurrence": "recurring",
       "title": "Zauberschatz im Rhein (Opernhaus)",
       "url": "https://www.opernhaus.ch/entdecken/vermittlungsangebote-familien-kinder-jugendliche/",
       "description": "Opowieść muzyczna: córki Renu strzegą skarbu, który daje światu światło i muzykę. Dla dzieci od 4 lat z opiekunem.",
@@ -844,6 +887,7 @@
       "dateText": "8.11.2026–17.1.2027, wybrane dni (m.in. 8.11 o 13:00), ok. 2 godz.",
       "startDate": "2026-11-08",
       "endDate": "2027-01-17",
+      "recurrence": "recurring",
       "title": "Alice im Wunderland (Opernhaus)",
       "url": "https://www.opernhaus.ch/spielplan/kalendarium/alice-im-wunderland/",
       "description": "Kinderoper Pierangela Valtinoniego po niemiecku, z napisami. Terminy m.in. 8, 15, 19, 21, 26 i 28.11, 6.12.2026 oraz 2, 7, 8, 10 i 17.1.2027. Dzieci 13–35 CHF, dorośli 20–60 CHF.",
@@ -878,7 +922,8 @@
       "lng": 8.545756,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-03-14"
+      "endDate": "2027-03-14",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pt. 27.11.2026–sob. 28.11.2026, 18:00–21:00",
@@ -898,11 +943,13 @@
       "lng": 8.545756,
       "image": "images/advent-wreath.jpg",
       "tags": [],
-      "endDate": "2026-11-28"
+      "endDate": "2026-11-28",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 29.11.2026, 16:00–16:45",
       "startDate": "2026-11-29",
+      "recurrence": "single",
       "title": "Kindertheater Dampf: Fata Morgana",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/kindertheater-fata-morgana/",
       "description": "Teatr o przyjaźni: Chümel szuka miejsca z tajemniczej mapy. Wstęp wolny, dobrowolna kolekta. Bilety od 16.11, godz. 12:00, w kawiarni GZ.",
@@ -922,6 +969,7 @@
     {
       "dateText": "ndz. 29.11.2026, 10:15–11:00",
       "startDate": "2026-11-29",
+      "recurrence": "single",
       "title": "Babykonzert – Advent",
       "url": "https://gz-zh.ch/gz-seebach/angebote/babykonzert/",
       "description": "Adwentowy koncert dla najmłodszych (śpiew, skrzypce, fortepian), 45 minut. Dwa te same koncerty: 10:15 i 11:30. Przedsprzedaż 10 CHF od osoby (także niemowlę), kasa 12 CHF.",
@@ -941,6 +989,7 @@
     {
       "dateText": "ndz. 29.11.2026, 13:00–17:00",
       "startDate": "2026-11-29",
+      "recurrence": "single",
       "title": "Offener Sonntag (GZ Seebach)",
       "url": "https://gz-zh.ch/gz-seebach/angebote/offener-sonntag-2/",
       "description": "Otwarta niedziela: kawiarnia, pokoje zabaw, gry z Martinem i wiązanie wieńców adwentowych w atelier. Wstęp wolny, płatne tylko kawiarnia i materiały.",
@@ -960,6 +1009,7 @@
     {
       "dateText": "ndz. 29.11.2026, 11:00–16:00",
       "startDate": "2026-11-29",
+      "recurrence": "single",
       "title": "Weihnachtsmarkt GZ Affoltern",
       "url": "https://gz-zh.ch/gz-affoltern/angebote/weihnachtsmarkt-2/",
       "description": "Jarmark świąteczny (ok. 25 stoisk) w GFA Wolfswinkel. Wstęp wolny. O 13:30 koncert gospelowy chóru szkoły A bis Z. Stoiska na 2026 są już obsadzone.",
@@ -994,11 +1044,13 @@
       "lng": 8.510892,
       "image": "images/fallback-crafts.jpg",
       "tags": [],
-      "endDate": "2026-12-11"
+      "endDate": "2026-12-11",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 25.11.2026, 14:00–16:00",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Lebkuchenhäuser verzieren",
       "url": "https://gz-zh.ch/gz-hoengg/angebote/lebkuchenhaeuser-verzieren/",
       "description": "Dekorowanie domków z piernika, maks. 15 osób. 14 CHF (7 CHF z KulturLegi). Miejsce: Rütihof, nie główna siedziba GZ.",
@@ -1018,6 +1070,7 @@
     {
       "dateText": "śr. 25.11.2026, 15:00–17:30",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Kinderkino on Tour (GZ Höngg)",
       "url": "https://gz-zh.ch/gz-hoengg/angebote/kinderkino-on-tour/",
       "description": "Film przyrodniczy o żółwiach i krótki warsztat. Ten pokaz jest od 8 lat; młodsze dzieci tylko z dorosłym. Wstęp wolny, liczba miejsc ograniczona. Popcorn płatny nie jest wymieniony na tej stronie tournée.",
@@ -1052,7 +1105,8 @@
       "lng": 8.535832,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-06-26"
+      "endDate": "2027-06-26",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 9.12.2026–śr. 16.12.2026, 13:00–17:00",
@@ -1072,11 +1126,13 @@
       "lng": 8.545756,
       "image": "images/fallback-crafts.jpg",
       "tags": [],
-      "endDate": "2026-12-16"
+      "endDate": "2026-12-16",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 13.12.2026, 16:00–16:45",
       "startDate": "2026-12-13",
+      "recurrence": "single",
       "title": "Kinderkonzert: Billy & Benno",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/kinderkonzert-billyundbenno/",
       "description": "Koncert dla dzieci w GZ Oerlikon.",
@@ -1096,6 +1152,7 @@
     {
       "dateText": "ndz. 10.1.2027, 16:00–16:45",
       "startDate": "2027-01-10",
+      "recurrence": "single",
       "title": "Kindertheater: Zeitfresser",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/kindertheater-zeitfresser/",
       "description": "Teatr dla dzieci w GZ Oerlikon.",
@@ -1115,6 +1172,7 @@
     {
       "dateText": "sob. 12.12.2026, 09:30–12:00",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Vater-Kind-Treff",
       "url": "https://gz-zh.ch/gz-oerlikon/angebote/vater-kind-treff/",
       "description": "Spotkanie ojców z dziećmi w GZ Oerlikon.",
@@ -1149,7 +1207,8 @@
       "lng": 8.472728,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-13"
+      "endDate": "2026-12-13",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026–pt. 11.12.2026, 12:00–15:30",
@@ -1169,7 +1228,8 @@
       "lng": 8.484625,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-11"
+      "endDate": "2026-12-11",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026–czw. 3.12.2026, 13:00–17:00",
@@ -1189,7 +1249,8 @@
       "lng": 8.514136,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-03"
+      "endDate": "2026-12-03",
+      "recurrence": "recurring"
     },
     {
       "dateText": "wt. 24.11.2026–sob. 28.11.2026, 15:30–19:00",
@@ -1209,7 +1270,8 @@
       "lng": 8.489721,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-11-28"
+      "endDate": "2026-11-28",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026–ndz. 29.11.2026, 13:00–17:00",
@@ -1229,7 +1291,8 @@
       "lng": 8.536179,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-11-29"
+      "endDate": "2026-11-29",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 2.12.2026–śr. 16.12.2026, 14:00–16:30",
@@ -1249,7 +1312,8 @@
       "lng": 8.519941,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-16"
+      "endDate": "2026-12-16",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 25.11.2026–śr. 9.12.2026, 14:00–17:00",
@@ -1269,7 +1333,8 @@
       "lng": 8.549484,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-09"
+      "endDate": "2026-12-09",
+      "recurrence": "recurring"
     },
     {
       "dateText": "sob. 28.11.2026–ndz. 6.12.2026, 10:00–22:00",
@@ -1289,7 +1354,8 @@
       "lng": 8.497295,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-06"
+      "endDate": "2026-12-06",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 2.12.2026–śr. 16.12.2026, 14:00–18:00",
@@ -1309,7 +1375,8 @@
       "lng": 8.534701,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-16"
+      "endDate": "2026-12-16",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 2.12.2026–śr. 16.12.2026, 14:00–17:00",
@@ -1329,11 +1396,13 @@
       "lng": 8.510892,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-16"
+      "endDate": "2026-12-16",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026, 13:30–17:30",
       "startDate": "2026-11-22",
+      "recurrence": "single",
       "title": "Kerzenziehen im Kluspark",
       "url": "https://gz-zh.ch/gz-hottingen/angebote/kerzenziehen-im-klus-park/",
       "description": "Ciągnienie świec w parku Klus przy GZ Hottingen.",
@@ -1368,7 +1437,8 @@
       "lng": 8.54428,
       "image": "images/advent-wreath.jpg",
       "tags": [],
-      "endDate": "2026-11-29"
+      "endDate": "2026-11-29",
+      "recurrence": "recurring"
     },
     {
       "dateText": "sob. 28.11.2026–ndz. 29.11.2026, 11:00–17:00",
@@ -1388,7 +1458,8 @@
       "lng": 8.534701,
       "image": "images/advent-wreath.jpg",
       "tags": [],
-      "endDate": "2026-11-29"
+      "endDate": "2026-11-29",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 2.12.2026–śr. 9.12.2026, 14:00–15:30",
@@ -1408,7 +1479,8 @@
       "lng": 8.484625,
       "image": "images/werken.jpg",
       "tags": [],
-      "endDate": "2026-12-09"
+      "endDate": "2026-12-09",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pn. 23.11.2026–pn. 14.12.2026, 16:00–18:00",
@@ -1428,7 +1500,8 @@
       "lng": 8.503765,
       "image": "images/fallback-zoo.jpg",
       "tags": [],
-      "endDate": "2026-12-14"
+      "endDate": "2026-12-14",
+      "recurrence": "recurring"
     },
     {
       "dateText": "wt. 24.11.2026–czw. 7.1.2027, 14:00–17:00",
@@ -1448,7 +1521,8 @@
       "lng": 8.510892,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-01-07"
+      "endDate": "2027-01-07",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 25.11.2026–czw. 11.3.2027, 09:30–16:00",
@@ -1468,7 +1542,8 @@
       "lng": 8.497295,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-03-11"
+      "endDate": "2027-03-11",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026–ndz. 10.1.2027, 14:00–18:00",
@@ -1488,7 +1563,8 @@
       "lng": 8.545756,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-01-10"
+      "endDate": "2027-01-10",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pn. 23.11.2026–pt. 8.1.2027, 14:00–17:00",
@@ -1508,7 +1584,8 @@
       "lng": 8.54428,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-01-08"
+      "endDate": "2027-01-08",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pn. 23.11.2026–pn. 18.1.2027, 14:30–17:30",
@@ -1528,11 +1605,13 @@
       "lng": 8.562323,
       "image": "images/fallback-playground.jpg",
       "tags": [],
-      "endDate": "2027-01-18"
+      "endDate": "2027-01-18",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pt. 4.12.2026, 18:00–20:00",
       "startDate": "2026-12-04",
+      "recurrence": "single",
       "title": "Samichlaus auf dem Heuboden",
       "url": "https://gz-zh.ch/gz-schindlergut/angebote/samichlaus-2/",
       "description": "Mikołaj na stryszku z sianem w GZ Schindlergut.",
@@ -1552,6 +1631,7 @@
     {
       "dateText": "ndz. 6.12.2026, 14:00–17:00",
       "startDate": "2026-12-06",
+      "recurrence": "single",
       "title": "Süsse Hexenhüüsli bauen",
       "url": "https://gz-zh.ch/gz-witikon/angebote/suesse-hexenhueuesli-bauen/",
       "description": "Budowanie słodkich domków z piernika w GZ Witikon.",
@@ -1571,6 +1651,7 @@
     {
       "dateText": "ndz. 6.12.2026, 17:00–20:00",
       "startDate": "2026-12-06",
+      "recurrence": "single",
       "title": "Chlausfeier Wollishofen",
       "url": "https://gz-zh.ch/gz-wollishofen/angebote/chlausfeier/",
       "description": "Mikołajki w GZ Wollishofen.",
@@ -1605,7 +1686,8 @@
       "lng": 8.534701,
       "image": "images/fallback-music.jpg",
       "tags": [],
-      "endDate": "2026-12-20"
+      "endDate": "2026-12-20",
+      "recurrence": "recurring"
     },
     {
       "dateText": "pn. 14.12.2026–wt. 15.12.2026, 09:00–11:30",
@@ -1625,11 +1707,13 @@
       "lng": 8.484625,
       "image": "images/candles-gz.jpg",
       "tags": [],
-      "endDate": "2026-12-15"
+      "endDate": "2026-12-15",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 13.1.2027, 15:00–16:00",
       "startDate": "2027-01-13",
+      "recurrence": "single",
       "title": "Kindertheater «Pu der Bär»",
       "url": "https://gz-zh.ch/gz-wipkingen/angebote/kindertheater-10/",
       "description": "Teatr o Kubusiu Puchatku w GZ Wipkingen.",
@@ -1649,6 +1733,7 @@
     {
       "dateText": "ndz. 17.1.2027, 11:00–12:00",
       "startDate": "2027-01-17",
+      "recurrence": "single",
       "title": "Kinderkonzert Kunterwunderbunt",
       "url": "https://gz-zh.ch/gz-bachwiesen/angebote/kinderkonzert-kunterwunderbunt/",
       "description": "Kameralny koncert Tonhalle „Kunterwunderbunt”. Dzieci 8 CHF, dorośli 12 CHF, KulturLegi 50%. Maks. 5 biletów na rodzinę, bez kasy w dniu koncertu.",
@@ -1668,6 +1753,7 @@
     {
       "dateText": "ndz. 17.1.2027, 15:00–16:00",
       "startDate": "2027-01-17",
+      "recurrence": "single",
       "title": "Der Waise Hase Wilhelm",
       "url": "https://gz-zh.ch/gz-witikon/angebote/der-waise-hase-wilhelm/",
       "description": "Teatr dla dzieci w GZ Witikon.",
@@ -1687,6 +1773,7 @@
     {
       "dateText": "ndz. 22.11.2026, 14:00–16:30",
       "startDate": "2026-11-22",
+      "recurrence": "recurring",
       "title": "Offenes Atelier für Alle",
       "url": "https://museum-gestaltung.ch/de/events/offenes-atelier-fuer-alle-2026-11-22",
       "description": "Otwarte atelier w każdą niedzielę (ten wpis: 22.11, tematy wystawy Avantgarde). 5 CHF od osoby, poniżej 4 lat gratis. Drop-in, liczba miejsc ograniczona. Dzieci do 10 lat tylko z dorosłym.",
@@ -1721,11 +1808,13 @@
       "lng": 8.540702,
       "image": "images/fallback-museum.jpg",
       "tags": [],
-      "endDate": "2027-01-03"
+      "endDate": "2027-01-03",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 25.11.2026, 17:30–18:30",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Laternenführung «Weihnachten & Krippen»",
       "url": "https://www.landesmuseum.ch/de/veranstaltung/2026-11-25_laternenfuehrung-52380",
       "description": "Rodzinne oprowadzanie z latarniami po obrazach historii Bożego Narodzenia. Dziecko przez cały czas z rodzicem lub inną bliską osobą — zapisać trzeba wszystkich.",
@@ -1745,6 +1834,7 @@
     {
       "dateText": "ndz. 22.11.2026, 14:00–16:00",
       "startDate": "2026-11-22",
+      "recurrence": "single",
       "title": "Biberfell für Glasperlen (NONAM)",
       "url": "https://www.stadt-zuerich.ch/nonam/de/veranstaltungen/2026-fuerung-nonam.html",
       "description": "Rodzinne oprowadzanie o handlu skórami bobrów za szklane koraliki. W cenie biletu do muzeum. Godzina 14:00–16:00 według sprawdzenia strony 21.11.",
@@ -1779,7 +1869,8 @@
       "lng": 8.553687,
       "image": "images/fallback-stage.jpg",
       "tags": [],
-      "endDate": "2027-02-07"
+      "endDate": "2027-02-07",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026, 15:00–16:00 (także 17.1.2027)",
@@ -1799,7 +1890,8 @@
       "lng": 8.555615,
       "image": "images/fallback-museum.jpg",
       "tags": [],
-      "endDate": "2027-01-17"
+      "endDate": "2027-01-17",
+      "recurrence": "recurring"
     },
     {
       "dateText": "niedziele 9:30–12:00, od 22.11.2026 do 18.4.2027 (22.11 Hofacker, 29.11 Buchwiesen)",
@@ -1819,11 +1911,13 @@
       "lng": 8.563362,
       "image": "images/fallback-gymnastics.jpg",
       "tags": [],
-      "endDate": "2027-04-18"
+      "endDate": "2027-04-18",
+      "recurrence": "recurring"
     },
     {
       "dateText": "ndz. 22.11.2026, 14:30–17:00",
       "startDate": "2026-11-22",
+      "recurrence": "single",
       "title": "MiniMove Buhnrain",
       "url": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-fuer-kinder-jugendliche/veranstaltungen/offene-angebote.html",
       "description": "Otwarta hala IdéeSport: ruch dla dzieci od 0 lat do końca przedszkola, zawsze z dorosłym. Wstęp wolny, bez zapisów. Ten termin (Buhnrain, Seebach) sprawdzony 21.11.",
@@ -1858,7 +1952,8 @@
       "lng": 8.568054,
       "image": "images/fallback-gymnastics.jpg",
       "tags": [],
-      "endDate": "2027-03-31"
+      "endDate": "2027-03-31",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 18.11–ndz. 22.11.2026 (ndz. 10:00–17:00)",
@@ -1878,7 +1973,8 @@
       "lng": 8.763099,
       "image": "images/fallback-candles.jpg",
       "tags": [],
-      "endDate": "2026-11-22"
+      "endDate": "2026-11-22",
+      "recurrence": "recurring"
     },
     {
       "dateText": "sob. 21.11 14:00–17:00 i ndz. 22.11.2026 10:00–17:00",
@@ -1898,11 +1994,13 @@
       "lng": 8.307765,
       "image": "images/fallback-crafts.jpg",
       "tags": [],
-      "endDate": "2026-11-22"
+      "endDate": "2026-11-22",
+      "recurrence": "recurring"
     },
     {
       "dateText": "sob. 28.11.2026, 15:00–ok. 16:15",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "WunderBär! (Musikkollegium Winterthur)",
       "url": "https://www.musikkollegium.ch/programm/werbaer-mit-lorenz-pauli-26-11-28-9289",
       "description": "Koncert rodzinny: niedźwiedź budzi się zimą i odkrywa Oratorium na Boże Narodzenie Bacha. Opowiada Lorenz Pauli, po szwajcarsku, ok. 60 minut bez przerwy. Dorośli 20 CHF, dzieci 10 CHF. Od 14:00 przekąski w foyer.",
@@ -1937,11 +2035,13 @@
       "lng": 8.727466,
       "image": "images/fallback-stage.jpg",
       "tags": [],
-      "endDate": "2026-12-13"
+      "endDate": "2026-12-13",
+      "recurrence": "recurring"
     },
     {
       "dateText": "śr. 25.11.2026, od 17:00 (światła ok. 17:45)",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Weihnachtstanne Marktplatz Oerlikon",
       "url": "https://www.qv-oerlikon.ch/events/weihnachtstanne-marktplatz",
       "description": "Pierwsze zapalenie świateł na choince na Marktplatz. Raclette, grzane wino, dla dzieci bezpłatny poncz bez alkoholu. Gra orkiestra dęta 5. klasy Saatlen i Mannexang.",
@@ -1961,6 +2061,7 @@
     {
       "dateText": "śr. 2.12.2026, 14:30–16:00",
       "startDate": "2026-12-02",
+      "recurrence": "single",
       "title": "Weihnachtsprogramm Zoo: Grittibänzen & Märlistunde",
       "url": "https://zoo.ch/erlebnisse-events/kinder/weihnachtsprogramm-fuer-kinder",
       "description": "Pieczenie Grittibänzów i bajka w Restaurant Pantanal. Zajęcia bezpłatne, liczba miejsc ograniczona. Dzieci są prowadzone, ale nie objęte opieką — odpowiada dorosły.",
@@ -1980,6 +2081,7 @@
     {
       "dateText": "śr. 9.12.2026, 15:00–16:00",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Weihnachtsprogramm Zoo: Lebkuchen verzieren",
       "url": "https://zoo.ch/erlebnisse-events/kinder/weihnachtsprogramm-fuer-kinder",
       "description": "Ozdabianie pierników w Restaurant Pantanal. Zajęcia bezpłatne, liczba miejsc ograniczona. Dzieci są prowadzone, ale nie objęte opieką — odpowiada dorosły.",
@@ -1999,6 +2101,7 @@
     {
       "dateText": "stale: codziennie 10:00–17:00",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Technorama Winterthur",
       "url": "https://www.technorama.ch/de/besuchen/oeffnungszeiten",
       "description": "Centrum nauki: eksperymenty i pokazy (m.in. błyskawice i show tlenowy). Dorośli 34 CHF, 6–15 lat 21 CHF, 0–5 lat gratis.",
@@ -2018,6 +2121,7 @@
     {
       "dateText": "stale: wt.–ndz. 10:00–17:00 (pn. nieczynne; we wtorek muzeum do 20:00, Kindermuseum do 17:00)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Kindermuseum im Naturmuseum Winterthur",
       "url": "https://natur.winterthur.ch/ausstellungen/kindermuseum",
       "description": "Interaktywne muzeum przyrody dla dzieci ok. 3–9 lat, zawsze z osobą od 16. roku życia. Buty zdejmuje się w środku. Cennik biletu jest na stronie muzeum (nie na podstronie wystawy).",
@@ -2037,6 +2141,7 @@
     {
       "dateText": "stale: wt.–sob. 14:00–17:00, ndz. 10:00–17:00 (pn. nieczynne)",
       "startDate": null,
+      "recurrence": "recurring",
       "title": "Schweizer Kindermuseum Baden",
       "url": "https://www.kindermuseum.ch/praktische-informationen/eintrittspreise/",
       "description": "Muzeum dla dzieci. Bilet: dziecko 5 CHF, dorosły 12 CHF, student/uczeń 9 CHF. W weekend 21–22.11 jest dodatkowo malowanie kalendarza adwentowego.",
@@ -2056,6 +2161,7 @@
     {
       "dateText": "sob. 21.11.2026, 10:30–11:15",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-17/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2075,6 +2181,7 @@
     {
       "dateText": "sob. 21.11.2026, 10:30–12:00",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-257/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2094,6 +2201,7 @@
     {
       "dateText": "sob. 21.11.2026, 14:00–15:30",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schütze statt: Family Literacy Tamil",
       "url": "https://www.pbz.ch/event/family-literacy-tamil-83/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2113,6 +2221,7 @@
     {
       "dateText": "sob. 21.11.2026, 15:30–17:00",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schwamendingen statt: Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/findet-in-der-pbz-schwamendingen-statt-family-literacy-albanisch/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2132,6 +2241,7 @@
     {
       "dateText": "sob. 21.11.2026, 16:00–17:00",
       "startDate": "2026-11-21",
+      "recurrence": "single",
       "title": "Kinderkonzert «sig sag sugg»",
       "url": "https://www.pbz.ch/event/kinderkonzert-sig-sag-sugg-2/",
       "description": "Koncert dla dzieci w bibliotece.",
@@ -2151,6 +2261,7 @@
     {
       "dateText": "wt. 24.11.2026, 10:00–10:45",
       "startDate": "2026-11-24",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-18/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2170,6 +2281,7 @@
     {
       "dateText": "śr. 25.11.2026, 10:00–11:30",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Family Literacy Spanisch",
       "url": "https://www.pbz.ch/event/family-literacy-spanisch-171/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2189,6 +2301,7 @@
     {
       "dateText": "śr. 25.11.2026, 14:30",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Kreativer Nachmittag mit Robotik und Coding für Kinder",
       "url": "https://www.pbz.ch/event/kreativer-nachmittag-mit-robotik-und-coding-fuer-kinder-13/",
       "description": "Popołudnie z robotami i kodowaniem.",
@@ -2208,6 +2321,7 @@
     {
       "dateText": "śr. 25.11.2026, 14:30–16:00",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-180/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2227,6 +2341,7 @@
     {
       "dateText": "śr. 25.11.2026, 15:00–15:45",
       "startDate": "2026-11-25",
+      "recurrence": "single",
       "title": "Bücherkiste: «Filus wundersame Farben»",
       "url": "https://www.pbz.ch/event/buecherkiste-26-27-11/",
       "description": "Głośne czytanie dla dzieci w bibliotece.",
@@ -2246,6 +2361,7 @@
     {
       "dateText": "czw. 26.11.2026, 09:45–11:15",
       "startDate": "2026-11-26",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-283/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2265,6 +2381,7 @@
     {
       "dateText": "czw. 26.11.2026, 14:30–16:00",
       "startDate": "2026-11-26",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-271/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2284,6 +2401,7 @@
     {
       "dateText": "pt. 27.11.2026, 10:00–10:45",
       "startDate": "2026-11-27",
+      "recurrence": "single",
       "title": "Ryte, ryte Rössli",
       "url": "https://www.pbz.ch/event/ryte-ryte-roessli-26-27-19/",
       "description": "Piosenki i rymowanki dla niemowląt i rocznych dzieci.",
@@ -2303,6 +2421,7 @@
     {
       "dateText": "pt. 27.11.2026, 13:30–15:00",
       "startDate": "2026-11-27",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-294/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2322,6 +2441,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:00–12:00",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Mario Kart Live",
       "url": "https://www.pbz.ch/event/mario-kart-live-29/",
       "description": "Wyścigi Mario Kart Live na Nintendo Switch w bibliotece. Wstęp wolny, kolekta.",
@@ -2341,6 +2461,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:15–11:00",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-19/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2360,6 +2481,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:15–11:45",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Family Literacy Japanisch",
       "url": "https://www.pbz.ch/event/family-literacy-japanisch-58/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2379,6 +2501,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:15–11:45",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Family Literacy Mehrsprachig",
       "url": "https://www.pbz.ch/event/family-literacy-mehrsprachig-12/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2398,6 +2521,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:30–11:15",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Ryte, ryte Rössli",
       "url": "https://www.pbz.ch/event/ryte-ryte-roessli-26-27-20/",
       "description": "Piosenki i rymowanki dla niemowląt i rocznych dzieci.",
@@ -2417,6 +2541,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:30–12:00",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-258/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2436,6 +2561,7 @@
     {
       "dateText": "sob. 28.11.2026, 10:45–11:30",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Geschichten-Yoga",
       "url": "https://www.pbz.ch/event/geschichten-yoga-29/",
       "description": "Joga połączona z opowieścią.",
@@ -2455,6 +2581,7 @@
     {
       "dateText": "sob. 28.11.2026, 14:00–15:30",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Family Literacy Französisch",
       "url": "https://www.pbz.ch/event/family-literacy-franzoesisch-151/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2474,6 +2601,7 @@
     {
       "dateText": "sob. 28.11.2026, 14:00–15:30",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schütze statt: Family Literacy Tamil",
       "url": "https://www.pbz.ch/event/family-literacy-tamil-84/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2493,6 +2621,7 @@
     {
       "dateText": "wt. 1.12.2026, 16:00–17:30",
       "startDate": "2026-12-01",
+      "recurrence": "single",
       "title": "Family Literacy Italienisch",
       "url": "https://www.pbz.ch/event/family-literacy-italienisch-5/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2512,6 +2641,7 @@
     {
       "dateText": "śr. 2.12.2026, 15:00–15:45",
       "startDate": "2026-12-02",
+      "recurrence": "single",
       "title": "Bücherkiste: «Henri und Henriette feiern Weihnachten»",
       "url": "https://www.pbz.ch/event/buecherkiste-26-27-12/",
       "description": "Głośne czytanie dla dzieci w bibliotece.",
@@ -2531,6 +2661,7 @@
     {
       "dateText": "śr. 2.12.2026, 15:00–16:00",
       "startDate": "2026-12-02",
+      "recurrence": "single",
       "title": "Adventsbasteln",
       "url": "https://www.pbz.ch/event/adventsbasteln/",
       "description": "Adwentowe prace plastyczne w bibliotece.",
@@ -2550,6 +2681,7 @@
     {
       "dateText": "śr. 2.12.2026, 15:00–16:15",
       "startDate": "2026-12-02",
+      "recurrence": "single",
       "title": "Kamishibai: Der kleine Weihnachtsmann",
       "url": "https://www.pbz.ch/event/kamishibai-der-kleine-weihnachtsmann-5/",
       "description": "Opowieść kamishibai w bibliotece.",
@@ -2569,6 +2701,7 @@
     {
       "dateText": "pt. 4.12.2026, 10:00–10:45",
       "startDate": "2026-12-04",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-20/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2588,6 +2721,7 @@
     {
       "dateText": "pt. 4.12.2026, 16:00–17:30",
       "startDate": "2026-12-04",
+      "recurrence": "single",
       "title": "Family Literacy Chinesisch",
       "url": "https://www.pbz.ch/event/family-literacy-chinesisch-87/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2607,6 +2741,7 @@
     {
       "dateText": "sob. 5.12.2026, 10:00–10:45",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-21/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2626,6 +2761,7 @@
     {
       "dateText": "sob. 5.12.2026, 10:00–16:00",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Spieletag mit Swiss Gamers Unplugged",
       "url": "https://www.pbz.ch/event/spieletag-mit-swiss-gamers-unplugged/",
       "description": "Gry planszowe albo fabularne w bibliotece.",
@@ -2645,6 +2781,7 @@
     {
       "dateText": "sob. 5.12.2026, 10:15–11:45",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Family Literacy Japanisch",
       "url": "https://www.pbz.ch/event/family-literacy-japanisch-59/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2664,6 +2801,7 @@
     {
       "dateText": "sob. 5.12.2026, 10:30–11:30",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Kamishibai: Der kleine Weihnachtsmann",
       "url": "https://www.pbz.ch/event/kamishibai-der-kleine-weihnachtsmann-4/",
       "description": "Opowieść kamishibai w bibliotece.",
@@ -2683,6 +2821,7 @@
     {
       "dateText": "sob. 5.12.2026, 10:30–11:30",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Der Samichlaus kommt zu Besuch!",
       "url": "https://www.pbz.ch/event/der-samichlaus-kommt-zu-besuch-2/",
       "description": "Wizyta Samichlausa w bibliotece.",
@@ -2702,6 +2841,7 @@
     {
       "dateText": "sob. 5.12.2026, 11:00–12:30",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Türkische Lese- & Spielwerkstatt",
       "url": "https://www.pbz.ch/event/tuerkische-lese-spielwerkstatt-3/",
       "description": "Warsztat czytania i zabawy po turecku.",
@@ -2721,6 +2861,7 @@
     {
       "dateText": "sob. 5.12.2026, 14:00–15:30",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schütze statt: Family Literacy Tamil",
       "url": "https://www.pbz.ch/event/family-literacy-tamil-85/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2740,6 +2881,7 @@
     {
       "dateText": "sob. 5.12.2026, 14:00–16:00",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Weihnachtliche Deko mit Paper Quilling",
       "url": "https://www.pbz.ch/event/weihnachtliche-deko-mit-paper-quilling-2/",
       "description": "Świąteczne dekoracje techniką quillingu.",
@@ -2759,6 +2901,7 @@
     {
       "dateText": "sob. 5.12.2026, 15:30–17:00",
       "startDate": "2026-12-05",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-192/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2778,6 +2921,7 @@
     {
       "dateText": "ndz. 6.12.2026, 10:00–16:00",
       "startDate": "2026-12-06",
+      "recurrence": "single",
       "title": "Books & Dragons",
       "url": "https://www.pbz.ch/event/books-dragons-16/",
       "description": "Gry planszowe albo fabularne w bibliotece.",
@@ -2797,6 +2941,7 @@
     {
       "dateText": "śr. 9.12.2026, 10:00–10:30",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Vorlesen im Spielzimmer",
       "url": "https://www.pbz.ch/event/vorlesen-im-spielzimmer-3/",
       "description": "Głośne czytanie albo opowieść dla dzieci.",
@@ -2816,6 +2961,7 @@
     {
       "dateText": "śr. 9.12.2026, 10:00–10:45",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-22/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2835,6 +2981,7 @@
     {
       "dateText": "śr. 9.12.2026, 10:00–10:45",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-23/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -2854,6 +3001,7 @@
     {
       "dateText": "śr. 9.12.2026, 10:00–11:30",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Family Literacy Spanisch",
       "url": "https://www.pbz.ch/event/family-literacy-spanisch-172/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2873,6 +3021,7 @@
     {
       "dateText": "śr. 9.12.2026, 14:00",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Kreativer Nachmittag mit Robotik und Coding für Kinder",
       "url": "https://www.pbz.ch/event/kreativer-nachmittag-mit-robotik-und-coding-fuer-kinder-12/",
       "description": "Popołudnie z robotami i kodowaniem.",
@@ -2892,6 +3041,7 @@
     {
       "dateText": "śr. 9.12.2026, 15:00–16:00",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Dr. Brumm feiert Weihnachten",
       "url": "https://www.pbz.ch/event/dr-brumm-feiert-weihnachten-2/",
       "description": "Świąteczna opowieść o Dr. Brumm.",
@@ -2911,6 +3061,7 @@
     {
       "dateText": "śr. 9.12.2026, 15:00–16:00",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Roy der Magier",
       "url": "https://www.pbz.ch/event/roy-der-magier/",
       "description": "Pokaz magii dla dzieci.",
@@ -2930,6 +3081,7 @@
     {
       "dateText": "śr. 9.12.2026, 16:00–17:30",
       "startDate": "2026-12-09",
+      "recurrence": "single",
       "title": "Family Literacy Spanisch",
       "url": "https://www.pbz.ch/event/family-literacy-spanisch-184/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2949,6 +3101,7 @@
     {
       "dateText": "czw. 10.12.2026, 09:30–11:00",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-182/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -2968,6 +3121,7 @@
     {
       "dateText": "czw. 10.12.2026, 10:00–10:45",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Ryte, ryte Rössli",
       "url": "https://www.pbz.ch/event/ryte-ryte-roessli-26-27-21/",
       "description": "Piosenki i rymowanki dla niemowląt i rocznych dzieci.",
@@ -2987,6 +3141,7 @@
     {
       "dateText": "czw. 10.12.2026, 10:00–10:45",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-24/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -3006,6 +3161,7 @@
     {
       "dateText": "czw. 10.12.2026, 10:00–10:45",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-25/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -3025,6 +3181,7 @@
     {
       "dateText": "czw. 10.12.2026, 16:00–16:30",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Eine gemütliche Wintergeschichte",
       "url": "https://www.pbz.ch/event/eine-gemuetliche-wintergeschichte/",
       "description": "Głośne czytanie albo opowieść dla dzieci.",
@@ -3044,6 +3201,7 @@
     {
       "dateText": "czw. 10.12.2026, 16:00–16:40",
       "startDate": "2026-12-10",
+      "recurrence": "single",
       "title": "Geschichten hören",
       "url": "https://www.pbz.ch/event/geschichten-hoeren-32/",
       "description": "Słuchanie opowieści w bibliotece.",
@@ -3063,6 +3221,7 @@
     {
       "dateText": "pt. 11.12.2026, 10:00–10:45",
       "startDate": "2026-12-11",
+      "recurrence": "single",
       "title": "Geschichtenzeit",
       "url": "https://www.pbz.ch/event/geschichtenzeit-26-27-26/",
       "description": "Krótki czas opowieści dla maluchów w bibliotece.",
@@ -3082,6 +3241,7 @@
     {
       "dateText": "pt. 11.12.2026, 13:30–15:00",
       "startDate": "2026-12-11",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-295/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3101,6 +3261,7 @@
     {
       "dateText": "pt. 11.12.2026, 15:00–15:45",
       "startDate": "2026-12-11",
+      "recurrence": "single",
       "title": "Bücherkiste: «Pablo büxt aus»",
       "url": "https://www.pbz.ch/event/buecherkiste-26-27-13/",
       "description": "Głośne czytanie dla dzieci w bibliotece.",
@@ -3120,6 +3281,7 @@
     {
       "dateText": "sob. 12.12.2026, 10:00–11:30",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Family Literacy Französisch",
       "url": "https://www.pbz.ch/event/family-literacy-franzoesisch-163/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3139,6 +3301,7 @@
     {
       "dateText": "sob. 12.12.2026, 10:30–11:15",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Bilderbuchkino",
       "url": "https://www.pbz.ch/event/bilderbuchkino-26-27-1/",
       "description": "Książka obrazkowa pokazana na ekranie.",
@@ -3158,6 +3321,7 @@
     {
       "dateText": "sob. 12.12.2026, 10:30–11:30",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "«Dr. Brumm feiert Weihnachten»",
       "url": "https://www.pbz.ch/event/dr-brumm-feiert-weihnachten-3/",
       "description": "Świąteczna opowieść o Dr. Brumm.",
@@ -3177,6 +3341,7 @@
     {
       "dateText": "sob. 12.12.2026, 10:30–12:00",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-259/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3196,6 +3361,7 @@
     {
       "dateText": "sob. 12.12.2026, 14:00–15:30",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Family Literacy Französisch",
       "url": "https://www.pbz.ch/event/family-literacy-franzoesisch-152/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3215,6 +3381,7 @@
     {
       "dateText": "sob. 12.12.2026, 14:00–15:30",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schütze statt: Family Literacy Tamil",
       "url": "https://www.pbz.ch/event/family-literacy-tamil-86/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3234,6 +3401,7 @@
     {
       "dateText": "sob. 12.12.2026, 15:30–17:00",
       "startDate": "2026-12-12",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-193/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3253,6 +3421,7 @@
     {
       "dateText": "pn. 14.12.2026, 12:00–19:00",
       "startDate": "2026-12-14",
+      "recurrence": "single",
       "title": "Licht an! Die PBZ Altstetten leuchtet wieder",
       "url": "https://www.pbz.ch/event/licht-an-die-pbz-altstetten-leuchtet-wieder/",
       "description": "Święto biblioteki dla rodzin.",
@@ -3272,6 +3441,7 @@
     {
       "dateText": "wt. 15.12.2026, 10:00–10:45",
       "startDate": "2026-12-15",
+      "recurrence": "single",
       "title": "Geschichten-Insel",
       "url": "https://www.pbz.ch/event/geschichten-insel-5/",
       "description": "Głośne czytanie albo opowieść dla dzieci.",
@@ -3291,6 +3461,7 @@
     {
       "dateText": "wt. 15.12.2026, 16:00–17:30",
       "startDate": "2026-12-15",
+      "recurrence": "single",
       "title": "Family Literacy Italienisch",
       "url": "https://www.pbz.ch/event/family-literacy-italienisch-6/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3310,6 +3481,7 @@
     {
       "dateText": "śr. 16.12.2026, 10:00–10:45",
       "startDate": "2026-12-16",
+      "recurrence": "single",
       "title": "Ryte, ryte Rössli",
       "url": "https://www.pbz.ch/event/ryte-ryte-roessli-26-27-22/",
       "description": "Piosenki i rymowanki dla niemowląt i rocznych dzieci.",
@@ -3329,6 +3501,7 @@
     {
       "dateText": "śr. 16.12.2026, 15:00",
       "startDate": "2026-12-16",
+      "recurrence": "single",
       "title": "Kreativer Nachmittag mit Robotik und Coding für Kinder",
       "url": "https://www.pbz.ch/event/kreativer-nachmittag-mit-robotik-und-coding-fuer-kinder-10/",
       "description": "Popołudnie z robotami i kodowaniem.",
@@ -3348,6 +3521,7 @@
     {
       "dateText": "czw. 17.12.2026, 09:45–11:15",
       "startDate": "2026-12-17",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-284/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3367,6 +3541,7 @@
     {
       "dateText": "czw. 17.12.2026, 14:30–16:00",
       "startDate": "2026-12-17",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-272/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3386,6 +3561,7 @@
     {
       "dateText": "pt. 18.12.2026, 10:30–11:00",
       "startDate": "2026-12-18",
+      "recurrence": "single",
       "title": "Komm mit auf eine Reise voller Abenteuer!",
       "url": "https://www.pbz.ch/event/komm-mit-auf-eine-reise-voller-abenteuer-6/",
       "description": "Głośne czytanie albo opowieść dla dzieci.",
@@ -3405,6 +3581,7 @@
     {
       "dateText": "pt. 18.12.2026, 13:30–15:00",
       "startDate": "2026-12-18",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-296/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3424,6 +3601,7 @@
     {
       "dateText": "sob. 19.12.2026, 10:00–11:30",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Französisch",
       "url": "https://www.pbz.ch/event/family-literacy-franzoesisch-164/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3443,6 +3621,7 @@
     {
       "dateText": "sob. 19.12.2026, 10:15–11:45",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Mehrsprachig",
       "url": "https://www.pbz.ch/event/family-literacy-mehrsprachig-13/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3462,6 +3641,7 @@
     {
       "dateText": "sob. 19.12.2026, 10:15–11:45",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Japanisch",
       "url": "https://www.pbz.ch/event/family-literacy-japanisch-60/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3481,6 +3661,7 @@
     {
       "dateText": "sob. 19.12.2026, 10:30–12:00",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Englisch",
       "url": "https://www.pbz.ch/event/family-literacy-englisch-260/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3500,6 +3681,7 @@
     {
       "dateText": "sob. 19.12.2026, 10:30–12:00",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Chinesisch",
       "url": "https://www.pbz.ch/event/family-literacy-chinesisch-88/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3519,6 +3701,7 @@
     {
       "dateText": "sob. 19.12.2026, 14:00–15:30",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Französisch",
       "url": "https://www.pbz.ch/event/family-literacy-franzoesisch-153/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3538,6 +3721,7 @@
     {
       "dateText": "sob. 19.12.2026, 14:00–15:30",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Findet in der PBZ Schütze statt: Family Literacy Tamil",
       "url": "https://www.pbz.ch/event/family-literacy-tamil-87/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3557,6 +3741,7 @@
     {
       "dateText": "sob. 19.12.2026, 15:30–17:00",
       "startDate": "2026-12-19",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-194/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3576,6 +3761,7 @@
     {
       "dateText": "wt. 22.12.2026, 15:00–15:30",
       "startDate": "2026-12-22",
+      "recurrence": "single",
       "title": "Komm mit auf eine Reise voller Abenteuer!",
       "url": "https://www.pbz.ch/event/komm-mit-auf-eine-reise-voller-abenteuer-7/",
       "description": "Głośne czytanie albo opowieść dla dzieci.",
@@ -3595,6 +3781,7 @@
     {
       "dateText": "śr. 23.12.2026, 14:30–16:00",
       "startDate": "2026-12-23",
+      "recurrence": "single",
       "title": "Family Literacy Albanisch",
       "url": "https://www.pbz.ch/event/family-literacy-albanisch-181/",
       "description": "Czytanie, rymowanki i zabawa z książką obrazkową w języku spotkania. Program SIKJM, wstęp wolny.",
@@ -3614,6 +3801,7 @@
     {
       "dateText": "sob. 28.11.2026, 11:00–14:00",
       "startDate": "2026-11-28",
+      "recurrence": "single",
       "title": "Wiedereröffnungsfest PBZ Höngg",
       "url": "https://www.pbz.ch/event/wiedereroeffnungsfest-pbz-hoengg/",
       "description": "Święto ponownego otwarcia biblioteki w Höngg.",

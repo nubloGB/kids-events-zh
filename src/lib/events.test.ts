@@ -3,10 +3,12 @@ import {
   EMPTY_FILTERS,
   filtersAreActive,
   includesToday,
+  inferRecurrence,
   isInsideBounds,
   isPast,
   parseEventsFile,
   partitionEvents,
+  recurrenceOf,
   zurichToday,
 } from "./events";
 import { ageRange } from "./age";
@@ -14,6 +16,8 @@ import { fold } from "./text";
 import { describe, expect, it } from "vitest";
 
 const file = parseEventsFile(JSON.parse(readFileSync("public/events.json", "utf8")));
+/** Catalog checks that should see both one-day and recurring listings. */
+const ALL_EVENTS = { ...EMPTY_FILTERS, recurrence: "all" as const };
 
 describe("zurichToday", () => {
   it("uses the Zurich calendar around midnight UTC", () => {
@@ -48,7 +52,7 @@ describe("events.json", () => {
   });
 
   it("sorts dated events ascending and parks recurring ones apart", () => {
-    const { upcoming, recurring } = partitionEvents(file.events, "2026-10-18", EMPTY_FILTERS);
+    const { upcoming, recurring } = partitionEvents(file.events, "2026-10-18", ALL_EVENTS);
     const dates = upcoming.map((event) => event.startDate ?? "");
     expect(dates).toEqual([...dates].sort());
     expect(upcoming.some((event) => event.title === "Oerliker Singmüüs")).toBe(true);
@@ -58,32 +62,32 @@ describe("events.json", () => {
 
   it("filters by area, category, age and folded text", () => {
     const winterthur = partitionEvents(file.events, "2026-10-18", {
-      ...EMPTY_FILTERS,
+      ...ALL_EVENTS,
       areas: ["Winterthur"],
     });
     expect(winterthur.upcoming.every((event) => event.area === "Winterthur")).toBe(true);
     expect(winterthur.upcoming.length + winterthur.recurring.length).toBeGreaterThan(0);
 
     const theatre = partitionEvents(file.events, "2026-10-18", {
-      ...EMPTY_FILTERS,
+      ...ALL_EVENTS,
       categories: ["teatr"],
     });
     expect(theatre.upcoming.every((event) => event.category === "teatr")).toBe(true);
     expect(theatre.recurring).toHaveLength(0);
 
-    const toddlers = partitionEvents(file.events, "2026-10-18", { ...EMPTY_FILTERS, age: "under3" });
+    const toddlers = partitionEvents(file.events, "2026-10-18", { ...ALL_EVENTS, age: "under3" });
     expect(toddlers.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(false);
     expect(toddlers.upcoming.some((event) => event.title.startsWith("Oerliker Singmüüs"))).toBe(true);
     expect(toddlers.upcoming.some((event) => event.age === "2–5 lat")).toBe(true);
 
-    const older = partitionEvents(file.events, "2026-10-18", { ...EMPTY_FILTERS, age: "over3" });
+    const older = partitionEvents(file.events, "2026-10-18", { ...ALL_EVENTS, age: "over3" });
     expect(older.upcoming.some((event) => event.title.includes("Skoki do wody"))).toBe(true);
     expect(older.upcoming.every((event) => event.ageMin === null || event.ageMax === null || event.ageMax >= 3)).toBe(
       true,
     );
 
     const search = partitionEvents(file.events, "2026-10-18", {
-      ...EMPTY_FILTERS,
+      ...ALL_EVENTS,
       query: "lyzw",
     });
     expect(search.upcoming.map((event) => event.title)).toContain("Łyżwiarstwo (Sportamt)");
@@ -92,10 +96,12 @@ describe("events.json", () => {
     expect(filtersAreActive(EMPTY_FILTERS)).toBe(false);
     expect(filtersAreActive({ ...EMPTY_FILTERS, date: { kind: "today" } })).toBe(true);
     expect(filtersAreActive({ ...EMPTY_FILTERS, tags: ["halloween"] })).toBe(true);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "recurring" })).toBe(true);
+    expect(filtersAreActive({ ...EMPTY_FILTERS, recurrence: "all" })).toBe(true);
   });
 
   it("treats theme tags as an optional filter", () => {
-    const halloween = partitionEvents(file.events, "2026-11-21", { ...EMPTY_FILTERS, tags: ["halloween"] });
+    const halloween = partitionEvents(file.events, "2026-11-21", { ...ALL_EVENTS, tags: ["halloween"] });
     const listed = [...halloween.upcoming, ...halloween.recurring];
     expect(listed).toEqual([]);
     expect(file.events.every((event) => !event.tags.includes("halloween"))).toBe(true);
@@ -110,22 +116,22 @@ describe("events.json", () => {
   });
 
   it("matches multi-day events when they overlap the chosen dates", () => {
-    const week = partitionEvents(file.events, "2026-11-21", { ...EMPTY_FILTERS, date: { kind: "thisWeek" } });
+    const week = partitionEvents(file.events, "2026-11-21", { ...ALL_EVENTS, date: { kind: "thisWeek" } });
     expect(week.upcoming.some((event) => event.title.startsWith("Die Zauberorgel"))).toBe(true);
     expect(week.upcoming.some((event) => event.title.startsWith("WunderBär"))).toBe(false);
     expect(week.recurring).toHaveLength(0);
 
-    const nextWeek = partitionEvents(file.events, "2026-11-21", { ...EMPTY_FILTERS, date: { kind: "nextWeek" } });
+    const nextWeek = partitionEvents(file.events, "2026-11-21", { ...ALL_EVENTS, date: { kind: "nextWeek" } });
     expect(nextWeek.upcoming.some((event) => event.title.includes("Weihnachtstanne"))).toBe(true);
     expect(nextWeek.upcoming.some((event) => event.title.startsWith("Mario Kart"))).toBe(true);
     expect(nextWeek.upcoming.some((event) => event.title.includes("Zeitfresser"))).toBe(false);
 
-    const nextMonth = partitionEvents(file.events, "2026-11-21", { ...EMPTY_FILTERS, date: { kind: "nextMonth" } });
+    const nextMonth = partitionEvents(file.events, "2026-11-21", { ...ALL_EVENTS, date: { kind: "nextMonth" } });
     expect(nextMonth.upcoming.some((event) => event.title.includes("Samichlaus"))).toBe(true);
     expect(nextMonth.upcoming.some((event) => event.title.startsWith("Hegemer"))).toBe(false);
 
     const custom = partitionEvents(file.events, "2026-11-21", {
-      ...EMPTY_FILTERS,
+      ...ALL_EVENTS,
       date: { kind: "custom", from: "2026-11-28", to: "2026-11-28" },
     });
     expect(custom.upcoming.some((event) => event.title.startsWith("Mario Kart"))).toBe(true);
@@ -155,6 +161,79 @@ describe("events.json", () => {
       oerlikon &&
         isInsideBounds(oerlikon, { south: 47.42, west: 8.53, north: 47.43, east: 8.56 }),
     ).toBe(false);
+  });
+});
+
+describe("recurrence", () => {
+  it("stores single or recurring on every event and matches the date heuristic", () => {
+    const single = file.events.filter((event) => event.recurrence === "single");
+    const recurring = file.events.filter((event) => event.recurrence === "recurring");
+    expect(single.length + recurring.length).toBe(file.events.length);
+    for (const event of file.events) {
+      expect(event.recurrence).toBe(inferRecurrence(event));
+    }
+    expect(single.map((event) => event.title)).toEqual(
+      expect.arrayContaining(["Mario Kart Live", "TSG Nipper Race", "Familienkonzert: Bilder einer Ausstellung"]),
+    );
+    expect(recurring.map((event) => event.title)).toEqual(
+      expect.arrayContaining(["Zoo Zürich", "Oerliker Singmüüs", "Offenes Atelier für Alle", "Die Zauberorgel (Zürcher Märchenbühne)"]),
+    );
+  });
+
+  it("defaults to one-day events and can show recurring or everything", () => {
+    const oneDay = partitionEvents(file.events, "2026-11-21", EMPTY_FILTERS);
+    const shown = [...oneDay.upcoming, ...oneDay.recurring];
+    expect(shown.length).toBeGreaterThan(0);
+    expect(shown.every((event) => event.recurrence === "single")).toBe(true);
+    expect(oneDay.recurring).toHaveLength(0);
+    expect(oneDay.upcoming.some((event) => event.title === "Mario Kart Live")).toBe(true);
+    expect(shown.some((event) => event.title === "Zoo Zürich" || event.title === "Oerliker Singmüüs")).toBe(false);
+
+    const cyclic = partitionEvents(file.events, "2026-11-21", { ...EMPTY_FILTERS, recurrence: "recurring" });
+    const cyclicShown = [...cyclic.upcoming, ...cyclic.recurring];
+    expect(cyclicShown.every((event) => event.recurrence === "recurring")).toBe(true);
+    expect(cyclic.recurring.some((event) => event.title === "Zoo Zürich")).toBe(true);
+    expect(cyclic.upcoming.some((event) => event.title.startsWith("Die Zauberorgel"))).toBe(true);
+    expect(cyclicShown.some((event) => event.title === "Mario Kart Live")).toBe(false);
+
+    const all = partitionEvents(file.events, "2026-11-21", ALL_EVENTS);
+    expect(all.upcoming.length + all.recurring.length).toBe(oneDay.upcoming.length + cyclicShown.length);
+  });
+
+  it("infers a kind when the field is missing and rejects a file that omits it", () => {
+    const mario = file.events.find((event) => event.title === "Mario Kart Live");
+    expect(mario).toBeDefined();
+    const withoutField = { ...mario! };
+    delete withoutField.recurrence;
+    expect(recurrenceOf(withoutField)).toBe("single");
+    expect(
+      inferRecurrence({
+        dateText: "13.–22.11.2026, 14:00",
+        startDate: "2026-11-13",
+        description: "Wystawa.",
+      }),
+    ).toBe("recurring");
+    expect(
+      inferRecurrence({
+        dateText: "ndz. 22.11.2026, 14:00",
+        startDate: "2026-11-22",
+        description: "Otwarte atelier w każdą niedzielę.",
+      }),
+    ).toBe("recurring");
+    expect(
+      inferRecurrence({
+        dateText: "ndz. 10.1.2027, 11:15 i 14:15",
+        startDate: "2027-01-10",
+        description: "Dwa seanse tego samego dnia.",
+      }),
+    ).toBe("single");
+
+    const raw = JSON.parse(readFileSync("public/events.json", "utf8")) as {
+      updatedAt: string;
+      events: { recurrence?: string }[];
+    };
+    delete raw.events[0]?.recurrence;
+    expect(() => parseEventsFile(raw)).toThrow(/recurrence/);
   });
 });
 

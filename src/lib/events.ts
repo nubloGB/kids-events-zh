@@ -10,7 +10,52 @@ import {
   type EventsFile,
   type KidsEvent,
   type MapBounds,
+  type RecurrenceFilter,
 } from "../types";
+
+export type Recurrence = Exclude<RecurrenceFilter, "all">;
+
+const WEEKDAY_SERIES = /(?:poniedziałki|wtorki|środy|czwartki|piątki|soboty|niedziele)/i;
+const RANGE_IN_DATES =
+  /\d{1,2}\.\s*[–—-]\s*\d{1,2}\.|\d{1,2}\s*[–—-]\s*\d{1,2}\.\d{1,2}|\d{1,2}\.\d{1,2}\.\d{4}\s*[–—-]/;
+const REGULAR_OFFER =
+  /w każd[aąeę]\s+\p{L}+|co tydzień|cotygodni|co 2 tygodnie|co dwa tygodnie|codziennie|\bstale\b|1×\s*\/\s*mies|raz w miesiącu|\bsemestr\b/iu;
+
+function distinctDayMonths(dateText: string): number {
+  const found = new Set<string>();
+  for (const match of dateText.matchAll(/(?:^|[^\d])(\d{1,2})\.(\d{1,2})(?!\d)/g)) {
+    found.add(`${Number(match[1])}.${Number(match[2])}`);
+  }
+  return found.size;
+}
+
+/** Classify from dates and wording when an event has no `recurrence` field. */
+export function inferRecurrence(event: {
+  startDate: string | null;
+  endDate?: string | null;
+  dateText: string;
+  description?: string;
+}): Recurrence {
+  if (event.startDate === null) return "recurring";
+  const last = event.endDate || event.startDate;
+  if (last > event.startDate) return "recurring";
+  const dateText = event.dateText;
+  const withoutAsides = dateText.replace(/\([^)]*\)/g, " ");
+  if (
+    WEEKDAY_SERIES.test(dateText) ||
+    RANGE_IN_DATES.test(withoutAsides) ||
+    distinctDayMonths(dateText) >= 2
+  ) {
+    return "recurring";
+  }
+  if (REGULAR_OFFER.test(`${dateText}\n${event.description ?? ""}`)) return "recurring";
+  return "single";
+}
+
+export function recurrenceOf(event: KidsEvent): Recurrence {
+  if (event.recurrence === "single" || event.recurrence === "recurring") return event.recurrence;
+  return inferRecurrence(event);
+}
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -57,6 +102,7 @@ export function matchesFilters(event: KidsEvent, filters: EventFilters, today: s
     if (!event.startDate || !rangesOverlap(event.startDate, event.endDate || event.startDate, chosen)) return false;
   }
   if (filters.tags.length > 0 && !filters.tags.some((tag) => event.tags.includes(tag))) return false;
+  if (filters.recurrence !== "all" && recurrenceOf(event) !== filters.recurrence) return false;
   const query = fold(filters.query).trim();
   if (!query) return true;
   const haystack = fold(
@@ -150,6 +196,9 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   if (event.startDate && event.endDate && event.endDate < event.startDate) {
     throw new Error(`${where}: endDate jest wcześniejsze niż startDate`);
   }
+  if (event.recurrence !== "single" && event.recurrence !== "recurring") {
+    throw new Error(`${where}: recurrence musi być „single” albo „recurring”`);
+  }
   const recurring = event.startDate === null;
   if (recurring !== (event.category === "stałe")) {
     throw new Error(`${where}: kategoria „stałe” jest zarezerwowana dla zajęć bez daty`);
@@ -188,6 +237,7 @@ export const EMPTY_FILTERS: EventFilters = {
   age: null,
   date: { kind: "all" },
   tags: [],
+  recurrence: "single",
 };
 
 export function filtersAreActive(filters: EventFilters): boolean {
@@ -197,6 +247,7 @@ export function filtersAreActive(filters: EventFilters): boolean {
     filters.categories.length > 0 ||
     filters.age !== null ||
     filters.date.kind !== "all" ||
-    filters.tags.length > 0
+    filters.tags.length > 0 ||
+    filters.recurrence !== "single"
   );
 }

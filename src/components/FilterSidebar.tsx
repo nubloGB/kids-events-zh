@@ -1,7 +1,15 @@
 import { Button, Checkbox } from "@heroui/react";
 import { formatRange, normalizeRange, presetRange, type DatePreset } from "../lib/dates";
 import { categoryLabel } from "../lib/format";
-import { AREAS, CATEGORIES, type AgeBandFilter, type Area, type Category, type DateFilter } from "../types";
+import {
+  AREAS,
+  CATEGORIES,
+  type AgeBandFilter,
+  type Area,
+  type Category,
+  type DateFilter,
+  type RecurrenceFilter,
+} from "../types";
 
 const DATE_OPTIONS: { id: DatePreset; label: string }[] = [
   { id: "all", label: "Wszystkie daty" },
@@ -18,6 +26,12 @@ const AGE_OPTIONS: { id: AgeBandFilter; label: string }[] = [
   { id: null, label: "Wszystkie" },
   { id: "under3", label: "Do 3 lat" },
   { id: "over3", label: "Powyżej 3 lat" },
+];
+
+const RECURRENCE_OPTIONS: { id: RecurrenceFilter; label: string }[] = [
+  { id: "single", label: "Jednodniowe" },
+  { id: "recurring", label: "Cykliczne" },
+  { id: "all", label: "Wszystkie" },
 ];
 
 function FilterCheck({
@@ -48,6 +62,7 @@ export function FilterSidebar({
   age,
   date,
   tags,
+  recurrence,
   customFrom,
   customTo,
   onlyVisible,
@@ -57,6 +72,7 @@ export function FilterSidebar({
   onAge,
   onDate,
   onTags,
+  onRecurrence,
   onCustomFrom,
   onCustomTo,
   onOnlyVisible,
@@ -68,6 +84,7 @@ export function FilterSidebar({
   age: AgeBandFilter;
   date: DateFilter;
   tags: string[];
+  recurrence: RecurrenceFilter;
   customFrom: string;
   customTo: string;
   onlyVisible: boolean;
@@ -77,6 +94,7 @@ export function FilterSidebar({
   onAge: (age: AgeBandFilter) => void;
   onDate: (date: DateFilter) => void;
   onTags: (tags: string[]) => void;
+  onRecurrence: (recurrence: RecurrenceFilter) => void;
   onCustomFrom: (value: string) => void;
   onCustomTo: (value: string) => void;
   onOnlyVisible: (value: boolean) => void;
@@ -107,6 +125,32 @@ export function FilterSidebar({
           </Button>
         ) : null}
       </div>
+
+      <fieldset className="filter-block">
+        <legend>Rodzaj</legend>
+        <div aria-label="Rodzaj wydarzenia" className="option-list" role="radiogroup">
+          {RECURRENCE_OPTIONS.map((option) => {
+            const selected = recurrence === option.id;
+            return (
+              <button
+                key={option.id}
+                aria-checked={selected}
+                className={selected ? "choice-option is-selected" : "choice-option"}
+                role="radio"
+                type="button"
+                onClick={() => onRecurrence(option.id)}
+              >
+                <span>{option.label}</span>
+              </button>
+            );
+          })}
+        </div>
+        {recurrence === "single" ? (
+          <p className="filter-note">Jeden konkretny dzień, także z godziną.</p>
+        ) : recurrence === "recurring" ? (
+          <p className="filter-note">Kursy, serie dat, zakresy dłuższe niż dzień i stałe zajęcia.</p>
+        ) : null}
+      </fieldset>
 
       <fieldset className="filter-block">
         <legend>Data</legend>
