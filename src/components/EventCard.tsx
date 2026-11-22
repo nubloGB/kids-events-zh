@@ -95,6 +95,20 @@ function PinIcon() {
   );
 }
 
+function CardImage({ src, onError }: { src: string; onError: () => void }) {
+  return (
+    <img
+      alt=""
+      className="aspect-video h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none"
+      height={720}
+      loading="lazy"
+      src={src}
+      width={1280}
+      onError={onError}
+    />
+  );
+}
+
 function DateBadge({ event }: { event: KidsEvent }) {
   if (!event.startDate) {
     return <span className="event-card__badge event-card__badge--recurring">Stałe</span>;
@@ -148,17 +162,21 @@ export function EventCard({
       onMouseLeave={() => onHighlight(false)}
     >
       <div className="event-card__media">
-        <div className="event-card__frame">
-          <img
-            alt=""
-            className="aspect-video h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transform-none"
-            height={720}
-            loading="lazy"
-            src={src}
-            width={1280}
-            onError={() => setBroken(true)}
-          />
-        </div>
+        {hasPage ? (
+          <a
+            aria-label={`${event.title} (otwiera się w nowej karcie)`}
+            className="event-card__frame"
+            href={pageUrl}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <CardImage src={src} onError={() => setBroken(true)} />
+          </a>
+        ) : (
+          <div className="event-card__frame">
+            <CardImage src={src} onError={() => setBroken(true)} />
+          </div>
+        )}
         <div className="event-card__scrim pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <DateBadge event={event} />
         <h3

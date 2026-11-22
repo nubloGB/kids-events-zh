@@ -14,6 +14,13 @@ import { countLabel } from "../lib/format";
 import { EMPTY_FILTERS, activeFilterCount, eventKey, isInsideBounds, partitionEvents, visibleHighlights } from "../lib/events";
 import type { AgeBandFilter, Area, Category, EventHighlight, KidsEvent, MapBounds, RecurrenceFilter } from "../types";
 
+function clearActionLabel(query: string, filterCount: number): string {
+  const search = query.trim() !== "";
+  if (search && filterCount > 0) return "Wyczyść wszystko";
+  if (search) return "Wyczyść wyszukiwanie";
+  return "Wyczyść filtry";
+}
+
 function useMedia(query: string): boolean {
   const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
   useEffect(() => {
@@ -253,7 +260,7 @@ export function EventsBoard({
       <section className="list-pane" id="lista" aria-label="Lista wydarzeń">
         <div className="list-head">
           <h2>Wydarzenia</h2>
-          <p aria-hidden={phone ? true : undefined} aria-live={phone ? undefined : "polite"}>
+          <p aria-live="polite" className="list-count">
             {countLabel(listUpcoming.length, "nadchodzące", "nadchodzące", "nadchodzących")}
             {" · "}
             {countLabel(listRecurring.length, "stałe zajęcie", "stałe zajęcia", "stałych zajęć")}
@@ -268,7 +275,7 @@ export function EventsBoard({
                 <p className="font-display text-2xl text-foreground">Poza kadrem mapy</p>
                 <p className="mt-2">Przesuń mapę albo wyłącz „Tylko widoczny obszar mapy”.</p>
                 <Button className="mt-4" variant="secondary" onPress={clearFilters}>
-                  Wyczyść filtry
+                  {clearActionLabel(query, filterCount)}
                 </Button>
               </>
             ) : date.kind === "today" ? (
@@ -282,9 +289,9 @@ export function EventsBoard({
                   <Button variant="secondary" onPress={() => setDate({ kind: "thisWeekend" })}>
                     Ten weekend
                   </Button>
-                  {filterCount > 0 ? (
+                  {query.trim() !== "" || filterCount > 0 ? (
                     <Button variant="secondary" onPress={clearFilters}>
-                      Wyczyść filtry
+                      {clearActionLabel(query, filterCount)}
                     </Button>
                   ) : null}
                 </div>
@@ -294,7 +301,7 @@ export function EventsBoard({
                 <p className="font-display text-2xl text-foreground">Nic nie pasuje</p>
                 <p className="mt-2">Zmień rodzaj, datę, obszar, kategorię, wiek albo wyczyść wyszukiwanie.</p>
                 <Button className="mt-4" variant="secondary" onPress={clearFilters}>
-                  Wyczyść filtry
+                  {clearActionLabel(query, filterCount)}
                 </Button>
               </>
             )}
@@ -380,7 +387,7 @@ function PhoneBar({
   const { today, date, setDate } = useDateFilter();
   const [searchOpen, setSearchOpen] = useState(false);
   const searchButtonRef = useRef<HTMLButtonElement>(null);
-  const filterLabel = `Filtry, ${countLabel(shownCount, "wynik", "wyniki", "wyników")}`;
+  const filterLabel = `Filtry, aktywne: ${filterCount}`;
   const queryActive = draft.trim() !== "";
 
   useEffect(() => {
@@ -443,9 +450,11 @@ function PhoneBar({
         <Drawer state={sheet}>
           <Drawer.Trigger aria-label={filterLabel} className="phone-filter-button">
             <SlidersIcon />
-            <span className="phone-filter-badge" aria-hidden="true">
-              {shownCount}
-            </span>
+            {filterCount > 0 ? (
+              <span className="phone-filter-badge" aria-hidden="true">
+                {filterCount}
+              </span>
+            ) : null}
           </Drawer.Trigger>
           <Drawer.Backdrop variant="blur">
             <Drawer.Content placement="bottom">
