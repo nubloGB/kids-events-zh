@@ -1,5 +1,5 @@
 import { matchesAgeBand } from "./age";
-import { normalizeRange, presetRange, rangesOverlap } from "./dates";
+import { resolveDateRange, rangesOverlap, zurichToday } from "./dates";
 import { fold } from "./text";
 import {
   AREAS,
@@ -7,11 +7,14 @@ import {
   type Area,
   type Category,
   type EventFilters,
+  type EventHighlight,
   type EventsFile,
   type KidsEvent,
   type MapBounds,
   type RecurrenceFilter,
 } from "../types";
+
+export { zurichToday };
 
 export type Recurrence = Exclude<RecurrenceFilter, "all">;
 
@@ -59,26 +62,30 @@ export function recurrenceOf(event: KidsEvent): Recurrence {
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
-export function zurichToday(now = new Date()): string {
-  const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Europe/Zurich",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).formatToParts(now);
-  const get = (type: Intl.DateTimeFormatPartTypes) => parts.find((part) => part.type === type)?.value ?? "";
-  return `${get("year")}-${get("month")}-${get("day")}`;
-}
-
 export function isRecurring(event: KidsEvent): boolean {
   return event.startDate === null;
 }
 
 /** An event is past the morning after its last day, in the Zurich calendar. */
-export function isPast(event: KidsEvent, today: string): boolean {
+export function isPast(event: { startDate: string | null; endDate?: string | null }, today: string): boolean {
   if (!event.startDate) return false;
   const last = event.endDate || event.startDate;
   return last < today;
+}
+
+/**
+ * Theme shortcuts that are still in date and match at least one event that has not ended.
+ * An empty tag list, or a highlight whose `until` is already past, produces nothing.
+ */
+export function visibleHighlights(
+  highlights: EventHighlight[],
+  events: { startDate: string | null; endDate?: string | null; tags: string[] }[],
+  today: string,
+): EventHighlight[] {
+  return highlights.filter((highlight) => {
+    if (highlight.until < today) return false;
+    return events.some((event) => !isPast(event, today) && event.tags.includes(highlight.tag));
+  });
 }
 
 export function includesToday(event: KidsEvent, today: string): boolean {
@@ -88,9 +95,7 @@ export function includesToday(event: KidsEvent, today: string): boolean {
 }
 
 function dateWindow(filters: EventFilters, today: string): { from: string; to: string } | null {
-  if (filters.date.kind === "all") return null;
-  if (filters.date.kind === "custom") return normalizeRange(filters.date.from, filters.date.to);
-  return presetRange(filters.date.kind, today);
+  return resolveDateRange(filters.date, today);
 }
 
 export function matchesFilters(event: KidsEvent, filters: EventFilters, today: string): boolean {
@@ -217,9 +222,24 @@ function assertEvent(value: unknown, index: number): asserts value is KidsEvent 
   }
 }
 
+function assertHighlight(value: unknown, index: number): EventHighlight {
+  if (!value || typeof value !== "object") throw new Error(`Wyróżnienie ${index} nie jest obiektem`);
+  const highlight = value as EventHighlight;
+  if (typeof highlight.tag !== "string" || !/^[a-z0-9-]+$/.test(highlight.tag)) {
+    throw new Error(`Wyróżnienie ${index}: tag musi być znacznikiem`);
+  }
+  if (typeof highlight.label !== "string" || highlight.label.trim() === "") {
+    throw new Error(`Wyróżnienie ${index}: label musi być niepustym tekstem`);
+  }
+  if (typeof highlight.until !== "string" || !ISO_DATE.test(highlight.until)) {
+    throw new Error(`Wyróżnienie ${index}: until musi być datą ISO`);
+  }
+  return { tag: highlight.tag, label: highlight.label.trim(), until: highlight.until };
+}
+
 export function parseEventsFile(data: unknown): EventsFile {
   if (!data || typeof data !== "object") throw new Error("events.json nie jest obiektem");
-  const file = data as EventsFile;
+  const file = data as EventsFile & { highlights?: unknown };
   if (typeof file.updatedAt !== "string" || !ISO_DATE.test(file.updatedAt)) {
     throw new Error("updatedAt musi być datą ISO");
   }
@@ -227,7 +247,11 @@ export function parseEventsFile(data: unknown): EventsFile {
     throw new Error("events musi być niepustą listą");
   }
   file.events.forEach(assertEvent);
-  return file;
+  const rawHighlights = file.highlights;
+  const highlights =
+    rawHighlights === undefined ? [] : Array.isArray(rawHighlights) ? rawHighlights.map(assertHighlight) : null;
+  if (!highlights) throw new Error("highlights musi być listą");
+  return { updatedAt: file.updatedAt, highlights, events: file.events };
 }
 
 export const EMPTY_FILTERS: EventFilters = {

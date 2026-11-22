@@ -10,6 +10,7 @@ import {
   parseEventsFile,
   partitionEvents,
   recurrenceOf,
+  visibleHighlights,
   zurichToday,
 } from "./events";
 import { ageRange } from "./age";
@@ -42,6 +43,7 @@ describe("events.json", () => {
     ]));
     expect(file.events.every((event) => Array.isArray(event.tags))).toBe(true);
     expect(file.events.some((event) => event.title.startsWith("Halloween"))).toBe(false);
+    expect(file.highlights).toEqual([]);
   });
 
   it("hides an event the morning after its last day", () => {
@@ -114,6 +116,27 @@ describe("events.json", () => {
         date: { kind: "today" },
       }),
     ).toBe(5);
+  });
+
+  it("shows a highlight only while its date is open and a live event carries the tag", () => {
+    const jarmark = { tag: "jarmark", label: "Jarmark", until: "2026-12-24" };
+    const halloween = { tag: "halloween", label: "Halloween", until: "2026-10-31" };
+    const mikolaj = { tag: "mikolaj", label: "Mikołaj", until: "2026-12-06" };
+    const live = { startDate: "2026-12-06", endDate: "2026-12-06", tags: ["jarmark"] };
+    const past = { startDate: "2026-11-01", endDate: "2026-11-01", tags: ["jarmark"] };
+    const always = { startDate: null, endDate: null, tags: ["halloween"] };
+    expect(visibleHighlights([jarmark, halloween, mikolaj], [past], "2026-11-22")).toEqual([]);
+    expect(visibleHighlights([jarmark, halloween, mikolaj], [live], "2026-11-22")).toEqual([jarmark]);
+    expect(visibleHighlights([jarmark], [live], "2026-12-25")).toEqual([]);
+    expect(visibleHighlights([halloween], [always], "2026-11-22")).toEqual([]);
+    expect(visibleHighlights([{ ...halloween, until: "2026-11-22" }], [always], "2026-11-22")).toEqual([
+      { ...halloween, until: "2026-11-22" },
+    ]);
+    expect(visibleHighlights([mikolaj], [always], "2026-11-22")).toEqual([]);
+
+    const raw = JSON.parse(readFileSync("public/events.json", "utf8")) as { highlights?: unknown };
+    raw.highlights = [{ tag: "jarmark", label: "Jarmark" }];
+    expect(() => parseEventsFile(raw)).toThrow(/until/);
   });
 
   it("treats theme tags as an optional filter", () => {

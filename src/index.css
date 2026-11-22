@@ -207,7 +207,7 @@ input {
   display: grid;
   min-height: 0;
   flex: 1;
-  grid-template-columns: 18rem minmax(19rem, 28rem) minmax(0, 1fr);
+  grid-template-columns: 288px minmax(19rem, 28rem) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
   grid-template-areas: "filters list map";
   gap: 0.75rem;
@@ -230,127 +230,223 @@ input {
 }
 
 .filters-pane {
+  position: relative;
+  display: flex;
   grid-area: filters;
   min-height: 0;
+  flex-direction: column;
   overflow: auto;
-  padding: 0.9rem 0.95rem 1.1rem;
-}
-
-.halloween-toggle {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.85rem;
-  border: 0;
-  border-radius: 999px;
-  background: #fff7ed;
-  color: #c2410c;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 800;
-  min-height: 44px;
-  padding: 0.55rem 0.9rem;
-}
-
-.halloween-toggle.is-selected {
-  background: linear-gradient(100deg, #ea580c, #c026d3);
-  color: white;
+  padding: 6px 8px 8px;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
 }
 
 .filters-head {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 4px;
+  min-height: 32px;
 }
 
-.filters-head h2,
-.filter-block legend {
+.filters-head h2 {
   margin: 0;
-  font-family: "Source Sans 3", "Segoe UI", sans-serif;
-  font-size: 0.78rem;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+  font-size: 16px;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #7c3aed;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #18181b;
+}
+
+.filters-clear,
+.sheet-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: #6d28d9;
+  cursor: pointer;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.filters-clear__count,
+.sheet-clear__count {
+  display: inline-grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  border-radius: 999px;
+  background: #6d28d9;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 0 5px;
 }
 
 .filter-block {
-  margin: 0.85rem 0 0;
+  position: relative;
+  min-width: 0;
+  margin: 2px 0 0;
   border: 0;
-  border-top: 1px solid #f3e8ff;
-  padding: 0.75rem 0 0;
+  padding: 0;
 }
 
-.filter-check {
-  display: flex;
-  margin-top: 0.35rem;
-}
-
-.filter-note {
-  margin: 0.45rem 0 0;
-  font-size: 0.8rem;
-  color: var(--muted, #6b6280);
-}
-
-.option-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.choice-option {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  width: 100%;
-  border: 1px solid #f0e4ff;
-  border-radius: 999px;
-  background: white;
-  color: #6d28d9;
-  cursor: pointer;
+.filter-block legend {
+  margin: 0 0 2px;
+  padding: 0;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+  font-size: 10px;
   font-weight: 700;
-  font-size: 0.86rem;
-  padding: 0.38rem 0.7rem;
-  text-align: left;
+  letter-spacing: 0.04em;
+  line-height: 12px;
+  text-transform: uppercase;
+  color: #71717a;
 }
 
-.choice-option.is-selected {
-  border-color: transparent;
-  background: linear-gradient(100deg, #7c3aed, #e11d48 55%, #f97316);
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.filter-chip {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #f4f4f5;
+  color: #3f3f46;
+  cursor: pointer;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.filter-chip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
+
+.filter-chip.is-selected {
+  background: #6d28d9;
   color: white;
 }
 
-.choice-option__meta {
-  flex-shrink: 0;
-  font-size: 0.75rem;
+.filter-chip:focus-visible,
+.filters-clear:focus-visible,
+.sheet-clear:focus-visible,
+.filter-more:focus-visible,
+.sheet-results:focus-visible {
+  outline: 2px solid #6d28d9;
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.filter-more {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  margin-top: 2px;
+  border: 0;
+  background: transparent;
+  color: #6d28d9;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
   font-weight: 700;
-  opacity: 0.85;
+  text-align: left;
+  padding: 0;
 }
 
-.date-range-fields {
+.date-popover {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  top: calc(100% + 4px);
   display: grid;
-  gap: 0.4rem;
-  margin-top: 0.55rem;
+  gap: 8px;
+  border-radius: 12px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 12px 32px rgb(24 24 27 / 0.18);
 }
 
-.date-range-fields label {
+.date-popover.is-up {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+.date-popover label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  font-size: 0.82rem;
+  gap: 8px;
+  font-size: 13px;
   font-weight: 700;
 }
 
-.date-range-fields input {
-  border: 1px solid #eadcff;
-  border-radius: 999px;
-  padding: 0.28rem 0.55rem;
-  font: inherit;
+.date-popover input {
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid #e4e4e7;
+  border-radius: 10px;
+  background: white;
   color: inherit;
+  font: inherit;
+  font-size: 16px;
+  padding: 0 8px;
+}
+
+.filters-fade {
+  position: sticky;
+  bottom: 22px;
+  z-index: 2;
+  height: 22px;
+  flex: 0 0 auto;
+  margin-top: -22px;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0), white 75%);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.filters-pane.has-more .filters-fade {
+  opacity: 1;
+}
+
+.filters-foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  margin: 4px 0 0;
+  background: white;
+  color: #3f3f46;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  padding-top: 4px;
 }
 
 .calendar-button {
@@ -989,16 +1085,7 @@ input {
   background: transparent;
   box-shadow: none;
   color: var(--foreground);
-}
-
-.filters-sheet .filters-head {
-  justify-content: flex-end;
-}
-
-.filters-sheet .choice-option,
-.filters-sheet .halloween-toggle,
-.filters-sheet .filter-check {
-  min-height: 44px;
+  font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
 }
 
 /* Phone header (<640px): 52 + 8 + 56 + 8 + 40. Wider layouts keep the original hero. */
@@ -1408,25 +1495,67 @@ input {
     margin: 18px 0 4px;
   }
 
-  .phone-filter-dialog {
-    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom));
+  .phone-filter-dialog.drawer__dialog {
+    display: flex;
+    max-height: min(92dvh, 844px);
+    flex-direction: column;
+    padding: 4px 16px calc(8px + env(safe-area-inset-bottom));
   }
 
   .phone-sheet-header {
-    flex-direction: row;
+    display: flex;
+    flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
+    gap: 4px;
+    min-height: 44px;
   }
 
   .phone-sheet-header .drawer__heading {
-    font-family: "Source Sans 3", "Segoe UI", sans-serif;
-    font-size: 1.05rem;
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+    font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+    font-size: 17px;
     font-weight: 800;
-    color: #6d28d9;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #18181b;
   }
 
-  .phone-sheet-close {
+  button.phone-sheet-close {
     position: static;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .phone-filter-dialog .drawer__body {
+    overflow: auto;
+  }
+
+  .phone-sheet-footer {
+    position: sticky;
+    bottom: 0;
+    justify-content: stretch;
+    margin-top: 8px;
+    background: white;
+    padding-top: 8px;
+  }
+
+  .sheet-results {
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 12px;
+    background: #6d28d9;
+    color: white;
+    cursor: pointer;
+    font-family: "Source Sans 3", "Segoe UI", "Noto Sans", "DejaVu Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
   }
 }
 

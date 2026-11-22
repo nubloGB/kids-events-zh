@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { EventsBoard } from "./components/EventsBoard";
 import { SourcesPanel } from "./components/SourcesPanel";
 import { UpdatedNote } from "./components/UpdatedNote";
+import { DateFilterProvider } from "./lib/dateFilterContext";
 import { formatPolishDate } from "./lib/format";
-import { parseEventsFile, zurichToday } from "./lib/events";
+import { parseEventsFile } from "./lib/events";
 import { parseSourcesFile } from "./lib/sources";
 import type { EventsFile, SourcesFile } from "./types";
 
@@ -20,7 +21,6 @@ export default function App() {
   const [sourcesFile, setSourcesFile] = useState<SourcesFile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [today] = useState(() => zurichToday());
   const [sectionsMenu, setSectionsMenu] = useState(false);
   const [sectionsCramped, setSectionsCramped] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
@@ -111,12 +111,14 @@ export default function App() {
   function selectTab(next: TabId) {
     setTab(next);
     const hash = next === "zrodla" ? "#zrodla" : "#wydarzenia";
-    if (window.location.hash !== hash) {
-      history.replaceState(null, "", hash);
-    }
+    if (window.location.hash === hash) return;
+    const url = new URL(window.location.href);
+    url.hash = hash;
+    history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
   }
 
   return (
+    <DateFilterProvider>
     <div className="app-shell">
       <ToastProvider aria-label="Powiadomienia" placement="top" />
       <a className="skip-link" href="#lista">
@@ -239,8 +241,8 @@ export default function App() {
         ) : eventsFile ? (
           <EventsBoard
             events={eventsFile.events}
+            highlights={eventsFile.highlights}
             query={query}
-            today={today}
             updatedAt={eventsFile.updatedAt}
             onQueryChange={setQuery}
           />
@@ -251,6 +253,7 @@ export default function App() {
         )}
       </div>
     </div>
+    </DateFilterProvider>
   );
 }
 
