@@ -333,6 +333,84 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Otwarte hale i lód, zima 2026/27",
+      "intro": "Dodane 22.11.2026. Każdy termin hali jest osobnym wpisem jednodniowym, żeby trafiał w Dziś, Weekend, Tydzień i Miesiąc.",
+      "items": [
+        {
+          "name": "IdéeSport – MiniMove",
+          "detail": "Niedziele 14:30–17:00, dzieci od 0 lat do końca przedszkola z dorosłym. Hale: Buhnrain, Kügeliloo, Herzogenmühle, Kappeli, Kern, Sihlfeld, Sihlweid.",
+          "links": [
+            { "label": "MiniMove Buhnrain", "url": "https://www.ideesport.ch/de/angebot/minimove/minimove-buhnrain" },
+            { "label": "MiniMove Kügeliloo", "url": "https://www.ideesport.ch/de/angebot/minimove/minimove-kuegeliloo" }
+          ]
+        },
+        {
+          "name": "IdéeSport – OpenSunday",
+          "detail": "Niedziele 13:30–16:30, wiek szkoły podstawowej. Dziesięć hal Stadt Zürich, w tym Kolbenacker w Seebach.",
+          "links": [
+            {
+              "label": "OpenSunday Kolbenacker",
+              "url": "https://www.ideesport.ch/de/angebot/opensunday/opensunday-zuerich-kolbenacker"
+            }
+          ]
+        },
+        {
+          "name": "Sportamt – Abenteuerhalle i Spiel und Sport",
+          "detail": "Abenteuerhalle: Hofacker i Buchwiesen, niedziele 9:30–12:00, do końca 2. przedszkola. Spiel und Sport: Guggach, Hardau i Utogrund, 10:00–13:00, od przedszkola do 6. klasy.",
+          "links": [
+            {
+              "label": "Abenteuerhalle",
+              "url": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-fuer-kinder-jugendliche/veranstaltungen/abenteuerhalle.html"
+            },
+            {
+              "label": "Spiel und Sport",
+              "url": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-fuer-kinder-jugendliche/veranstaltungen/spielundsport.html"
+            }
+          ]
+        },
+        {
+          "name": "ETH Active Sundays",
+          "detail": "Sport Center Hönggerberg, dzieci do 8 lat z rodzicami, 10:00–17:00. Najbliższy termin 29.11.2026.",
+          "links": [
+            {
+              "label": "activesundays",
+              "url": "https://ethz.ch/de/campus/erleben/eth-entdecken/sport-erholung-asvz/activesundays.html"
+            }
+          ]
+        },
+        {
+          "name": "Kunsteisbahnen Stadt Zürich",
+          "detail": "Afterwork on Ice (pierwsza środa miesiąca, Heuried i Oerlikon) oraz Gratis aufs Glatteis 7.2.2027.",
+          "links": [
+            {
+              "label": "Afterwork on Ice",
+              "url": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-und-badeanlagen/kunsteisbahnen/afterwork-on-ice.html"
+            },
+            {
+              "label": "Gratis aufs Glatteis",
+              "url": "https://www.stadt-zuerich.ch/de/stadtleben/sport-und-erholung/sport-und-badeanlagen/kunsteisbahnen/gratis-aufs-glatteis.html"
+            }
+          ]
+        },
+        {
+          "name": "Dolder Eisdisco i Art on Ice",
+          "detail": "Eisdisco na Dolderze oraz Art on Ice 4.2.2027 w Hallenstadion.",
+          "links": [
+            { "label": "Eisdiscos", "url": "https://doldereisundbad.ch/offer/eisdiscos/" },
+            { "label": "Art on Ice", "url": "https://hallenstadion.ch/events/art-on-ice-4/" }
+          ]
+        },
+        {
+          "name": "Circus Conelli i Samichlaus-Umzug",
+          "detail": "Spielplan cyrku na Bauschänzli do 31.12.2026 oraz pochód 29.11.2026.",
+          "links": [
+            { "label": "Circus Conelli", "url": "https://circus-conelli.ch/circus-vorstellung/" },
+            { "label": "Samichlausumzug", "url": "https://samichlaus-zuerich.ch/samichlausumzug/" }
+          ]
+        }
+      ]
     }
   ]
 }
