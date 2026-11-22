@@ -73,7 +73,7 @@ export function CalendarMenu({
         <ActionTip disabled={menuOpen} label={tooltip}>
           {trigger}
         </ActionTip>
-        <Dropdown.Popover className="calendar-menu__popover" placement="bottom end">
+        <Dropdown.Popover className="calendar-menu__popover" containerPadding={12} placement="bottom end" shouldFlip={false}>
           <Dropdown.Menu aria-label="Dodaj do kalendarza" onAction={(key) => addToCalendar(key)}>
             {targets.map((target) => (
               <Dropdown.Item key={target} id={target} textValue={TARGET_LABEL[target]}>

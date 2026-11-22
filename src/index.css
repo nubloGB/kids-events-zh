@@ -37,6 +37,21 @@ input {
   font-family: inherit;
 }
 
+:focus-visible {
+  outline: 2px solid #4c1d95;
+  outline-offset: 2px;
+}
+
+.nav-pill:focus-visible,
+.search-go:focus-visible,
+.btn-gradient:focus-visible,
+.filter-chip.is-selected:focus-visible,
+.view-switch button.is-active:focus-visible,
+.button--primary:focus-visible,
+.map-popup__route:focus-visible {
+  outline-color: white;
+}
+
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -229,7 +244,7 @@ input {
   display: flex;
   width: min(28rem, 100%);
   height: 44px;
-  padding: 2px;
+  padding: 0;
   border-radius: 999px;
   background: white;
   box-shadow: 0 8px 18px rgb(76 29 149 / 0.08);
@@ -238,7 +253,7 @@ input {
 .view-switch button {
   display: inline-flex;
   min-width: 0;
-  height: 40px;
+  height: 44px;
   flex: 1 1 0;
   align-items: center;
   justify-content: center;
@@ -543,7 +558,8 @@ input {
   font-size: 1.35rem;
 }
 
-.list-head p {
+.list-head p,
+.list-count {
   margin: 0.15rem 0 0.7rem;
   font-size: 0.9rem;
 }
@@ -906,8 +922,8 @@ input {
 @media (min-width: 640px) {
   .event-actions .button,
   .event-actions a.button {
-    height: 2.5rem;
-    min-height: 2.5rem;
+    height: 2.75rem;
+    min-height: 2.75rem;
   }
 
   .event-actions .calendar-menu--primary,
@@ -919,7 +935,7 @@ input {
 
   .event-actions .button.button--icon-only {
     width: auto;
-    min-width: 2.5rem;
+    min-width: 2.75rem;
     padding-inline: 0.75rem;
   }
 
@@ -927,8 +943,9 @@ input {
     display: inline;
   }
 
-  .calendar-menu__popover .menu-item {
-    min-height: 2.25rem;
+  .calendar-menu__popover .menu-item,
+  .route-menu__popover .menu-item {
+    min-height: 44px;
   }
 
   @container event-card (max-width: 299px) {
@@ -939,9 +956,9 @@ input {
     .event-actions .button.button--icon-only,
     .event-actions a.event-action--primary,
     .event-actions .calendar-menu--primary .event-action--primary {
-      width: 2.5rem;
-      min-width: 2.5rem;
-      max-width: 2.5rem;
+      width: 2.75rem;
+      min-width: 2.75rem;
+      max-width: 2.75rem;
       padding-inline: 0;
     }
   }
@@ -1286,9 +1303,9 @@ input {
   .hero-tabs {
     flex-shrink: 0;
     align-items: center;
-    height: 32px;
+    height: 44px;
     gap: 2px;
-    padding: 2px;
+    padding: 0;
     background: rgb(255 255 255 / 0.2);
   }
 
@@ -1301,17 +1318,12 @@ input {
   }
 
   .nav-pill {
-    height: 28px;
-    padding: 0 10px;
+    height: 44px;
+    min-height: 44px;
+    padding: 0 12px;
     font-size: 13px;
-    line-height: 28px;
+    line-height: 44px;
     white-space: nowrap;
-  }
-
-  .nav-pill::after {
-    content: "";
-    position: absolute;
-    inset: -8px 0;
   }
 
   .nav-pill {

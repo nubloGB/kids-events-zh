@@ -208,7 +208,7 @@ export default function App() {
               <SearchField.Group>
                 <SearchField.SearchIcon />
                 <SearchField.Input placeholder="Tytuł, miejsce, opis…" />
-                <SearchField.ClearButton />
+                <SearchField.ClearButton aria-label="Wyczyść wyszukiwanie" />
               </SearchField.Group>
             </SearchField>
             <button className="search-go" type="submit">
