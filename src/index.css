@@ -273,7 +273,7 @@ input {
   display: grid;
   min-height: 0;
   flex: 1;
-  grid-template-columns: 288px minmax(19rem, 28rem) minmax(0, 1fr);
+  grid-template-columns: 288px minmax(22rem, 1fr) minmax(22rem, 1fr);
   grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas:
     "switch switch switch"
@@ -596,6 +596,7 @@ input {
 }
 
 .list-pane {
+  container: list / inline-size;
   grid-area: list;
   min-height: 0;
   overflow: auto;
@@ -2326,6 +2327,77 @@ input {
 .list-table .day-heading {
   position: static;
   background: transparent;
+}
+
+.list-table__place-inline,
+.list-table__more {
+  display: none;
+}
+
+.list-table__actions {
+  position: relative;
+  width: 1%;
+  white-space: nowrap;
+}
+
+.list-table__more {
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 12px;
+  background: #f4f4f5;
+  color: #3f3f46;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.list-table__event .list-table__place-inline {
+  margin-top: 2px;
+  color: #3f3f46;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+@container list (max-width: 540px) {
+  .list-table__place,
+  .list-table thead th:nth-child(4) {
+    display: none;
+  }
+
+  .list-table__place-inline {
+    display: block;
+  }
+}
+
+@container list (max-width: 460px) {
+  .list-table__age,
+  .list-table thead th:nth-child(3) {
+    display: none;
+  }
+}
+
+@container list (max-width: 380px) {
+  .list-table__actions .event-actions {
+    display: none;
+  }
+
+  .list-table__more {
+    display: inline-flex;
+  }
+
+  .list-table__actions.is-open .event-actions {
+    position: absolute;
+    right: 0;
+    z-index: 6;
+    display: flex;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 24px rgb(49 10 80 / 0.16);
+    padding: 6px;
+  }
 }
 
 @media (min-width: 640px) {
